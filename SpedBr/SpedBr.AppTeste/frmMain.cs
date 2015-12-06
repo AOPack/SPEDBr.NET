@@ -55,14 +55,37 @@ namespace SpedBr.AppTeste
             {
                 try
                 {
+                    for (int i = 0; i < 100; i++)
+                    {
+                        if (_bw.CancellationPending)
+                        {
+                            args.Cancel = true;
+                            _bw.ReportProgress(i);
+                            return;
+                        }
+                        else
+                        {
+                            _bw.ReportProgress(i);
+                        }
 
+                        Thread.Sleep(10);
+                    }
+                    
                     #region Bloco 0
 
                     Bloco0 b0 = new Bloco0();
 
+                    var finalidade = txbReg0000CodigoFinalidade.Text.ToInt();
+                    FinalidadeArquivo codFinalidadeArquivo;
+
+                    if (finalidade == 0)
+                        codFinalidadeArquivo = FinalidadeArquivo.RemessaArquivoOriginal;
+                    else 
+                        codFinalidadeArquivo = FinalidadeArquivo.RemessaArquivoSubstituto;
+
                     Bloco0.Registro0000 reg0000 = new Bloco0.Registro0000(
                         txbReg0000CodigoVersao.Text.ToStringSafe(),
-                        txbReg0000CodigoFinalidade.Text.ToStringSafe(),
+                        codFinalidadeArquivo, 
                         dtReg0000DataInicial.Value,
                         dtReg0000DataFinal.Value,
                         txbReg0000RazaoSocial.Text.ToStringSafe(),
@@ -80,8 +103,103 @@ namespace SpedBr.AppTeste
 
                     Bloco0.Registro0005 reg0005 = new Bloco0.Registro0005("", "", "", "", "", "", "", "", "");
 
-                    Bloco0.Registro0100 reg0100 = new Bloco0.Registro0100("", "", "", "", "", "", "", "", "", "", "", "",
-                        "");
+                    var registros0015 = new List<Bloco0.Registro0015>();
+                    registros0015.Add(new Bloco0.Registro0015() { UF_ST = "GO", IE_ST = "123456789" });
+                    registros0015.Add(new Bloco0.Registro0015() { UF_ST = "SP", IE_ST = "123456789" });
+                
+                    Bloco0.Registro0100 reg0100 = new Bloco0.Registro0100("", "", "", "", "", "", "", "", "", "", "", "", "");
+
+                    var registros0150 = new List<Bloco0.Registro0150>();
+                    registros0150.Add(new Bloco0.Registro0150()
+                    {
+                        COD_PART = "123",
+                        NOME = "PARTICIPANTE 1",
+                        ListaAlteracoes =
+                            new List<Bloco0.Registro0150.Registro0175>()
+                            {
+                                new Bloco0.Registro0150.Registro0175()
+                                {
+                                    DataAlteracao = DateTime.Now,
+                                    NR_CAMPO = "01",
+                                    CONT_ANT = "456"
+                                }
+                            }
+                    });
+                    registros0150.Add(new Bloco0.Registro0150()
+                    {
+                        COD_PART = "789",
+                        NOME = "PARTICIPANTE 2",
+                        ListaAlteracoes =
+                            new List<Bloco0.Registro0150.Registro0175>()
+                            {
+                                new Bloco0.Registro0150.Registro0175()
+                                {
+                                    DataAlteracao = DateTime.Now,
+                                    NR_CAMPO = "01",
+                                    CONT_ANT = "890"
+                                }
+                            }
+                    });
+
+                    var registros0190 = new List<Bloco0.Registro0190>()
+                    {
+                        new Bloco0.Registro0190() {UNID = "UND", DESCR = "UNIDADE"},
+                        new Bloco0.Registro0190() {UNID = "LA", DESCR = "LATA"},
+                        new Bloco0.Registro0190() {UNID = "MT2", DESCR = "METRO QUADRADO"}
+                    };
+
+                    var registros0200 = new List<Bloco0.Registro0200>()
+                    {
+                        new Bloco0.Registro0200()
+                        {
+                            COD_ITEM = "123",
+                            DESCR_ITEM = "ITEM 1",
+                            ListaAlteracoes =
+                                new List<Bloco0.Registro0200.Registro0205>()
+                                {
+                                    new Bloco0.Registro0200.Registro0205()
+                                    {
+                                        COD_ANT_ITEM = "456",
+                                        DESCR_ANT_ITEM = "ITEM 4",
+                                        DataInicial = DateTime.Now,
+                                        DataFinal = DateTime.Now
+                                    },
+                                    new Bloco0.Registro0200.Registro0205()
+                                    {
+                                        COD_ANT_ITEM = "456",
+                                        DESCR_ANT_ITEM = "ITEM 2",
+                                        DataInicial = DateTime.Now,
+                                        DataFinal = DateTime.Now
+                                    }
+                                },
+                            CodigoAnp =
+                                new Bloco0.Registro0200.Registro0206() {COD_COMB = "COD_COMBUSTIVEL_ANP_123456789"},
+                            ListaConsumoEspecPadronizado =
+                                new List<Bloco0.Registro0200.Registro0210>()
+                                {
+                                    new Bloco0.Registro0200.Registro0210()
+                                    {
+                                        COD_ITEM_COMP = "123",
+                                        QTD_COMP = 10,
+                                        PERDA = 3
+                                    }
+                                },
+                            ListaFatoresConversaoUnidades =
+                                new List<Bloco0.Registro0200.Registro0220>()
+                                {
+                                    new Bloco0.Registro0200.Registro0220() {UNID_CONV = "UND", FAT_CONV = 1}
+                                }
+                        },
+                        new Bloco0.Registro0200()
+                        {
+                            COD_ITEM = "789",
+                            DESCR_ITEM = "ITEM 3",
+                        }
+                    };
+
+                    /* Escreve as linhas do BLOCO 0  no arquivo */
+                    linhas.AddRange(b0.EscreverBloco0(reg0000, reg0001, reg0005, registros0015, reg0100, registros0150,
+                        registros0190, registros0200, chkValidarArquivo.Checked));
 
                     #endregion Bloco 0
 
@@ -91,6 +209,8 @@ namespace SpedBr.AppTeste
 
                     BlocoC.RegistroC001 regC001 = new BlocoC.RegistroC001("1");
 
+                    linhas.AddRange(bC.EscreverBlocoC(regC001, chkValidarArquivo.Checked));
+
                     #endregion Bloco C
 
                     #region Bloco D
@@ -98,6 +218,8 @@ namespace SpedBr.AppTeste
                     BlocoD bD = new BlocoD();
 
                     BlocoD.RegistroD001 regD001 = new BlocoD.RegistroD001("1");
+
+                    linhas.AddRange(bD.EscreverBlocoD(regD001, chkValidarArquivo.Checked));
 
                     #endregion Bloco D
 
@@ -107,13 +229,18 @@ namespace SpedBr.AppTeste
 
                     BlocoE.RegistroE001 regE001 = new BlocoE.RegistroE001("1");
 
-                    BlocoE.RegistroE100 regE100 = new BlocoE.RegistroE100(dtReg0000DataInicial.Value, dtReg0000DataFinal.Value);
+                    BlocoE.RegistroE100 regE100 = new BlocoE.RegistroE100(dtReg0000DataInicial.Value,
+                        dtReg0000DataFinal.Value);
 
                     BlocoE.RegistroE110 regE110 = new BlocoE.RegistroE110(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
-                    BlocoE.RegistroE500 regE500 = new BlocoE.RegistroE500("0", dtReg0000DataInicial.Value, dtReg0000DataFinal.Value);
+                    BlocoE.RegistroE500 regE500 = new BlocoE.RegistroE500("0", dtReg0000DataInicial.Value,
+                        dtReg0000DataFinal.Value);
 
                     BlocoE.RegistroE520 regE520 = new BlocoE.RegistroE520(0, 0, 0, 0, 0, 0, 0);
+
+                    linhas.AddRange(bE.EscreverBlocoE(regE001, regE100, regE110, regE500, regE520,
+                        chkValidarArquivo.Checked));
 
                     #endregion Bloco E
 
@@ -123,6 +250,8 @@ namespace SpedBr.AppTeste
 
                     BlocoG.RegistroG001 regG001 = new BlocoG.RegistroG001("1");
 
+                    linhas.AddRange(bG.EscreverBlocoG(regG001, chkValidarArquivo.Checked));
+
                     #endregion Bloco G
 
                     #region Bloco H
@@ -130,6 +259,8 @@ namespace SpedBr.AppTeste
                     BlocoH bH = new BlocoH();
 
                     BlocoH.RegistroH001 regH001 = new BlocoH.RegistroH001("1");
+
+                    linhas.AddRange(bH.EscreverBlocoH(regH001, chkValidarArquivo.Checked));
 
                     #endregion Bloco H
 
@@ -142,6 +273,8 @@ namespace SpedBr.AppTeste
                     Bloco1.Registro1010 reg1010 = new Bloco1.Registro1010(false, false, false, false, false, false,
                         false, false, false);
 
+                    linhas.AddRange(b1.EscreverBloco1(reg1001, reg1010, chkValidarArquivo.Checked));
+
                     #endregion Bloco 1
 
                     #region Bloco 9
@@ -150,32 +283,10 @@ namespace SpedBr.AppTeste
 
                     Bloco9.Registro9001 reg9001 = new Bloco9.Registro9001("0");
 
+                    linhas.AddRange(b9.EscreverBloco9(reg9001, linhas, chkValidarArquivo.Checked));
+
                     #endregion Bloco 9
 
-                    for (int i = 0; i < 100; i++)
-                    {
-                        if (_bw.CancellationPending)
-                        {
-                            args.Cancel = true;
-                            _bw.ReportProgress(i);
-                            return;
-                        }
-                        else
-                        {
-                            _bw.ReportProgress(i);
-                        }
-
-                        Thread.Sleep(10);
-                    }
-
-                    linhas.AddRange(b0.EscreverBloco0(reg0000, reg0001, reg0005, reg0100, chkValidarArquivo.Checked));
-                    linhas.AddRange(bC.EscreverBlocoC(regC001, chkValidarArquivo.Checked));
-                    linhas.AddRange(bD.EscreverBlocoD(regD001, chkValidarArquivo.Checked));
-                    linhas.AddRange(bE.EscreverBlocoE(regE001, regE100, regE110, regE500, regE520, chkValidarArquivo.Checked));
-                    linhas.AddRange(bG.EscreverBlocoG(regG001, chkValidarArquivo.Checked));
-                    linhas.AddRange(bH.EscreverBlocoH(regH001, chkValidarArquivo.Checked));
-                    linhas.AddRange(b1.EscreverBloco1(reg1001, reg1010, chkValidarArquivo.Checked));
-                    linhas.AddRange(b9.EscreverBloco9(reg9001, linhas, chkValidarArquivo.Checked));
                 }
                 catch (Exception exception)
                 {
