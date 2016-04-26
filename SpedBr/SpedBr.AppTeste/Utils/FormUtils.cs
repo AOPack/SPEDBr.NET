@@ -11,12 +11,12 @@ namespace SpedBr.AppTeste.Utils
             Sucesso,
         }
 
-        public static void ExibirMensagemException(Exception exception)
+        public static void ExibirMensagem(Exception exception)
         {
             MessageBox.Show(exception.Message, @":( Ocorreu um erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public static void ExibirMensagemException(string texto, TipoMensagem tipoMensagem)
+        public static void ExibirMensagem(string texto, TipoMensagem tipoMensagem)
         {
             switch (tipoMensagem)
             {
@@ -46,16 +46,6 @@ namespace SpedBr.AppTeste.Utils
             form.StartPosition = FormStartPosition.CenterParent;
             form.Controls.Add(browser);
             form.ShowDialog(parent);
-        }
-
-        public static DateTime GetFirstDayOfMonth(int year, int month)
-        {
-            return new DateTime(year, month, DateTime.DaysInMonth(year, month)).AddDays(1).AddMonths(-1);
-        }
-
-        public static DateTime GetLastDayOfMonth(int year, int month)
-        {
-            return new DateTime(year, month, DateTime.DaysInMonth(year, month)).AddHours(23).AddMinutes(59).AddSeconds(59);
         }
     }
 }

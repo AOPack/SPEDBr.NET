@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace SpedBr.AppTeste.Utils
+namespace SpedBr.Common
 {
-    public static class MetodosExtensao
+    public static class ExtensionMethods
     {
         /// <summary>
         /// Formata usando String.Format
@@ -336,6 +336,24 @@ namespace SpedBr.AppTeste.Utils
             conteudoLinha = conteudoLinha.Insert(inicio, valorPreencher);
 
             return conteudoLinha;
+        }
+
+        public static DateTime ObterProximoMesPrimeiroDia(this DateTime date)
+        {
+            return ObterPrimeiroDiaMesAtual(date).AddMonths(1);
+        }
+
+        public static DateTime ObterPrimeiroDiaMesAtual(this DateTime date)
+        {
+            return new DateTime(date.Year, date.Month, 1);
+        }
+
+        public static DateTime ObterUltimoDiaMesAtual(this DateTime date)
+        {
+            return
+                new DateTime(date.Year, date.Month, DateTime.DaysInMonth(date.Year, date.Month)).AddHours(23)
+                    .AddMinutes(59)
+                    .AddSeconds(59);
         }
     }
 }
