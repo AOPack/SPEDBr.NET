@@ -1,5 +1,6 @@
 # SPEDBr
-Biblioteca gratuita  - desenvolvida com Visual Studio Community 2015 - para geração dos arquivos SPED e demais declarações necessárias para o cenário contábil/fiscal brasileiro.
+###### SITE OFICIAL DO SPED: http://sped.rfb.gov.br/
+Biblioteca gratuita  - desenvolvida com Visual Studio Community 2015 - para geração dos arquivos SPED e demais declarações necessárias no cenário contábil/fiscal brasileiro.
 
 **EXEMPLOS**
 
@@ -34,4 +35,4 @@ foreach (var objContrato in listaContratos)
 
 **DÚVIDAS?**
 
-Abra um issue na página do projeto aqui mesmo no GitHub.
+Abra um issue na página do projeto aqui mesmo no GitHub ou [clique aqui] (https://github.com/samuelroliveira/SPEDBr/issues).
