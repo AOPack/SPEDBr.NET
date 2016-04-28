@@ -5,11 +5,11 @@ namespace SpedBr.EfdContribuicoes
 {
     public class BlocoF
     {
-        public class EfdContribRegF001 : RegistroBaseSped
+        public class RegistroF001 : RegistroBaseSped
         {
-            public EfdContribRegF001()
+            public RegistroF001()
             {
-                REG = "F001";
+                Reg = "F001";
             }
 
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
@@ -19,11 +19,11 @@ namespace SpedBr.EfdContribuicoes
         /// <summary>
         /// Identificação do Estabelecimento
         /// </summary>
-        public class EfdContribRegF010 : RegistroBaseSped
+        public class RegistroF010 : RegistroBaseSped
         {
-            public EfdContribRegF010()
+            public RegistroF010()
             {
-                REG = "F010";
+                Reg = "F010";
             }
 
             [SpedCampos(2, "CNPJ", "N", 14, 0, true)]
@@ -33,11 +33,11 @@ namespace SpedBr.EfdContribuicoes
         /// <summary>
         /// OPERAÇÕES DA ATIVIDADE IMOBILIÁRIA - UNIDADE IMOBILIÁRIA VENDIDA
         /// </summary>
-        public class EfdContribRegF200 : RegistroBaseSped
+        public class RegistroF200 : RegistroBaseSped
         {
-            public EfdContribRegF200()
+            public RegistroF200()
             {
-                REG = "F200";
+                Reg = "F200";
             }
 
             [SpedCampos(2, "IND_OPER", "N", 2, 0, true)]
@@ -107,11 +107,11 @@ namespace SpedBr.EfdContribuicoes
         /// <summary>
         /// CONSOLIDAÇÃO DAS OPERAÇÕES DA PESSOA JURÍDICA SUBMETIDA AO REGIME DE TRIBUTAÇÃO COM BASE NO LUCRO PRESUMIDO  – INCIDÊNCIA DO PIS/PASEP E DA COFINS PELO REGIME DE CAIXA
         /// </summary>
-        public class EfdContribRegF500 : RegistroBaseSped
+        public class RegistroF500 : RegistroBaseSped
         {
-            public EfdContribRegF500()
+            public RegistroF500()
             {
-                REG = "F500";
+                Reg = "F500";
             }
 
             [SpedCampos(2, "VL_REC_CAIXA", "N", 0, 2, true)]
@@ -160,11 +160,11 @@ namespace SpedBr.EfdContribuicoes
             public string InfoCompl { get; set; }
         }
 
-        public class EfdContribRegF525 : RegistroBaseSped
+        public class RegistroF525 : RegistroBaseSped
         {
-            public EfdContribRegF525()
+            public RegistroF525()
             {
-                REG = "F525";
+                Reg = "F525";
             }
 
             [SpedCampos(2, "VL_REC", "N", 0, 2, true)]
@@ -198,11 +198,11 @@ namespace SpedBr.EfdContribuicoes
             public string CodCta { get; set; }
         }
 
-        public class EfdContribRegF990 : RegistroBaseSped
+        public class RegistroF990 : RegistroBaseSped
         {
-            public EfdContribRegF990()
+            public RegistroF990()
             {
-                REG = "F990";
+                Reg = "F990";
             }
 
             [SpedCampos(2, "QTD_LIN_F", "N", 0, 0, true)]

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 
 namespace SpedBr.Common
 {
@@ -58,8 +59,8 @@ namespace SpedBr.Common
                 return "";
             else
             {
-                byte[] bytes = System.Text.Encoding.GetEncoding("iso-8859-8").GetBytes(text);
-                return System.Text.Encoding.UTF8.GetString(bytes);
+                byte[] bytes = Encoding.GetEncoding("iso-8859-8").GetBytes(text);
+                return Encoding.UTF8.GetString(bytes);
             }
         }
 

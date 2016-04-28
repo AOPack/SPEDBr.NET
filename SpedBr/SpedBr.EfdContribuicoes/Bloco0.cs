@@ -5,11 +5,11 @@ namespace SpedBr.EfdContribuicoes
 {
     public class Bloco0
     {
-        public class EfdContribReg0000 : RegistroBaseSped
+        public class Registro0000 : RegistroBaseSped
         {
-            public EfdContribReg0000()
+            public Registro0000()
             {
-                REG = "0000";
+                Reg = "0000";
             }
 
             [SpedCampos(2, "COD_VER", "N", 3, 0, true)]
@@ -52,22 +52,22 @@ namespace SpedBr.EfdContribuicoes
             public int IndAtiv { get; set; }
         }
 
-        public class EfdContribReg0001 : RegistroBaseSped
+        public class Registro0001 : RegistroBaseSped
         {
-            public EfdContribReg0001()
+            public Registro0001()
             {
-                REG = "0001";
+                Reg = "0001";
             }
 
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
             public int IndMov { get; set; }
         }
 
-        public class EfdContribReg0035 : RegistroBaseSped
+        public class Registro0035 : RegistroBaseSped
         {
-            public EfdContribReg0035()
+            public Registro0035()
             {
-                REG = "0035";
+                Reg = "0035";
             }
 
             [SpedCampos(2, "COD_SCP", "N", 14, 0, false)]
@@ -80,11 +80,11 @@ namespace SpedBr.EfdContribuicoes
             public string InfComp { get; set; }
         }
 
-        public class EfdContribReg0100 : RegistroBaseSped
+        public class Registro0100 : RegistroBaseSped
         {
-            public EfdContribReg0100()
+            public Registro0100()
             {
-                REG = "0100";
+                Reg = "0100";
             }
 
             [SpedCampos(2, "NOME", "C", 100, 0, true)]
@@ -127,11 +127,11 @@ namespace SpedBr.EfdContribuicoes
             public int CodMun { get; set; }
         }
 
-        public class EfdContribReg0110 : RegistroBaseSped
+        public class Registro0110 : RegistroBaseSped
         {
-            public EfdContribReg0110()
+            public Registro0110()
             {
-                REG = "0110";
+                Reg = "0110";
             }
 
             [SpedCampos(2, "COD_INC_TRIB", "N", 1, 0, true)]
@@ -147,11 +147,11 @@ namespace SpedBr.EfdContribuicoes
             public int IndRegCum { get; set; }
         }
 
-        public class EfdContribReg0140 : RegistroBaseSped
+        public class Registro0140 : RegistroBaseSped
         {
-            public EfdContribReg0140()
+            public Registro0140()
             {
-                REG = "0140";
+                Reg = "0140";
             }
 
             [SpedCampos(2, "COD_EST", "C", 60, 0, false)]
@@ -179,11 +179,11 @@ namespace SpedBr.EfdContribuicoes
             public string Suframa { get; set; }
         }
 
-        public class EfdContribReg0990 : RegistroBaseSped
+        public class Registro0990 : RegistroBaseSped
         {
-            public EfdContribReg0990()
+            public Registro0990()
             {
-                REG = "0990";
+                Reg = "0990";
             }
 
             [SpedCampos(2, "QTD_LIN_0", "N", 0, 0, true)]

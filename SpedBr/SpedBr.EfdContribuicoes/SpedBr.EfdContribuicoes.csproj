@@ -31,12 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Bloco0.cs" />
     <Compile Include="Bloco1.cs" />
     <Compile Include="BlocoA.cs" />

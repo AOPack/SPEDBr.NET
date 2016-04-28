@@ -5,22 +5,22 @@ namespace SpedBr.EfdContribuicoes
 {
     public class BlocoM
     {
-        public class EfdContribRegM001 : RegistroBaseSped
+        public class RegistroM001 : RegistroBaseSped
         {
-            public EfdContribRegM001()
+            public RegistroM001()
             {
-                REG = "M001";
+                Reg = "M001";
             }
 
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
             public int IndMov { get; set; }
         }
 
-        public class EfdContribRegM200 : RegistroBaseSped
+        public class RegistroM200 : RegistroBaseSped
         {
-            public EfdContribRegM200()
+            public RegistroM200()
             {
-                REG = "M200";
+                Reg = "M200";
             }
 
             [SpedCampos(2, "VL_TOT_CONT_NC_PER", "N", 0, 2, true)]
@@ -60,11 +60,11 @@ namespace SpedBr.EfdContribuicoes
             public decimal VlTotContRec { get; set; }
         }
 
-        public class EfdContribRegM205 : RegistroBaseSped
+        public class RegistroM205 : RegistroBaseSped
         {
-            public EfdContribRegM205()
+            public RegistroM205()
             {
-                REG = "M205";
+                Reg = "M205";
             }
 
             [SpedCampos(2, "NUM_CAMPO", "C", 2, 0, true)]
@@ -77,11 +77,11 @@ namespace SpedBr.EfdContribuicoes
             public decimal VlDebito { get; set; }
         }
 
-        public class EfdContribRegM210 : RegistroBaseSped
+        public class RegistroM210 : RegistroBaseSped
         {
-            public EfdContribRegM210()
+            public RegistroM210()
             {
-                REG = "M210";
+                Reg = "M210";
             }
 
             [SpedCampos(2, "COD_CONT", "C", 2, 0, true)]
@@ -121,11 +121,11 @@ namespace SpedBr.EfdContribuicoes
             public decimal VlContPer { get; set; }
         }
 
-        public class EfdContribRegM220 : RegistroBaseSped
+        public class RegistroM220 : RegistroBaseSped
         {
-            public EfdContribRegM220()
+            public RegistroM220()
             {
-                REG = "M220";
+                Reg = "M220";
             }
 
             [SpedCampos(2, "IND_AJ", "C", 1, 0, true)]
@@ -148,11 +148,11 @@ namespace SpedBr.EfdContribuicoes
         }
 
         [SpedRegistros("01/10/2015", null)]
-        public class EfdContribRegM225 : RegistroBaseSped
+        public class RegistroM225 : RegistroBaseSped
         {
-            public EfdContribRegM225()
+            public RegistroM225()
             {
-                REG = "M225";
+                Reg = "M225";
             }
 
             [SpedCampos(2, "DET_VALOR_AJ", "N", 0, 2, true)]
@@ -180,11 +180,11 @@ namespace SpedBr.EfdContribuicoes
             public string InfoCompl { get; set; }
         }
 
-        public class EfdContribRegM600 : RegistroBaseSped
+        public class RegistroM600 : RegistroBaseSped
         {
-            public EfdContribRegM600()
+            public RegistroM600()
             {
-                REG = "M600";
+                Reg = "M600";
             }
 
             [SpedCampos(2, "VL_TOT_CONT_NC_PER", "N", 0, 2, true)]
@@ -224,11 +224,11 @@ namespace SpedBr.EfdContribuicoes
             public decimal VlTotContRec { get; set; }
         }
 
-        public class EfdContribRegM605 : RegistroBaseSped
+        public class RegistroM605 : RegistroBaseSped
         {
-            public EfdContribRegM605()
+            public RegistroM605()
             {
-                REG = "M605";
+                Reg = "M605";
             }
 
             [SpedCampos(2, "NUM_CAMPO", "C", 2, 0, true)]
@@ -241,11 +241,11 @@ namespace SpedBr.EfdContribuicoes
             public decimal VlDebito { get; set; }
         }
 
-        public class EfdContribRegM610 : RegistroBaseSped
+        public class RegistroM610 : RegistroBaseSped
         {
-            public EfdContribRegM610()
+            public RegistroM610()
             {
-                REG = "M610";
+                Reg = "M610";
             }
 
             [SpedCampos(2, "COD_CONT", "C", 2, 0, true)]
@@ -285,11 +285,11 @@ namespace SpedBr.EfdContribuicoes
             public decimal VlContPer { get; set; }
         }
 
-        public class EfdContribRegM620 : RegistroBaseSped
+        public class RegistroM620 : RegistroBaseSped
         {
-            public EfdContribRegM620()
+            public RegistroM620()
             {
-                REG = "M620";
+                Reg = "M620";
             }
 
             [SpedCampos(2, "IND_AJ", "C", 1, 0, true)]
@@ -312,11 +312,11 @@ namespace SpedBr.EfdContribuicoes
         }
 
         [SpedRegistros("01/10/2015", null)]
-        public class EfdContribRegM625 : RegistroBaseSped
+        public class RegistroM625 : RegistroBaseSped
         {
-            public EfdContribRegM625()
+            public RegistroM625()
             {
-                REG = "M625";
+                Reg = "M625";
             }
 
             [SpedCampos(2, "DET_VALOR_AJ", "N", 0, 2, true)]
@@ -344,11 +344,11 @@ namespace SpedBr.EfdContribuicoes
             public string InfoCompl { get; set; }
         }
 
-        public class EfdContribRegM990 : RegistroBaseSped
+        public class RegistroM990 : RegistroBaseSped
         {
-            public EfdContribRegM990()
+            public RegistroM990()
             {
-                REG = "M990";
+                Reg = "M990";
             }
 
             [SpedCampos(2, "QTD_LIN_M", "N", 0, 0, true)]

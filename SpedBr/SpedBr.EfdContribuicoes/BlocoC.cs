@@ -4,22 +4,22 @@ namespace SpedBr.EfdContribuicoes
 {
     public class BlocoC
     {
-        public class EfdContribRegC001 : RegistroBaseSped
+        public class RegistroC001 : RegistroBaseSped
         {
-            public EfdContribRegC001()
+            public RegistroC001()
             {
-                REG = "C001";
+                Reg = "C001";
             }
 
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
             public int IndMov { get; set; }
         }
 
-        public class EfdContribRegC990 : RegistroBaseSped
+        public class RegistroC990 : RegistroBaseSped
         {
-            public EfdContribRegC990()
+            public RegistroC990()
             {
-                REG = "C990";
+                Reg = "C990";
             }
 
             [SpedCampos(2, "QTD_LIN_C", "N", 0, 0, true)]

@@ -19,19 +19,19 @@ namespace SpedBr.Common
             if (type == null)
                 throw new Exception("Falha ao identificar tipo do objeto!");
 
-            // Extrai o nome do registro atual. Ex.: EfdContribRegA001 -> Resultado: A001
+            // Extrai o nome do registro atual. Ex.: RegistroA001 -> Resultado: A001
             var registroAtual = type.Name.Substring(type.Name.Length - 4);
 
-            var obrigatoriedadeAttr =
+            var spedRegistroAttr =
                 (SpedRegistrosAttribute)
                     Attribute.GetCustomAttribute(type, typeof (SpedRegistrosAttribute));
 
             var deveGerarCamposDoRegistro = true;
-            var dataObrigatoriedadeInicial = obrigatoriedadeAttr?.ObrigatoriedadeInicial.ToDateTimeNullable();
-            var dataObrigatoriedadeFinal = obrigatoriedadeAttr?.ObrigatoriedadeFinal.ToDateTimeNullable();
+            var dataObrigatoriedadeInicial = spedRegistroAttr?.ObrigatoriedadeInicial.ToDateTimeNullable();
+            var dataObrigatoriedadeFinal = spedRegistroAttr?.ObrigatoriedadeFinal.ToDateTimeNullable();
 
             /*
-             * Verifica obrigatoriedade de escrita do registro. Ex.: M225 -> Obrigatório a partir de 01/10/2015
+             * Verifica obrigatoriedade de escrita do registro. Ex.: M225/M625 -> Obrigatório a partir de 01/10/2015
              */
             if (dataObrigatoriedadeInicial.HasValue &&
                 (dataObrigatoriedadeInicial.Value > competenciaDeclaracao)) deveGerarCamposDoRegistro = false;
@@ -57,22 +57,22 @@ namespace SpedBr.Common
                 {
                     sb.Append("|");
                     foreach (
-                        var spedAttr in
+                        var spedCampoAttr in
                             from Attribute attr in property.GetCustomAttributes(true) select attr as SpedCamposAttribute
                         )
                     {
-                        if (spedAttr == null)
+                        if (spedCampoAttr == null)
                             throw new Exception(
                                 $"O campo {property.Name} no registro {registroAtual} não possui atributo SPED definido!");
 
                         var propertyValue = RegistroBaseSped.GetPropValue(source, property.Name);
                         var propertyValueToStringSafe = propertyValue.ToStringSafe().Trim();
 
-                    /*
-                     * INDICADORES PARA FORMATAÇÃO DOS CAMPOS NOS REGISTROS
-                     */
+                        /*
+                        * INDICADORES PARA FORMATAÇÃO DOS CAMPOS NOS REGISTROS
+                        */
 
-                        var isRequired = spedAttr.IsObrigatorio;
+                        var isRequired = spedCampoAttr.IsObrigatorio;
                         var isDecimal = property.PropertyType == typeof (decimal);
                         var isNullableDecimal = property.PropertyType == typeof (decimal?);
                         var isDateTime = property.PropertyType == typeof (DateTime);
@@ -85,29 +85,29 @@ namespace SpedBr.Common
                             : 0;
 
                         // Verificação necessária p/ ajustes no tamanho de campos como CSTs e Indicadores. Ex.: CST PIS '1' -> Deve estar no arquivo como '01'.
-                        var isCodeOrNumberAndHasLength = (spedAttr.Tipo == "C" || spedAttr.Tipo == "N") &&
-                                                         (spedAttr.Tamanho > 0 && spedAttr.Tamanho <= 10);
+                        var isCodeOrNumberAndHasLength = (spedCampoAttr.Tipo == "C" || spedCampoAttr.Tipo == "N") &&
+                                                         (spedCampoAttr.Tamanho > 0 && spedCampoAttr.Tamanho <= 10);
 
                         if (isRequired && !hasValue)
                             throw new Exception(
-                                $"O campo {spedAttr.Ordem} - {spedAttr.Campo} no Registro {registroAtual} é obrigatório e não foi informado!");
+                                $"O campo {spedCampoAttr.Ordem} - {spedCampoAttr.Campo} no Registro {registroAtual} é obrigatório e não foi informado!");
 
                         const decimal vZero = 0M;
                         if (isRequired && isDecimal &&
                             (propertyValueToStringSafe == string.Empty || propertyValueToStringSafe.ToDecimal() == 0))
-                            sb.Append(vZero.ToString("N" + spedAttr.QtdCasas));
+                            sb.Append(vZero.ToString("N" + spedCampoAttr.QtdCasas));
                         else
                         {
                             if (isDecimal && hasValue)
                             {
                                 var vDecimal =
-                                    Convert.ToDecimal(propertyValue).ToString("N" + spedAttr.QtdCasas);
+                                    Convert.ToDecimal(propertyValue).ToString("N" + spedCampoAttr.QtdCasas);
                                 sb.Append(vDecimal.ToStringSafe().Replace(".", ""));
                             }
                             else if (isNullableDecimal && hasValue)
                             {
                                 var vDecimal =
-                                    Convert.ToDecimal(propertyValue).ToString("N" + spedAttr.QtdCasas);
+                                    Convert.ToDecimal(propertyValue).ToString("N" + spedCampoAttr.QtdCasas);
                                 sb.Append(vDecimal.ToStringSafe().Replace(".", ""));
                             }
                             else if (isDateTime && hasValue)
@@ -115,11 +115,11 @@ namespace SpedBr.Common
                             else if (isNullableDateTime && hasValue)
                                 sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("ddMMyyyy"));
                             else if (isCodeOrNumberAndHasLength && hasValue)
-                                sb.Append(propertyValue.ToString().PadLeft(spedAttr.Tamanho, '0'));
+                                sb.Append(propertyValue.ToString().PadLeft(spedCampoAttr.Tamanho, '0'));
                             else
                             {
-                                if (propertyLength > 0 && (propertyValueToStringSafe.Length > propertyLength))
-                                    sb.Append(propertyValueToStringSafe.Substring(0, spedAttr.Tamanho));
+                                if (propertyLength > 0 && (propertyLength > spedCampoAttr.Tamanho))
+                                    sb.Append(propertyValueToStringSafe.Substring(0, spedCampoAttr.Tamanho));
                                 else
                                     sb.Append(propertyValueToStringSafe);
                             }
