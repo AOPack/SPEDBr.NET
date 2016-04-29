@@ -22,7 +22,7 @@ namespace SpedBr.EfdContribuicoes
                 Reg = "P990";
             }
 
-            [SpedCampos(2, "QTD_LIN_P", "N", 0, 0, true)]
+            [SpedCampos(3, "QTD_LIN_P", "N", 0, 0, true)]
             public int QtdLinP { get; set; }
         }
     }
