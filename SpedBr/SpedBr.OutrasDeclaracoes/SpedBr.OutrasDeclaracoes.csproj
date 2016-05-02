@@ -31,6 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Dimob\DimobHeader.cs" />
+    <Compile Include="Dimob\DimobR02.cs" />
+    <Compile Include="Dimob\DimobCamposAttribute.cs" />
+    <Compile Include="Dimob\DimobR01.cs" />
+    <Compile Include="Dimob\DimobR03.cs" />
+    <Compile Include="Dimob\DimobR04.cs" />
+    <Compile Include="Dimob\DimobT9.cs" />
+    <Compile Include="Dimob\EscreverCamposDimobByAttribute.cs" />
+    <Compile Include="Dimob\RegistroBaseDimob.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sintegra\Registro10.cs" />
     <Compile Include="Sintegra\Registro11.cs" />
@@ -43,6 +52,9 @@
       <Project>{95A37905-7053-46A1-82BE-9226A56F9791}</Project>
       <Name>SpedBr.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
