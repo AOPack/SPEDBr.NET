@@ -95,4 +95,4 @@ foreach (var objContrato in listaContratos) {
 
 ##Dúvidas?
 
-Abra um issue na página do projeto aqui mesmo no GitHub ou [clique aqui] (https://github.com/samuelroliveira/SPEDBr/issues).
+Abra um issue na página do projeto no GitHub ou [clique aqui] (https://github.com/samuelroliveira/SPEDBr/issues).
