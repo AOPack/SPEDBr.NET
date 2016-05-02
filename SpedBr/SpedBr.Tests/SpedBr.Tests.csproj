@@ -55,9 +55,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SpedBr.OutrasDeclaracoes\SpedBr.OutrasDeclaracoes.csproj">
-      <Project>{5a01386b-cddf-40b9-802a-329c1364e8f8}</Project>
-      <Name>SpedBr.OutrasDeclaracoes</Name>
+    <ProjectReference Include="..\SpedBr.Outros.Dimob\SpedBr.Outros.Dimob.csproj">
+      <Project>{4FDC2844-555D-441B-AB2E-F777283B3F2C}</Project>
+      <Name>SpedBr.Outros.Dimob</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

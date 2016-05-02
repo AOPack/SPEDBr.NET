@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 using SpedBr.Common;
 
-namespace SpedBr.OutrasDeclaracoes.Dimob
+namespace SpedBr.Outros.Dimob
 {
     public static class EscreverCamposDimobByAttribute
     {
@@ -87,6 +87,7 @@ namespace SpedBr.OutrasDeclaracoes.Dimob
                     var isDateTime = property.PropertyType == typeof (DateTime);
                     var isNullableDateTime = property.PropertyType == typeof(DateTime?);
                     var isNumeric = dimobCampoAttr.Formato == "N";
+                    var isCpfOrCnpj = dimobCampoAttr.Formato.Contains("CPF") || dimobCampoAttr.Formato.Contains("CNPJ");
 
                     const decimal vZero = 0M;
                     if (isDecimal && (!hasValue || propertyValueToStringSafe.ToDecimal() == 0))
@@ -95,6 +96,8 @@ namespace SpedBr.OutrasDeclaracoes.Dimob
                     {
                         if (isNumeric)
                             sb.Append(propertyValueToStringSafe.PadLeft(dimobCampoAttr.Tamanho, '0'));
+                        else if (isCpfOrCnpj)
+                            sb.Append(propertyValueToStringSafe.DeletarCaracteres(new [] { ".", "/", "-" }).PadRight(dimobCampoAttr.Tamanho, ' '));
                         else if (isDecimal)
                         {
                             var vDecimal = Convert.ToDecimal(propertyValue);

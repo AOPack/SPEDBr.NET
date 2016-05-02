@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SpedBr.OutrasDeclaracoes.Dimob
+namespace SpedBr.Outros.Dimob
 {
     /// <summary>
     /// Construção e Incorporação - Tipo R03

@@ -1,5 +1,5 @@
 ﻿
-namespace SpedBr.OutrasDeclaracoes.Dimob
+namespace SpedBr.Outros.Dimob
 {
     /// <summary>
     /// Trailler da Declaração - T9

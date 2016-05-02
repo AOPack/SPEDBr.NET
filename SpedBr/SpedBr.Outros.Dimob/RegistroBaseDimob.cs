@@ -1,5 +1,5 @@
 ﻿
-namespace SpedBr.OutrasDeclaracoes.Dimob
+namespace SpedBr.Outros.Dimob
 {
     public class RegistroBaseDimob
     {

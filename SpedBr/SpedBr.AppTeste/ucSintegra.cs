@@ -4,10 +4,9 @@ using System.ComponentModel;
 using System.IO;
 using System.Security.AccessControl;
 using System.Windows.Forms;
-using Delta.Sintegra;
 using SpedBr.AppTeste.Utils;
 using SpedBr.Common;
-using SpedBr.OutrasDeclaracoes.Sintegra;
+using SpedBr.Outros.Sintegra;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace SpedBr.AppTeste

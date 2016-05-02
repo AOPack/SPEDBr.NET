@@ -152,9 +152,9 @@
       <Project>{95A37905-7053-46A1-82BE-9226A56F9791}</Project>
       <Name>SpedBr.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SpedBr.OutrasDeclaracoes\SpedBr.OutrasDeclaracoes.csproj">
-      <Project>{5A01386B-CDDF-40B9-802A-329C1364E8F8}</Project>
-      <Name>SpedBr.OutrasDeclaracoes</Name>
+    <ProjectReference Include="..\SpedBr.Outros.Sintegra\SpedBr.Outros.Sintegra.csproj">
+      <Project>{6251690B-A0A0-45D1-8DE0-5BFB593179B7}</Project>
+      <Name>SpedBr.Outros.Sintegra</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

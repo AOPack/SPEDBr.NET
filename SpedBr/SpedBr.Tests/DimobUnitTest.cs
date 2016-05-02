@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SpedBr.OutrasDeclaracoes.Dimob;
+using SpedBr.Outros.Dimob;
 
 namespace SpedBr.Tests
 {

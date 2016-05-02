@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SpedBr.OutrasDeclaracoes.Dimob
+namespace SpedBr.Outros.Dimob
 {
     [AttributeUsage(AttributeTargets.Property)]
     public class DimobCamposAttribute : Attribute
