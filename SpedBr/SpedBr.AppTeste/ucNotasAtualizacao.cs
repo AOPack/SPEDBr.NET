@@ -11,6 +11,10 @@ namespace SpedBr.AppTeste
             webBrowser1.DocumentText =
                 string.Format("<html><body>" +
                               "<b>SPEDBr - Notas de Atualização</b> -> p/ Imprimir (Ctrl + P) e p/ Pesquisar (Ctrl + F) <br>" +
+                              "<br><b>VERSÃO 1.16.05.021 -------------------------------------------------------------------------------------------------</b><br>" +
+                              "<br><b>DIMOB</b><br>" +
+                              "<br>" +
+                              "Inclusão da DIMOB.<br>" +
                               "<br><b>VERSÃO 1.16.04.291 -------------------------------------------------------------------------------------------------</b><br>" +
                               "<br><b>SPED Fiscal</b><br>" +
                               "<br>" +
