@@ -1,70 +1,33 @@
 #[SPEDBr] (http://samuelroliveira.github.io/SPEDBr/)
-###### SITE OFICIAL DO SPED: http://sped.rfb.gov.br/
+######SITE OFICIAL DO SPED: http://sped.rfb.gov.br/
 Biblioteca gratuita  - desenvolvida com Visual Studio Community 2015 - para geração dos arquivos SPED e demais declarações necessárias no cenário contábil/fiscal brasileiro.
 
 ##Sumário
 
-- [TODO] (#todo)
+- [Declarações] (#declaracoes)
 - [Exemplos](#exemplos)
 - [Dúvidas?](#dúvidas)
 
-##TODO
+##Declarações
 
-###### EFD Contribuições
+######Projeto SPED
 
-- [ ] Bloco 0
-- [ ] Bloco A
-- [ ] Bloco C
-- [ ] Bloco D
-- [ ] Bloco F
-- [ ] Bloco I
-- [ ] Bloco M
-- [ ] Bloco P
-- [ ] Bloco 1
-- [ ] Bloco 9
+- [ ] FCONT
+- [ ] EFD Reinf
+- [ ] EFD ICMS/IPI
+- [ ] EFD Contribuições
+- [ ] Escrituração Contábil Fiscal (ECF)
+- [ ] Escrituração Contábil Digital (ECD)
 
-###### SPED Fiscal ICMS/IPI
+######Outras
 
-- [x] Bloco 0
-- [ ] Bloco C
-- [ ] Bloco D
-- [ ] Bloco E
-- [ ] Bloco G
-- [ ] Bloco H
-- [ ] Bloco K
-- [ ] Bloco 1
-- [ ] Bloco 9
-
-###### DIMOB
-
-- [x] Header
-- [x] R01
-- [x] R02
-- [x] R03
-- [x] R04
-- [x] Trailler
-
-###### SINTEGRA
-
-- [x] Registro Tipo 10
-- [x] Registro Tipo 11
-- [x] Registro Tipo 50
-- [ ] Registro Tipo 51
-- [ ] Registro Tipo 53
-- [ ] Registro Tipo 54
-- [ ] Registro Tipo 55
-- [ ] Registro Tipo 56
-- [ ] Registro Tipo 60
-- [x] Registro Tipo 61
-- [ ] Registro Tipo 70
-- [ ] Registro Tipo 71
-- [ ] Registro Tipo 74
-- [ ] Registro Tipo 75
-- [ ] Registro Tipo 76
-- [ ] Registro Tipo 77
-- [ ] Registro Tipo 85
-- [ ] Registro Tipo 86
-- [x] Registro Tipo 90
+- [ ] DACON
+- [ ] DCTF
+- [x] DIMOB (02/05/2016 - @samuelroliveira)
+- [ ] DIPJ
+- [ ] DIRF
+- [ ] GFIP/SEFIP
+- [ ] SINTEGRA
 
 ##Exemplos
 
