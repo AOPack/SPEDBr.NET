@@ -12,17 +12,18 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2015 - para gera
 
 ######Projeto SPED
 
+- [ ] FCONT
+- [ ] EFD Reinf
+- [ ] EFD ICMS/IPI
 - [ ] EFD Contribuições
 - [ ] Escrituração Contábil Fiscal (ECF)
-- [ ] FCONT
-- [ ] SPED Contábil
-- [ ] SPED Fiscal ICMS/IPI
+- [ ] Escrituração Contábil Digital (ECD)
 
 ######Outras
 
 - [ ] DACON
 - [ ] DCTF
-- [ ] DIMOB
+- [x] DIMOB (02/05/2016 - @samuelroliveira)
 - [ ] DIPJ
 - [ ] DIRF
 - [ ] GFIP/SEFIP
