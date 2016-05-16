@@ -353,6 +353,424 @@ namespace SpedBr.SpedFiscal
         }
 
         /// <summary>
+        /// REGISTRO 1300: MOVIMENTAÇÃO DIÁRIA DE COMBUSTÍVEIS
+        /// </summary>
+        public class Registro1300 : RegistroBaseSped
+        {
+            public Registro1300()
+            {
+                Reg = "1300";
+            }
+
+            /// <summary>
+            /// Código do produto
+            /// </summary>
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            /// Data do fechamento da movimentação
+            /// </summary>
+            [SpedCampos(3, "DT_FECH", "N", 8, 0, true)]
+            public DateTime DtFech { get; set; }
+
+            /// <summary>
+            /// Estoque no início do dia (em litros)
+            /// </summary>
+            [SpedCampos(4, "ESTQ_ABERT", "N", 0, 3, true)]
+            public decimal EstqAbert { get; set; }
+
+            /// <summary>
+            /// Volume recebido no dia (em litros)
+            /// </summary>
+            [SpedCampos(5, "VOL_ENTR", "N", 0, 3, true)]
+            public decimal VolEntr { get; set; }
+
+            /// <summary>
+            /// Volume disponível no dia (em litros)
+            /// </summary>
+            [SpedCampos(6, "VOL_DISP", "N", 0, 3, true)]
+            public decimal VolDisp { get; set; }
+
+            /// <summary>
+            /// Volume total das saídas (em litros)
+            /// </summary>
+            [SpedCampos(7, "VOL_SAIDAS", "N", 0, 3, true)]
+            public decimal VolSaidas { get; set; }
+
+            /// <summary>
+            /// Estoque escritural (em litros)
+            /// </summary>
+            [SpedCampos(8, "ESTQ_ESCR", "N", 0, 3, true)]
+            public decimal EstqEscr { get; set; }
+
+            /// <summary>
+            /// Valor da perda (em litros)
+            /// </summary>
+            [SpedCampos(9, "VAL_AJ_PERDA", "N", 0, 3, true)]
+            public decimal ValAjPerda { get; set; }
+
+            /// <summary>
+            /// Valor do ganho (em litros)
+            /// </summary>
+            [SpedCampos(10, "VAL_AJ_GANHO", "N", 0, 3, true)]
+            public decimal ValAjGanho { get; set; }
+
+            /// <summary>
+            /// Estoque de fechamento (em litros)
+            /// </summary>
+            [SpedCampos(11, "FECH_FISICO", "N", 0, 3, true)]
+            public decimal FechFisico { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO 1310: MOVIMENTAÇÃO DIÁRIA DE COMBUSTÍVEIS POR TANQUE
+        /// </summary>
+        public class Registro1310 : RegistroBaseSped
+        {
+            public Registro1310()
+            {
+                Reg = "1310";
+            }
+
+            /// <summary>
+            /// Tanque que armazena o combustível
+            /// </summary>
+            [SpedCampos(2, "NUM_TANQUE", "C", 3, 0, true)]
+            public string NumTanque { get; set; }
+
+            /// <summary>
+            /// Estoque no início do dia (em litros)
+            /// </summary>
+            [SpedCampos(3, "ESTQ_ABERT", "N", 0, 3, true)]
+            public decimal EstqAbert { get; set; }
+
+            /// <summary>
+            /// Volume recebino no dia (em litros)
+            /// </summary>
+            [SpedCampos(4, "VOL_ENTR", "N", 0, 3, true)]
+            public decimal VolEntr { get; set; }
+
+            /// <summary>
+            /// Volume disponível (em litros)
+            /// </summary>
+            [SpedCampos(5, "VOL_DISP", "N", 0, 3, true)]
+            public decimal VolDisp { get; set; }
+
+            /// <summary>
+            /// Volume total das saídas (em litros)
+            /// </summary>
+            [SpedCampos(6, "VOL_SAIDAS", "N", 0, 3, true)]
+            public decimal VolSaidas { get; set; }
+
+            /// <summary>
+            /// Estoque escritural (em litros)
+            /// </summary>
+            [SpedCampos(7, "ESTQ_ESCR", "N", 0, 3, true)]
+            public decimal EstqEscr { get; set; }
+
+            /// <summary>
+            /// Valor da perda (em litros)
+            /// </summary>
+            [SpedCampos(8, "VAL_AJ_PERDA", "N", 0, 3, true)]
+            public decimal ValAjPerda { get; set; }
+
+            /// <summary>
+            /// Valor do ganho (em litros)
+            /// </summary>
+            [SpedCampos(9, "VAL_AJ_GANHO", "N", 0, 3, true)]
+            public decimal VlAjGanho { get; set; }
+
+            /// <summary>
+            /// Volume aferido no tanque, em litros. Estoque de fechamento físico do tanque
+            /// </summary>
+            [SpedCampos(10, "FECH_FISICO", "N", 0, 3, true)]
+            public decimal FechFisico { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO 1320: VOLUME DE VENDAS
+        /// </summary>
+        public class Registro1320 : RegistroBaseSped
+        {
+            public Registro1320()
+            {
+                Reg = "1320";
+            }
+
+            /// <summary>
+            /// Bico ligado à bomba
+            /// </summary>
+            [SpedCampos(2, "NUM_BICO", "N", 0, 0, true)]
+            public long NumBico { get; set; }
+
+            /// <summary>
+            /// Número da intervenção
+            /// </summary>
+            [SpedCampos(3, "NR_INTERV", "N", 0, 0, false)]
+            public long? NrInterv { get; set; }
+
+            /// <summary>
+            /// Motivo da intervenção
+            /// </summary>
+            [SpedCampos(4, "MOT_INTERV", "C", 50, 0, false)]
+            public string MotInterv { get; set; }
+
+            /// <summary>
+            /// Nome do interventor
+            /// </summary>
+            [SpedCampos(5, "NOM_INTERV", "C", 30, 0, false)]
+            public string NomInterv { get; set; }
+
+            /// <summary>
+            /// CNPJ da empresa responsável pela intervenção
+            /// </summary>
+            [SpedCampos(6, "CNPJ_INTERV", "N", 14, 0, false)]
+            public string CnpjInterv { get; set; }
+
+            /// <summary>
+            /// CPF do técnico responsável pela intervenção
+            /// </summary>
+            [SpedCampos(7, "CPF_INTERV", "N", 11, 0, false)]
+            public string CpfInterv { get; set; }
+
+            /// <summary>
+            /// Valor da leitura final do contador, no fechamento do bico
+            /// </summary>
+            [SpedCampos(8, "VAL_FECHA", "N", 0, 3, true)]
+            public decimal ValFecha { get; set; }
+
+            /// <summary>
+            /// Valor da leitura inicial do contador, na abertura do bico
+            /// </summary>
+            [SpedCampos(9, "VAL_ABERT", "N", 0, 3, true)]
+            public decimal ValAbert { get; set; }
+
+            /// <summary>
+            /// Aferições da bomba (em litros)
+            /// </summary>
+            [SpedCampos(10, "VOL_AFERI", "N", 0, 3, false)]
+            public decimal VolAferi { get; set; }
+
+            /// <summary>
+            /// Vendas do bico (em litros)
+            /// </summary>
+            [SpedCampos(11, "VOL_VENDAS", "N", 0, 3, true)]
+            public decimal VolVendas { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO 1350: BOMBAS
+        /// </summary>
+        public class Registro1350 : RegistroBaseSped
+        {
+            public Registro1350()
+            {
+                Reg = "1350";
+            }
+
+            /// <summary>
+            /// Número de série da bomba
+            /// </summary>
+            [SpedCampos(2, "SERIE", "C", 0, 0, true)]
+            public string Serie { get; set; }
+
+            /// <summary>
+            /// Nome do fabricante da bomba
+            /// </summary>
+            [SpedCampos(3, "FABRICANTE", "C", 60, 0, true)]
+            public string Fabricante { get; set; }
+
+            /// <summary>
+            /// Modelo da bomba
+            /// </summary>
+            [SpedCampos(4, "MODELO", "C", 0, 0, true)]
+            public string Modelo { get; set; }
+
+            /// <summary>
+            /// Identificador de medição: 0 - analógico; 1 - digital
+            /// </summary>
+            [SpedCampos(5, "TIPO_MEDICAO", "C", 1, 0, true)]
+            public string TipoMedicao { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO 1360: LACRES DA BOMBA
+        /// </summary>
+        public class Registro1360 : RegistroBaseSped
+        {
+            public Registro1360()
+            {
+                Reg = "1360";
+            }
+
+            /// <summary>
+            /// Número do lacre associado na bomba
+            /// </summary>
+            [SpedCampos(2, "NUM_LACRE", "C", 20, 0, true)]
+            public string NumLacre { get; set; }
+
+            /// <summary>
+            /// Data de aplicação do lacre
+            /// </summary>
+            [SpedCampos(3, "DT_APLICACAO", "N", 8, 0, true)]
+            public DateTime DtAplicacao { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO 1370: BICOS DA BOMBA
+        /// </summary>
+        public class Registro1370 : RegistroBaseSped
+        {
+            public Registro1370()
+            {
+                Reg = "1370";
+            }
+
+            /// <summary>
+            /// Número sequencial do bico ligado a bomba
+            /// </summary>
+            [SpedCampos(2, "NUM_BICO", "N", 3, 0, true)]
+            public int NumBico { get; set; }
+
+            /// <summary>
+            /// Código do produto
+            /// </summary>
+            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            /// Tanque que armazena o combustível
+            /// </summary>
+            [SpedCampos(4, "NUM_TANQUE", "C", 3, 0, true)]
+            public string NumTanque { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO 1390: CONTROLE DE PRODUÇÃO DE USINA
+        /// </summary>
+        public class Registro1390 : RegistroBaseSped
+        {
+            public Registro1390()
+            {
+                Reg = "1390";
+            }
+
+            /// <summary>
+            /// 01 - Alc. Etil. Hidratado Carburante; 02 - Alc. Etil. Anidro Carburante; 03 - Açúcar
+            /// </summary>
+            [SpedCampos(2, "COD_PROD", "N", 2, 0, true)]
+            public int CodProd { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO 1391: PRODUÇÃO DIÁRIA DA USINA
+        /// </summary>
+        public class Registro1391 : RegistroBaseSped
+        {
+            public Registro1391()
+            {
+                Reg = "1391";
+            }
+
+            /// <summary>
+            /// Data de produção
+            /// </summary>
+            [SpedCampos(2, "DT_REGISTRO", "C", 8, 0, true)]
+            public DateTime DtRegistro { get; set; }
+
+            /// <summary>
+            /// Quantidade de cana esmagada (toneladas)
+            /// </summary>
+            [SpedCampos(3, "QTD_MOID", "N", 0, 2, false)]
+            public double? QtdMoid { get; set; }
+
+            /// <summary>
+            /// Estoque inicial (litros / Kg)
+            /// </summary>
+            [SpedCampos(4, "ESTQ_INI", "N", 0, 2, true)]
+            public double EstqIni { get; set; }
+
+            /// <summary>
+            /// Quantidade produziada (litros / Kg)
+            /// </summary>
+            [SpedCampos(5, "QTD_PRODUZ", "N", 0, 2, false)]
+            public double? QtdProduz { get; set; }
+
+            /// <summary>
+            /// Entrada de álcool anidro/hidratado decorrente da transformação do álcool hidratado/anidro
+            /// </summary>
+            [SpedCampos(6, "ENT_ANID_HID", "N", 0, 2, false)]
+            public double? EntAnidHid { get; set; }
+
+            /// <summary>
+            /// Outras entradas (litros / Kg)
+            /// </summary>
+            [SpedCampos(7, "OUTR_ENTR", "N", 0, 2, false)]
+            public double? OutrEntr { get; set; }
+
+            /// <summary>
+            /// Evaporação (litros) ou quebra de peso (Kg)
+            /// </summary>
+            [SpedCampos(8, "PERDA", "N", 0, 2, false)]
+            public double? Perda { get; set; }
+
+            /// <summary>
+            /// Consumo (litros)
+            /// </summary>
+            [SpedCampos(9, "CONS", "N", 0, 2, false)]
+            public double? Cons { get; set; }
+
+            /// <summary>
+            /// Saída para transformação (litros)
+            /// </summary>
+            [SpedCampos(10, "SAI_ANI_HID", "N", 0, 2, false)]
+            public double? SaiAniHid { get; set; }
+
+            /// <summary>
+            /// Saídas (litros / Kg)
+            /// </summary>
+            [SpedCampos(11, "SAIDAS", "N", 0, 2, false)]
+            public double? Saidas { get; set; }
+
+            /// <summary>
+            /// Estoque final (litros / Kg)
+            /// </summary>
+            [SpedCampos(12, "ESTQ_FIN", "N", 0, 2, true)]
+            public double EstqFin { get; set; }
+
+            /// <summary>
+            /// Estoque inicial de mel residual (Kg)
+            /// </summary>
+            [SpedCampos(13, "ESTQ_INI_MEL", "N", 0, 2, false)]
+            public double? EstqIniMel { get; set; }
+
+            /// <summary>
+            /// Produção de mel residual (Kg) e entradas de mel (Kg)
+            /// </summary>
+            [SpedCampos(14, "PROD_DIA_MEL", "N", 0, 2, false)]
+            public double? ProdDiaMel { get; set; }
+
+            /// <summary>
+            /// Mel residual utilizado (Kg) e saídas de mel (Kg)
+            /// </summary>
+            [SpedCampos(15, "UTIL_MEL", "N", 0, 2, false)]
+            public double? UtilMel { get; set; }
+
+            /// <summary>
+            /// Produção de álcool (litros) ou açúcar (Kg) proveniente do mel residual
+            /// </summary>
+            [SpedCampos(16, "PROD_ALC_MEL", "N", 0, 2, false)]
+            public double? ProdAlcMel { get; set; }
+
+            /// <summary>
+            /// Observações
+            /// </summary>
+            [SpedCampos(17, "OBS", "C", 0, 0, false)]
+            public string Obs { get; set; }
+        }
+
+        /// <summary>
         /// REGISTRO 1990: ENCERRAMENTO DO BLOCO 1
         /// </summary>
         public class Registro1990 : RegistroBaseSped
