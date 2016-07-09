@@ -6,6 +6,7 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2015 - para gera
 
 - [Declarações] (#declaracoes)
 - [Exemplos](#exemplos)
+- [Screenshots](#screenshots)
 - [Dúvidas?](#dúvidas)
 
 ##Declarações
@@ -55,6 +56,11 @@ foreach (var objContrato in listaContratos) {
   totalLinhasF200++;
 }
 ```
+
+##Screenshots
+
+######Tela inicial
+![](https://github.com/samuelroliveira/SPEDBr/blob/master/capture_1.PNG)
 
 ##Dúvidas?
 
