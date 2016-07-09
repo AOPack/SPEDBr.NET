@@ -7,7 +7,8 @@ namespace SpedBr.AppTeste.Utils
     {
         public enum TipoMensagem
         {
-            Cancelamento,
+            Cancelado,
+            Erro,
             Sucesso,
         }
 
@@ -20,8 +21,11 @@ namespace SpedBr.AppTeste.Utils
         {
             switch (tipoMensagem)
             {
-                case TipoMensagem.Cancelamento:
+                case TipoMensagem.Cancelado:
                     MessageBox.Show(texto, @":| Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                case TipoMensagem.Erro:
+                    MessageBox.Show(texto, @":( Falha", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case TipoMensagem.Sucesso:
                     MessageBox.Show(texto, @":) Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);

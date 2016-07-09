@@ -34,7 +34,7 @@
             this.lblLinkGitHub = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.lblLinkIconPack = new System.Windows.Forms.LinkLabel();
-            this.ucNotasAtualizacao1 = new SpedBr.AppTeste.ucNotasAtualizacao();
+            this.ucNotasAtualizacao1 = new ucNotasAtualizacao();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 

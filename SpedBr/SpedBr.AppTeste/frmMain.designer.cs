@@ -30,7 +30,7 @@
         {
             this.toolStripStatusLabelRodape = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStripRodape = new System.Windows.Forms.StatusStrip();
-            this.ucLeftPanel1 = new SpedBr.AppTeste.ucLeftPanel();
+            this.ucLeftPanel1 = new ucLeftPanel();
             this.statusStripRodape.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,8 +63,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 561);
+            this.ControlBox = false;
             this.Controls.Add(this.statusStripRodape);
             this.Controls.Add(this.ucLeftPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmMain";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
