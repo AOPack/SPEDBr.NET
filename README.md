@@ -28,7 +28,7 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2015 - para gera
 - [ ] DIPJ
 - [ ] DIRF
 - [ ] GFIP/SEFIP
-- [ ] SINTEGRA
+- [ ] SINTEGRA (movido p/ outro projeto) -> [SintegraBr] (https://github.com/samuelroliveira/SINTEGRABr)
 
 ##Exemplos
 
