@@ -70,6 +70,6 @@ Abra um issue na página do projeto no GitHub ou [clique aqui] (https://github.c
 ##Colaboradores
 
 AutoCom - Microplan Automação Comercial Ltda - MG
-Eduardo Moreira
-Bruno Novaes - (33) 3331-5808
-Whashington Reis
+- Eduardo Moreira
+- Bruno Novaes - (33) 3331-5808
+- Whashington Reis
