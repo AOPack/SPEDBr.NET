@@ -8,6 +8,7 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2015 - para gera
 - [Exemplos](#exemplos)
 - [Screenshots](#screenshots)
 - [Dúvidas?](#dúvidas)
+- [Colaboradores](#colaboradores)
 
 ##Declarações
 
@@ -65,3 +66,10 @@ foreach (var objContrato in listaContratos) {
 ##Dúvidas?
 
 Abra um issue na página do projeto no GitHub ou [clique aqui] (https://github.com/samuelroliveira/SPEDBr/issues).
+
+##Colaboradores
+
+AutoCom - Microplan Automação Comercial Ltda - MG
+Eduardo Moreira
+Bruno Novaes - (33) 3331-5808
+Whashington Reis
