@@ -6,7 +6,9 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2015 - para gera
 
 - [Declarações] (#declaracoes)
 - [Exemplos](#exemplos)
+- [Screenshots](#screenshots)
 - [Dúvidas?](#dúvidas)
+- [Colaboradores](#colaboradores)
 
 ##Declarações
 
@@ -27,7 +29,7 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2015 - para gera
 - [ ] DIPJ
 - [ ] DIRF
 - [ ] GFIP/SEFIP
-- [ ] SINTEGRA
+- [ ] SINTEGRA (movido p/ outro projeto) -> [SintegraBr] (https://github.com/samuelroliveira/SINTEGRABr)
 
 ##Exemplos
 
@@ -56,6 +58,18 @@ foreach (var objContrato in listaContratos) {
 }
 ```
 
+##Screenshots
+
+######Tela inicial
+![](https://github.com/samuelroliveira/SPEDBr/blob/master/capture_1.PNG)
+
 ##Dúvidas?
 
 Abra um issue na página do projeto no GitHub ou [clique aqui] (https://github.com/samuelroliveira/SPEDBr/issues).
+
+##Colaboradores
+
+AutoCom - Microplan Automação Comercial Ltda - MG
+- Eduardo Moreira
+- Bruno Novaes - (33) 3331-5808
+- Whashington Reis
