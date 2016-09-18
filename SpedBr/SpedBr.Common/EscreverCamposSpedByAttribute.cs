@@ -84,9 +84,12 @@ namespace SpedBr.Common
                             ? propertyValueToStringSafe.Length
                             : 0;
 
+
                         // Verificação necessária p/ ajustes no tamanho de campos como CSTs e Indicadores. Ex.: CST PIS '1' -> Deve estar no arquivo como '01'.
                         var isCodeOrNumberAndHasLength = (spedCampoAttr.Tipo == "C" || spedCampoAttr.Tipo == "N") &&
                                                          (spedCampoAttr.Tamanho > 0 && spedCampoAttr.Tamanho <= 10);
+
+                        var isHour = spedCampoAttr.Tipo == "H";
 
                         if (isRequired && !hasValue)
                             throw new Exception(
@@ -114,6 +117,8 @@ namespace SpedBr.Common
                                 sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("ddMMyyyy"));
                             else if (isNullableDateTime && hasValue)
                                 sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("ddMMyyyy"));
+                            else if ((isDateTime && hasValue) && isHour)
+                                sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("hhmmss"));
                             else if (isCodeOrNumberAndHasLength && hasValue)
                                 sb.Append(propertyValue.ToString().PadLeft(spedCampoAttr.Tamanho, '0'));
                             else

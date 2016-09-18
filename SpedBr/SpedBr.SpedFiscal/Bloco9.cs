@@ -12,6 +12,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro9001 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro9001"/>.
+            /// </summary>
             public Registro9001()
             {
                 Reg = "9001";
@@ -29,6 +32,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro9900 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro9900"/>.
+            /// </summary>
             public Registro9900()
             {
                 Reg = "9900";
@@ -52,6 +58,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro9990 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro9990"/>.
+            /// </summary>
             public Registro9990()
             {
                 Reg = "9990";
@@ -69,6 +78,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro9999 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro9999"/>.
+            /// </summary>
             public Registro9999()
             {
                 Reg = "9999";

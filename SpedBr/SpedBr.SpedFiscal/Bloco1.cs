@@ -13,6 +13,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro1001 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1001"/>.
+            /// </summary>
             public Registro1001()
             {
                 Reg = "1001";
@@ -30,6 +33,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro1010 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1010"/>.
+            /// </summary>
             public Registro1010()
             {
                 Reg = "1010";
@@ -95,6 +101,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro1100 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1100"/>.
+            /// </summary>
             public Registro1100()
             {
                 Reg = "1100";
@@ -172,6 +181,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro1105 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1105"/>.
+            /// </summary>
             public Registro1105()
             {
                 Reg = "1105";
@@ -214,8 +226,14 @@ namespace SpedBr.SpedFiscal
             public string CodItem { get; set; }
         }
 
+        /// <summary>
+        /// REGISTRO 1110: OPERAÇÕES DE EXPORTAÇÃO INDIRETA - MERCADORIAS DE TERCEIROS
+        /// </summary>
         public class Registro1110 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1110"/>.
+            /// </summary>
             public Registro1110()
             {
                 Reg = "1110";
@@ -281,6 +299,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro1200 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1200"/>.
+            /// </summary>
             public Registro1200()
             {
                 Reg = "1200";
@@ -328,6 +349,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro1210 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1210"/>.
+            /// </summary>
             public Registro1210()
             {
                 Reg = "1210";
@@ -357,6 +381,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro1300 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1300"/>.
+            /// </summary>
             public Registro1300()
             {
                 Reg = "1300";
@@ -428,6 +455,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro1310 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1310"/>.
+            /// </summary>
             public Registro1310()
             {
                 Reg = "1310";
@@ -493,6 +523,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro1320 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1320"/>.
+            /// </summary>
             public Registro1320()
             {
                 Reg = "1320";
@@ -564,6 +597,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro1350 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1350"/>.
+            /// </summary>
             public Registro1350()
             {
                 Reg = "1350";
@@ -599,6 +635,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro1360 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1360"/>.
+            /// </summary>
             public Registro1360()
             {
                 Reg = "1360";
@@ -622,6 +661,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro1370 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1370"/>.
+            /// </summary>
             public Registro1370()
             {
                 Reg = "1370";
@@ -651,6 +693,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro1390 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1390"/>.
+            /// </summary>
             public Registro1390()
             {
                 Reg = "1390";
@@ -668,6 +713,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro1391 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1391"/>.
+            /// </summary>
             public Registro1391()
             {
                 Reg = "1391";
@@ -771,10 +819,45 @@ namespace SpedBr.SpedFiscal
         }
 
         /// <summary>
+        /// REGISTRO 1400: INFORMAÇÃO SOBRE VALORES AGREGADOS
+        /// </summary>
+        public class Registro1400 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1400"/>.
+            /// </summary>
+            public Registro1400()
+            {
+                Reg = "1400";
+            }
+
+            /// <summary>
+            /// Código do item - próprio IPM ou campo 02 do Registro 0200
+            /// </summary>
+            [SpedCampos(2, "COD_ITEM_IPM", "C", 60, 0, true)]
+            public string CodItemIpm { get; set; }
+
+            /// <summary>
+            /// Código IBGE do Município de origem/destino
+            /// </summary>
+            [SpedCampos(3, "MUN", "N", 7, 0, true)]
+            public string Mun { get; set; }
+
+            /// <summary>
+            /// Valor mensal correspondente ao município
+            /// </summary>
+            [SpedCampos(4, "VALOR", "N", 0, 2, true)]
+            public decimal Valor { get; set; }
+        }
+
+        /// <summary>
         /// REGISTRO 1990: ENCERRAMENTO DO BLOCO 1
         /// </summary>
         public class Registro1990 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1990"/>.
+            /// </summary>
             public Registro1990()
             {
                 Reg = "1990";

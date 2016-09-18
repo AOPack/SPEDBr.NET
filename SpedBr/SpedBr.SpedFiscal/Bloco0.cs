@@ -13,6 +13,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro0000 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0000"/>.
+            /// </summary>
             public Registro0000()
             {
                 Reg = "0000";
@@ -115,6 +118,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro0001 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0001"/>.
+            /// </summary>
             public Registro0001()
             {
                 Reg = "0001";
@@ -132,6 +138,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro0005 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0005"/>.
+            /// </summary>
             public Registro0005()
             {
                 Reg = "0005";
@@ -197,6 +206,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro0015 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0015"/>.
+            /// </summary>
             public Registro0015()
             {
                 Reg = "0015";
@@ -220,6 +232,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro0100 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0100"/>.
+            /// </summary>
             public Registro0100()
             {
                 Reg = "0100";
@@ -309,6 +324,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro0150 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0150"/>.
+            /// </summary>
             public Registro0150()
             {
                 Reg = "0150";
@@ -392,6 +410,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro0175 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0175"/>.
+            /// </summary>
             public Registro0175()
             {
                 Reg = "0175";
@@ -421,6 +442,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro0190 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0190"/>.
+            /// </summary>
             public Registro0190()
             {
                 Reg = "0190";
@@ -444,6 +468,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro0200 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0200"/>.
+            /// </summary>
             public Registro0200()
             {
                 Reg = "0200";
@@ -522,6 +549,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro0205 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0205"/>.
+            /// </summary>
             public Registro0205()
             {
                 Reg = "0205";
@@ -557,6 +587,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro0206 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0206"/>.
+            /// </summary>
             public Registro0206()
             {
                 Reg = "0206";
@@ -574,6 +607,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro0210 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0210"/>.
+            /// </summary>
             public Registro0210()
             {
                 Reg = "0210";
@@ -603,6 +639,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro0220 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0220"/>.
+            /// </summary>
             public Registro0220()
             {
                 Reg = "0220";
@@ -626,6 +665,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro0300 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0300"/>.
+            /// </summary>
             public Registro0300()
             {
                 Reg = "0300";
@@ -679,6 +721,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro0305 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0305"/>.
+            /// </summary>
             public Registro0305()
             {
                 Reg = "0305";
@@ -709,6 +754,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro0400 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0400"/>.
+            /// </summary>
             public Registro0400()
             {
                 Reg = "0400";
@@ -732,6 +780,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro0450 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0450"/>.
+            /// </summary>
             public Registro0450()
             {
                 Reg = "0450";
@@ -759,6 +810,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro0460 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0460"/>.
+            /// </summary>
             public Registro0460()
             {
                 Reg = "0460";
@@ -782,6 +836,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro0500 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0500"/>.
+            /// </summary>
             public Registro0500()
             {
                 Reg = "0500";
@@ -835,6 +892,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro0600 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0600"/>.
+            /// </summary>
             public Registro0600()
             {
                 Reg = "0600";
@@ -864,6 +924,9 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class Registro0990 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0990"/>.
+            /// </summary>
             public Registro0990()
             {
                 Reg = "0990";

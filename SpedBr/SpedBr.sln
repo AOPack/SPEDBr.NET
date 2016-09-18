@@ -15,14 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpedBr.Tests", "SpedBr.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpedBr.Outros.Dimob", "SpedBr.Outros.Dimob\SpedBr.Outros.Dimob.csproj", "{4FDC2844-555D-441B-AB2E-F777283B3F2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpedBr.Outros.Sintegra", "SpedBr.Outros.Sintegra\SpedBr.Outros.Sintegra.csproj", "{6251690B-A0A0-45D1-8DE0-5BFB593179B7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpedBr.Ecf", "SpedBr.Ecf\SpedBr.Ecf.csproj", "{2F29E939-0178-4475-A8C5-A0684B00480A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Screenshots", "Screenshots", "{6599715C-4BB5-48C8-8AA5-22CB72F3C675}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\Desktop\capture_1.PNG = ..\..\..\..\Desktop\capture_1.PNG
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,10 +47,6 @@ Global
 		{4FDC2844-555D-441B-AB2E-F777283B3F2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FDC2844-555D-441B-AB2E-F777283B3F2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FDC2844-555D-441B-AB2E-F777283B3F2C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6251690B-A0A0-45D1-8DE0-5BFB593179B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6251690B-A0A0-45D1-8DE0-5BFB593179B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6251690B-A0A0-45D1-8DE0-5BFB593179B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6251690B-A0A0-45D1-8DE0-5BFB593179B7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2F29E939-0178-4475-A8C5-A0684B00480A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2F29E939-0178-4475-A8C5-A0684B00480A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F29E939-0178-4475-A8C5-A0684B00480A}.Release|Any CPU.ActiveCfg = Release|Any CPU
