@@ -1984,6 +1984,451 @@ namespace SpedBr.SpedFiscal
             public decimal VlIcmsSt { get; set; }
         }
 
+        /// <summary>
+        /// REGISTRO C500: NOTA FISCAL/CONTA DE ENERGIA ELÉTRICA (CÓDIGO 06),
+        /// NOTA FISCAL/CONTA DE FORNECIMENTO D'ÁGUA CANALIZADA (CÓDIGO 29) E
+        /// NOTA FISCAL CONSUMO FORNECIMENTO DE GÁS (CÓDIGO 28)
+        /// </summary>
+        public class RegistroC500 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="RegistroC500"/>.
+            /// </summary>
+            public RegistroC500()
+            {
+                Reg = "C500";
+            }
+
+            /// <summary>
+            /// Indicador do tipo de operação
+            /// </summary>
+            /// <remarks>
+            /// 0 - Entrada<para />
+            /// 1 - Saída
+            /// </remarks>
+            [SpedCampos(2, "IND_OPER", "C", 1, 0, true)]
+            public int IndOper { get; set; }
+
+            /// <summary>
+            /// Indicador do emitente do documento fiscal
+            /// </summary>
+            /// <remarks>
+            /// 0 - Emissão própria<para />
+            /// 1 - Terceiros
+            /// </remarks>
+            [SpedCampos(3, "IND_EMIT", "C", 1, 0, true)]
+            public int IndEmit { get; set; }
+
+            /// <summary>
+            /// Código do participante
+            /// </summary>
+            /// <remarks>
+            /// - do adquirente, no caso das saídas<para />
+            /// - do fornecedor no caso de entradas
+            /// </remarks>
+            [SpedCampos(4, "COD_PART", "C", 60, 0, true)]
+            public string CodPart { get; set; }
+
+            /// <summary>
+            /// Código do modelo do documento fiscal
+            /// </summary>
+            [SpedCampos(5, "COD_MOD", "C", 2, 0, true)]
+            public string CodMod { get; set; }
+
+            /// <summary>
+            /// Código da situação do documento fiscal
+            /// </summary>
+            [SpedCampos(6, "COD_SIT", "N", 2, 0, true)]
+            public int CodSit { get; set; }
+
+            /// <summary>
+            /// Série do documento fiscal
+            /// </summary>
+            [SpedCampos(7, "SER", "C", 4, 0, false)]
+            public string Ser { get; set; }
+
+            /// <summary>
+            /// Subsérie do documento fiscal
+            /// </summary>
+            [SpedCampos(8, "SUB", "N", 3, 0, false)]
+            public string Sub { get; set; }
+
+            /// <summary>
+            /// Código de classe de consumo de energia elétrica ou gás
+            /// </summary>
+            /// <remarks>
+            /// 01 - Comercial<para />
+            /// 02 - Consumo Próprio<para />
+            /// 03 - Iluminação Pública<para />
+            /// 04 - Industrial<para />
+            /// 05 - Poder Público<para />
+            /// 06 - Residencial<para />
+            /// 07 - Rural<para />
+            /// 08 - Serviço Público<para />
+            /// - Código de classe de consumo de fornecimento d'água
+            /// </remarks>
+            [SpedCampos(9, "COD_CONS", "C", 2, 0, true)]
+            public int CodCons { get; set; }
+
+            /// <summary>
+            /// Número do documento fiscal
+            /// </summary>
+            [SpedCampos(10, "NUM_DOC", "N", 9, 0, true)]
+            public double NumDoc { get; set; }
+
+            /// <summary>
+            /// Data da emissão do documento fiscal
+            /// </summary>
+            [SpedCampos(11, "DT_DOC", "N", 8, 0, true)]
+            public DateTime DtDoc { get; set; }
+
+            /// <summary>
+            /// Data da entrada ou da saída
+            /// </summary>
+            [SpedCampos(12, "DT_E_S", "N", 8, 0, true)]
+            public DateTime DtEs { get; set; }
+
+            /// <summary>
+            /// Valor total do documento fiscal
+            /// </summary>
+            [SpedCampos(13, "VL_DOC", "N", 0, 2, true)]
+            public decimal VlDoc { get; set; }
+
+            /// <summary>
+            /// Valor total do desconto
+            /// </summary>
+            [SpedCampos(14, "VL_DESC", "N", 0, 2, false)]
+            public decimal VlDesc { get; set; }
+
+            /// <summary>
+            /// Valor total fornecido/consumido
+            /// </summary>
+            [SpedCampos(15, "VL_FORN", "N", 0, 2, true)]
+            public decimal VlForn { get; set; }
+
+            /// <summary>
+            /// Valor total dos serviços não-tributados pelo ICMS
+            /// </summary>
+            [SpedCampos(16, "VL_SERV_NT", "N", 0, 2, false)]
+            public decimal VlServNt { get; set; }
+
+            /// <summary>
+            /// Valor total cobrado em nome de terceiros
+            /// </summary>
+            [SpedCampos(17, "VL_TERC", "N", 0, 2, false)]
+            public decimal VlTerc { get; set; }
+
+            /// <summary>
+            /// Valor total das despesas acessórias indicadas no documento fiscal
+            /// </summary>
+            [SpedCampos(18, "VL_DA", "N", 0, 2, false)]
+            public decimal VlDa { get; set; }
+
+            /// <summary>
+            /// Valor acumulado da base de cálculo do ICMS
+            /// </summary>
+            [SpedCampos(19, "VL_BC_ICMS", "N", 0, 2, false)]
+            public decimal VlBcIcms { get; set; }
+
+            /// <summary>
+            /// Valor acumulado do ICMS
+            /// </summary>
+            [SpedCampos(20, "VL_ICMS", "N", 0, 2, false)]
+            public decimal VlIcms { get; set; }
+
+            /// <summary>
+            /// Valor acumulado da base de cálculo do ICMS substituição tributária
+            /// </summary>
+            [SpedCampos(21, "VL_BC_ICMS_ST", "N", 0, 2, false)]
+            public decimal VlBcIcmsSt { get; set; }
+
+            /// <summary>
+            /// Valor acumulado do ICMS retido por substituição tributária
+            /// </summary>
+            [SpedCampos(22, "VL_ICMS_ST", "N", 0, 2, false)]
+            public decimal VlIcmsSt { get; set; }
+
+            /// <summary>
+            /// Código da informação complementar do documento fiscal
+            /// </summary>
+            [SpedCampos(23, "COD_INF", "C", 6, 0, false)]
+            public string CodInf { get; set; }
+
+            /// <summary>
+            /// Valor do PIS
+            /// </summary>
+            [SpedCampos(24, "VL_PIS", "N", 0, 2, false)]
+            public decimal VlPis { get; set; }
+
+            /// <summary>
+            /// Valor da COFINS
+            /// </summary>
+            [SpedCampos(25, "VL_COFINS", "N", 0, 2, false)]
+            public decimal VlCofins { get; set; }
+
+            /// <summary>
+            /// Código do tipo de ligação
+            /// </summary>
+            /// <remarks>
+            /// 1 - Monofásico<para />
+            /// 2 - Bifásico<para />
+            /// 3 - Trifásico
+            /// </remarks>
+            [SpedCampos(26, "TP_LIGACAO", "N", 1, 0, false)]
+            public int TpLigacao { get; set; }
+
+            /// <summary>
+            /// Código do grupo de tensão
+            /// </summary>
+            /// <remarks>
+            /// 01 - A1 - Alta tensão (230kV ou mais)<para />
+            /// 02 - A2 - Alta tensão (88 a 138kV)<para />
+            /// 03 - A3 - Alta tensão (69kV)<para />
+            /// 04 - A3a - Alta tensão (30kV a 44kV)<para />
+            /// 05 - A4 - Alta tensão (2,3kV a 25kV)<para />
+            /// 06 - AS - Alta tensão subterrâneo
+            /// 07 - B1 - Residencial
+            /// 08 - B1 - Residencial baixa renda
+            /// 09 - B2 - Rural
+            /// 10 - B2 - Cooperativa de eletrificação rural
+            /// 11 - B2 - Serviço público de irrigação
+            /// 12 - B3 - Demais classes
+            /// 13 - B4a - Iluminação pública - rede de distribuição
+            /// 14 - B4b - Iluminação pública - bulbo de lâmpada
+            /// </remarks>
+            [SpedCampos(27, "COD_GRUPO_TENSAO", "C", 2, 0, false)]
+            public int CodGrupoTensao { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO C510: ITENS DO DOCUMENTO NOTA FISCAL/CONTA ENERGIA ELÉTRICA (CÓDIGO 06),
+        /// NOTA FISCAL/CONTA DE FORNECIMENTO D'ÁGUA CANALIZADA (CÓDIGO 29) E NOTA FISCAL/CONTA
+        /// DE FORNECIMENTO DE GÁS (CÓDIGO 28)
+        /// </summary>
+        public class RegistroC510 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="RegistroC510"/>.
+            /// </summary>
+            public RegistroC510()
+            {
+                Reg = "C510";
+            }
+
+            /// <summary>
+            /// Número sequencial do item no documento fiscal
+            /// </summary>
+            [SpedCampos(2, "NUM_ITEM", "N", 3, 0, true)]
+            public int NumItem { get; set; }
+
+            /// <summary>
+            /// Código do item
+            /// </summary>
+            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            /// Código de classificação do item de energia elétrica
+            /// </summary>
+            [SpedCampos(4, "COD_CLASS", "N", 4, 0, false)]
+            public int CodClass { get; set; }
+
+            /// <summary>
+            /// Quantidade do item
+            /// </summary>
+            [SpedCampos(5, "QTD", "N", 0, 3, false)]
+            public decimal Qtd { get; set; }
+
+            /// <summary>
+            /// Unidade do item
+            /// </summary>
+            [SpedCampos(6, "UNID", "C", 6, 0, false)]
+            public string Unid { get; set; }
+
+            /// <summary>
+            /// Valor do item
+            /// </summary>
+            [SpedCampos(7, "VL_ITEM", "N", 0, 2, true)]
+            public decimal VlItem { get; set; }
+
+            /// <summary>
+            /// Valor total do desconto
+            /// </summary>
+            [SpedCampos(8, "VL_DESC", "N", 0, 2, false)]
+            public decimal VlDesc { get; set; }
+
+            /// <summary>
+            /// Código da situação tributária
+            /// </summary>
+            [SpedCampos(9, "CST_ICMS", "N", 3, 0, true)]
+            public int CstIcms { get; set; }
+
+            /// <summary>
+            /// Código fiscal de operação e prestação
+            /// </summary>
+            [SpedCampos(10, "CFOP", "N", 4, 0, true)]
+            public int Cfop { get; set; }
+
+            /// <summary>
+            /// Valor da base de cálculo do ICMS
+            /// </summary>
+            [SpedCampos(11, "VL_BC_ICMS", "N", 0, 2, false)]
+            public decimal VlBcIcms { get; set; }
+
+            /// <summary>
+            /// Alíquota do ICMS
+            /// </summary>
+            [SpedCampos(12, "ALIQ_ICMS", "N", 6, 2, false)]
+            public decimal AliqIcms { get; set; }
+
+            /// <summary>
+            /// Valor do ICMS creditado/debitado
+            /// </summary>
+            [SpedCampos(13, "VL_ICMS", "N", 0, 2, false)]
+            public decimal VlIcms { get; set; }
+
+            /// <summary>
+            /// Valor da base de cálculo referente à substituição tributária
+            /// </summary>
+            [SpedCampos(14, "VL_BC_ICMS_ST", "N", 0, 2, false)]
+            public decimal VlBcIcmsSt { get; set; }
+
+            /// <summary>
+            /// Alíquota do ICMS da substituição tributária na unidade da federação de destino
+            /// </summary>
+            [SpedCampos(15, "ALIQ_ST", "N", 6, 2, false)]
+            public decimal AliqSt { get; set; }
+
+            /// <summary>
+            /// Valor do ICMS referente à substituição tributária
+            /// </summary>
+            [SpedCampos(16, "VL_ICMS_ST", "N", 0, 2, false)]
+            public decimal VlIcmsSt { get; set; }
+
+            /// <summary>
+            /// Indicador do tipo de receita
+            /// </summary>
+            /// <remarks>
+            /// 0 - Receita própria<para />
+            /// 1 - Receita de terceiros
+            /// </remarks>
+            [SpedCampos(17, "IND_REC", "C", 1, 0, true)]
+            public int IndRec { get; set; }
+
+            /// <summary>
+            /// Código do participante receptor da receita
+            /// </summary>
+            [SpedCampos(18, "COD_PART", "C", 60, 0, false)]
+            public string CodPart { get; set; }
+
+            /// <summary>
+            /// Valor do PIS
+            /// </summary>
+            [SpedCampos(19, "VL_PIS", "N", 0, 2, false)]
+            public decimal VlPis { get; set; }
+
+            /// <summary>
+            /// Valor do COFINS
+            /// </summary>
+            [SpedCampos(20, "VL_COFINS", "N", 0, 2, false)]
+            public decimal VlCofins { get; set; }
+
+            /// <summary>
+            /// Código da conta analíica contábil debitada/creditada
+            /// </summary>
+            [SpedCampos(21, "COD_CTA", "C", 99, 0, false)]
+            public string CodCta { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO C590: REGISTRO ANALÍTICO DO DOCUMENTO - NOTA FISCAL/CONTA
+        /// DE ENERGIA ELÉTRICA (CÓDIGO 06), NOTA FISCAL/CONTA DE FORNECIMENTO
+        /// D'ÁGUA CANALIZADA (CÓDIGO 29) E NOTA FISCAL CONSUMO FORNECIMENTO DE
+        /// GÁS (CÓDIGO 28)
+        /// </summary>
+        public class RegistroC590 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="RegistroC590"/>.
+            /// </summary>
+            public RegistroC590()
+            {
+                Reg = "C590";
+            }
+
+            /// <summary>
+            /// Código da situação tributária
+            /// </summary>
+            [SpedCampos(2, "CST_ICMS", "N", 3, 0, true)]
+            public int CstIcms { get; set; }
+
+            /// <summary>
+            /// Código fiscal de operação e prestaçaõ do agrupamento de itens
+            /// </summary>
+            [SpedCampos(3, "CFOP", "N", 4, 0, true)]
+            public int Cfop { get; set; }
+
+            /// <summary>
+            /// Alíquota do ICMS
+            /// </summary>
+            [SpedCampos(4, "ALIQ_ICMS", "N", 6, 2, false)]
+            public decimal AliqIcms { get; set; }
+
+            /// <summary>
+            /// Valor da operação correspondete à combinação de
+            /// CST_ICMS, CFOP e alíquota do ICMS
+            /// </summary>
+            [SpedCampos(5, "VL_OPR", "N", 0, 2, true)]
+            public decimal VlOpr { get; set; }
+
+            /// <summary>
+            /// Parcela correspondente ao "Valor da base de cálculo
+            /// do ICMS" referente à combinação de CST_ICMS, CFOP e
+            /// alíquota do ICMS
+            /// </summary>
+            [SpedCampos(6, "VL_BC_ICMS", "N", 0, 2, true)]
+            public decimal VlBcIcms { get; set; }
+
+            /// <summary>
+            /// Parcela corresponde ao "Valor do ICMS" referente à
+            /// combinação de CST_ICMS, CFOP e alíquoa do ICMS
+            /// </summary>
+            [SpedCampos(7, "VL_ICMS", "N", 0, 2, true)]
+            public decimal VlIcms { get; set; }
+
+            /// <summary>
+            /// Parcela corresponde ao "Valor da base de cálculo do 
+            /// ICMS" da substituição tributária referente à combinação
+            /// de CST_ICMS, CFOP alíquota do ICMS.
+            /// </summary>
+            [SpedCampos(8, "VL_BC_ICMS_ST", "N", 0, 2, true)]
+            public decimal VlBcIcmsSt { get; set; }
+
+            /// <summary>
+            /// Parcela corresponde ao valor creditado/debitado do ICMS
+            /// da substituição tributária, referente à combinação de CST_ICMS,
+            /// CFOP e alíquota do ICMS
+            /// </summary>
+            [SpedCampos(9, "VL_ICMS_ST", "N", 0, 2, true)]
+            public decimal VlIcmsSt { get; set; }
+
+            /// <summary>
+            /// Valor não tributado em função da redução da base de cálculo do
+            /// ICMS, referente à combinação de CST_ICMS, CFOP e alíquota do ICMS
+            /// </summary>
+            [SpedCampos(10, "VL_RED_BC", "N", 0, 2, true)]
+            public decimal VlRedBc { get; set; }
+
+            /// <summary>
+            /// Código da observação do lançamento fiscal
+            /// </summary>
+            [SpedCampos(11, "COD_OBS", "C", 6, 0, false)]
+            public string CodObs { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO C990: ENCERRAMENTO DO BLOCO C
+        /// </summary>
         public class RegistroC990 : RegistroBaseSped
         {
             /// <summary>
@@ -1994,6 +2439,9 @@ namespace SpedBr.SpedFiscal
                 Reg = "C990";
             }
 
+            /// <summary>
+            /// Quantidade total de linhas do Bloco C
+            /// </summary>
             [SpedCampos(3, "QTD_LIN_C", "N", 0, 0, true)]
             public int QtdLinC { get; set; }
         }
