@@ -851,6 +851,38 @@ namespace SpedBr.SpedFiscal
         }
 
         /// <summary>
+        /// REGISTRO 1600: TOTAL DAS OPERAÇÕES COM CARTÃO DE CRÉDITO E/OU DÉBITO
+        /// </summary>
+        public class Registro1600 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1600"/>.
+            /// </summary>
+            public Registro1600()
+            {
+                Reg = "1600";
+            }
+
+            /// <summary>
+            /// Código do participante (campo 02 do Registro 0150): identificação da administradora do cartão de débito/crédito
+            /// </summary>
+            [SpedCampos(2, "COD_PART", "C", 60, 0, true)]
+            public int CodPart { get; set; }
+
+            /// <summary>
+            /// Valor total das operações realizadas no período referente a Cartão de Crédito 
+            /// </summary>
+            [SpedCampos(3, "TOT_CREDITO", "N", 0, 2, true)]
+            public int TotCredito { get; set; }
+
+            /// <summary>
+            /// Valor total das operações realizadas no período referente a Cartão de Débito
+            /// </summary>
+            [SpedCampos(3, "TOT_DEBITO", "N", 0, 2, true)]
+            public int TotDebito { get; set; }
+        }
+
+        /// <summary>
         /// REGISTRO 1990: ENCERRAMENTO DO BLOCO 1
         /// </summary>
         public class Registro1990 : RegistroBaseSped

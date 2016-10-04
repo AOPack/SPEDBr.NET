@@ -1397,6 +1397,9 @@ namespace SpedBr.SpedFiscal
             public string CodObs { get; set; }
         }
 
+        /// <summary>
+        /// REGISTRO C195: OBSERVAÇOES DO LANÇAMENTO FISCAL (CÓDIGO 01, 1B, 04 E 55)
+        /// </summary>
         public class RegistroC195 : RegistroBaseSped
         {
             /// <summary>
@@ -1414,6 +1417,9 @@ namespace SpedBr.SpedFiscal
             public string TxtCompl { get; set; }
         }
 
+        /// <summary>
+        /// REGISTRO C197: OUTRAS OBRIGAÇÕES TRIBUTÁRIAS, AJUSTES E INFORMAÇÕES DE VALORES PROVENIENTES DE DOCUMENTO FISCAL.
+        /// </summary>
         public class RegistroC197 : RegistroBaseSped
         {
             /// <summary>
@@ -1446,6 +1452,9 @@ namespace SpedBr.SpedFiscal
             public decimal VlOutros { get; set; }
         }
 
+        /// <summary>
+        /// REGISTRO C300: RESUMO DIÁRIO DAS NOTAS FISCAIS DE VENDA A CONSUMIDOR (CÓDIGO 02)
+        /// </summary>
         public class RegistroC300 : RegistroBaseSped
         {
             /// <summary>
@@ -1487,6 +1496,9 @@ namespace SpedBr.SpedFiscal
             public string CodCta { get; set; }
         }
 
+        /// <summary>
+        /// REGISTRO C310: DOCUMENTOS CANCELADOS DE NOTAS FISCAIS DE VENDA A CONSUMIDOR (CÓDIGO 02).
+        /// </summary>
         public class RegistroC310 : RegistroBaseSped
         {
             /// <summary>
@@ -1501,6 +1513,9 @@ namespace SpedBr.SpedFiscal
             public int NumDocCanc { get; set; }
         }
 
+        /// <summary>
+        /// REGISTRO C320: REGISTRO ANALÍTICO DO RESUMO DIÁRIO DAS NOTAS FISCAIS DE VENDA A CONSUMIDOR (CÓDIGO 02).
+        /// </summary>
         public class RegistroC320 : RegistroBaseSped
         {
             /// <summary>
@@ -1536,6 +1551,9 @@ namespace SpedBr.SpedFiscal
             public string CodObs { get; set; }
         }
 
+        /// <summary>
+        /// REGISTRO C321: ITENS DO RESUMO DIÁRIO DOS DOCUMENTOS (CÓDIGO 02)
+        /// </summary>
         public class RegistroC321 : RegistroBaseSped
         {
             /// <summary>
@@ -1574,6 +1592,9 @@ namespace SpedBr.SpedFiscal
             public decimal VlCofins { get; set; }
         }
 
+        /// <summary>
+        /// REGISTRO C350: NOTA FISCAL DE VENDA A CONSUMIDOR (CÓDIGO 02)
+        /// </summary>
         public class RegistroC350 : RegistroBaseSped
         {
             /// <summary>
@@ -1618,6 +1639,9 @@ namespace SpedBr.SpedFiscal
             public string CodCta { get; set; }
         }
 
+        /// <summary>
+        /// REGISTRO C370: ITENS DO DOCUMENTO (CÓDIGO 02)
+        /// </summary>
         public class RegistroC370 : RegistroBaseSped
         {
             /// <summary>
@@ -1647,6 +1671,9 @@ namespace SpedBr.SpedFiscal
             public decimal VlDesc { get; set; }
         }
 
+        /// <summary>
+        /// REGISTRO C390: REGISTRO ANALÍTICO DAS NOTAS FISCAIS DE VENDA A CONSUMIDOR (CÓDIGO 02)
+        /// </summary>
         public class RegistroC390 : RegistroBaseSped
         {
             /// <summary>
@@ -1682,6 +1709,9 @@ namespace SpedBr.SpedFiscal
             public string CodObs { get; set; }
         }
 
+        /// <summary>
+        /// REGISTRO C400: EQUIPAMENTO ECF (CÓDIGO 02, 2D e 60).
+        /// </summary>
         public class RegistroC400 : RegistroBaseSped
         {
             /// <summary>
@@ -1705,6 +1735,9 @@ namespace SpedBr.SpedFiscal
             public int EcfCx { get; set; }
         }
 
+        /// <summary>
+        /// REGISTRO C405: REDUÇÃO Z (CÓDIGO 02, 2D e 60).
+        /// </summary>
         public class RegistroC405 : RegistroBaseSped
         {
             /// <summary>
@@ -1734,6 +1767,9 @@ namespace SpedBr.SpedFiscal
             public decimal VlBrt { get; set; }
         }
 
+        /// <summary>
+        /// REGISTRO C410: PIS E COFINS TOTALIZADOS NO DIA (CÓDIGO 02 e 2D). 
+        /// </summary>
         public class RegistroC410 : RegistroBaseSped
         {
             /// <summary>
@@ -1751,6 +1787,9 @@ namespace SpedBr.SpedFiscal
             public decimal VlCofins { get; set; }
         }
 
+        /// <summary>
+        /// REGISTRO C420: REGISTRO DOS TOTALIZADORES PARCIAIS DA REDUÇÃO Z (COD 02, 2D e 60). 
+        /// </summary>
         public class RegistroC420 : RegistroBaseSped
         {
             /// <summary>
@@ -1774,6 +1813,9 @@ namespace SpedBr.SpedFiscal
             public string DescrNrTot { get; set; }
         }
 
+        /// <summary>
+        /// REGISTRO C425: RESUMO DE ITENS DO MOVIMENTO DIÁRIO (CÓDIGO 02 e 2D). 
+        /// </summary>
         public class RegistroC425 : RegistroBaseSped
         {
             /// <summary>
@@ -1803,6 +1845,9 @@ namespace SpedBr.SpedFiscal
             public decimal VlCofins { get; set; }
         }
 
+        /// <summary>
+        /// REGISTRO C460: DOCUMENTO FISCAL EMITIDO POR ECF (CÓDIGO 02, 2D e 60). 
+        /// </summary>
         public class RegistroC460 : RegistroBaseSped
         {
             /// <summary>
@@ -1841,6 +1886,9 @@ namespace SpedBr.SpedFiscal
             public string NomeAdq { get; set; }
         }
 
+        /// <summary>
+        /// REGISTRO C465: COMPLEMENTO DO CUPOM FISCAL ELETRÔNICO EMITIDO POR ECF – CF-e-ECF (CÓDIGO 60). 
+        /// </summary>
         public class RegistroC465 : RegistroBaseSped
         {
             /// <summary>
@@ -1858,6 +1906,9 @@ namespace SpedBr.SpedFiscal
             public double NumCcf { get; set; }
         }
 
+        /// <summary>
+        /// REGISTRO C470: ITENS DO DOCUMENTO FISCAL EMITIDO POR ECF (CÓDIGO 02 e 2D). 
+        /// </summary>
         public class RegistroC470 : RegistroBaseSped
         {
             /// <summary>
@@ -1899,6 +1950,9 @@ namespace SpedBr.SpedFiscal
             public decimal VlCofins { get; set; }
         }
 
+        /// <summary>
+        /// REGISTRO C490: REGISTRO ANALÍTICO DO MOVIMENTO DIÁRIO (CÓDIGO 02, 2D e 60). 
+        /// </summary>
         public class RegistroC490 : RegistroBaseSped
         {
             /// <summary>
@@ -1931,6 +1985,9 @@ namespace SpedBr.SpedFiscal
             public string CodObs { get; set; }
         }
 
+        /// <summary>
+        /// REGISTRO C495: RESUMO MENSAL DE ITENS DO ECF POR ESTABELECIMENTO (CÓDIGO 02 e 2D).
+        /// </summary>
         public class RegistroC495 : RegistroBaseSped
         {
             /// <summary>
