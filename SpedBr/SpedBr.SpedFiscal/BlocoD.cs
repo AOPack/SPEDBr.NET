@@ -3,6 +3,9 @@ using SpedBr.Common;
 
 namespace SpedBr.SpedFiscal
 {
+    /// <summary>
+    /// BLOCO D: DOCUMENTOS FISCAIS II - SERVIÇOS (ICMS)
+    /// </summary>
     public class BlocoD
     {
         /// <summary>
