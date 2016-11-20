@@ -5,7 +5,7 @@ using SpedBr.Common;
 namespace SpedBr.SpedFiscal
 {
     /// <summary>
-    /// BLOCO G – CONTROLE DO CRÉDITO DE ICMS DO ATIVO PERMANENTE CIAP
+    /// BLOCO G: CONTROLE DO CRÉDITO DE ICMS DO ATIVO PERMANENTE CIAP
     /// </summary>
     public class BlocoG
     {

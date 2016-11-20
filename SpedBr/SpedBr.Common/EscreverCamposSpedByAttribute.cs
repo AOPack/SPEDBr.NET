@@ -90,6 +90,7 @@ namespace SpedBr.Common
                                                          (spedCampoAttr.Tamanho > 0 && spedCampoAttr.Tamanho <= 10);
 
                         var isHour = spedCampoAttr.Tipo == "H";
+                        var onlyMonthAndYear = spedCampoAttr.Tipo == "MA";
 
                         if (isRequired && !hasValue)
                             throw new Exception(
@@ -119,6 +120,8 @@ namespace SpedBr.Common
                                 sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("ddMMyyyy"));
                             else if ((isDateTime && hasValue) && isHour)
                                 sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("hhmmss"));
+                            else if ((isDateTime && hasValue) && onlyMonthAndYear)
+                                sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("MMyyyy"));
                             else if (isCodeOrNumberAndHasLength && hasValue)
                                 sb.Append(propertyValue.ToString().PadLeft(spedCampoAttr.Tamanho, '0'));
                             else
