@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Policy;
 using SpedBr.Common;
 
 namespace SpedBr.SpedFiscal
@@ -851,6 +852,338 @@ namespace SpedBr.SpedFiscal
         }
 
         /// <summary>
+        /// REGISTRO 1500: NOTA FISCAL/CONTA DE ENERGIA ELETRÉTRICA - OPERAÇÕES INTERESTADUAIS
+        /// </summary>
+        public class Registro1500 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1500"/>.
+            /// </summary>
+            public Registro1500()
+            {
+                Reg = "1500";
+            }
+
+            /// <summary>
+            /// Indicador do tipo de operação
+            /// </summary>
+            /// <remarks>
+            /// 1 - Saída
+            /// </remarks>
+            [SpedCampos(2, "IND_OPER", "C", 1, 0, true)]
+            public int IndOper => 1;
+
+            /// <summary>
+            /// Indicador do emitente do documento fiscal
+            /// </summary>
+            /// <remarks>
+            /// 0 - Emissão própria
+            /// </remarks>
+            [SpedCampos(3, "IND_EMIT", "C", 1, 0, true)]
+            public int IndEmit => 0;
+
+            /// <summary>
+            /// Código do participante
+            /// </summary>
+            /// <remarks>
+            /// - do adquirente, no caso das saídas
+            /// </remarks>
+            [SpedCampos(4, "COD_PART", "C", 60, 0, true)]
+            public string CodPart { get; set; }
+
+            /// <summary>
+            /// Código do modelo do documento fiscal
+            /// </summary>
+            [SpedCampos(5, "COD_MOD", "C", 2, 0, true)]
+            public string CodMod { get; set; }
+
+            /// <summary>
+            /// Código da situação do documento fiscal
+            /// </summary>
+            [SpedCampos(6, "COD_SIT", "N", 2, 0, true)]
+            public int CodSit { get; set; }
+
+            /// <summary>
+            /// Série do documento fiscal
+            /// </summary>
+            [SpedCampos(7, "SER", "C", 4, 0, false)]
+            public string Ser { get; set; }
+
+            /// <summary>
+            /// Subsérie do documento fiscal
+            /// </summary>
+            [SpedCampos(8, "SUB", "N", 3, 0, false)]
+            public int Sub { get; set; }
+
+            /// <summary>
+            /// Código de classe de consumo de energia elétrica
+            /// </summary>
+            /// <remarks>
+            /// 01 - Comercial
+            /// 02 - Consumo próprio
+            /// 03 - Iluminação Pública
+            /// 04 - Industrial
+            /// 05 - Poder Público
+            /// 06 - Residencial
+            /// 07 - Rural
+            /// 08 - Serviço Público
+            /// </remarks>
+            [SpedCampos(9, "COD_CONS", "C", 2, 0, true)]
+            public int CodCons { get; set; }
+
+            /// <summary>
+            /// Número do documento fiscal
+            /// </summary>
+            [SpedCampos(10, "NUM_DOC", "N", 9, 0, true)]
+            public long NumDoc { get; set; }
+
+            /// <summary>
+            /// Data da emissão do documento fiscal
+            /// </summary>
+            [SpedCampos(11, "DT_DOC", "N", 8, 0, true)]
+            public DateTime DtDoc { get; set; }
+
+            /// <summary>
+            /// Data da entrada ou da saída
+            /// </summary>
+            [SpedCampos(12, "DT_E_S", "N", 8, 0, true)]
+            public DateTime DtEs { get; set; }
+
+            /// <summary>
+            /// Valor total do documento fiscal
+            /// </summary>
+            [SpedCampos(13, "VL_DOC", "N", 0, 2, true)]
+            public decimal VlDoc { get; set; }
+
+            /// <summary>
+            /// Valor total do desconto
+            /// </summary>
+            [SpedCampos(14, "VL_DESC", "N", 0, 2, false)]
+            public decimal VlDesc { get; set; }
+
+            /// <summary>
+            /// Valor total fornecido/consumido
+            /// </summary>
+            [SpedCampos(15, "VL_FORN", "N", 0, 2, true)]
+            public decimal VlForn { get; set; }
+
+            /// <summary>
+            /// Valor total dos serviços não-tributados pelo ICMS
+            /// </summary>
+            [SpedCampos(16, "VL_SERV_NT", "N", 0, 2, false)]
+            public decimal VlServNt { get; set; }
+
+            /// <summary>
+            /// Valor total cobrado em nome de terceiros
+            /// </summary>
+            [SpedCampos(17, "VL_TERC", "N", 0, 2, false)]
+            public decimal VlTerc { get; set; }
+
+            /// <summary>
+            /// Valor total de despesas acessórias indicadas no documento fiscal
+            /// </summary>
+            [SpedCampos(18, "VL_DA", "N", 0, 2, false)]
+            public decimal VlDa { get; set; }
+
+            /// <summary>
+            /// Valor acumulado da base de cálculo do ICMS
+            /// </summary>
+            [SpedCampos(19, "VL_BC_ICMS", "N", 0, 2, false)]
+            public decimal VlBcIcms { get; set; }
+
+            /// <summary>
+            /// Valor acumulado do ICMS
+            /// </summary>
+            [SpedCampos(20, "VL_ICMS", "N", 0, 2, false)]
+            public decimal VlIcms { get; set; }
+
+            /// <summary>
+            /// Valor acumulado da base de cálculo do ICMS substituição tributária
+            /// </summary>
+            [SpedCampos(21, "VL_BC_ICMS_ST", "N", 0, 2, false)]
+            public decimal VlBcIcmsSt { get; set; }
+
+            /// <summary>
+            /// Valor acumulado do ICMS retido por substituição triutária
+            /// </summary>
+            [SpedCampos(22, "VL_ICMS_ST", "N", 0, 2, false)]
+            public decimal VlIcmsSt { get; set; }
+
+            /// <summary>
+            /// Código da informação complementar do documento fiscal
+            /// </summary>
+            [SpedCampos(23, "COD_INF", "C", 6, 0, false)]
+            public string CodInf { get; set; }
+
+            /// <summary>
+            /// Valor do PIS
+            /// </summary>
+            [SpedCampos(24, "VL_PIS", "N", 0, 2, false)]
+            public decimal VlPis { get; set; }
+
+            /// <summary>
+            /// Valor da COFINS
+            /// </summary>
+            [SpedCampos(25, "VL_COFINS", "N", 0, 2, false)]
+            public decimal VlCofins { get; set; }
+
+            /// <summary>
+            /// Código de tipo de ligação
+            /// </summary>
+            /// <remarks>
+            /// 1 - Monofásico
+            /// 2 - Bifásico
+            /// 3 - Trifásico
+            /// </remarks>
+            [SpedCampos(26, "TP_LIGACAO", "N", 1, 0, false)]
+            public int TpLigacao { get; set; }
+
+            /// <summary>
+            /// Código do grupo de tensão
+            /// </summary>
+            [SpedCampos(27, "COD_GRUPO_TENSAO", "C", 2, 0, false)]
+            public int CodGrupoTensao { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO 1510: ITENS DO DOCUMENTO NOTA FISCAL/CONTA ENERGIA ELÉTRICA
+        /// </summary>
+        public class Registro1510 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1510"/>.
+            /// </summary>
+            public Registro1510()
+            {
+                Reg = "1510";
+            }
+
+            /// <summary>
+            /// Número sequencial do item no documento fiscal
+            /// </summary>
+            [SpedCampos(2, "NUM_ITEM", "N", 3, 0, true)]
+            public int NumItem { get; set; }
+
+            /// <summary>
+            /// Código do item
+            /// </summary>
+            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            /// Código de classificação do item de energia elétrica
+            /// </summary>
+            [SpedCampos(4, "COD_CLASS", "N", 4, 0, true)]
+            public int CodClass { get; set; }
+
+            /// <summary>
+            /// Quantidade do item
+            /// </summary>
+            [SpedCampos(5, "QTD", "N", 0, 3, false)]
+            public decimal Qtd { get; set; }
+
+            /// <summary>
+            /// Unidade do item
+            /// </summary>
+            [SpedCampos(6, "UNID", "C", 6, 0, false)]
+            public string Unid { get; set; }
+
+            /// <summary>
+            /// Valor do item
+            /// </summary>
+            [SpedCampos(7, "VL_ITEM", "N", 0, 2, true)]
+            public decimal VlItem { get; set; }
+
+            /// <summary>
+            /// Valor total do desconto
+            /// </summary>
+            [SpedCampos(8, "VL_DESC", "N", 0, 2, false)]
+            public decimal VlDesc { get; set; }
+
+            /// <summary>
+            /// Código da situação tributária
+            /// </summary>
+            [SpedCampos(9, "CST_ICMS", "N", 3, 0, true)]
+            public int CstIcms { get; set; }
+
+            /// <summary>
+            /// Código fiscal de operação e prestação
+            /// </summary>
+            [SpedCampos(10, "CFOP", "N", 4, 0, true)]
+            public int Cfop { get; set; }
+
+            /// <summary>
+            /// Valor da base de cálculo do ICMS
+            /// </summary>
+            [SpedCampos(11, "VL_BC_ICMS", "N", 0, 2, false)]
+            public decimal VlBcIcms { get; set; }
+
+            /// <summary>
+            /// Alíquota do ICMS
+            /// </summary>
+            [SpedCampos(12, "ALIQ_ICMS", "N", 6, 2, false)]
+            public decimal AliqIcms { get; set; }
+
+            /// <summary>
+            /// Valor do ICMS creditado/debitado
+            /// </summary>
+            [SpedCampos(13, "VL_ICMS", "N", 0, 2, false)]
+            public decimal VlIcms { get; set; }
+
+            /// <summary>
+            /// Valor da base de cálculo referente à substituição tributária
+            /// </summary>
+            [SpedCampos(14, "VL_BC_ICMS_ST", "N", 0, 2, false)]
+            public decimal VlBcIcmsSt { get; set; }
+
+            /// <summary>
+            /// Alíquota do ICMS da substituição tributária na unidadde da federação de destino
+            /// </summary>
+            [SpedCampos(15, "ALIQ_ST", "N", 0, 2, false)]
+            public decimal AliqSt { get; set; }
+
+            /// <summary>
+            /// Valor do ICMS referente à substituição tributária
+            /// </summary>
+            [SpedCampos(16, "VL_ICMS_ST", "N", 0, 2, false)]
+            public decimal VlIcmsSt { get; set; }
+
+            /// <summary>
+            /// Indicador do tipo de receita
+            /// </summary>
+            /// <remarks>
+            /// 0 - Receita própria
+            /// 1 - Receita de terceiros
+            /// </remarks>
+            [SpedCampos(17, "IND_REC", "C", 1, 0, true)]
+            public int IndRec { get; set; }
+
+            /// <summary>
+            /// Código do participante receptor da receita, terceiro da operação
+            /// </summary>
+            [SpedCampos(18, "COD_PART", "C", 60, 0, false)]
+            public string CodPart { get; set; }
+
+            /// <summary>
+            /// Valor do PIS
+            /// </summary>
+            [SpedCampos(19, "VL_PIS", "N", 0, 2, false)]
+            public decimal VlPis { get; set; }
+
+            /// <summary>
+            /// Valor da COFINS
+            /// </summary>
+            [SpedCampos(20, "VL_COFINS", "N", 0, 2, false)]
+            public decimal VlCofins { get; set; }
+
+            /// <summary>
+            /// Código da conta analítica contábil debitada/creditada
+            /// </summary>
+            [SpedCampos(21, "COD_CTA", "C", 99, 0, false)]
+            public string CodCta { get; set; }
+        }
+
+        /// <summary>
         /// REGISTRO 1600: TOTAL DAS OPERAÇÕES COM CARTÃO DE CRÉDITO E/OU DÉBITO
         /// </summary>
         public class Registro1600 : RegistroBaseSped
@@ -880,6 +1213,164 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(3, "TOT_DEBITO", "N", 0, 2, true)]
             public int TotDebito { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO 1700: DOCUMENTOS FISCAIS UTILIZADOS
+        /// </summary>
+        public class Registro1700 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1700"/>.
+            /// </summary>
+            public Registro1700()
+            {
+                Reg = "1700";
+            }
+
+            /// <summary>
+            /// Código do dispositivo autorizado
+            /// </summary>
+            /// <remarks>
+            /// 00 - Formulário de Segurança - impressor autônomo
+            /// 01 - FS-DA - Formulário de Segurança para Impressão de DANFE
+            /// 02 - Formulário de Segurança - NF-e
+            /// 03 - Formulário Contínuo
+            /// 04 - Blocos
+            /// 05 - Jogos Soltos
+            /// </remarks>
+            [SpedCampos(2, "COD_DISP", "C", 2, 0, true)]
+            public int CodDisp { get; set; }
+
+            /// <summary>
+            /// Código do modelo do dispositivo autorizado
+            /// </summary>
+            [SpedCampos(3, "COD_MOD", "C", 2, 0, true)]
+            public string CodMod { get; set; }
+
+            /// <summary>
+            /// Série do dispositivo autorizado
+            /// </summary>
+            [SpedCampos(4, "SER", "C", 4, 0, false)]
+            public string Ser { get; set; }
+
+            /// <summary>
+            /// Subsérie do dispositivo autorizado
+            /// </summary>
+            [SpedCampos(5, "SUB", "C", 3, 0, false)]
+            public string Sub { get; set; }
+
+            /// <summary>
+            /// Número do dispositivo autorizado (utilizado) inicial
+            /// </summary>
+            [SpedCampos(6, "NUM_DOC_INI", "N", 12, 0, true)]
+            public long NumDocIni { get; set; }
+
+            /// <summary>
+            /// Número do dispositivo autorizado (utilizado) final
+            /// </summary>
+            [SpedCampos(7, "NUM_DOC_FIN", "N", 12, 0, true)]
+            public long NumDocFin { get; set; }
+
+            /// <summary>
+            /// Número da autorização, conforme dispositivo autorizado
+            /// </summary>
+            [SpedCampos(8, "NUM_AUT", "N", 60, 0, true)]
+            public string NumAut { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO 1710: DOCUMENTOS FISCAIS CANCELADOS/INUTILIZADOS
+        /// </summary>
+        public class Registro1710 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1710"/>.
+            /// </summary>
+            public Registro1710()
+            {
+                Reg = "1710";
+            }
+
+            /// <summary>
+            /// Número do dispositivo autorizado (inutilizado) inicial
+            /// </summary>
+            [SpedCampos(2, "NUM_DOC_INI", "N", 12, 0, true)]
+            public long NumDocIni { get; set; }
+
+            /// <summary>
+            /// Número do dispositivo autorizado (inutilizado) final
+            /// </summary>
+            [SpedCampos(3, "NUM_DOC_FIN", "N", 12, 0, true)]
+            public long NumDocFin { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO 1800: DCTA - DEMONSTRATIVO DE CRÉDITO DO IMCS SOBRE TRANSPORTE AÉREO
+        /// </summary>
+        public class Registro1800 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1800"/>.
+            /// </summary>
+            public Registro1800()
+            {
+                Reg = "1800";
+            }
+
+            /// <summary>
+            /// Valor das prestações cargas (tributado)
+            /// </summary>
+            [SpedCampos(2, "VL_CARGA", "N", 0, 2, true)]
+            public decimal VlCarga { get; set; }
+
+            /// <summary>
+            /// Valor das prestações passageiros/cargas(não tributado)
+            /// </summary>
+            [SpedCampos(3, "VL_PASS", "N", 0, 2, true)]
+            public decimal VlPass { get; set; }
+
+            /// <summary>
+            /// Valor total do faturamento
+            /// </summary>
+            [SpedCampos(4, "VL_FAT", "N", 0, 2, true)]
+            public decimal VlFat { get; set; }
+
+            /// <summary>
+            /// Índice para rateio
+            /// </summary>
+            [SpedCampos(5, "IND_RAT", "N", 8, 2, true)]
+            public decimal IndRat { get; set; }
+
+            /// <summary>
+            /// Valor total dos créditos do ICMS
+            /// </summary>
+            [SpedCampos(6, "VL_ICMS_ANT", "N", 0, 2, true)]
+            public decimal VlIcmsAnt { get; set; }
+
+            /// <summary>
+            /// Valor da base de cálculo do ICMS
+            /// </summary>
+            [SpedCampos(7, "VL_BC_ICMS", "N", 0, 2, true)]
+            public decimal VlBcIcms { get; set; }
+
+            /// <summary>
+            /// Valor do ICMS apurado no cálculo
+            /// </summary>
+            [SpedCampos(8, "VL_ICMS_APUR", "N", 0, 2, true)]
+            public decimal VlIcmsApur { get; set; }
+
+            /// <summary>
+            /// Valor da base de cálculo do ICMS apurada
+            /// </summary>
+            [SpedCampos(9, "VL_BC_ICMS_APUR", "N", 0, 2, true)]
+            public decimal VlBcIcmsApur { get; set; }
+
+            /// <summary>
+            /// Valor da diferença a ser levada a estorno de crédito na apuração
+            /// </summary>
+            [SpedCampos(10, "VL_DIF", "N", 0, 2, true)]
+            public decimal VlDif { get; set; }
         }
 
         /// <summary>
