@@ -1373,24 +1373,428 @@ namespace SpedBr.SpedFiscal
             public decimal VlDif { get; set; }
         }
 
+
         /// <summary>
-        /// REGISTRO 1990: ENCERRAMENTO DO BLOCO 1
+        /// REGISTRO 1900: INDICADOR DE SUB-APURAÇÃO DO ICMS
         /// </summary>
-        public class Registro1990 : RegistroBaseSped
+        public class Registro1900 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="Registro1990"/>.
+            /// Inicializa uma nova instância da classe <see cref="Registro1900"/>.
             /// </summary>
-            public Registro1990()
+            public Registro1900()
             {
-                Reg = "1990";
+                Reg = "1900";
             }
 
             /// <summary>
-            /// Quantidade total de linhas do Bloco 1.
+            /// Indicador de outra apuração do ICMS
             /// </summary>
-            [SpedCampos(2, "QTD_LIN_1", "N", 0, 0, true)]
-            public int QtdLin1 { get; set; }
+            /// <remarks>
+            /// 3 - APURAÇÃO 1
+            /// 4 - APURAÇÃO 2
+            /// 5 - APURAÇÃO 3
+            /// 6 - APURAÇÃO 4
+            /// 7 - APURAÇÃO 5
+            /// 8 - APURAÇÃO 6
+            /// </remarks>
+            [SpedCampos(2, "IND_APUR_ICMS", "C", 1, 0, true)]
+            public int IndApurIcms { get; set; }
+
+            /// <summary>
+            /// Descrição complementar de outra apuração do ICMS
+            /// </summary>
+            [SpedCampos(3, "DESCR_COMPL_OUT_APUR", "C", 1024, 0, true)]
+            public string DescrComplOutApur { get; set; }
         }
+
+        /// <summary>
+        /// REGISTRO 1910: PERÍODO DA SUB-APURAÇÃO DO ICMS
+        /// </summary>
+        public class Registro1910 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1910"/>.
+            /// </summary>
+            public Registro1910()
+            {
+                Reg = "1910";
+            }
+
+            /// <summary>
+            /// Data inicial da sub-apuração
+            /// </summary>
+            [SpedCampos(2, "DT_INI", "N", 8, 0, true)]
+            public DateTime DtIni { get; set; }
+
+            /// <summary>
+            /// Data final da sub-apuração
+            /// </summary>
+            [SpedCampos(3, "DT_FIN", "N", 8, 0, true)]
+            public DateTime DtFin { get; set; }
+
+        }
+
+        /// <summary>
+        /// REGISTRO 1920: SUB-APURAÇÃO DO ICMS
+        /// </summary>
+        public class Registro1920 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1920"/>.
+            /// </summary>
+            public Registro1920()
+            {
+                Reg = "1920";
+            }
+
+            /// <summary>
+            /// Valor total dos débitos por "Saídas e prestações com débito do imposto"
+            /// </summary>
+            [SpedCampos(2, "VL_TOT_TRANSF_DEBITOS_OA", "N", 0, 2, true)]
+            public decimal VlTotTransfDebitosOa { get; set; }
+
+            /// <summary>
+            /// Valor total de "Ajustes a débito"
+            /// </summary>
+            [SpedCampos(3, "VL_TOT_AJ_DEBITOS_OA", "N", 0, 2, true)]
+            public decimal VlTotAjDebitosOa { get; set; }
+
+            /// <summary>
+            /// Valor total de ajustes "Estornos de créditos"
+            /// </summary>
+            [SpedCampos(4, "VL_ESTORNOS_CRED_OA", "N", 0, 2, true)]
+            public decimal VlEstornosCredOa { get; set; }
+
+            /// <summary>
+            /// Valor total dos créditos por "Entradas e aquisições com crédito do imposto"
+            /// </summary>
+            [SpedCampos(5, "VL_TOT_TRANSF_CREDITOS_OA", "N", 0, 2, true)]
+            public decimal VlTotTransfCreditosOa { get; set; }
+
+            /// <summary>
+            /// Valor total de "Ajustes a crédito"
+            /// </summary>
+            [SpedCampos(6, "VL_TOT_AJ_CREDITOS_OA", "N", 0, 2, true)]
+            public decimal VlTotAjCreditosOa { get; set; }
+
+            /// <summary>
+            /// Valor total de ajustes "Estornos de Débitos"
+            /// </summary>
+            [SpedCampos(7, "VL_ESTORNOS_DEB_OA", "N", 0, 2, true)]
+            public decimal VlEstornosDebOa { get; set; }
+
+            /// <summary>
+            /// Valor total de "Saldo credor do período anterior"
+            /// </summary>
+            [SpedCampos(8, "VL_SLD_CREDOR_ANT_OA", "N", 0, 2, true)]
+            public decimal VlSldCredorAntOa { get; set; }
+
+            /// <summary>
+            /// Valor do saldo devedor apurado
+            /// </summary>
+            [SpedCampos(9, "VL_SLD_APURADO_OA", "N", 0, 2, true)]
+            public decimal VlSldApuradoOa { get; set; }
+
+            /// <summary>
+            /// Valor total de "Deduções"
+            /// </summary>
+            [SpedCampos(10, "VL_TOT_DED", "N", 0, 2, true)]
+            public decimal VlTotDed { get; set; }
+
+            /// <summary>
+            /// Valor total de "ICMS a recolher"
+            /// </summary>
+            [SpedCampos(11, "VL_ICMS_RECOLHER_OA", "N", 0, 2, true)]
+            public decimal VlIcmsRecolherOa { get; set; }
+
+            /// <summary>
+            /// Valor total de "Saldo credor a transportar para o período seguinte"
+            /// </summary>
+            [SpedCampos(12, "VL_SLD_CREDOR_TRANSP_OA", "N", 0, 2, true)]
+            public decimal VlSldCredorTranspOa { get; set; }
+
+            /// <summary>
+            /// Valores recolhidos ou a recolher, extra-apuração
+            /// </summary>
+            [SpedCampos(13, "DEB_ESP_OA", "N", 0, 2, true)]
+            public decimal DebEspOa { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO 1921: AJUSTE/BENEFÍCIO/INCENTIVO DA SUB-APURAÇÃO DO ICMS
+        /// </summary>
+        public class Registro1921 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1921"/>.
+            /// </summary>
+            public Registro1921()
+            {
+                Reg = "1921";
+            }
+
+            /// <summary>
+            /// Código de ajuste da SUB-APUARÇÃO e dedução
+            /// </summary>
+            [SpedCampos(2, "COD_AJ_APUR", "C", 8, 0, true)]
+            public string CodAjApur { get; set; }
+
+            /// <summary>
+            /// Descrição complementar do ajuste da apuração
+            /// </summary>
+            [SpedCampos(3, "DESCR_COMPL_AJ", "C", 1024, 0, false)]
+            public string DescrComplAj { get; set; }
+
+            /// <summary>
+            /// Valor do ajuste da apuração
+            /// </summary>
+            [SpedCampos(4, "VL_AJ_APUR", "N", 0, 2, true)]
+            public decimal VlAjApur { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO 1922: INFORMAÇÕES ADICIONAIS DOS AJUSTES DA SUB-APURAÇÃO DO ICMS
+        /// </summary>
+        public class Registro1922 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1922"/>.
+            /// </summary>
+            public Registro1922()
+            {
+                Reg = "1922";
+            }
+
+            /// <summary>
+            /// Número do documento de arrecadação estadual, se houver
+            /// </summary>
+            [SpedCampos(2, "NUM_DA", "C", 100, 0, false)]
+            public string NumDa { get; set; }
+
+            /// <summary>
+            /// Número do processo ao qual o ajuste está vinculado, se houver
+            /// </summary>
+            [SpedCampos(3, "NUM_PROC", "C", 15, 0, false)]
+            public string NumProc { get; set; }
+
+            /// <summary>
+            /// Indicador da origem do processo
+            /// </summary>
+            /// <remarks>
+            /// 0 - SEFAZ
+            /// 1 - Justiça Federal
+            /// 2 - Justiça Estadual
+            /// 9 - Outros
+            /// </remarks>
+            [SpedCampos(4, "IND_PROC", "C", 1, 0, false)]
+            public int IndProc { get; set; }
+
+            /// <summary>
+            /// Descrição resumida do processo que embasou o lançamento
+            /// </summary>
+            [SpedCampos(5, "PROC", "C", 9999, 0, false)]
+            public string Proc { get; set; }
+
+            /// <summary>
+            /// Descrição complementar
+            /// </summary>
+            [SpedCampos(6, "TXT_COMPL", "C", 1024, 0, false)]
+            public string TxtCompl { get; set; }
+
+        }
+
+        /// <summary>
+        /// REGISTRO 1923: INFORMAÇÕES ADICIONAIS DOS AJUSTES DA SUB-APURAÇÃO DO ICMS - IDENTIFICAÇÃO DOS DOCUMENTOS FISCAIS
+        /// </summary>
+        public class Registro1923 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1923"/>.
+            /// </summary>
+            public Registro1923()
+            {
+                Reg = "1923";
+            }
+
+            /// <summary>
+            /// Código do participante
+            /// </summary>
+            /// <remarks>
+            /// - do emitente do documento ou do remetente das mercadorias, no caso das entradas
+            /// - do adquirente, no caso das saídas
+            /// </remarks>
+            [SpedCampos(2, "COD_PART", "C", 60, 0, true)]
+            public string CodPart { get; set; }
+
+            /// <summary>
+            /// Código do modelo do documento fiscal
+            /// </summary>
+            [SpedCampos(3, "COD_MOD", "C", 2, 0, true)]
+            public string CodMod { get; set; }
+
+            /// <summary>
+            /// Série do documento fiscal
+            /// </summary>
+            [SpedCampos(4, "SER", "C", 4, 0, false)]
+            public string Ser { get; set; }
+
+            /// <summary>
+            /// Subsérie do documento fiscal
+            /// </summary>
+            [SpedCampos(5, "SUB", "N", 3, 0, false)]
+            public string Sub { get; set; }
+
+            /// <summary>
+            /// Número do documento fiscal
+            /// </summary>
+            [SpedCampos(6, "NUM_DOC", "N", 9, 0, true)]
+            public long NumDoc { get; set; }
+
+            /// <summary>
+            /// Data da emissão do documento fiscal
+            /// </summary>
+            [SpedCampos(7, "DT_DOC", "N", 8, 0, true)]
+            public DateTime DtDoc { get; set; }
+
+            /// <summary>
+            /// Código do item
+            /// </summary>
+            [SpedCampos(8, "COD_ITEM", "C", 60, 0, false)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            /// Valor do ajuste para a operação/item
+            /// </summary>
+            [SpedCampos(9, "VL_AJ_ITEM", "N", 0, 2, true)]
+            public decimal VlAjItem { get; set; }
+
+        }
+
+        /// <summary>
+        /// REGISTRO 1925: INFORMAÇÕES ADICIONAIS DA SUB-APURAÇÃO - VALORES DECLARATÓRIOS
+        /// </summary>
+        public class Registro1925 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1925"/>.
+            /// </summary>
+            public Registro1925()
+            {
+                Reg = "1925";
+            }
+
+            /// <summary>
+            /// Código da informação adicional conforme tabela a ser definida pelas SEFAZ
+            /// </summary>
+            [SpedCampos(2, "COD_INF_ADIC", "C", 8, 0, true)]
+            public string CodInfAdic { get; set; }
+
+            /// <summary>
+            /// Valor referente à informação adicional
+            /// </summary>
+            [SpedCampos(3, "VL_INF_ADIC", "N", 0, 2, true)]
+            public decimal VlInfAdic { get; set; }
+
+            /// <summary>
+            /// Descrição complementar do ajuste
+            /// </summary>
+            [SpedCampos(4, "DESCR_COMPL_AJ", "C", 1024, 0, false)]
+            public string DescrComplAj { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO 1926: OBRIGAÇÕES DO ICMS A RECOLHER - OPERAÇÕES REFERENTES À SUB-APURAÇÃO
+        /// </summary>
+        public class Registro1926 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro1926"/>.
+            /// </summary>
+            public Registro1926()
+            {
+                Reg = "1926";
+            }
+
+            /// <summary>
+            /// Código da obrigação a recolher
+            /// </summary>
+            [SpedCampos(2, "COD_OR", "C", 3, 0, true)]
+            public string CodOr { get; set; }
+
+            /// <summary>
+            /// Valor da obrigação a recolher
+            /// </summary>
+            [SpedCampos(3, "VL_OR", "N", 0, 2, true)]
+            public decimal VlOr { get; set; }
+
+            /// <summary>
+            /// Data de vencimento da obrigação
+            /// </summary>
+            [SpedCampos(4, "DT_VCTO", "N", 8, 0, true)]
+            public DateTime DtVcto { get; set; }
+
+            /// <summary>
+            /// Código de receita referente à obrigação, próprio da unidade da federação, conforme legislação estadual
+            /// </summary>
+            [SpedCampos(5, "COD_REC", "C", 100, 0, true)]
+            public string CodRec { get; set; }
+
+            /// <summary>
+            /// Número do processo ou auto de infração ao qual a obrigação está vinculada, se houver
+            /// </summary>
+            [SpedCampos(6, "NUM_PROC", "C", 15, 0, false)]
+            public string NumProc { get; set; }
+
+            /// <summary>
+            /// Indicador da orgiem do processo
+            /// </summary>
+            /// <remarks>
+            /// 0 - SEFAZ
+            /// 1 - Justiça Federal
+            /// 2 - Justiça Estadual
+            /// 9 - Outros
+            /// </remarks>
+            [SpedCampos(7, "IND_PROC", "C", 1, 0, false)]
+            public int IndProc { get; set; }
+
+            /// <summary>
+            /// Descrição resumida do processo que embasou o lançamento
+            /// </summary>
+            [SpedCampos(8, "PROC", "C", 1024, 0, false)]
+            public string Proc { get; set; }
+
+            /// <summary>
+            /// Descrição complementar das obrigações a recolher
+            /// </summary>
+            [SpedCampos(9, "TXT_COMPL", "C", 1024, 0, false)]
+            public string TxtCompl { get; set; }
+
+            /// <summary>
+            /// Mês de referência
+            /// </summary>
+            [SpedCampos(10, "MES_REF", "MA", 6, 0, true)]
+            public DateTime MesRef { get; set; }
+        }
+    }
+
+    /// <summary>
+    /// REGISTRO 1990: ENCERRAMENTO DO BLOCO 1
+    /// </summary>
+    public class Registro1990 : RegistroBaseSped
+    {
+        /// <summary>
+        /// Inicializa uma nova instância da classe <see cref="Registro1990"/>.
+        /// </summary>
+        public Registro1990()
+        {
+            Reg = "1990";
+        }
+
+        /// <summary>
+        /// Quantidade total de linhas do Bloco 1.
+        /// </summary>
+        [SpedCampos(2, "QTD_LIN_1", "N", 0, 0, true)]
+        public int QtdLin1 { get; set; }
     }
 }
