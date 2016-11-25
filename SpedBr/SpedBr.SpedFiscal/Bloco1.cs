@@ -22,10 +22,15 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            ///     Indicador de movimento: 0 - Bloco com dados informados; 1 - Bloco sem dados informados.
+            ///     Indicador de movimento
             /// </summary>
+            /// <remarks>
+            ///     0 - Bloco com dados informados
+            ///     <para />
+            ///     1 - Bloco sem dados informados
+            /// </remarks>
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true)]
-            public int IndMov { get; set; }
+            public IndicadorMovimento IndMov { get; set; }
         }
 
         /// <summary>
@@ -44,61 +49,61 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Reg. 1100 - Ocorreu averbação (conclusão) de exportação no período: S - Sim; N - Não
             /// </summary>
-            [SpedCampos(2, "IND_EXP", "C", 1, 0, true)]
-            public string IndExp { get; set; }
+            [SpedCampos(2, "IND_EXP", "LE", 1, 0, true)]
+            public SimOuNao IndExp { get; set; }
 
             /// <summary>
             ///     Reg. 1200 - Existem informações acerca de créditos de ICMS a serem controlados, definidos pela Sefaz: S - Sim; N -
             ///     Não
             /// </summary>
-            [SpedCampos(3, "IND_CCRF", "C", 1, 0, true)]
-            public string IndCcrf { get; set; }
+            [SpedCampos(3, "IND_CCRF", "LE", 1, 0, true)]
+            public SimOuNao IndCcrf { get; set; }
 
             /// <summary>
             ///     Reg. 1300 – É comercio varejista de combustíveis com movimentação e/ou estoque no período: S - Sim; N - Não
             /// </summary>
-            [SpedCampos(4, "IND_COMB", "C", 1, 0, true)]
-            public string IndComb { get; set; }
+            [SpedCampos(4, "IND_COMB", "LE", 1, 0, true)]
+            public SimOuNao IndComb { get; set; }
 
             /// <summary>
             ///     Reg. 1390 – Usinas de açúcar e/álcool – O estabelecimento é produtor de açúcar e/ou álcool carburante com
             ///     movimentação e/ou estoque no período: S - Sim; N - Não
             /// </summary>
-            [SpedCampos(5, "IND_USINA", "C", 1, 0, true)]
-            public string IndUsina { get; set; }
+            [SpedCampos(5, "IND_USINA", "LE", 1, 0, true)]
+            public SimOuNao IndUsina { get; set; }
 
             /// <summary>
             ///     Reg 1400 – Sendo o registro obrigatório em sua Unidade de Federação, existem informações a serem prestadas neste
             ///     registro: S - Sim; N - Não
             /// </summary>
-            [SpedCampos(6, "IND_VA", "C", 1, 0, true)]
-            public string IndVa { get; set; }
+            [SpedCampos(6, "IND_VA", "LE", 1, 0, true)]
+            public SimOuNao IndVa { get; set; }
 
             /// <summary>
             ///     Reg 1500 - A empresa é distribuidora de energia e ocorreu fornecimento de energia elétrica para consumidores de
             ///     outra UF: S - Sim; N - Não
             /// </summary>
-            [SpedCampos(7, "IND_EE", "C", 1, 0, true)]
-            public string IndEe { get; set; }
+            [SpedCampos(7, "IND_EE", "LE", 1, 0, true)]
+            public SimOuNao IndEe { get; set; }
 
             /// <summary>
             ///     Reg 1600 - Realizou vendas com Cartão de Crédito ou de débito: S - Sim; N - Não
             /// </summary>
-            [SpedCampos(8, "IND_CART", "C", 1, 0, true)]
-            public string IndCart { get; set; }
+            [SpedCampos(8, "IND_CART", "LE", 1, 0, true)]
+            public SimOuNao IndCart { get; set; }
 
             /// <summary>
             ///     Reg. 1700 – Foram emitidos documentos fiscais em papel no período em unidade da federação que exija o controle de
             ///     utilização de documentos fiscais: S - Sim; N - Não
             /// </summary>
-            [SpedCampos(9, "IND_FORM", "C", 1, 0, true)]
-            public string IndForm { get; set; }
+            [SpedCampos(9, "IND_FORM", "LE", 1, 0, true)]
+            public SimOuNao IndForm { get; set; }
 
             /// <summary>
             ///     Reg 1800 – A empresa prestou serviços de transporte aéreo de cargas e de passageiros: S - Sim; N - Não
             /// </summary>
-            [SpedCampos(10, "IND_AER", "C", 1, 0, true)]
-            public string IndAer { get; set; }
+            [SpedCampos(10, "IND_AER", "LE", 1, 0, true)]
+            public SimOuNao IndAer { get; set; }
         }
 
         /// <summary>

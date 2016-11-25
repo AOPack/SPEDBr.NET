@@ -65,7 +65,8 @@ namespace SpedBr.Common
                             throw new Exception(
                                 $"O campo {property.Name} no registro {registroAtual} não possui atributo SPED definido!");
 
-                        var propertyValue = RegistroBaseSped.GetPropValue(source, property.Name);
+                        var isLiteralEnum = spedCampoAttr.Tipo == "LE"; // Literal Enum
+                        var propertyValue = RegistroBaseSped.GetPropValue(source, property.Name, isLiteralEnum);
                         var propertyValueToStringSafe = propertyValue.ToStringSafe().Trim();
 
                         /*
@@ -122,7 +123,7 @@ namespace SpedBr.Common
                                 sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("hhmmss"));
                             else if ((isDateTime && hasValue) && onlyMonthAndYear)
                                 sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("MMyyyy"));
-                            else if (isCodeOrNumberAndHasLength && hasValue)
+                            else if ((isCodeOrNumberAndHasLength && hasValue) || (isLiteralEnum && hasValue))
                                 sb.Append(propertyValue.ToString().PadLeft(spedCampoAttr.Tamanho, '0'));
                             else
                             {

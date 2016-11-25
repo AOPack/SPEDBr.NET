@@ -1,5 +1,17 @@
 ﻿namespace SpedBr.Common
 {
+    public enum SimOuNao
+    {
+        /// <summary>
+        /// Não
+        /// </summary>
+        N,
+        /// <summary>
+        /// Sim
+        /// </summary>
+        S
+    }
+
     public enum FinalidadeArquivo
     {
         RemessaArquivoOriginal = 0,
@@ -8,9 +20,9 @@
 
     public enum PerfilArquivo
     {
-        PerfilA,
-        PerfilB,
-        PerfilC
+        A,
+        B,
+        C
     }
 
     public enum IndicadorTipoAtividade
