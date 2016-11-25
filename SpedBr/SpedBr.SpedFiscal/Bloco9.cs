@@ -1,20 +1,19 @@
-﻿using System;
-using SpedBr.Common;
+﻿using SpedBr.Common;
 
 namespace SpedBr.SpedFiscal
 {
     /// <summary>
-    /// BLOCO 9: CONTROLE E ENCERRAMENTO DO ARQUIVO DIGITAL
+    ///     BLOCO 9: CONTROLE E ENCERRAMENTO DO ARQUIVO DIGITAL
     /// </summary>
     public class Bloco9
     {
         /// <summary>
-        /// REGISTRO 9001: ABERTURA DO BLOCO 9
+        ///     REGISTRO 9001: ABERTURA DO BLOCO 9
         /// </summary>
         public class Registro9001 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="Registro9001"/>.
+            ///     Inicializa uma nova instância da classe <see cref="Registro9001" />.
             /// </summary>
             public Registro9001()
             {
@@ -22,19 +21,19 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// 0 - Bloco com dados informados; 1 - Bloco sem dados informados.
+            ///     0 - Bloco com dados informados; 1 - Bloco sem dados informados.
             /// </summary>
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true)]
             public int IndMov { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO 9900: REGISTRO DO ARQUIVO
+        ///     REGISTRO 9900: REGISTRO DO ARQUIVO
         /// </summary>
         public class Registro9900 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="Registro9900"/>.
+            ///     Inicializa uma nova instância da classe <see cref="Registro9900" />.
             /// </summary>
             public Registro9900()
             {
@@ -42,25 +41,25 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Registro que será totalizado no próximo campo.
+            ///     Registro que será totalizado no próximo campo.
             /// </summary>
             [SpedCampos(2, "REG_BLC", "C", 4, 0, true)]
             public string RegBlc { get; set; }
 
             /// <summary>
-            /// Total de registros do tipo informado no campo anterior.
+            ///     Total de registros do tipo informado no campo anterior.
             /// </summary>
             [SpedCampos(3, "QTD_REG_BLC", "N", 0, 0, true)]
             public int QtdRegBlc { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO 9990: ENCERRAMENTO DO BLOCO 9
+        ///     REGISTRO 9990: ENCERRAMENTO DO BLOCO 9
         /// </summary>
         public class Registro9990 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="Registro9990"/>.
+            ///     Inicializa uma nova instância da classe <see cref="Registro9990" />.
             /// </summary>
             public Registro9990()
             {
@@ -68,19 +67,19 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Quantidade total de linhas do Bloco 9.
+            ///     Quantidade total de linhas do Bloco 9.
             /// </summary>
             [SpedCampos(2, "QTD_LIN_9", "N", 0, 0, true)]
             public int QtdLin9 { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO 9999: ENCERRAMENTO DO ARQUIVO DIGITAL
+        ///     REGISTRO 9999: ENCERRAMENTO DO ARQUIVO DIGITAL
         /// </summary>
         public class Registro9999 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="Registro9999"/>.
+            ///     Inicializa uma nova instância da classe <see cref="Registro9999" />.
             /// </summary>
             public Registro9999()
             {
@@ -88,9 +87,9 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Quantidade total de linhas do arquivo digital.
+            ///     Quantidade total de linhas do arquivo digital.
             /// </summary>
-            [SpedCampos(2, "QTD_LIN", "N", Int32.MaxValue, 0, true)]
+            [SpedCampos(2, "QTD_LIN", "N", int.MaxValue, 0, true)]
             public int QtdLin { get; set; }
         }
     }

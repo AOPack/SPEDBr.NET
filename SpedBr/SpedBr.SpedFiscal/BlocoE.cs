@@ -1,21 +1,20 @@
 ﻿using System;
-using System.Security.AccessControl;
 using SpedBr.Common;
 
 namespace SpedBr.SpedFiscal
 {
     /// <summary>
-    /// BLOCO E: APURAÇÃO DO ICMS E DO IPI
+    ///     BLOCO E: APURAÇÃO DO ICMS E DO IPI
     /// </summary>
     public class BlocoE
     {
         /// <summary>
-        /// REGISTRO E001: ABERTURA DO BLOCO E
+        ///     REGISTRO E001: ABERTURA DO BLOCO E
         /// </summary>
         public class RegistroE001 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE001"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE001" />.
             /// </summary>
             public RegistroE001()
             {
@@ -23,19 +22,19 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Indicador de movimento: 0 - Bloco com dados informados; 1 - Bloco sem dados informados.
+            ///     Indicador de movimento: 0 - Bloco com dados informados; 1 - Bloco sem dados informados.
             /// </summary>
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true)]
             public string IND_MOV { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E100: PERÍODO DA APURAÇÃO DO ICMS.
+        ///     REGISTRO E100: PERÍODO DA APURAÇÃO DO ICMS.
         /// </summary>
         public class RegistroE100 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE100"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE100" />.
             /// </summary>
             public RegistroE100()
             {
@@ -43,25 +42,25 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Data inicial a que a apuração se refere.
+            ///     Data inicial a que a apuração se refere.
             /// </summary>
             [SpedCampos(2, "DT_INI", "N", 8, 0, true)]
             public DateTime DT_INI { get; set; }
 
             /// <summary>
-            /// Data final a que a apuração se refere.
+            ///     Data final a que a apuração se refere.
             /// </summary>
             [SpedCampos(3, "DT_FIN", "N", 8, 0, true)]
             public DateTime DT_FIN { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E110: APURAÇÃO DO ICMS – OPERAÇÕES PRÓPRIAS. 
+        ///     REGISTRO E110: APURAÇÃO DO ICMS – OPERAÇÕES PRÓPRIAS.
         /// </summary>
         public class RegistroE110 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE110"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE110" />.
             /// </summary>
             public RegistroE110()
             {
@@ -69,97 +68,97 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Valor total dos débitos por "Saídas e prestações com débito do imposto" 
+            ///     Valor total dos débitos por "Saídas e prestações com débito do imposto"
             /// </summary>
             [SpedCampos(2, "VL_TOT_DEBITOS", "N", 0, 2, true)]
             public decimal VL_TOT_DEBITOS { get; set; }
 
             /// <summary>
-            /// Valor total dos ajustes a débito decorrentes do documento fiscal.
+            ///     Valor total dos ajustes a débito decorrentes do documento fiscal.
             /// </summary>
             [SpedCampos(3, "VL_AJ_DEBITOS", "N", 0, 2, true)]
             public decimal VL_AJ_DEBITOS { get; set; }
 
             /// <summary>
-            /// Valor total de "Ajustes a débito"
+            ///     Valor total de "Ajustes a débito"
             /// </summary>
             [SpedCampos(4, "VL_TOT_AJ_DEBITOS", "N", 0, 2, true)]
             public decimal VL_TOT_AJ_DEBITOS { get; set; }
 
             /// <summary>
-            /// Valor total de Ajustes “Estornos de créditos”
+            ///     Valor total de Ajustes “Estornos de créditos”
             /// </summary>
             [SpedCampos(5, "VL_ESTORNOS_CRED", "N", 0, 2, true)]
             public decimal VL_ESTORNOS_CRED { get; set; }
 
             /// <summary>
-            /// Valor total dos créditos por "Entradas e aquisições com crédito do imposto" 
+            ///     Valor total dos créditos por "Entradas e aquisições com crédito do imposto"
             /// </summary>
             [SpedCampos(6, "VL_TOT_CREDITOS", "N", 0, 2, true)]
             public decimal VL_TOT_CREDITOS { get; set; }
 
             /// <summary>
-            /// Valor total dos ajustes a crédito decorrentes do documento fiscal.
+            ///     Valor total dos ajustes a crédito decorrentes do documento fiscal.
             /// </summary>
             [SpedCampos(7, "VL_AJ_CREDITOS", "N", 0, 2, true)]
             public decimal VL_AJ_CREDITOS { get; set; }
 
             /// <summary>
-            /// Valor total de "Ajustes a crédito"
+            ///     Valor total de "Ajustes a crédito"
             /// </summary>
             [SpedCampos(8, "VL_TOT_AJ_CREDITOS", "N", 0, 2, true)]
             public decimal VL_TOT_AJ_CREDITOS { get; set; }
 
             /// <summary>
-            /// Valor total de Ajustes “Estornos de Débitos”
+            ///     Valor total de Ajustes “Estornos de Débitos”
             /// </summary>
             [SpedCampos(9, "VL_ESTORNOS_DEB", "N", 0, 2, true)]
             public decimal VL_ESTORNOS_DEB { get; set; }
 
             /// <summary>
-            /// Valor total de "Saldo credor do período anterior"
+            ///     Valor total de "Saldo credor do período anterior"
             /// </summary>
             [SpedCampos(10, "VL_SLD_CREDOR_ANT", "N", 0, 2, true)]
             public decimal VL_SLD_CREDOR_ANT { get; set; }
 
             /// <summary>
-            /// Valor do saldo devedor apurado
+            ///     Valor do saldo devedor apurado
             /// </summary>
             [SpedCampos(11, "VL_SLD_APURADO", "N", 0, 2, true)]
             public decimal VL_SLD_APURADO { get; set; }
 
             /// <summary>
-            /// Valor total de "Deduções"
+            ///     Valor total de "Deduções"
             /// </summary>
             [SpedCampos(12, "VL_TOT_DED", "N", 0, 2, true)]
             public decimal VL_TOT_DED { get; set; }
 
             /// <summary>
-            /// Valor total de "ICMS a recolher (11-12)
+            ///     Valor total de "ICMS a recolher (11-12)
             /// </summary>
             [SpedCampos(13, "VL_ICMS_RECOLHER", "N", 0, 2, true)]
             public decimal VL_ICMS_RECOLHER { get; set; }
 
             /// <summary>
-            /// Valor total de "Saldo credor a transportar para o período seguinte” 
+            ///     Valor total de "Saldo credor a transportar para o período seguinte”
             /// </summary>
             [SpedCampos(14, "VL_SLD_CREDOR_TRANSPORTAR", "N", 0, 2, true)]
             public decimal VL_SLD_CREDOR_TRANSPORTAR { get; set; }
 
             /// <summary>
-            /// Valores recolhidos ou a recolher, extraapuração.
+            ///     Valores recolhidos ou a recolher, extraapuração.
             /// </summary>
             [SpedCampos(15, "DEB_ESP", "N", 0, 2, true)]
             public decimal DEB_ESP { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E111: AJUSTE/BENEFÍCIO/INCENTIVO DA APURAÇÃO DO ICMS
+        ///     REGISTRO E111: AJUSTE/BENEFÍCIO/INCENTIVO DA APURAÇÃO DO ICMS
         /// </summary>
         public class RegistroE111 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE111"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE111" />.
             /// </summary>
             public RegistroE111()
             {
@@ -167,31 +166,31 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Código de ajuste da apuração e dedução
+            ///     Código de ajuste da apuração e dedução
             /// </summary>
             [SpedCampos(2, "COD_AJ_APUR", "C", 8, 0, true)]
             public string CodAjApur { get; set; }
 
             /// <summary>
-            /// Descrição complementar do ajuste da apuração
+            ///     Descrição complementar do ajuste da apuração
             /// </summary>
             [SpedCampos(3, "DESCR_COMPL_AJ", "C", 1024, 0, false)]
             public string DescrComplAj { get; set; }
 
             /// <summary>
-            /// Valor do ajuste da apuração
+            ///     Valor do ajuste da apuração
             /// </summary>
             [SpedCampos(4, "VL_AJ_APUR", "N", 0, 2, true)]
             public decimal VlAjApur { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E112: INFORMAÇÕES ADICIONAIS DOS AJUSTES DA APURAÇÃO DO ICMS
+        ///     REGISTRO E112: INFORMAÇÕES ADICIONAIS DOS AJUSTES DA APURAÇÃO DO ICMS
         /// </summary>
         public class RegistroE112 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE112"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE112" />.
             /// </summary>
             public RegistroE112()
             {
@@ -199,49 +198,49 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Número do documento de arrecadação estadual, se houver
+            ///     Número do documento de arrecadação estadual, se houver
             /// </summary>
             [SpedCampos(2, "NUM_DA", "C", 100, 0, false)]
             public string NumDa { get; set; }
 
             /// <summary>
-            /// Número do processo ao qual o ajuste está vinculado, se houver
+            ///     Número do processo ao qual o ajuste está vinculado, se houver
             /// </summary>
             [SpedCampos(3, "NUM_PROC", "C", 15, 0, false)]
             public string NumProc { get; set; }
 
             /// <summary>
-            /// Indicador de origem do processo
+            ///     Indicador de origem do processo
             /// </summary>
             /// <remarks>
-            /// 0 - Sefaz
-            /// 1 - Justiça Federal
-            /// 2 - Justiça Estadual
-            /// 9 - Outros
+            ///     0 - Sefaz
+            ///     1 - Justiça Federal
+            ///     2 - Justiça Estadual
+            ///     9 - Outros
             /// </remarks>
             [SpedCampos(4, "IND_PROC", "C", 1, 0, false)]
             public string IndProc { get; set; }
 
             /// <summary>
-            /// Descrição resumida do processo que embasou o lançamento
+            ///     Descrição resumida do processo que embasou o lançamento
             /// </summary>
             [SpedCampos(5, "PROC", "C", 1024, 0, false)]
             public string Proc { get; set; }
 
             /// <summary>
-            /// Descrição complementar
+            ///     Descrição complementar
             /// </summary>
             [SpedCampos(6, "TXT_COMPL", "C", 1024, 0, false)]
             public string TxtCompl { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E113: INFORMAÇÕES ADICIONAIS DOS AJUSTES DA APURAÇÃO DO ICMS - IDENTIFICAÇÃO DOS DOCUMENTOS FISCAIS
+        ///     REGISTRO E113: INFORMAÇÕES ADICIONAIS DOS AJUSTES DA APURAÇÃO DO ICMS - IDENTIFICAÇÃO DOS DOCUMENTOS FISCAIS
         /// </summary>
         public class RegistroE113 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE113"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE113" />.
             /// </summary>
             public RegistroE113()
             {
@@ -249,65 +248,65 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Código do participante
+            ///     Código do participante
             /// </summary>
             /// <remarks>
-            /// - do emitente do documento ou do remetente das mercadorias, no caso das entradas;
-            /// - do adquirente, no caso de saídas
+            ///     - do emitente do documento ou do remetente das mercadorias, no caso das entradas;
+            ///     - do adquirente, no caso de saídas
             /// </remarks>
             [SpedCampos(2, "COD_PART", "C", 60, 0, true)]
             public string CodPart { get; set; }
 
             /// <summary>
-            /// Código do modelo do documento fiscal
+            ///     Código do modelo do documento fiscal
             /// </summary>
             [SpedCampos(3, "COD_MOD", "C", 2, 0, true)]
             public string CodMod { get; set; }
 
             /// <summary>
-            /// Série do documento fiscal
+            ///     Série do documento fiscal
             /// </summary>
             [SpedCampos(4, "SER", "C", 4, 0, false)]
             public string Ser { get; set; }
 
             /// <summary>
-            /// Subsérie do documento fiscal
+            ///     Subsérie do documento fiscal
             /// </summary>
             [SpedCampos(5, "SUB", "N", 3, 0, false)]
             public string Sub { get; set; }
 
             /// <summary>
-            /// Número do documento fiscal
+            ///     Número do documento fiscal
             /// </summary>
             [SpedCampos(6, "NUM_DOC", "N", 9, 0, true)]
             public long NumDoc { get; set; }
 
             /// <summary>
-            /// Data da emissão do documento fiscal
+            ///     Data da emissão do documento fiscal
             /// </summary>
             [SpedCampos(7, "DT_DOC", "N", 8, 0, true)]
             public DateTime DtDoc { get; set; }
 
             /// <summary>
-            /// Código do item
+            ///     Código do item
             /// </summary>
             [SpedCampos(8, "COD_ITEM", "C", 60, 0, false)]
             public string CodItem { get; set; }
 
             /// <summary>
-            /// Valor do ajuste para operação/item
+            ///     Valor do ajuste para operação/item
             /// </summary>
             [SpedCampos(9, "VL_AJ_ITEM", "N", 0, 2, true)]
             public decimal VlAjItem { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E115: INFORMAÇÕES ADICIONAIS DA APURAÇÃO - VALORES DECLARATÓRIOS
+        ///     REGISTRO E115: INFORMAÇÕES ADICIONAIS DA APURAÇÃO - VALORES DECLARATÓRIOS
         /// </summary>
         public class RegistroE115 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE115"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE115" />.
             /// </summary>
             public RegistroE115()
             {
@@ -315,31 +314,31 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Código da informação adicional conforme tabela a ser definida pelas SEFAZ
+            ///     Código da informação adicional conforme tabela a ser definida pelas SEFAZ
             /// </summary>
             [SpedCampos(2, "COD_INF_ADIC", "C", 8, 0, true)]
             public string CodInfAdic { get; set; }
 
             /// <summary>
-            /// Valor referente à informação adicional
+            ///     Valor referente à informação adicional
             /// </summary>
             [SpedCampos(3, "VL_INF_ADIC", "N", 0, 2, true)]
             public decimal VlInfAdic { get; set; }
 
             /// <summary>
-            /// Descrição complementar do ajuste
+            ///     Descrição complementar do ajuste
             /// </summary>
             [SpedCampos(4, "DESCR_COMPL_AJ", "C", 1024, 0, true)]
             public string DescrComplAj { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E116: OBRIGAÇÕES DO ICMS RECOLHIDO OU A RECOLHER – OPERAÇÕES PRÓPRIAS. 
+        ///     REGISTRO E116: OBRIGAÇÕES DO ICMS RECOLHIDO OU A RECOLHER – OPERAÇÕES PRÓPRIAS.
         /// </summary>
         public class RegistroE116 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE116"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE116" />.
             /// </summary>
             public RegistroE116()
             {
@@ -347,71 +346,71 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Código da obrigação a recolher, conforme a Tabela 5.4
+            ///     Código da obrigação a recolher, conforme a Tabela 5.4
             /// </summary>
             [SpedCampos(2, "COD_OR", "C", 3, 0, true)]
             public string CodOr { get; set; }
 
             /// <summary>
-            /// Valor da obrigação a recolher
+            ///     Valor da obrigação a recolher
             /// </summary>
             [SpedCampos(3, "VL_OR", "N", 0, 2, true)]
             public decimal VlOr { get; set; }
 
             /// <summary>
-            /// Data de vencimento da obrigação
+            ///     Data de vencimento da obrigação
             /// </summary>
             [SpedCampos(4, "DT_VCTO", "N", 8, 0, true)]
             public string DtVcto { get; set; }
 
             /// <summary>
-            /// Código de receita referente à obrigação, próprio da unidade da federação, conforme legislação estadual.
+            ///     Código de receita referente à obrigação, próprio da unidade da federação, conforme legislação estadual.
             /// </summary>
             [SpedCampos(5, "COD_REC", "C", 0, 0, true)]
             public string CodRec { get; set; }
 
             /// <summary>
-            /// Número do processo ou auto de infração ao qual a obrigação está vinculada, se houver.
+            ///     Número do processo ou auto de infração ao qual a obrigação está vinculada, se houver.
             /// </summary>
             [SpedCampos(6, "NUM_PROC", "C", 15, 0, false)]
             public string NumProc { get; set; }
 
             /// <summary>
-            /// Indicador da origem do processo: 
-            /// 0- SEFAZ; 
-            /// 1- Justiça Federal; 
-            /// 2- Justiça Estadual; 
-            /// 9- Outros
+            ///     Indicador da origem do processo:
+            ///     0- SEFAZ;
+            ///     1- Justiça Federal;
+            ///     2- Justiça Estadual;
+            ///     9- Outros
             /// </summary>
             [SpedCampos(7, "IND_PROC", "C", 1, 0, false)]
             public int IndProc { get; set; }
 
             /// <summary>
-            /// Descrição resumida do processo que embasou o lançamento
+            ///     Descrição resumida do processo que embasou o lançamento
             /// </summary>
             [SpedCampos(8, "PROC", "C", 0, 0, false)]
             public string Proc { get; set; }
 
             /// <summary>
-            /// Descrição complementar das obrigações a recolher.
+            ///     Descrição complementar das obrigações a recolher.
             /// </summary>
             [SpedCampos(9, "TXT_COMPL", "C", 0, 0, false)]
             public string TxtCompl { get; set; }
 
             /// <summary>
-            /// Informe o mês de referência no formato "mmaaaa"
+            ///     Informe o mês de referência no formato "mmaaaa"
             /// </summary>
             [SpedCampos(10, "MES_REF", "N", 6, 0, true)]
             public string MesRef { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E200: PERÍODO DE APURAÇÃO DO ICMS - SUBSTITUIÇÃO TRIBUTÁRIA
+        ///     REGISTRO E200: PERÍODO DE APURAÇÃO DO ICMS - SUBSTITUIÇÃO TRIBUTÁRIA
         /// </summary>
         public class RegistroE200 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE200"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE200" />.
             /// </summary>
             public RegistroE200()
             {
@@ -419,31 +418,31 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Sigla da unidade da federação a que se refere a apuração do ICMS ST
+            ///     Sigla da unidade da federação a que se refere a apuração do ICMS ST
             /// </summary>
             [SpedCampos(2, "UF", "C", 2, 0, true)]
             public string Uf { get; set; }
 
             /// <summary>
-            /// Data inicial a que a apuração se refere
+            ///     Data inicial a que a apuração se refere
             /// </summary>
             [SpedCampos(3, "DT_INI", "N", 8, 0, true)]
             public DateTime DtIni { get; set; }
 
             /// <summary>
-            /// Data final a que a apuação se refere
+            ///     Data final a que a apuação se refere
             /// </summary>
             [SpedCampos(4, "DT_FUN", "N", 8, 0, true)]
             public DateTime DtFin { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E210: APURAÇÃO DO ICMS - SUBSTITUIÇÃO TRIBUTÁRIA
+        ///     REGISTRO E210: APURAÇÃO DO ICMS - SUBSTITUIÇÃO TRIBUTÁRIA
         /// </summary>
         public class RegistroE210 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE210"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE210" />.
             /// </summary>
             public RegistroE210()
             {
@@ -451,101 +450,101 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Indicador de movimento
+            ///     Indicador de movimento
             /// </summary>
             /// <remarks>
-            /// 0 - Sem operações com ST
-            /// 1 - Com operações de ST
+            ///     0 - Sem operações com ST
+            ///     1 - Com operações de ST
             /// </remarks>
             [SpedCampos(2, "IND_MOV_ST", "C", 1, 0, true)]
             public int IndMovSt { get; set; }
 
             /// <summary>
-            /// Valor do "Saldo credor do período anterior - Substituição Tributária"
+            ///     Valor do "Saldo credor do período anterior - Substituição Tributária"
             /// </summary>
             [SpedCampos(3, "VL_SLD_CRED_ANT_ST", "N", 0, 2, true)]
             public decimal VlSldCredAntSt { get; set; }
 
             /// <summary>
-            /// Valor total do ICMS ST de devolução de mercadorias
+            ///     Valor total do ICMS ST de devolução de mercadorias
             /// </summary>
             [SpedCampos(4, "VL_DEVOL_ST", "N", 0, 2, true)]
             public decimal VlDevolSt { get; set; }
 
             /// <summary>
-            /// Valor total do ICMS ST de ressarcimentos
+            ///     Valor total do ICMS ST de ressarcimentos
             /// </summary>
             [SpedCampos(5, "VL_RESSARC_ST", "N", 0, 2, true)]
             public decimal VlRessarcSt { get; set; }
 
             /// <summary>
-            /// Valor total de Ajustes "Outros créditos ST" e "Estorno de débitos ST"
+            ///     Valor total de Ajustes "Outros créditos ST" e "Estorno de débitos ST"
             /// </summary>
             [SpedCampos(6, "VL_OUT_CRED_ST", "N", 0, 2, true)]
             public decimal VlOutCredSt { get; set; }
 
             /// <summary>
-            /// Valor total dos ajustes a crédito de ICMS ST, proveninetes de ajustes do documento fiscal
+            ///     Valor total dos ajustes a crédito de ICMS ST, proveninetes de ajustes do documento fiscal
             /// </summary>
             [SpedCampos(7, "VL_AJ_CREDITOS_ST", "N", 0, 2, true)]
             public decimal VlAjCreditosSt { get; set; }
 
             /// <summary>
-            /// Valor total do ICMS retido por substituição tributária
+            ///     Valor total do ICMS retido por substituição tributária
             /// </summary>
             [SpedCampos(8, "VL_RETENÇAO_ST", "N", 0, 2, true)]
             public decimal VlRetencaoSt { get; set; }
 
             /// <summary>
-            /// Valor total dos ajustes "Outros débitos ST" e "Estorno de créditos ST"
+            ///     Valor total dos ajustes "Outros débitos ST" e "Estorno de créditos ST"
             /// </summary>
             [SpedCampos(9, "VL_OUT_DEB_ST", "N", 0, 2, true)]
             public decimal VlOutDebSt { get; set; }
 
             /// <summary>
-            /// Valor total dos ajustes a débito de ICMS ST, provenientes de ajustes do documento fiscal
+            ///     Valor total dos ajustes a débito de ICMS ST, provenientes de ajustes do documento fiscal
             /// </summary>
             [SpedCampos(10, "VL_AJ_DEBITOS_ST", "N", 0, 2, true)]
             public decimal VlAjDebitosSt { get; set; }
 
             /// <summary>
-            /// Valor total do saldo devedor antes das deduções
+            ///     Valor total do saldo devedor antes das deduções
             /// </summary>
             [SpedCampos(11, "VL_SLD_DEV_ANT_ST", "N", 0, 2, true)]
             public decimal VlSldDevAntSt { get; set; }
 
             /// <summary>
-            /// Valor total dos ajustes "Deduções ST"
+            ///     Valor total dos ajustes "Deduções ST"
             /// </summary>
             [SpedCampos(12, "VL_DEDUÇÕES_ST", "N", 0, 2, true)]
             public decimal VlDeducoesSt { get; set; }
 
             /// <summary>
-            /// Imposto a recolher ST (11-12)
+            ///     Imposto a recolher ST (11-12)
             /// </summary>
             [SpedCampos(13, "VL_ICMS_RECOL_ST", "N", 0, 2, true)]
             public decimal VlIcmsRecolSt { get; set; }
 
             /// <summary>
-            /// Saldo credor de ST a transportar para o período seguinte
+            ///     Saldo credor de ST a transportar para o período seguinte
             /// </summary>
             [SpedCampos(14, "VL_SLD_CRED_ST_TRANSPORTAR", "N", 0, 2, true)]
             public decimal VlSldCredStTransportar { get; set; }
 
             /// <summary>
-            /// Valores recohidos ou a recolher, extra-apuração
+            ///     Valores recohidos ou a recolher, extra-apuração
             /// </summary>
             [SpedCampos(15, "DEB_ESP_ST", "N", 0, 2, true)]
             public decimal DebEspSt { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E220: AJUSTE/BENEFICIO/INCENTIVO DA APURAÇÃO DO ICMS SUBSTITUIÇÃO TRIBUTÁRIA
+        ///     REGISTRO E220: AJUSTE/BENEFICIO/INCENTIVO DA APURAÇÃO DO ICMS SUBSTITUIÇÃO TRIBUTÁRIA
         /// </summary>
         public class RegistroE220 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE220"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE220" />.
             /// </summary>
             public RegistroE220()
             {
@@ -553,31 +552,31 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Código de ajuste da apuração e dedução
+            ///     Código de ajuste da apuração e dedução
             /// </summary>
             [SpedCampos(2, "COD_AJ_APUR", "C", 8, 0, true)]
             public string CodAjApur { get; set; }
 
             /// <summary>
-            /// Descrição complementar do ajuste da apuração
+            ///     Descrição complementar do ajuste da apuração
             /// </summary>
             [SpedCampos(3, "DESCR_COMPL_AJ", "C", 1024, 0, false)]
             public string DescrComplAj { get; set; }
 
             /// <summary>
-            /// Valor do ajuste da apuração
+            ///     Valor do ajuste da apuração
             /// </summary>
             [SpedCampos(4, "VL_AJ_APUR", "N", 0, 2, true)]
             public decimal VlAjApur { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E230: INFORMAÇÕES ADICIONAIS DOS AJUSTES DA APURAÇÃO DO ICMS SUBSTITUIÇÃO TRIBUTÁRIA
+        ///     REGISTRO E230: INFORMAÇÕES ADICIONAIS DOS AJUSTES DA APURAÇÃO DO ICMS SUBSTITUIÇÃO TRIBUTÁRIA
         /// </summary>
         public class RegistroE230 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE230"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE230" />.
             /// </summary>
             public RegistroE230()
             {
@@ -585,49 +584,50 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Número do documento de arrecadação estadual, se houver
+            ///     Número do documento de arrecadação estadual, se houver
             /// </summary>
             [SpedCampos(2, "NUM_DA", "C", 100, 0, false)]
             public string NumDa { get; set; }
 
             /// <summary>
-            /// Número do processo ao qual o ajuste está vinculado, se houver
+            ///     Número do processo ao qual o ajuste está vinculado, se houver
             /// </summary>
             [SpedCampos(3, "NUM_PROC", "C", 15, 0, false)]
             public string NumProc { get; set; }
 
             /// <summary>
-            /// Indicador de origem do processo
+            ///     Indicador de origem do processo
             /// </summary>
             /// <remarks>
-            /// 0 - Sefaz
-            /// 1 - Justiça Federal
-            /// 2 - Justiça Estadual
-            /// 9 - Outros
+            ///     0 - Sefaz
+            ///     1 - Justiça Federal
+            ///     2 - Justiça Estadual
+            ///     9 - Outros
             /// </remarks>
             [SpedCampos(4, "IND_PROC", "N", 1, 0, false)]
             public int IndProc { get; set; }
 
             /// <summary>
-            /// Descrição resumida do processo que embasou o lançamento
+            ///     Descrição resumida do processo que embasou o lançamento
             /// </summary>
             [SpedCampos(5, "PROC", "C", 1024, 0, false)]
             public string Proc { get; set; }
 
             /// <summary>
-            /// Descrição complementar
+            ///     Descrição complementar
             /// </summary>
             [SpedCampos(6, "TXT_COMPL", "C", 1024, 0, false)]
             public string TxtCompl { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E240: INFORMAÇÕES ADICIONAIS DOS AJUSTES DA APURAÇÃO DO ICMS SUBSTITUIÇÃO TRIBUTÁRIA - IDENTIFICAÇÃO DOS DOCUMENTOS FISCAIS
+        ///     REGISTRO E240: INFORMAÇÕES ADICIONAIS DOS AJUSTES DA APURAÇÃO DO ICMS SUBSTITUIÇÃO TRIBUTÁRIA - IDENTIFICAÇÃO DOS
+        ///     DOCUMENTOS FISCAIS
         /// </summary>
         public class RegistroE240 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE240"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE240" />.
             /// </summary>
             public RegistroE240()
             {
@@ -635,61 +635,61 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Código do participante
+            ///     Código do participante
             /// </summary>
             [SpedCampos(2, "COD_PART", "C", 60, 0, true)]
             public string CodPart { get; set; }
 
             /// <summary>
-            /// Código do modelo do documento fiscal
+            ///     Código do modelo do documento fiscal
             /// </summary>
             [SpedCampos(3, "COD_MOD", "C", 2, 0, true)]
             public string CodMod { get; set; }
 
             /// <summary>
-            /// Série do documento fiscal
+            ///     Série do documento fiscal
             /// </summary>
             [SpedCampos(4, "SER", "C", 4, 0, false)]
             public string Ser { get; set; }
 
             /// <summary>
-            /// Subsérie do documento fiscal
+            ///     Subsérie do documento fiscal
             /// </summary>
             [SpedCampos(5, "SUB", "N", 3, 0, false)]
             public int Sub { get; set; }
 
             /// <summary>
-            /// Número do documento fiscal
+            ///     Número do documento fiscal
             /// </summary>
             [SpedCampos(6, "NUM_DOC", "N", 9, 0, true)]
             public long NumDoc { get; set; }
 
             /// <summary>
-            /// Data da emissão do documento fiscal
+            ///     Data da emissão do documento fiscal
             /// </summary>
             [SpedCampos(7, "DT_DOC", "N", 8, 0, true)]
             public DateTime DtDoc { get; set; }
 
             /// <summary>
-            /// Código do item
+            ///     Código do item
             /// </summary>
             [SpedCampos(8, "COD_ITEM", "C", 60, 0, false)]
             public string CodItem { get; set; }
 
             /// <summary>
-            /// Valor do ajuste para operação/item
+            ///     Valor do ajuste para operação/item
             /// </summary>
             [SpedCampos(9, "VL_AJ_ITEM", "N", 0, 2, true)]
             public decimal VlAjItem { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E250: OBRIGAÇÕES DO ICMS RECOLHIDO OU A RECOLHER - SUBSTITUIÇÃO TRIBUTÁRIA
+        ///     REGISTRO E250: OBRIGAÇÕES DO ICMS RECOLHIDO OU A RECOLHER - SUBSTITUIÇÃO TRIBUTÁRIA
         /// </summary>
         public class RegistroE250 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE250"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE250" />.
             /// </summary>
             public RegistroE250()
             {
@@ -697,73 +697,73 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Código da obrigação a recolher
+            ///     Código da obrigação a recolher
             /// </summary>
             [SpedCampos(2, "COD_OR", "C", 3, 0, true)]
             public string CodOr { get; set; }
 
             /// <summary>
-            /// Valor da obrigação ICMS ST a recolher
+            ///     Valor da obrigação ICMS ST a recolher
             /// </summary>
             [SpedCampos(3, "VL_OR", "N", 0, 2, true)]
             public decimal VlOr { get; set; }
 
             /// <summary>
-            /// Data de vencimento da obrigação
+            ///     Data de vencimento da obrigação
             /// </summary>
             [SpedCampos(4, "DT_VCTO", "N", 8, 0, true)]
             public DateTime DtVcto { get; set; }
 
             /// <summary>
-            /// Código de receita referente à obrigação, próprio da unidade da federação do contribuinte substituído
+            ///     Código de receita referente à obrigação, próprio da unidade da federação do contribuinte substituído
             /// </summary>
             [SpedCampos(5, "COD_REC", "C", 100, 0, true)]
             public string CodRec { get; set; }
 
             /// <summary>
-            /// Número do processo ou auto de infração ao qual a obrigaçaõ está vinculada, se houver
+            ///     Número do processo ou auto de infração ao qual a obrigaçaõ está vinculada, se houver
             /// </summary>
             [SpedCampos(6, "NUM_PROC", "C", 15, 0, false)]
             public string NumProc { get; set; }
 
             /// <summary>
-            /// Indicador da origem do processo
+            ///     Indicador da origem do processo
             /// </summary>
             /// <remarks>
-            /// 0 - SEFAZ
-            /// 1 - Justiça Federal
-            /// 2 - Justiça Estadual
-            /// 9 - Outros
+            ///     0 - SEFAZ
+            ///     1 - Justiça Federal
+            ///     2 - Justiça Estadual
+            ///     9 - Outros
             /// </remarks>
             [SpedCampos(7, "IND_PROC", "C", 1, 0, false)]
             public string IndProc { get; set; }
 
             /// <summary>
-            /// Descrição resumida do processo que embasou o lançamento
+            ///     Descrição resumida do processo que embasou o lançamento
             /// </summary>
             [SpedCampos(8, "PROC", "C", 1024, 0, false)]
             public string Proc { get; set; }
 
             /// <summary>
-            /// Descrição complementar das obrigações a recolher
+            ///     Descrição complementar das obrigações a recolher
             /// </summary>
             [SpedCampos(9, "TXT_COMPL", "C", 1024, 0, false)]
             public string TxtCompl { get; set; }
 
             /// <summary>
-            /// Informe o mês de referência
+            ///     Informe o mês de referência
             /// </summary>
             [SpedCampos(10, "MES_REF", "MA", 6, 0, true)]
             public DateTime MesRef { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E300: PERÍODO DE APURAÇÃO DO ICMS DIFERENCIAL DE ALÍQUOTA - UF ORIGEM/DESTINO EC 87/15
+        ///     REGISTRO E300: PERÍODO DE APURAÇÃO DO ICMS DIFERENCIAL DE ALÍQUOTA - UF ORIGEM/DESTINO EC 87/15
         /// </summary>
         public class RegistroE300 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE300"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE300" />.
             /// </summary>
             public RegistroE300()
             {
@@ -771,31 +771,31 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Sigla da unidade da federação a que se refere a apuração do ICMS Diferencial de Alíquota da UF de Origem/Destino
+            ///     Sigla da unidade da federação a que se refere a apuração do ICMS Diferencial de Alíquota da UF de Origem/Destino
             /// </summary>
             [SpedCampos(2, "UF", "C", 2, 0, true)]
             public string Uf { get; set; }
 
             /// <summary>
-            /// Data inicial a que a apuração se refere
+            ///     Data inicial a que a apuração se refere
             /// </summary>
             [SpedCampos(3, "DT_INI", "N", 8, 0, true)]
             public DateTime DtIni { get; set; }
 
             /// <summary>
-            /// Data final a que a apuração se refere
+            ///     Data final a que a apuração se refere
             /// </summary>
             [SpedCampos(4, "DT_FIN", "N", 8, 0, true)]
             public DateTime DtFun { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E310: APURAÇÃO DO ICMS DIFERENCIAL DE ALÍQUOTA - UF ORIGEM/DESTINO EC 87/15
+        ///     REGISTRO E310: APURAÇÃO DO ICMS DIFERENCIAL DE ALÍQUOTA - UF ORIGEM/DESTINO EC 87/15
         /// </summary>
         public class RegistroE310 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE310"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE310" />.
             /// </summary>
             public RegistroE310()
             {
@@ -803,95 +803,99 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Indicador de movimento
+            ///     Indicador de movimento
             /// </summary>
             /// <remarks>
-            /// 0 - Sem operações com ICMS Diferencial de Alíquota da UF de Origem/Destino
-            /// 1 - Com operações de ICMS Diferencial de Alíquota da UF de Origem/Destino
+            ///     0 - Sem operações com ICMS Diferencial de Alíquota da UF de Origem/Destino
+            ///     1 - Com operações de ICMS Diferencial de Alíquota da UF de Origem/Destino
             /// </remarks>
             [SpedCampos(2, "IND_MOV_DIFAL", "C", 1, 0, true)]
             public int IndMovDifal { get; set; }
 
             /// <summary>
-            /// Valor do "Saldo credor do período anterior - ICMS Diferencial de Alíquota da UF de Origem/Destino"
+            ///     Valor do "Saldo credor do período anterior - ICMS Diferencial de Alíquota da UF de Origem/Destino"
             /// </summary>
             [SpedCampos(3, "VL_SLD_CRED_ANT_DIFAL", "N", 0, 2, true)]
             public decimal VlSldCredAntDifal { get; set; }
 
             /// <summary>
-            /// Valor total dos débitos por "Saídas e prestações com débito do ICMS referente ao diferencial de alíquota devido à UF do Remetente/Destinatário"
+            ///     Valor total dos débitos por "Saídas e prestações com débito do ICMS referente ao diferencial de alíquota devido à
+            ///     UF do Remetente/Destinatário"
             /// </summary>
             [SpedCampos(4, "VL_TOT_DEBITOS_DIFAL", "N", 0, 2, true)]
             public decimal VlTotDebitosDifal { get; set; }
 
             /// <summary>
-            /// Valor total dos ajustes "Outros débitos ICMS Diferencial de Alíquota da UF de Origem/Destino" e "Estorno de créditos ICMS Diferencial de Alíquota da UF de Origem/Destino"
+            ///     Valor total dos ajustes "Outros débitos ICMS Diferencial de Alíquota da UF de Origem/Destino" e "Estorno de
+            ///     créditos ICMS Diferencial de Alíquota da UF de Origem/Destino"
             /// </summary>
             [SpedCampos(5, "VL_OUT_DEB_DIFAL", "N", 0, 2, true)]
             public decimal VlOutDebDifal { get; set; }
 
             /// <summary>
-            /// Valor total dos débitos FCP por "Saídas e prestações"
+            ///     Valor total dos débitos FCP por "Saídas e prestações"
             /// </summary>
             [SpedCampos(6, "VL_TOT_DEB_FCP", "N", 0, 2, true)]
             public decimal VlTotDebFcp { get; set; }
 
             /// <summary>
-            /// Valor total dos créditos do ICMS referente ao diferencial de alíquota devido à UF do Remetente/Destinatário
+            ///     Valor total dos créditos do ICMS referente ao diferencial de alíquota devido à UF do Remetente/Destinatário
             /// </summary>
             [SpedCampos(7, "VL_TOT_CREDITOS_DIFAL", "N", 0, 2, true)]
             public decimal VlTotCreditosDifal { get; set; }
 
             /// <summary>
-            /// Valor total dos créditos FCP por Entradas
+            ///     Valor total dos créditos FCP por Entradas
             /// </summary>
             [SpedCampos(8, "VL_TOT_CRED_FCP", "N", 0, 2, true)]
             public decimal VlTotCredFcp { get; set; }
 
             /// <summary>
-            /// Valor total de ajustes "Outros créditos ICMS diferencial de Alíquota da UF de Origem/Destino" e "Estorno de débitos ICMS Diferencial de Alíquota da UF de Origem/Destino"
+            ///     Valor total de ajustes "Outros créditos ICMS diferencial de Alíquota da UF de Origem/Destino" e "Estorno de débitos
+            ///     ICMS Diferencial de Alíquota da UF de Origem/Destino"
             /// </summary>
             [SpedCampos(9, "VL_OUT_CRED_DIFAL", "N", 0, 2, true)]
             public decimal VlOutCredDifal { get; set; }
 
             /// <summary>
-            /// Valor total de saldo devedor ICMS Diferencial de Alíquota da UF de Origem/Destino antes das deduções
+            ///     Valor total de saldo devedor ICMS Diferencial de Alíquota da UF de Origem/Destino antes das deduções
             /// </summary>
             [SpedCampos(10, "VL_SLD_DEV_ANT_DIFAL", "N", 0, 2, true)]
             public decimal VlSldDevAntDifal { get; set; }
 
             /// <summary>
-            /// Valor total dos ajustes "Deduções ICMS Diferencial de Alíquota da UF de Origem/Destino"
+            ///     Valor total dos ajustes "Deduções ICMS Diferencial de Alíquota da UF de Origem/Destino"
             /// </summary>
             [SpedCampos(11, "VL_DEDUÇÕES_DIFAL", "N", 0, 2, true)]
             public decimal VlDeducoesDifal { get; set; }
 
             /// <summary>
-            /// Valor recolhido ou a recolher referente a FCP e Imposto do Diferencial de Alíquota da UF de Origem/Destino (10-11)
+            ///     Valor recolhido ou a recolher referente a FCP e Imposto do Diferencial de Alíquota da UF de Origem/Destino (10-11)
             /// </summary>
             [SpedCampos(12, "VL_RECOL", "N", 0, 2, true)]
             public decimal VlRecol { get; set; }
 
             /// <summary>
-            /// Saldo credor a transportar para o período seguinte referente a FCP e Imposto do Diferencial de Alíquota da UF de Origem/Destino
+            ///     Saldo credor a transportar para o período seguinte referente a FCP e Imposto do Diferencial de Alíquota da UF de
+            ///     Origem/Destino
             /// </summary>
             [SpedCampos(13, "VL_SLD_CRED_TRANSPORTAR", "N", 0, 2, true)]
             public decimal VlSldCredTransportar { get; set; }
 
             /// <summary>
-            /// Valores recolhidos ou a recolher, extra-apuração
+            ///     Valores recolhidos ou a recolher, extra-apuração
             /// </summary>
             [SpedCampos(14, "DEB_ESP_DIFAL", "N", 0, 2, true)]
             public decimal DebEspDifal { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E311: AJUSTE/BENEFICIO/INCENTIVO DA APURAÇÃO DO ICMS DIFERENCIAL DE ALÍQUOTA UF ORIGEM/DESTINO EC 87/15
+        ///     REGISTRO E311: AJUSTE/BENEFICIO/INCENTIVO DA APURAÇÃO DO ICMS DIFERENCIAL DE ALÍQUOTA UF ORIGEM/DESTINO EC 87/15
         /// </summary>
         public class RegistroE311 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE311"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE311" />.
             /// </summary>
             public RegistroE311()
             {
@@ -899,31 +903,32 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Código de ajuste da apuração e dedução
+            ///     Código de ajuste da apuração e dedução
             /// </summary>
             [SpedCampos(2, "COD_AJ_APUR", "C", 8, 0, true)]
             public string CodAjApur { get; set; }
 
             /// <summary>
-            /// Descrição complementar do ajuste da apuração
+            ///     Descrição complementar do ajuste da apuração
             /// </summary>
             [SpedCampos(3, "DESCR_COMPL_AJ", "C", 1024, 0, false)]
             public string DescrComplAj { get; set; }
 
             /// <summary>
-            /// Valor do ajuste da apuração
+            ///     Valor do ajuste da apuração
             /// </summary>
             [SpedCampos(4, "VL_AJ_APUR", "N", 0, 2, true)]
             public decimal VlAjApur { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E312: INFORMAÇÕES ADICIONAIS DOS AJUSTES DA APURAÇÃO DO ICMS DIFERENCIAL DE ALÍQUOTA UF ORIGEM/DESTINO EC 87/15
+        ///     REGISTRO E312: INFORMAÇÕES ADICIONAIS DOS AJUSTES DA APURAÇÃO DO ICMS DIFERENCIAL DE ALÍQUOTA UF ORIGEM/DESTINO EC
+        ///     87/15
         /// </summary>
         public class RegistroE312 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE312"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE312" />.
             /// </summary>
             public RegistroE312()
             {
@@ -931,49 +936,50 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Número do documento de arrecadação estadual, se houver
+            ///     Número do documento de arrecadação estadual, se houver
             /// </summary>
             [SpedCampos(2, "NUM_DA", "C", 100, 0, false)]
             public string NumDa { get; set; }
 
             /// <summary>
-            /// Número do processo ao qual o ajuste está vinculado, se houver
+            ///     Número do processo ao qual o ajuste está vinculado, se houver
             /// </summary>
             [SpedCampos(3, "NUM_PROC", "C", 15, 0, false)]
             public string NumProc { get; set; }
 
             /// <summary>
-            /// Indicador da origem do processo
+            ///     Indicador da origem do processo
             /// </summary>
             /// <remarks>
-            /// 0 - Sefaz
-            /// 1 - Justiça Federal
-            /// 2 - Justiça Estadual
-            /// 9 - Outros
+            ///     0 - Sefaz
+            ///     1 - Justiça Federal
+            ///     2 - Justiça Estadual
+            ///     9 - Outros
             /// </remarks>
             [SpedCampos(4, "IND_PROC", "N", 1, 0, false)]
             public int IndProc { get; set; }
 
             /// <summary>
-            /// Descrição resumida do processo que embasou o lançamento
+            ///     Descrição resumida do processo que embasou o lançamento
             /// </summary>
             [SpedCampos(5, "PROC", "C", 1024, 0, false)]
             public string Proc { get; set; }
 
             /// <summary>
-            /// Descrição complementar
+            ///     Descrição complementar
             /// </summary>
             [SpedCampos(6, "TXT_COMPL", "C", 1024, 0, false)]
             public string TxtCompl { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E313: INFORMAÇÕES ADICIONAIS DOS AJUSTES DA APURAÇÃ DO ICMS DIFERENCIAL DE ALÍQUOTA UF ORIGEM/DESTINO EC 87/15 IDENTIFICAÇÃO DOS DOCUMENTOS FISCAIS
+        ///     REGISTRO E313: INFORMAÇÕES ADICIONAIS DOS AJUSTES DA APURAÇÃ DO ICMS DIFERENCIAL DE ALÍQUOTA UF ORIGEM/DESTINO EC
+        ///     87/15 IDENTIFICAÇÃO DOS DOCUMENTOS FISCAIS
         /// </summary>
         public class RegistroE313 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE313"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE313" />.
             /// </summary>
             public RegistroE313()
             {
@@ -981,67 +987,67 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Código do participante
+            ///     Código do participante
             /// </summary>
             [SpedCampos(2, "COD_PART", "C", 60, 0, true)]
             public string CodPart { get; set; }
 
             /// <summary>
-            /// Código do modelo do documento fiscal
+            ///     Código do modelo do documento fiscal
             /// </summary>
             [SpedCampos(3, "COD_MOD", "C", 2, 0, true)]
             public string CodMod { get; set; }
 
             /// <summary>
-            /// Série do documento fiscal
+            ///     Série do documento fiscal
             /// </summary>
             [SpedCampos(4, "SER", "C", 4, 0, false)]
             public string Ser { get; set; }
 
             /// <summary>
-            /// Subsérie do documento fiscal
+            ///     Subsérie do documento fiscal
             /// </summary>
             [SpedCampos(5, "SUB", "N", 3, 0, false)]
             public string Sub { get; set; }
 
             /// <summary>
-            /// Número do documento fiscal
+            ///     Número do documento fiscal
             /// </summary>
             [SpedCampos(6, "NUM_DOC", "N", 9, 0, true)]
             public long NumDoc { get; set; }
 
             /// <summary>
-            /// Chave do documento eletrônico
+            ///     Chave do documento eletrônico
             /// </summary>
             [SpedCampos(7, "CHV_DOCe", "N", 44, 0, false)]
             public string ChvDocE { get; set; }
 
             /// <summary>
-            /// Data da emissão do documento fiscal
+            ///     Data da emissão do documento fiscal
             /// </summary>
             [SpedCampos(8, "DT_DOC", "N", 8, 0, true)]
             public DateTime DtDoc { get; set; }
 
             /// <summary>
-            /// Código do item
+            ///     Código do item
             /// </summary>
             [SpedCampos(9, "COD_ITEM", "C", 60, 0, false)]
             public string CodItem { get; set; }
 
             /// <summary>
-            /// Valor do ajuste para a operação/item
+            ///     Valor do ajuste para a operação/item
             /// </summary>
             [SpedCampos(10, "VL_AJ_ITEM", "N", 0, 2, true)]
             public decimal VlAjItem { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E316: OBRIGAÇÕES DO ICMS RECOLHIDO OU A RECOLHER - DIFERENCIAL DE ALÍQUOTA UF ORIGEM/DESTINO EC 87/15
+        ///     REGISTRO E316: OBRIGAÇÕES DO ICMS RECOLHIDO OU A RECOLHER - DIFERENCIAL DE ALÍQUOTA UF ORIGEM/DESTINO EC 87/15
         /// </summary>
         public class RegistroE316 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE316"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE316" />.
             /// </summary>
             public RegistroE316()
             {
@@ -1049,73 +1055,74 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Código da obrigação recolhida ou a recolher
+            ///     Código da obrigação recolhida ou a recolher
             /// </summary>
             [SpedCampos(2, "COD_OR", "C", 3, 0, true)]
             public string CodOr { get; set; }
 
             /// <summary>
-            /// Valor da obrigação recolhida ou a recolher
+            ///     Valor da obrigação recolhida ou a recolher
             /// </summary>
             [SpedCampos(3, "VL_OR", "N", 0, 2, true)]
             public decimal VlOr { get; set; }
 
             /// <summary>
-            /// Data de vencimento da obrigação
+            ///     Data de vencimento da obrigação
             /// </summary>
             [SpedCampos(4, "DT_VCTO", "N", 8, 0, true)]
             public DateTime DtVcto { get; set; }
 
             /// <summary>
-            /// Código da receita referente à obrigação, próprio da unidade da federação da origem/destino, conforme legislação estadual
+            ///     Código da receita referente à obrigação, próprio da unidade da federação da origem/destino, conforme legislação
+            ///     estadual
             /// </summary>
             [SpedCampos(5, "COD_REC", "C", 100, 0, true)]
             public string CodRec { get; set; }
 
             /// <summary>
-            /// Número do processou ou auto de infração ao qual a obrigação está vinculada, se houver
+            ///     Número do processou ou auto de infração ao qual a obrigação está vinculada, se houver
             /// </summary>
             [SpedCampos(6, "NUM_PROC", "C", 15, 0, false)]
             public string NumProc { get; set; }
 
             /// <summary>
-            /// Indicador de origem do processo
+            ///     Indicador de origem do processo
             /// </summary>
             /// <remarks>
-            /// 0 - SEFAZ
-            /// 1 - Justiça Federal
-            /// 2 - Justiça Estadual
-            /// 9 - Outros
+            ///     0 - SEFAZ
+            ///     1 - Justiça Federal
+            ///     2 - Justiça Estadual
+            ///     9 - Outros
             /// </remarks>
             [SpedCampos(7, "IND_PROC", "C", 1, 0, false)]
             public int IndProc { get; set; }
 
             /// <summary>
-            /// Descrição resumida do processo que embasou o lançamento
+            ///     Descrição resumida do processo que embasou o lançamento
             /// </summary>
             [SpedCampos(8, "PROC", "C", 1024, 0, false)]
             public string Proc { get; set; }
 
             /// <summary>
-            /// Descrição complementar das obrigações recolhidas ou a recolher
+            ///     Descrição complementar das obrigações recolhidas ou a recolher
             /// </summary>
             [SpedCampos(9, "TXT_COMPL", "C", 1024, 0, false)]
             public string TxtCompl { get; set; }
 
             /// <summary>
-            /// Informe o mês de referência
+            ///     Informe o mês de referência
             /// </summary>
             [SpedCampos(10, "MES_REF", "MA", 6, 0, true)]
             public DateTime MesRef { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E500: PERÍODO DE APURAÇÃO DO IPI
+        ///     REGISTRO E500: PERÍODO DE APURAÇÃO DO IPI
         /// </summary>
         public class RegistroE500 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE500"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE500" />.
             /// </summary>
             public RegistroE500()
             {
@@ -1123,35 +1130,35 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Indicador de período de apuração do IPI
+            ///     Indicador de período de apuração do IPI
             /// </summary>
             /// <remarks>
-            /// 0 - Mensal
-            /// 1 - Decendial
+            ///     0 - Mensal
+            ///     1 - Decendial
             /// </remarks>
             [SpedCampos(2, "IND_APUR", "C", 1, 0, true)]
             public string IND_APUR { get; set; }
 
             /// <summary>
-            /// Data inicial a que a apuração se refere
+            ///     Data inicial a que a apuração se refere
             /// </summary>
             [SpedCampos(3, "DT_INI", "N", 8, 0, true)]
             public DateTime DT_INI { get; set; }
 
             /// <summary>
-            /// Data final a que a apuração se refere
+            ///     Data final a que a apuração se refere
             /// </summary>
             [SpedCampos(4, "DT_FIN", "N", 8, 0, true)]
             public DateTime DT_FIN { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E510: CONSOLIDAÇÃO DOS VALORES DO IPI
+        ///     REGISTRO E510: CONSOLIDAÇÃO DOS VALORES DO IPI
         /// </summary>
         public class RegistroE510 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE510"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE510" />.
             /// </summary>
             public RegistroE510()
             {
@@ -1159,43 +1166,45 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Código fiscal de operação e prestação do agrupamento de itens
+            ///     Código fiscal de operação e prestação do agrupamento de itens
             /// </summary>
             [SpedCampos(2, "CFOP", "N", 4, 0, true)]
             public int Cfop { get; set; }
 
             /// <summary>
-            /// Código da situação tributária referente ao IPI
+            ///     Código da situação tributária referente ao IPI
             /// </summary>
             [SpedCampos(3, "CST_IPI", "C", 2, 0, true)]
             public int CstIpi { get; set; }
 
             /// <summary>
-            /// Parcela correspondente ao "Valor Contábil" referente ao CFOP e ao Código de Tributação do IPI
+            ///     Parcela correspondente ao "Valor Contábil" referente ao CFOP e ao Código de Tributação do IPI
             /// </summary>
             [SpedCampos(4, "VL_CONT_IPI", "N", 0, 2, true)]
             public decimal VlContIpi { get; set; }
 
             /// <summary>
-            /// Parcela correspondente ao "Valor da base de cálculo do IPI" referente ao CFOP e ao Código de Tributação do IPI, para operação tributadas
+            ///     Parcela correspondente ao "Valor da base de cálculo do IPI" referente ao CFOP e ao Código de Tributação do IPI,
+            ///     para operação tributadas
             /// </summary>
             [SpedCampos(5, "VL_BC_IPI", "N", 0, 2, true)]
             public decimal VlBcIpi { get; set; }
 
             /// <summary>
-            /// Parcela correspondete ao "Valor do IPI" referente ao CFOP e ao Código de Tributação do IPI, para operações tributadas
+            ///     Parcela correspondete ao "Valor do IPI" referente ao CFOP e ao Código de Tributação do IPI, para operações
+            ///     tributadas
             /// </summary>
             [SpedCampos(6, "VL_IPI", "N", 0, 2, true)]
             public decimal VlIpi { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E50: APURAÇÃO DO IPI
+        ///     REGISTRO E50: APURAÇÃO DO IPI
         /// </summary>
         public class RegistroE520 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE520"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE520" />.
             /// </summary>
             public RegistroE520()
             {
@@ -1203,55 +1212,55 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Saldo credor do IPI transferido do período anterior
+            ///     Saldo credor do IPI transferido do período anterior
             /// </summary>
             [SpedCampos(2, "VL_SD_ANT_IPI", "N", 0, 2, true)]
             public decimal VlSdAntIpi { get; set; }
 
             /// <summary>
-            /// Valor total dos débitos por "Saídas com débito do imposto"
+            ///     Valor total dos débitos por "Saídas com débito do imposto"
             /// </summary>
             [SpedCampos(3, "VL_DEB_IPI", "N", 0, 2, true)]
             public decimal VlDebIpi { get; set; }
 
             /// <summary>
-            /// Valor total dos créditos por "Entradas e aquisições com crédito do imposto"
+            ///     Valor total dos créditos por "Entradas e aquisições com crédito do imposto"
             /// </summary>
             [SpedCampos(4, "VL_CRED_IPI", "N", 0, 2, true)]
             public decimal VlCredIpi { get; set; }
 
             /// <summary>
-            /// Valor de "Outros débitos" do IPI (inclusive estornos de crédito)
+            ///     Valor de "Outros débitos" do IPI (inclusive estornos de crédito)
             /// </summary>
             [SpedCampos(5, "VL_OD_IPI", "N", 0, 2, true)]
             public decimal VlOdIpi { get; set; }
 
             /// <summary>
-            /// Valor de "Outros créditos" do IPI (inclusive estornos de débitos)
+            ///     Valor de "Outros créditos" do IPI (inclusive estornos de débitos)
             /// </summary>
             [SpedCampos(6, "VL_OC_IPI", "N", 0, 2, true)]
             public decimal VlOcIpi { get; set; }
 
             /// <summary>
-            /// Valor do saldo credor do IPI a transportar para o período seguinte
+            ///     Valor do saldo credor do IPI a transportar para o período seguinte
             /// </summary>
             [SpedCampos(7, "VL_SC_IPI", "N", 0, 2, true)]
             public decimal VlScIpi { get; set; }
 
             /// <summary>
-            /// Valor do saldo devedor do IPI a recolher
+            ///     Valor do saldo devedor do IPI a recolher
             /// </summary>
             [SpedCampos(8, "VL_SD_IPI", "N", 0, 2, true)]
             public decimal VlSdIpi { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E530: AJUSTES DA APURAÇÃO DO IPI
+        ///     REGISTRO E530: AJUSTES DA APURAÇÃO DO IPI
         /// </summary>
         public class RegistroE530 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE530"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE530" />.
             /// </summary>
             public RegistroE530()
             {
@@ -1259,59 +1268,59 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Indicador do tipo de ajuste
+            ///     Indicador do tipo de ajuste
             /// </summary>
             /// <remarks>
-            /// 0 - Ajuste a débito
-            /// 1 - Ajuste a crédito
+            ///     0 - Ajuste a débito
+            ///     1 - Ajuste a crédito
             /// </remarks>
             [SpedCampos(2, "IND_AJ", "C", 1, 0, true)]
             public int IndAj { get; set; }
 
             /// <summary>
-            /// Valor do ajuste
+            ///     Valor do ajuste
             /// </summary>
             [SpedCampos(3, "VL_AJ", "N", 0, 2, true)]
             public decimal VlAj { get; set; }
 
             /// <summary>
-            /// Código do ajuste da apuração
+            ///     Código do ajuste da apuração
             /// </summary>
             [SpedCampos(4, "COD_AJ", "C", 3, 0, true)]
             public string CodAj { get; set; }
 
             /// <summary>
-            /// Indicador da origem do documento vinculado ao ajuste
+            ///     Indicador da origem do documento vinculado ao ajuste
             /// </summary>
             /// <remarks>
-            /// 0 - Processo Judicial
-            /// 1 - Processo Administrativo
-            /// 2 - PER/DCOMP
-            /// 9 - Outros
+            ///     0 - Processo Judicial
+            ///     1 - Processo Administrativo
+            ///     2 - PER/DCOMP
+            ///     9 - Outros
             /// </remarks>
             [SpedCampos(5, "IND_DOC", "C", 1, 0, false)]
             public int IndDoc { get; set; }
 
             /// <summary>
-            /// Número do documento/processo/declaração ao qual o ajuste está vinculado, se houver
+            ///     Número do documento/processo/declaração ao qual o ajuste está vinculado, se houver
             /// </summary>
             [SpedCampos(6, "NUM_DOC", "C", 1024, 0, false)]
             public string NumDoc { get; set; }
 
             /// <summary>
-            /// Descrição detalhada do ajuste, com citação dos documentos fiscais
+            ///     Descrição detalhada do ajuste, com citação dos documentos fiscais
             /// </summary>
             [SpedCampos(7, "DESCR_AJ", "C", 1024, 0, true)]
             public string DescrAj { get; set; }
         }
 
         /// <summary>
-        /// REGISTRO E990: ENCERRAMENTO DO BLOCO E 
+        ///     REGISTRO E990: ENCERRAMENTO DO BLOCO E
         /// </summary>
         public class RegistroE990 : RegistroBaseSped
         {
             /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroE990"/>.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE990" />.
             /// </summary>
             public RegistroE990()
             {
@@ -1319,9 +1328,9 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            /// Quantidade total de linhas do Bloco E
+            ///     Quantidade total de linhas do Bloco E
             /// </summary>
-            [SpedCampos(2, "QTD_LIN_E", "N", Int32.MaxValue, 0, true)]
+            [SpedCampos(2, "QTD_LIN_E", "N", int.MaxValue, 0, true)]
             public string QTD_LIN_E { get; set; }
         }
     }
