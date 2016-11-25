@@ -1,4 +1,5 @@
-﻿using SpedBr.Common;
+﻿using System;
+using SpedBr.Common;
 
 namespace SpedBr.SpedFiscal
 {
@@ -89,7 +90,7 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             /// Quantidade total de linhas do arquivo digital.
             /// </summary>
-            [SpedCampos(2, "QTD_LIN", "N", 0, 0, true)]
+            [SpedCampos(2, "QTD_LIN", "N", Int32.MaxValue, 0, true)]
             public int QtdLin { get; set; }
         }
     }

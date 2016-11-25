@@ -346,7 +346,7 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             /// Quantidade total de linhas do Bloco G
             /// </summary>
-            [SpedCampos(2, "QTD_LIN_G", "N", 0, 0, true)]
+            [SpedCampos(2, "QTD_LIN_G", "N", Int32.MaxValue, 0, true)]
             public int QtdLinG { get; set; }
         }
     }

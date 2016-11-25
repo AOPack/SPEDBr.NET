@@ -1321,7 +1321,7 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             /// Quantidade total de linhas do Bloco E
             /// </summary>
-            [SpedCampos(2, "QTD_LIN_E", "N", 0, 0, true)]
+            [SpedCampos(2, "QTD_LIN_E", "N", Int32.MaxValue, 0, true)]
             public string QTD_LIN_E { get; set; }
         }
     }

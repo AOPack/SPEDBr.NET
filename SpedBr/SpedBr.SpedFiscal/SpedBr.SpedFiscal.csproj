@@ -50,6 +50,7 @@
     <Compile Include="BlocoE.cs" />
     <Compile Include="BlocoG.cs" />
     <Compile Include="BlocoH.cs" />
+    <Compile Include="BlocoK.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

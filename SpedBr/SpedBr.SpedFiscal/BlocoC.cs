@@ -3969,7 +3969,7 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             /// Quantidade total de linhas do Bloco C
             /// </summary>
-            [SpedCampos(3, "QTD_LIN_C", "N", 0, 0, true)]
+            [SpedCampos(3, "QTD_LIN_C", "N", Int32.MaxValue, 0, true)]
             public int QtdLinC { get; set; }
         }
     }
