@@ -35,7 +35,7 @@ namespace SpedBr.SpedFiscal
             ///     1 - Remessa do arquivo substituto
             /// </remarks>
             [SpedCampos(3, "COD_FIN", "N", 1, 0, true)]
-            public FinalidadeArquivo CodFin { get; set; }
+            public IndCodFinalidadeArquivo CodFin { get; set; }
 
             /// <summary>
             ///     Data inicial das informações contidas no arquivo.
@@ -104,7 +104,7 @@ namespace SpedBr.SpedFiscal
             ///     C - Perfil C.
             /// </summary>
             [SpedCampos(14, "IND_PERFIL", "LE", 1, 0, true)]
-            public PerfilArquivo IndPerfil { get; set; }
+            public IndPerfilArquivo IndPerfil { get; set; }
 
             /// <summary>
             ///     Indicador de tipo de atividade:
@@ -112,7 +112,7 @@ namespace SpedBr.SpedFiscal
             ///     1 - Outros.
             /// </summary>
             [SpedCampos(15, "IND_ATIV", "N", 1, 0, true)]
-            public IndicadorTipoAtividade IndAtiv { get; set; }
+            public IndTipoAtividade IndAtiv { get; set; }
         }
 
         /// <summary>
@@ -132,7 +132,7 @@ namespace SpedBr.SpedFiscal
             ///     Indicador de movimento: 0 - Bloco com dados informados; 1 - Bloco sem dados informados.
             /// </summary>
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true)]
-            public int IndMov { get; set; }
+            public IndMovimento IndMov { get; set; }
         }
 
         /// <summary>

@@ -19,13 +19,27 @@ namespace SpedBr.Tests
         }
 
         [TestMethod]
+        public void EscreverBloco0ComIndMov()
+        {
+            var reg0001 = new SpedFiscal.Bloco0.Registro0001();
+
+            reg0001.IndMov = IndMovimento.BlocoSemDados;
+
+            var result = reg0001.EscreverCampos(new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1));
+
+            Assert.AreEqual("|0001|1|", result.ToStringSafe());
+        }
+
+        [TestMethod]
         public void EscreverBloco1ComEnum()
         {
             var reg1001 = new SpedFiscal.Bloco1.Registro1001();
 
-            reg1001.IndMov = IndicadorMovimento.BlocoComDados;
+            reg1001.IndMov = IndMovimento.BlocoComDados;
 
             var result = reg1001.EscreverCampos(new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1));
+
+            Assert.AreEqual("|1001|0|", result.ToStringSafe());
         }
 
         [TestMethod]
@@ -37,6 +51,8 @@ namespace SpedBr.Tests
             reg1010.IndExp = SimOuNao.S;
 
             var result = reg1010.EscreverCampos(new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1));
+
+            Assert.AreEqual("|1010|S|N|N|N|N|N|N|N|N|", result.ToStringSafe());
         }
     }
 }

@@ -272,12 +272,15 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            ///     Indicador do tipo de operação:
-            ///     0 - Combustíveis e lubrificantes;
-            ///     1 - Leasing de veículos ou faturamento direto.
+            ///     Indicador do tipo de operação
             /// </summary>
+            /// <remarks>
+            ///     0 - Combustíveis e lubrificantes;
+            ///     <para />
+            ///     1 - Leasing de veículos ou faturamento direto.
+            /// </remarks>
             [SpedCampos(2, "OPER", "N", 1, 0, true)]
-            public int Oper { get; set; }
+            public IndTipoOperacaoStUfDiversa Oper { get; set; }
 
             /// <summary>
             ///     Sigla da UF de destino do ICMS_ST
@@ -537,7 +540,7 @@ namespace SpedBr.SpedFiscal
             ///     9 - Outros.
             /// </remarks>
             [SpedCampos(2, "IND_CARGA", "N", 1, 0, true)]
-            public int IndCarga { get; set; }
+            public IndTipoTransporte IndCarga { get; set; }
 
             /// <summary>
             ///     Número do CNPJ do contribuinte do local de coleta
@@ -1041,7 +1044,7 @@ namespace SpedBr.SpedFiscal
             ///     1 - Não
             /// </remarks>
             [SpedCampos(9, "IND_MOV", "C", 1, 0, true)]
-            public int IndMov { get; set; }
+            public IndMovFisicaItem IndMov { get; set; }
 
             /// <summary>
             ///     Código da situação tributária referente ao ICMS
@@ -1106,7 +1109,7 @@ namespace SpedBr.SpedFiscal
             ///     1 - Decendial
             /// </remarks>
             [SpedCampos(19, "IND_APUR", "C", 1, 0, false)]
-            public int IndApur { get; set; }
+            public IndPeriodoApuracaoIpi IndApur { get; set; }
 
             /// <summary>
             ///     Código da situação tributária referente ao IPI
@@ -2706,9 +2709,7 @@ namespace SpedBr.SpedFiscal
         }
 
         /// <summary>
-        ///     REGISTRO C500: NOTA FISCAL/CONTA DE ENERGIA ELÉTRICA (CÓDIGO 06),
-        ///     NOTA FISCAL/CONTA DE FORNECIMENTO D'ÁGUA CANALIZADA (CÓDIGO 29) E
-        ///     NOTA FISCAL CONSUMO FORNECIMENTO DE GÁS (CÓDIGO 28)
+        ///     REGISTRO C500: NOTA FISCAL/CONTA DE ENERGIA ELÉTRICA (CÓDIGO 06), NOTA FISCAL/CONTA DE FORNECIMENTO D'ÁGUA CANALIZADA (CÓDIGO 29) E NOTA FISCAL CONSUMO FORNECIMENTO DE GÁS (CÓDIGO 28)
         /// </summary>
         public class RegistroC500 : RegistroBaseSped
         {
@@ -2721,6 +2722,35 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC500" />.
+            /// </summary>
+            public RegistroC500(IndClasseConsumoEnergia indConsumoEnergia, IndCodTipoLigacao indTipoLigacao, IndCodGrupoTensao indGrupoTensao)
+            {
+                Reg = "C500";
+                this.CodCons = (int) indConsumoEnergia;
+                this.TpLigacao = (int) indTipoLigacao;
+                this.CodGrupoTensao = (int) indGrupoTensao;
+            }
+
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC500" />.
+            /// </summary>
+            public RegistroC500(IndClasseConsumoAgua indConsumoAgua)
+            {
+                Reg = "C500";
+                this.CodCons = (int)indConsumoAgua;
+            }
+
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC500" />.
+            /// </summary>
+            public RegistroC500(IndClasseConsumoGas indConsumoGas)
+            {
+                Reg = "C500";
+                this.CodCons = (int)indConsumoGas;
+            }
+
+            /// <summary>
             ///     Indicador do tipo de operação
             /// </summary>
             /// <remarks>
@@ -2729,7 +2759,7 @@ namespace SpedBr.SpedFiscal
             ///     1 - Saída
             /// </remarks>
             [SpedCampos(2, "IND_OPER", "C", 1, 0, true)]
-            public int IndOper { get; set; }
+            public IndTipoOperacaoProduto IndOper { get; set; }
 
             /// <summary>
             ///     Indicador do emitente do documento fiscal
@@ -2740,7 +2770,7 @@ namespace SpedBr.SpedFiscal
             ///     1 - Terceiros
             /// </remarks>
             [SpedCampos(3, "IND_EMIT", "C", 1, 0, true)]
-            public int IndEmit { get; set; }
+            public IndEmitente IndEmit { get; set; }
 
             /// <summary>
             ///     Código do participante
@@ -2763,7 +2793,7 @@ namespace SpedBr.SpedFiscal
             ///     Código da situação do documento fiscal
             /// </summary>
             [SpedCampos(6, "COD_SIT", "N", 2, 0, true)]
-            public int CodSit { get; set; }
+            public IndCodSitDoc CodSit { get; set; }
 
             /// <summary>
             ///     Série do documento fiscal
