@@ -22,8 +22,8 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2015 - para gera
 ###### Outras
 
 - [ ] DCTF
-- [x] DIMOB (02/05/2016 - @samuelroliveira)
-- [x] [SINTEGRA](https://github.com/samuelroliveira/SINTEGRABr) (Outro projeto)
+- [x] DIMOB (Concluído em 02/05/2016)
+- [x] SINTEGRA ([SintegraBr](https://github.com/samuelroliveira/SINTEGRABr))
 
 ## Exemplos
 
