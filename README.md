@@ -14,22 +14,16 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2015 - para gera
 
 ######Projeto SPED
 
-- [ ] FCONT
-- [ ] EFD Reinf
-- [ ] EFD ICMS/IPI
+- [x] EFD ICMS/IPI
 - [ ] EFD Contribuições
 - [ ] Escrituração Contábil Fiscal (ECF)
 - [ ] Escrituração Contábil Digital (ECD)
 
 ######Outras
 
-- [ ] DACON
 - [ ] DCTF
 - [x] DIMOB (02/05/2016 - @samuelroliveira)
-- [ ] DIPJ
-- [ ] DIRF
-- [ ] GFIP/SEFIP
-- [ ] SINTEGRA (movido p/ outro projeto) -> [SintegraBr] (https://github.com/samuelroliveira/SINTEGRABr)
+- [x] SINTEGRA ([SintegraBr])(https://github.com/samuelroliveira/SINTEGRABr)
 
 ##Exemplos
 
