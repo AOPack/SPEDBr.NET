@@ -40,7 +40,7 @@ namespace SpedBr.EfdContribuicoes
                 Reg = "F100";
             }
 
-            [SpedCampos(2, "IND_OPER", "N", 2, 0, true)]
+            [SpedCampos(2, "IND_OPER", "N", 1, 0, true)]
             public int IndOper { get; set; }
 
             [SpedCampos(3, "COD_PART", "C", 60, 0, false)]
