@@ -58,7 +58,7 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(7, "CST_PIS", "N", 2, 0, true)]
             public int CstPis { get; set; }
 
-            [SpedCampos(8, "VL_BC_PIS", "N", 0, 2, false)]
+            [SpedCampos(8, "VL_BC_PIS", "N", 0, 4, false)]
             public decimal VlBcPis { get; set; }
 
             [SpedCampos(9, "ALIQ_PIS", "N", 8, 4, false)]
@@ -70,7 +70,7 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(11, "CST_COFINS", "N", 2, 0, true)]
             public int CstCofins { get; set; }
 
-            [SpedCampos(12, "VL_BC_COFINS", "N", 0, 2, false)]
+            [SpedCampos(12, "VL_BC_COFINS", "N", 0, 4, false)]
             public decimal VlBcCofins { get; set; }
 
             [SpedCampos(13, "ALIQ_COFINS", "N", 8, 4, false)]
@@ -112,7 +112,7 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(3, "UNID_IMOB", "N", 2, 0, true)]
             public int UnidImob { get; set; }
 
-            [SpedCampos(4, "IDENT_EMP", "C", 0, 0, true)]
+            [SpedCampos(4, "IDENT_EMP", "C", int.MaxValue, 0, true)]
             public string IdentEmp { get; set; }
 
             [SpedCampos(5, "DESC_UNID_IMOB", "C", 90, 0, false)]
@@ -222,7 +222,7 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(15, "COD_CTA", "C", 60, 0, false)]
             public string CodCta { get; set; }
 
-            [SpedCampos(16, "INFO_COMPL", "C", 0, 0, false)]
+            [SpedCampos(16, "INFO_COMPL", "C", int.MaxValue, 0, false)]
             public string InfoCompl { get; set; }
         }
 
