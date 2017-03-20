@@ -29,7 +29,7 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(2, "CNPJ", "N", 14, 0, true)]
             public string Cnpj { get; set; }
         }
-        
+
         /// <summary>
         /// DEMAIS DOCUMENTOS E OPERAÇÕES GERADORAS DE CONTRIBUIÇÃO E CRÉDITOS
         /// </summary>
@@ -93,7 +93,6 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(19, "DESC_DOC_OPER", "C", int.MaxValue, 0, false)]
             public string DescDocOper { get; set; }
-
         }
 
         /// <summary>
@@ -263,8 +262,8 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(11, "COD_CTA", "C", 60, 0, false)]
             public string CodCta { get; set; }
         }
-        
-           public class RegistroF550 : RegistroBaseSped
+
+        public class RegistroF550 : RegistroBaseSped
         {
             public RegistroF550()
             {
@@ -316,52 +315,107 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(16, "INFO_COMPL", "C", 0, 0, false)]
             public string InfoCompl { get; set; }
         }
-        
+
+        /// <summary>
+        /// CONTRIBUIÇÃO RETIDA NA FONTE
+        /// </summary>
         public class RegistroF600 : RegistroBaseSped
         {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroF600" />.
+            /// </summary>
             public RegistroF600()
             {
                 Reg = "F600";
             }
+
             /// <summary>
-            /// Indicador de Natureza da Retenção na Fonte:
-            /// 01 - Retenção por Órgãos, Autarquias e Fundações Federais
-            /// 02 - Retenção por outras Entidades da Administração Pública Federal
-            /// 03 - Retenção por Pessoas Jurídicas de Direito Privado
-            /// 04 - Recolhimento por Sociedade Cooperativa
-            /// 05 - Retenção por Fabricante de Máquinas e Veículos
-            /// 99 - Outras Retenções
+            /// Indicador de Natureza da Retenção na Fonte
             /// </summary>
+            /// <remarks>
+            /// 01 - Retenção por Órgãos, Autarquias e Fundações Federais
+            /// <para />
+            /// 02 - Retenção por outras Entidades da Administração Pública Federal
+            /// <para />
+            /// 03 - Retenção por Pessoas Jurídicas de Direito Privado
+            /// <para />
+            /// 04 - Recolhimento por Sociedade Cooperativa
+            /// <para />
+            /// 05 - Retenção por Fabricante de Máquinas e Veículos
+            /// <para />
+            /// 99 - Outras Retenções
+            /// </remarks>
             [SpedCampos(2, "IND_NAT_RET", "N", 2, 0, true)]
             public int IndNatRet { get; set; }
 
+            /// <summary>
+            /// Data da retenção
+            /// </summary>
             [SpedCampos(3, "DT_RET", "N", 8, 0, true)]
             public DateTime DtRet { get; set; }
 
+            /// <summary>
+            /// Base de cálculo da retenção ou do acolhimento (sociedade cooperativa)
+            /// </summary>
             [SpedCampos(4, "VL_BC_RET", "N", 0, 4, true)]
             public decimal VlBcRet { get; set; }
 
+            /// <summary>
+            /// Valor total retido na fonte / recolhido (sociedade cooperativa)
+            /// </summary>
             [SpedCampos(5, "VL_RET", "N", 0, 2, true)]
             public decimal VlRet { get; set; }
 
+            /// <summary>
+            /// Código da receita
+            /// </summary>
             [SpedCampos(6, "COD_REC", "C", 4, 0, false)]
             public string CodRec { get; set; }
 
+            /// <summary>
+            /// Indicador da natureza da receita
+            /// </summary>
+            /// <remarks>
+            /// 0 - Receita de Natureza Não Cumulativa
+            /// <para />
+            /// 1 - Receita de Natureza Cumulativa
+            /// </remarks>
             [SpedCampos(7, "IND_NAT_REC", "N", 1, 0, false)]
             public int? IndNatRec { get; set; }
 
+            /// <summary>
+            /// CNPJ da fonte pagadora ou da PJ beneficiária
+            /// </summary>
+            /// <remarks>
+            /// - Fonte pagadora responsável pela retenção / recolhimento (no caso de o registro ser escriturado pela pessoa jurídica beneficiária da retenção); ou
+            /// <para />
+            /// - Pessoa jurídica beneficiária da retenção / recolhimento (no caso de o registro ser escriturado pela pessoa jurídica responsável pela retenção).
+            /// </remarks>
             [SpedCampos(8, "CNPJ", "N", 14, 0, true)]
-            public string CNPJ { get; set; }
+            public string Cnpj { get; set; }
 
+            /// <summary>
+            /// Valor retido na fonte - parcela referente ao PIS/Pasep
+            /// </summary>
             [SpedCampos(9, "VL_RET_PIS", "N", 0, 2, true)]
             public decimal VlRetPis { get; set; }
 
+            /// <summary>
+            /// Valor retido na fonte - parcela referente a COFINS
+            /// </summary>
             [SpedCampos(10, "VL_RET_COFINS", "N", 0, 2, true)]
             public decimal VlRetCofins { get; set; }
 
+            /// <summary>
+            /// Indicador da condição da pessoa jurídica declarante
+            /// </summary>
+            /// <remarks>
+            /// 0 - Beneficiária da retenção / recolhimento
+            /// <para />
+            /// 1 - Responsável pelo recolhimento
+            /// </remarks>
             [SpedCampos(11, "IND_DEC", "N", 1, 0, true)]
             public int IndDec { get; set; }
-
         }
 
         public class RegistroF990 : RegistroBaseSped
