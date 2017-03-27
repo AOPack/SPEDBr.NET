@@ -88,7 +88,7 @@ namespace SpedBr.Common
 
                         // Verificação necessária p/ ajustes no tamanho de campos como CSTs e Indicadores. Ex.: CST PIS '1' -> Deve estar no arquivo como '01'.
                         var isCodeOrNumberAndHasLength = (spedCampoAttr.Tipo == "C" || spedCampoAttr.Tipo == "N") &&
-                                                         (spedCampoAttr.Tamanho > 0 && spedCampoAttr.Tamanho <= 10);
+                                                         (spedCampoAttr.Tamanho > 0 && spedCampoAttr.Tamanho <= 4);
 
                         var isHour = spedCampoAttr.Tipo == "H";
                         var onlyMonthAndYear = spedCampoAttr.Tipo == "MA";

@@ -461,7 +461,7 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Descrição da unidade de medida.
             /// </summary>
-            [SpedCampos(3, "DESCR", "C", 0, 0, true)]
+            [SpedCampos(3, "DESCR", "C", int.MaxValue, 0, true)]
             public string Descr { get; set; }
         }
 
@@ -487,7 +487,7 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Descrição do item.
             /// </summary>
-            [SpedCampos(3, "DESCR_ITEM", "C", 0, 0, true)]
+            [SpedCampos(3, "DESCR_ITEM", "C", int.MaxValue, 0, true)]
             public string DescrItem { get; set; }
 
             /// <summary>
