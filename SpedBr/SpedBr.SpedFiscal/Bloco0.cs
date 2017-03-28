@@ -776,7 +776,7 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Descrição da natureza da operação/prestação
             /// </summary>
-            [SpedCampos(3, "DESCR_NAT", "C", 0, 0, true)]
+            [SpedCampos(3, "DESCR_NAT", "C", int.MaxValue, 0, true)]
             public string DescrNat { get; set; }
         }
 
@@ -806,7 +806,7 @@ namespace SpedBr.SpedFiscal
             ///     referências pertinentes com indicação referentes ao
             ///     tributo.
             /// </summary>
-            [SpedCampos(3, "TXT", "C", 0, 0, true)]
+            [SpedCampos(3, "TXT", "C", int.MaxValue, 0, true)]
             public string Txt { get; set; }
         }
 
