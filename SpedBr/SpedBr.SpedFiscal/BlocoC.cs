@@ -62,7 +62,7 @@ namespace SpedBr.SpedFiscal
             ///     - do emitente do documento ou do remetente das mercadorias, no caso de entradas;
             ///     - do adquirente, no caso de saídas.
             /// </summary>
-            [SpedCampos(4, "COD_PART", "C", 60, 0, true)]
+            [SpedCampos(4, "COD_PART", "C", 60, 0, false)]
             public string CodPart { get; set; }
 
             /// <summary>
