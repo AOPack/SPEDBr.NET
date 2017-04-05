@@ -49,7 +49,7 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Total de registros do tipo informado no campo anterior.
             /// </summary>
-            [SpedCampos(3, "QTD_REG_BLC", "N", 0, 0, true)]
+            [SpedCampos(3, "QTD_REG_BLC", "N", int.MaxValue, 0, true)]
             public int QtdRegBlc { get; set; }
         }
 
@@ -69,7 +69,7 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Quantidade total de linhas do Bloco 9.
             /// </summary>
-            [SpedCampos(2, "QTD_LIN_9", "N", 0, 0, true)]
+            [SpedCampos(2, "QTD_LIN_9", "N", int.MaxValue, 0, true)]
             public int QtdLin9 { get; set; }
         }
 

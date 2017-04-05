@@ -546,6 +546,14 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(12, "ALIQ_ICMS", "N", 6, 2, false)]
             public decimal AliqIcms { get; set; }
+
+            /// <summary>
+            ///     Código Especificador da Substituição Tributária
+            ///     Guia Prático EFD-ICMS/IPI – Versão 2.0.20
+            ///     Atualização: 07/12/2016
+            /// </summary>
+            [SpedCampos(13, "CEST", "C", 7, 0, false)]
+            public string Cest { get; set; }
         }
 
         /// <summary>
