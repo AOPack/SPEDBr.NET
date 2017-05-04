@@ -2836,7 +2836,7 @@ namespace SpedBr.SpedFiscal
             ///     Número do documento fiscal
             /// </summary>
             [SpedCampos(10, "NUM_DOC", "N", 9, 0, true)]
-            public double NumDoc { get; set; }
+            public long NumDoc { get; set; }
 
             /// <summary>
             ///     Data da emissão do documento fiscal
@@ -2920,13 +2920,13 @@ namespace SpedBr.SpedFiscal
             ///     Valor do PIS
             /// </summary>
             [SpedCampos(24, "VL_PIS", "N", 0, 2, false)]
-            public decimal VlPis { get; set; }
+            public decimal? VlPis { get; set; }
 
             /// <summary>
             ///     Valor da COFINS
             /// </summary>
             [SpedCampos(25, "VL_COFINS", "N", 0, 2, false)]
-            public decimal VlCofins { get; set; }
+            public decimal? VlCofins { get; set; }
 
             /// <summary>
             ///     Código do tipo de ligação
@@ -2939,7 +2939,7 @@ namespace SpedBr.SpedFiscal
             ///     3 - Trifásico
             /// </remarks>
             [SpedCampos(26, "TP_LIGACAO", "N", 1, 0, false)]
-            public int TpLigacao { get; set; }
+            public int? TpLigacao { get; set; }
 
             /// <summary>
             ///     Código do grupo de tensão
@@ -2966,7 +2966,7 @@ namespace SpedBr.SpedFiscal
             ///     14 - B4b - Iluminação pública - bulbo de lâmpada
             /// </remarks>
             [SpedCampos(27, "COD_GRUPO_TENSAO", "C", 2, 0, false)]
-            public int CodGrupoTensao { get; set; }
+            public int? CodGrupoTensao { get; set; }
         }
 
         /// <summary>
