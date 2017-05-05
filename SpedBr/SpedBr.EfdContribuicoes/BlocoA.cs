@@ -1,4 +1,5 @@
 ﻿using SpedBr.Common;
+using System;
 
 namespace SpedBr.EfdContribuicoes
 {

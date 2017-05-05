@@ -186,43 +186,43 @@ namespace SpedBr.SpedFiscal
             ///     Valor da base de cálculo do ICMS substituição tributária
             /// </summary>
             [SpedCampos(23, "VL_BC_ICMS_ST", "N", 0, 2, false)]
-            public decimal VlBcIcmsSt { get; set; }
+            public decimal? VlBcIcmsSt { get; set; }
 
             /// <summary>
             ///     Valor do ICMS retido por substituição tributária
             /// </summary>
             [SpedCampos(24, "VL_ICMS_ST", "N", 0, 2, false)]
-            public decimal VlIcmsSt { get; set; }
+            public decimal? VlIcmsSt { get; set; }
 
             /// <summary>
             ///     Valor total do IPI
             /// </summary>
             [SpedCampos(25, "VL_IPI", "N", 0, 2, false)]
-            public decimal VlIpi { get; set; }
+            public decimal? VlIpi { get; set; }
 
             /// <summary>
             ///     Valor total do PIS
             /// </summary>
             [SpedCampos(26, "VL_PIS", "N", 0, 2, false)]
-            public decimal VlPis { get; set; }
+            public decimal? VlPis { get; set; }
 
             /// <summary>
             ///     Valor total da COFINS
             /// </summary>
             [SpedCampos(27, "VL_COFINS", "N", 0, 2, false)]
-            public decimal VlCofins { get; set; }
+            public decimal? VlCofins { get; set; }
 
             /// <summary>
             ///     Valor total do PIS retido por substituição tributária
             /// </summary>
             [SpedCampos(28, "VL_PIS_ST", "N", 0, 2, false)]
-            public decimal VlPisSt { get; set; }
+            public decimal? VlPisSt { get; set; }
 
             /// <summary>
             ///     Valor total da COFINS retido por substituição tributária
             /// </summary>
             [SpedCampos(29, "VL_COFINS_ST", "N", 0, 2, false)]
-            public decimal VlCofinsSt { get; set; }
+            public decimal? VlCofinsSt { get; set; }
         }
 
         /// <summary>
