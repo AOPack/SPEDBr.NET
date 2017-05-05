@@ -25,7 +25,7 @@ namespace SpedBr.SpedFiscal
             ///     Indicador de movimento: 0 - Bloco com dados informados; 1 - Bloco sem dados informados.
             /// </summary>
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true)]
-            public IndMovimento IND_MOV { get; set; }
+            public IndMovimento IndMov { get; set; }
         }
 
         /// <summary>
@@ -45,13 +45,13 @@ namespace SpedBr.SpedFiscal
             ///     Data inicial a que a apuração se refere.
             /// </summary>
             [SpedCampos(2, "DT_INI", "N", 8, 0, true)]
-            public DateTime DT_INI { get; set; }
+            public DateTime DtIni { get; set; }
 
             /// <summary>
             ///     Data final a que a apuração se refere.
             /// </summary>
             [SpedCampos(3, "DT_FIN", "N", 8, 0, true)]
-            public DateTime DT_FIN { get; set; }
+            public DateTime DtFin { get; set; }
         }
 
         /// <summary>
@@ -71,85 +71,85 @@ namespace SpedBr.SpedFiscal
             ///     Valor total dos débitos por "Saídas e prestações com débito do imposto"
             /// </summary>
             [SpedCampos(2, "VL_TOT_DEBITOS", "N", 0, 2, true)]
-            public decimal VL_TOT_DEBITOS { get; set; }
+            public decimal VlTotDebitos { get; set; }
 
             /// <summary>
             ///     Valor total dos ajustes a débito decorrentes do documento fiscal.
             /// </summary>
             [SpedCampos(3, "VL_AJ_DEBITOS", "N", 0, 2, true)]
-            public decimal VL_AJ_DEBITOS { get; set; }
+            public decimal VlAjDebitos { get; set; }
 
             /// <summary>
             ///     Valor total de "Ajustes a débito"
             /// </summary>
             [SpedCampos(4, "VL_TOT_AJ_DEBITOS", "N", 0, 2, true)]
-            public decimal VL_TOT_AJ_DEBITOS { get; set; }
+            public decimal VlTotAjDebitos { get; set; }
 
             /// <summary>
             ///     Valor total de Ajustes “Estornos de créditos”
             /// </summary>
             [SpedCampos(5, "VL_ESTORNOS_CRED", "N", 0, 2, true)]
-            public decimal VL_ESTORNOS_CRED { get; set; }
+            public decimal VlEstornosCred { get; set; }
 
             /// <summary>
             ///     Valor total dos créditos por "Entradas e aquisições com crédito do imposto"
             /// </summary>
             [SpedCampos(6, "VL_TOT_CREDITOS", "N", 0, 2, true)]
-            public decimal VL_TOT_CREDITOS { get; set; }
+            public decimal VlTotCreditos { get; set; }
 
             /// <summary>
             ///     Valor total dos ajustes a crédito decorrentes do documento fiscal.
             /// </summary>
             [SpedCampos(7, "VL_AJ_CREDITOS", "N", 0, 2, true)]
-            public decimal VL_AJ_CREDITOS { get; set; }
+            public decimal VlAjCreditos { get; set; }
 
             /// <summary>
             ///     Valor total de "Ajustes a crédito"
             /// </summary>
             [SpedCampos(8, "VL_TOT_AJ_CREDITOS", "N", 0, 2, true)]
-            public decimal VL_TOT_AJ_CREDITOS { get; set; }
+            public decimal VlTotAjCreditos { get; set; }
 
             /// <summary>
             ///     Valor total de Ajustes “Estornos de Débitos”
             /// </summary>
             [SpedCampos(9, "VL_ESTORNOS_DEB", "N", 0, 2, true)]
-            public decimal VL_ESTORNOS_DEB { get; set; }
+            public decimal VlEstornosDeb { get; set; }
 
             /// <summary>
             ///     Valor total de "Saldo credor do período anterior"
             /// </summary>
             [SpedCampos(10, "VL_SLD_CREDOR_ANT", "N", 0, 2, true)]
-            public decimal VL_SLD_CREDOR_ANT { get; set; }
+            public decimal VlSldCredorAnt { get; set; }
 
             /// <summary>
             ///     Valor do saldo devedor apurado
             /// </summary>
             [SpedCampos(11, "VL_SLD_APURADO", "N", 0, 2, true)]
-            public decimal VL_SLD_APURADO { get; set; }
+            public decimal VlSldApurado { get; set; }
 
             /// <summary>
             ///     Valor total de "Deduções"
             /// </summary>
             [SpedCampos(12, "VL_TOT_DED", "N", 0, 2, true)]
-            public decimal VL_TOT_DED { get; set; }
+            public decimal VlTotDed { get; set; }
 
             /// <summary>
             ///     Valor total de "ICMS a recolher (11-12)
             /// </summary>
             [SpedCampos(13, "VL_ICMS_RECOLHER", "N", 0, 2, true)]
-            public decimal VL_ICMS_RECOLHER { get; set; }
+            public decimal VlIcmsRecolher { get; set; }
 
             /// <summary>
             ///     Valor total de "Saldo credor a transportar para o período seguinte”
             /// </summary>
             [SpedCampos(14, "VL_SLD_CREDOR_TRANSPORTAR", "N", 0, 2, true)]
-            public decimal VL_SLD_CREDOR_TRANSPORTAR { get; set; }
+            public decimal VlSldCredorTransportar { get; set; }
 
             /// <summary>
             ///     Valores recolhidos ou a recolher, extraapuração.
             /// </summary>
             [SpedCampos(15, "DEB_ESP", "N", 0, 2, true)]
-            public decimal DEB_ESP { get; set; }
+            public decimal DebEsp { get; set; }
         }
 
         /// <summary>
@@ -1137,19 +1137,19 @@ namespace SpedBr.SpedFiscal
             ///     1 - Decendial
             /// </remarks>
             [SpedCampos(2, "IND_APUR", "C", 1, 0, true)]
-            public string IND_APUR { get; set; }
+            public string IndApur { get; set; }
 
             /// <summary>
             ///     Data inicial a que a apuração se refere
             /// </summary>
             [SpedCampos(3, "DT_INI", "N", 8, 0, true)]
-            public DateTime DT_INI { get; set; }
+            public DateTime DtIni { get; set; }
 
             /// <summary>
             ///     Data final a que a apuração se refere
             /// </summary>
             [SpedCampos(4, "DT_FIN", "N", 8, 0, true)]
-            public DateTime DT_FIN { get; set; }
+            public DateTime DtFin { get; set; }
         }
 
         /// <summary>
@@ -1331,7 +1331,7 @@ namespace SpedBr.SpedFiscal
             ///     Quantidade total de linhas do Bloco E
             /// </summary>
             [SpedCampos(2, "QTD_LIN_E", "N", int.MaxValue, 0, true)]
-            public string QTD_LIN_E { get; set; }
+            public int QtdLinE { get; set; }
         }
     }
 }
