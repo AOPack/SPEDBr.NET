@@ -786,7 +786,7 @@ namespace SpedBr.SpedFiscal
             ///     Data final a que a apuração se refere
             /// </summary>
             [SpedCampos(4, "DT_FIN", "N", 8, 0, true)]
-            public DateTime DtFun { get; set; }
+            public DateTime DtFin { get; set; }
         }
 
         /// <summary>
