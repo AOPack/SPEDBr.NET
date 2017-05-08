@@ -285,7 +285,7 @@ namespace SpedBr.SpedFiscal
             ///     Código da observação do lançamento fiscal (campo 02 do Registro 0460)
             /// </summary>
             [SpedCampos(9, "COD_OBS", "C", 6, 0, false)]
-            public int CodObs { get; set; }
+            public string CodObs { get; set; }
         }
 
         /// <summary>
