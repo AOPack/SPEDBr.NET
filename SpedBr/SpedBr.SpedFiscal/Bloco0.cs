@@ -199,7 +199,7 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Endereço do correio eletrônico.
             /// </summary>
-            [SpedCampos(10, "EMAIL", "C", 0, 0, false)]
+            [SpedCampos(10, "EMAIL", "C", int.MaxValue, 0, false)]
             public string Email { get; set; }
         }
 
