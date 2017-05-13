@@ -311,7 +311,7 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Endereço do correio eletrônico.
             /// </summary>
-            [SpedCampos(13, "EMAIL", "C", 0, 0, true)]
+            [SpedCampos(13, "EMAIL", "C", int.MaxValue, 0, true)]
             public string Email { get; set; }
 
             /// <summary>
