@@ -179,6 +179,200 @@ namespace SpedBr.EfdContribuicoes
             public string Suframa { get; set; }
         }
 
+        /// <summary>
+        ///     REGISTRO 0150: TABELA DE CADASTRO DO PARTICIPANTE
+        /// </summary>
+        public class Registro0150 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0150" />.
+            /// </summary>
+            public Registro0150()
+            {
+                Reg = "0150";
+            }
+
+            /// <summary>
+            ///     Código de identificação do participante no arquivo.
+            /// </summary>
+            [SpedCampos(2, "COD_PART", "C", 60, 0, true)]
+            public string CodPart { get; set; }
+
+            /// <summary>
+            ///     Nome pessoal ou empresarial do participante.
+            /// </summary>
+            [SpedCampos(3, "NOME", "C", 100, 0, true)]
+            public string Nome { get; set; }
+
+            /// <summary>
+            ///     Código do país do participante, conforme a tabela indicada no item 3.2.1.
+            /// </summary>
+            [SpedCampos(4, "COD_PAIS", "N", 5, 0, true)]
+            public string CodPais { get; set; }
+
+            /// <summary>
+            ///     CNPJ do participante.
+            /// </summary>
+            [SpedCampos(5, "CNPJ", "N", 14, 0, false)]
+            public string Cnpj { get; set; }
+
+            /// <summary>
+            ///     CPF do participante.
+            /// </summary>
+            [SpedCampos(6, "CPF", "N", 11, 0, false)]
+            public string Cpf { get; set; }
+
+            /// <summary>
+            ///     Inscrição Estadual do participante.
+            /// </summary>
+            [SpedCampos(7, "IE", "C", 14, 0, false)]
+            public string Ie { get; set; }
+
+            /// <summary>
+            ///     Código do município, conforme a tabela IBGE.
+            /// </summary>
+            [SpedCampos(8, "COD_MUN", "N", 7, 0, false)]
+            public string CodMun { get; set; }
+
+            /// <summary>
+            ///     Número de inscrição do participante na SUFRAMA
+            /// </summary>
+            [SpedCampos(9, "SUFRAMA", "C", 9, 0, false)]
+            public string Suframa { get; set; }
+
+            /// <summary>
+            ///     Logradouro e endereço do imóvel.
+            /// </summary>
+            [SpedCampos(10, "END", "C", 60, 0, true)]
+            public string End { get; set; }
+
+            /// <summary>
+            ///     Número do imóvel.
+            /// </summary>
+            [SpedCampos(11, "NUM", "C", 10, 0, false)]
+            public string Num { get; set; }
+
+            /// <summary>
+            ///     Dados complementares do endereço.
+            /// </summary>
+            [SpedCampos(12, "COMPL", "C", 60, 0, false)]
+            public string Compl { get; set; }
+
+            /// <summary>
+            ///     Bairro em que o imóvel está situado.
+            /// </summary>
+            [SpedCampos(13, "BAIRRO", "C", 60, 0, false)]
+            public string Bairro { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO 0190: IDENTIFICAÇÃO DAS UNIDADES DE MEDIDA
+        /// </summary>
+        public class Registro0190 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0190" />.
+            /// </summary>
+            public Registro0190()
+            {
+                Reg = "0190";
+            }
+
+            /// <summary>
+            ///     Código da unidade de medida.
+            /// </summary>
+            [SpedCampos(2, "UNID", "C", 6, 0, true)]
+            public string Unid { get; set; }
+
+            /// <summary>
+            ///     Descrição da unidade de medida.
+            /// </summary>
+            [SpedCampos(3, "DESCR", "C", int.MaxValue, 0, true)]
+            public string Descr { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO 0200: IDENTIFICAÇÃO DO ITEM (PRODUTOS E SERVIÇOS)
+        /// </summary>
+        public class Registro0200 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0200" />.
+            /// </summary>
+            public Registro0200()
+            {
+                Reg = "0200";
+            }
+
+            /// <summary>
+            ///     Código do item.
+            /// </summary>
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            ///     Descrição do item.
+            /// </summary>
+            [SpedCampos(3, "DESCR_ITEM", "C", int.MaxValue, 0, true)]
+            public string DescrItem { get; set; }
+
+            /// <summary>
+            ///     Representação alfanumérica do código de barra do produto, se houver.
+            /// </summary>
+            [SpedCampos(4, "COD_BARRA", "C", 0, 0, false)]
+            public string CodBarra { get; set; }
+
+            /// <summary>
+            ///     Código anterior do item com relação à última informação apresentada.
+            /// </summary>
+            [SpedCampos(5, "COD_ANT_ITEM", "C", 60, 0, false)]
+            public string CodAntItem => "";
+
+            /// <summary>
+            ///     Unidade de medida utilizada na quantificação de estoques.
+            /// </summary>
+            [SpedCampos(6, "UNID_INV", "C", 6, 0, true)]
+            public string UnidInv { get; set; }
+
+            /// <summary>
+            ///     Tipo do item - Atividades Industriais, Comerciais e Serviços: 00 - Mercadoria para Revenda; 01 - Matéria-Prima; 02
+            ///     - Embalagem; 03 - Produto em Processo; 04 - Produto Acabado; 05 - Subproduto; 06 - Produto Intermediário; 07 -
+            ///     Material de Uso e Consumo; 08 - Ativo Imobilizado; 09 - Serviços; 10 - Outros insumos; 99 - Outras.
+            /// </summary>
+            [SpedCampos(7, "TIPO_ITEM", "N", 2, 0, true)]
+            public string TipoItem { get; set; }
+
+            /// <summary>
+            ///     Código da Nomenclatura Comum do Mercosul
+            /// </summary>
+            [SpedCampos(8, "COD_NCM", "C", 8, 0, false)]
+            public string CodNcm { get; set; }
+
+            /// <summary>
+            ///     Código EX, conforme a TIPI
+            /// </summary>
+            [SpedCampos(9, "EX_IPI", "C", 3, 0, false)]
+            public string ExIpi { get; set; }
+
+            /// <summary>
+            ///     Código do gênero do item
+            /// </summary>
+            [SpedCampos(10, "COD_GEN", "N", 2, 0, false)]
+            public string CodGen { get; set; }
+
+            /// <summary>
+            ///     Código do serviço conforme a lista do Anexo I da Lei Complementar Federal n 116/2003.
+            /// </summary>
+            [SpedCampos(11, "COD_LST", "C", 5, 0, false)]
+            public string CodLst { get; set; }
+
+            /// <summary>
+            ///     Alíquota de ICMS aplicável ao item nas operações internas.
+            /// </summary>
+            [SpedCampos(12, "ALIQ_ICMS", "N", 6, 2, false)]
+            public decimal AliqIcms { get; set; }
+        }
+
         public class Registro0990 : RegistroBaseSped
         {
             public Registro0990()
@@ -189,5 +383,6 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(2, "QTD_LIN_0", "N", 0, 0, true)]
             public int QtdLin0 { get; set; }
         }
+
     }
 }

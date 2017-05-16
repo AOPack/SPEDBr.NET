@@ -33,6 +33,7 @@
   <ItemGroup>
     <Compile Include="Bloco0.cs" />
     <Compile Include="Bloco1.cs" />
+    <Compile Include="Bloco9.cs" />
     <Compile Include="BlocoA.cs" />
     <Compile Include="BlocoC.cs" />
     <Compile Include="BlocoD.cs" />

@@ -5,6 +5,9 @@ namespace SpedBr.EfdContribuicoes
 {
     public class BlocoC
     {
+        /// <summary>
+        ///     ABERTURA DO BLOCO C
+        /// </summary>
         public class RegistroC001 : RegistroBaseSped
         {
             public RegistroC001()
@@ -12,11 +15,16 @@ namespace SpedBr.EfdContribuicoes
                 Reg = "C001";
             }
 
+            /// <summary>
+            ///     Indicador de movimento: 0 - Bloco com dados informados; 1 - Bloco sem dados informados.
+            /// </summary>
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
             public int IndMov { get; set; }
         }
- 
-        
+
+        /// <summary>
+        ///     IDENTIFICAÇÃO DO ESTABELECIMNTO
+        /// </summary>
         public class RegistroC010 : RegistroBaseSped
         {
             public RegistroC010()
@@ -24,9 +32,20 @@ namespace SpedBr.EfdContribuicoes
                 Reg = "C010";
             }
 
+            /// <summary>
+            ///     Número de inscrição do estabelecimento no CNPJ
+            /// </summary>
             [SpedCampos(2, "CNPJ", "N", 14, 0, true)]
             public string Cnpj { get; set; }
 
+            /// <summary>
+            ///     Indicador da apuração das contribuições e créditos, na
+            ///     escrituração das operações por NF-e e ECF no período:
+            ///     1 - Apuração com base nos registros de consolidação das
+            ///     operações por NF-e (C180 e C190) e por ECF(C490)
+            ///     2 - Apuração com base no registro individualizado de NFe
+            ///     (C100 e C170) e ECF (C400)
+            /// </summary>
             [SpedCampos(3, "IND_ESCRI", "C", 1, 0, false)]
             public int IndEscri { get; set; }
             
@@ -497,61 +516,122 @@ namespace SpedBr.EfdContribuicoes
 
         }
 
+        /// <summary>
+        ///     REGISTRO ANALÍTICO DO COMCUMENTO (CÓDIGO  65)
+        /// </summary>
         public class RegistroC175 : RegistroBaseSped
         {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC175" />.
+            /// </summary>
             public RegistroC175()
             {
                 Reg = "C175";
             }
 
+            /// <summary>
+            ///     Código fiscal da operação e prestação
+            /// </summary>
             [SpedCampos(2, "CFOP", "N", 4, 0, true)]
             public int Cfop { get; set; }
 
+            /// <summary>
+            ///     Valor da operação na combinação de CFOP, CST e alíquotas,
+            ///     correpondente ao somatório do valor das mercadorias e produtos
+            ///     constantes no documento
+            /// </summary>
             [SpedCampos(3, "VL_OPR", "N", 0, 2, true)]
             public decimal VlOpr { get; set; }
 
+            /// <summary>
+            ///     Valor do desconto comercial / Exclusão
+            /// </summary>
             [SpedCampos(4, "VL_DESC", "N", 0, 2, false)]
-            public decimal VlDesc { get; set; }
+            public decimal? VlDesc { get; set; }
 
+            /// <summary>
+            ///     Código da Situaçao Tributaria referente ao PIS/PASEP, conforme
+            ///     a Tabela indicada no item 4.3.3
+            /// </summary>
             [SpedCampos(5, "CST_PIS", "N", 2, 0, true)]
             public int CstPis { get; set; }
 
+            /// <summary>
+            ///     Valor da base de cálculo do PIS/PASEP (em valor)
+            /// </summary>
             [SpedCampos(6, "VL_BC_PIS", "N", 0, 2, false)]
-            public decimal VlBcPis { get; set; }
+            public decimal? VlBcPis { get; set; }
 
+            /// <summary>
+            ///     Aliquota do PIS/PASEP (em percentual)
+            /// </summary>
             [SpedCampos(7, "ALIQ_PIS", "N", 8, 4, false)]
-            public decimal AliqPis { get; set; }
-
+            public decimal? AliqPis { get; set; }
+            
+            /// <summary>
+            ///     Base de cálculo do PIS/PASEP (em quantidade)
+            /// </summary>
             [SpedCampos(8, "QUANT_BC_PIS", "N", 0, 3, false)]
             public decimal? QuantBcPis { get; set; }
 
+            /// <summary>
+            ///     Alíquota do PIS/PASEP (em reais)
+            /// </summary>
             [SpedCampos(9, "ALIQ_PIS_QUANT", "N", 0, 4, false)]
             public decimal? AliqPisQuant { get; set; }
 
+            /// <summary>
+            ///     Valor do PIS/PASEP
+            /// </summary>
             [SpedCampos(10, "VL_PIS", "N", 0, 2, false)]
-            public decimal VlPis { get; set; }
+            public decimal? VlPis { get; set; }
 
+            /// <summary>
+            ///     Código da Situaçao Tributaria referente a COFINS, conforme
+            ///     a Tabela indicada no item 4.3.4
+            /// </summary>
             [SpedCampos(11, "CST_COFINS", "N", 2, 0, true)]
             public int CstCofins { get; set; }
 
+            /// <summary>
+            ///     Valor da base de cálculo da Cofins
+            /// </summary>
             [SpedCampos(12, "VL_BC_COFINS", "N", 0, 2, false)]
-            public decimal VlBcCofins { get; set; }
+            public decimal? VlBcCofins { get; set; }
 
+            /// <summary>
+            ///     Aliquota da Cofins (em percentual)   
+            /// </summary>
             [SpedCampos(13, "ALIQ_COFINS", "N", 8, 4, false)]
-            public decimal AliqCofins { get; set; }
+            public decimal? AliqCofins { get; set; }
 
+            /// <summary>
+            ///     Base de cálculo da Cofins (em quantidade)
+            /// </summary>
             [SpedCampos(14, "QUANT_BC_COFINS", "N", 0, 3, false)]
             public decimal? QuantBcCofins { get; set; }
 
+            /// <summary>
+            ///     Alíquota da Cofins (em reais)
+            /// </summary>
             [SpedCampos(15, "ALIQ_COFINS_QUANT", "N", 0, 4, false)]
             public decimal? AliqCofinsQuant { get; set; }
 
+            /// <summary>
+            ///     Valor da Cofins
+            /// </summary>
             [SpedCampos(16, "VL_COFINS", "N", 0, 2, false)]
-            public decimal VlCofins { get; set; }
+            public decimal? VlCofins { get; set; }
 
+            /// <summary>
+            ///     Código da conta analítica contáil debitada/creditada
+            /// </summary>
             [SpedCampos(17, "COD_CTA", "C", 60, 0, false)]
             public string CodCta { get; set; }
 
+            /// <summary>
+            ///     Informação complementar
+            /// </summary>
             [SpedCampos(18, "INFO_COMPL", "C", int.MaxValue, 0, false)]
             public string InfoCompl { get; set; }
         }
@@ -1012,8 +1092,7 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(14, "VL_COFINS", "N", 0, 2, false)]
             public decimal? VlCofins { get; set; }
         }
-
-
+        
         public class RegistroC501 : RegistroBaseSped
         {
             public RegistroC501()
@@ -1069,6 +1148,237 @@ namespace SpedBr.EfdContribuicoes
             public decimal? VlCofins { get; set; }
 
             [SpedCampos(8, "COD_CTA", "C", 60, 0, false)]
+            public string CodCta { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO C860: IDENTIFICAÇÃO DO EQUIPAMENTO SAT-CFE
+        /// </summary>
+        public class RegistroC860 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC860" />.
+            /// </summary>
+            public RegistroC860()
+            {
+                Reg = "C860";
+            }
+
+            /// <summary>
+            ///     Código do modelo do documento fiscal, conforme tabela 4.1.1
+            /// </summary>
+            [SpedCampos(2, "COD_MOD", "C", 2, 0, true)]
+            public string CodMod { get; set; }
+
+            /// <summary>
+            ///     Número de série do equipamento SAT
+            /// </summary>
+            [SpedCampos(3, "NR_SAT", "C", 9, 0, true)]
+            public string NrSAT { get; set; }
+
+            /// <summary>
+            ///     Data de emissão dos documentos fiscais
+            /// </summary>
+            [SpedCampos(4, "DT_DOC", "N", 8, 0, false)]
+            public DateTime? DtDoc { get; set; }
+
+            /// <summary>
+            ///     Número do documento inicial
+            /// </summary>
+            [SpedCampos(4, "DOC_INI", "N", 9, 0, false)]
+            public int? DocIni { get; set; }
+
+            /// <summary>
+            ///     Número do documento final
+            /// </summary>
+            [SpedCampos(4, "DOC_FIM", "N", 9, 0, false)]
+            public int? DocFim { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO C870: RESUMO DIÁRIO DE DOCUMENTOS EMITIDOS POR EQUIPAMENTO
+        ///     SAT-CF-E (CÓDIGO 59) - PIS/PASEP E COFINS
+        /// </summary>
+        public class RegistroC870 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC870"/>.
+            /// </summary>
+            public RegistroC870()
+            {
+                Reg = "C870";
+            }
+
+            /// <summary>
+            ///     Código do item (campo 02 do Registro 0200)
+            /// </summary>
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, false)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            ///     Código fiscal de operação e prestação
+            /// </summary>
+            [SpedCampos(3, "CFOP", "N", 4, 0, true)]
+            public int Cfop { get; set; }
+
+            /// <summary>
+            ///     Valor total dos itens
+            /// </summary>
+            [SpedCampos(4, "VL_ITEM", "N", 0, 2, true)]
+            public decimal VlItem { get; set; }
+
+            /// <summary>
+            ///     Valor da exclusão/desconto comercial dos itens
+            /// </summary>
+            [SpedCampos(5, "VL_DESC", "N", 0, 2, false)]
+            public decimal? VlDesc { get; set; }
+
+            /// <summary>
+            ///     Código da Situação Tributária referente ao PIS/PASEP
+            /// </summary>
+            [SpedCampos(6, "CST_PIS", "N", 2, 0, true)]
+            public int CstPis { get; set; }
+
+            /// <summary>
+            ///     Valor da base de cálculo do PIS/PASEP
+            /// </summary>
+            [SpedCampos(7, "VL_BC_PIS", "N", 0, 2, false)]
+            public decimal? VlBcPis { get; set; }
+
+            /// <summary>
+            ///     Alíquota do PIS/PASEP (em percentual)
+            /// </summary>
+            [SpedCampos(8, "ALIQ_PIS", "N", 0, 2, false)]
+            public decimal? AliqPis { get; set; }
+
+            /// <summary>
+            ///     Valor do PIS/PASEP
+            /// </summary>
+            [SpedCampos(9, "VL_PIS", "N", 0, 2, false)]
+            public decimal? VlPis { get; set; }
+
+            /// <summary>
+            ///     Código da Situação Tributária referente a Cofins
+            /// </summary>
+            [SpedCampos(10, "CST_COFINS", "N", 2, 0, true)]
+            public int CstCofins { get; set; }
+
+            /// <summary>
+            ///     Valor da base de cálculo da COFINS
+            /// </summary>
+            [SpedCampos(11, "VL_BC_COFINS", "N", 0, 2, false)]
+            public decimal? VlBcCofins { get; set; }
+
+            /// <summary>
+            ///     Alíquota da COFINS (em percentual)
+            /// </summary>
+            [SpedCampos(12, "ALIQ_COFINS", "N", 0, 2, false)]
+            public decimal? AliqCofins { get; set; }
+
+            /// <summary>
+            ///     Valor da COFINS
+            /// </summary>
+            [SpedCampos(13, "VL_COFINS", "N", 0, 2, false)]
+            public decimal? VlCofins { get; set; }
+
+            /// <summary>
+            ///     Código da conta analítica debitada/creditada
+            /// </summary>
+            [SpedCampos(14, "COD_CTA", "C", 60, 0, false)]
+            public string CodCta { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO C880: RESUMO DIÁRIO DE DOCUMENTOS EMITIDOS POR EQUIPAMENTO
+        ///     SAT-CF-E (CÓDIGO 59) - PIS/PASEP E COFINS APURADO POR UNIDADE DE MEDIDA DE
+        ///     PRODUTO
+        /// </summary>
+        public class RegistroC880:RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC880"/>.
+            /// </summary>
+            public RegistroC880()
+            {
+                Reg = "C880";
+            }
+
+            /// <summary>
+            ///     Código do item (campo 02 do Registro 0200)
+            /// </summary>
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, false)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            ///     Código fiscal de operação e prestação
+            /// </summary>
+            [SpedCampos(3, "CFOP", "N", 4, 0, true)]
+            public int Cfop { get; set; }
+
+            /// <summary>
+            ///     Valor total dos itens
+            /// </summary>
+            [SpedCampos(4, "VL_ITEM", "N", 0, 2, true)]
+            public decimal VlItem { get; set; }
+
+            /// <summary>
+            ///     Valor da exclusão/desconto comercial dos itens
+            /// </summary>
+            [SpedCampos(5, "VL_DESC", "N", 0, 2, false)]
+            public decimal? VlDesc { get; set; }
+
+            /// <summary>
+            ///     Código da Situação Tributária referente ao PIS/PASEP
+            /// </summary>
+            [SpedCampos(6, "CST_PIS", "N", 2, 0, true)]
+            public int CstPis { get; set; }
+
+            /// <summary>
+            ///     Base de cálculo em quantidade - PIS/PASEP
+            /// </summary>
+            [SpedCampos(7, "QUANT_BC_PIS", "N", 0, 3, false)]
+            public decimal? QuantBcPis { get; set; }
+
+            /// <summary>
+            ///     Alíquota do PIS/PASEP (em reais)
+            /// </summary>
+            [SpedCampos(8, "ALIQ_PIS_QUANT", "N", 0, 4, false)]
+            public decimal? AliqPis { get; set; }
+
+            /// <summary>
+            ///     Valor do PIS/PASEP
+            /// </summary>
+            [SpedCampos(9, "VL_PIS", "N", 0, 2, false)]
+            public decimal? VlPis { get; set; }
+
+            /// <summary>
+            ///     Código da Situação Tributária referente a Cofins
+            /// </summary>
+            [SpedCampos(10, "CST_COFINS", "N", 2, 0, true)]
+            public int CstCofins { get; set; }
+
+            /// <summary>
+            ///     Base de cálculo em quantidade - COFINS
+            /// </summary>
+            [SpedCampos(11, "QUANT_BC_COFINS", "N", 0, 4, false)]
+            public decimal? QuantBcCofins { get; set; }
+
+            /// <summary>
+            ///     Alíquota da COFINS (em reais)
+            /// </summary>
+            [SpedCampos(12, "ALIQ_COFINS_QUANT", "N", 0, 4, false)]
+            public decimal? AliqCofins { get; set; }
+
+            /// <summary>
+            ///     Valor da COFINS
+            /// </summary>
+            [SpedCampos(13, "VL_COFINS", "N", 0, 2, false)]
+            public decimal? VlCofins { get; set; }
+
+            /// <summary>
+            ///     Código da conta analítica debitada/creditada
+            /// </summary>
+            [SpedCampos(14, "COD_CTA", "C", 60, 0, false)]
             public string CodCta { get; set; }
         }
 

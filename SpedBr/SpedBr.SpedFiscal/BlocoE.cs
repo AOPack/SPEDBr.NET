@@ -833,60 +833,108 @@ namespace SpedBr.SpedFiscal
             public decimal VlOutDebDifal { get; set; }
 
             /// <summary>
-            ///     Valor total dos débitos FCP por "Saídas e prestações"
+            ///     Valor total dos créditos do ICMS referente ao diferencial de alíquota devido à UF de Origem/Destino
             /// </summary>
-            [SpedCampos(6, "VL_TOT_DEB_FCP", "N", 0, 2, true)]
-            public decimal VlTotDebFcp { get; set; }
-
-            /// <summary>
-            ///     Valor total dos créditos do ICMS referente ao diferencial de alíquota devido à UF do Remetente/Destinatário
-            /// </summary>
-            [SpedCampos(7, "VL_TOT_CREDITOS_DIFAL", "N", 0, 2, true)]
+            [SpedCampos(6, "VL_TOT_CREDITOS_DIFAL", "N", 0, 2, true)]
             public decimal VlTotCreditosDifal { get; set; }
-
-            /// <summary>
-            ///     Valor total dos créditos FCP por Entradas
-            /// </summary>
-            [SpedCampos(8, "VL_TOT_CRED_FCP", "N", 0, 2, true)]
-            public decimal VlTotCredFcp { get; set; }
 
             /// <summary>
             ///     Valor total de ajustes "Outros créditos ICMS diferencial de Alíquota da UF de Origem/Destino" e "Estorno de débitos
             ///     ICMS Diferencial de Alíquota da UF de Origem/Destino"
             /// </summary>
-            [SpedCampos(9, "VL_OUT_CRED_DIFAL", "N", 0, 2, true)]
+            [SpedCampos(7, "VL_OUT_CRED_DIFAL", "N", 0, 2, true)]
             public decimal VlOutCredDifal { get; set; }
 
             /// <summary>
-            ///     Valor total de saldo devedor ICMS Diferencial de Alíquota da UF de Origem/Destino antes das deduções
+            ///     Valor total de "Saldo devedor ICMS Diferencial de Alíquota da UF de Origem/Destino antes das deduções"
             /// </summary>
-            [SpedCampos(10, "VL_SLD_DEV_ANT_DIFAL", "N", 0, 2, true)]
+            [SpedCampos(8, "VL_SLD_DEV_ANT_DIFAL", "N", 0, 2, true)]
             public decimal VlSldDevAntDifal { get; set; }
 
             /// <summary>
             ///     Valor total dos ajustes "Deduções ICMS Diferencial de Alíquota da UF de Origem/Destino"
             /// </summary>
-            [SpedCampos(11, "VL_DEDUÇÕES_DIFAL", "N", 0, 2, true)]
+            [SpedCampos(9, "VL_DEDUÇÕES_DIFAL", "N", 0, 2, true)]
             public decimal VlDeducoesDifal { get; set; }
 
             /// <summary>
-            ///     Valor recolhido ou a recolher referente a FCP e Imposto do Diferencial de Alíquota da UF de Origem/Destino (10-11)
+            ///     Valor recolhido ou a recolher referente ICMS Diferencial de Alíquota da UF de de Origem/Destino (08-09)
             /// </summary>
-            [SpedCampos(12, "VL_RECOL", "N", 0, 2, true)]
-            public decimal VlRecol { get; set; }
+            [SpedCampos(10, "VL_RECOL_DIFAL", "N", 0, 2, true)]
+            public decimal VlRecolDifal { get; set; }
 
             /// <summary>
-            ///     Saldo credor a transportar para o período seguinte referente a FCP e Imposto do Diferencial de Alíquota da UF de
-            ///     Origem/Destino
+            ///     Saldo credor a transportar para o período seguinte referente ao ICMS Diferencial de Alíquota da UF de Origem/Destino
             /// </summary>
-            [SpedCampos(13, "VL_SLD_CRED_TRANSPORTAR", "N", 0, 2, true)]
-            public decimal VlSldCredTransportar { get; set; }
+            [SpedCampos(11, "VL_SLD_CRED_TRANSPORTAR_DIFAL", "N", 0, 2, true)]
+            public decimal VlSldCredTransportarDifal { get; set; }
 
             /// <summary>
-            ///     Valores recolhidos ou a recolher, extra-apuração
+            ///      Valor recolhido ou a recolher, estra-apuração - ICMS Diferencial de Alíquota da UF de de Origem/Destino
             /// </summary>
-            [SpedCampos(14, "DEB_ESP_DIFAL", "N", 0, 2, true)]
+            [SpedCampos(12, "DEB_ESP_DIFAL", "N", 0, 2, true)]
             public decimal DebEspDifal { get; set; }
+
+            /// <summary>
+            ///     Valor do "Slado credor de período anterior - FCP"
+            /// </summary>
+            [SpedCampos(13, "VL_SLD_CRED_ANT_FCP", "N", 0, 2, true)]
+            public decimal VlSldCredAntFcp { get; set; }
+
+            /// <summary>
+            ///     Valor total dos débitos FCP por "Saídas e prestações"
+            /// </summary>
+            [SpedCampos(14, "VL_TOT_DEB_FCP", "N", 0, 2, true)]
+            public decimal VlTotDebFcp { get; set; }
+
+            /// <summary>
+            ///     Valor total dos ajustes "Outros débitos FCP" e "Estornos de créditos FCP"
+            /// </summary>
+            [SpedCampos(15, "VL_OUT_DEB_FCP", "N", 0, 2, true)]
+            public decimal VlOutDebFcp { get; set; }
+
+            /// <summary>
+            ///     Valor total dos créditos FCP por Entradas
+            /// </summary>
+            [SpedCampos(16, "VL_TOT_CRED_FCP", "N", 0, 2, true)]
+            public decimal VlTotCredFcp { get; set; }
+
+            /// <summary>
+            ///     Valor total dos ajustes "Outros créditos FCP" e "Estornos de débitos FCP"
+            /// </summary>
+            [SpedCampos(17, "VL_OUT_CRED_FCP", "N", 0, 2, true)]
+            public decimal VlOutCredFcp { get; set; }
+
+            /// <summary>
+            ///     Valor total de Saldo devedor FCP antes das deduções
+            /// </summary>
+            [SpedCampos(18, "VL_SLD_DEV_ANT_FCP", "N", 0, 2, true)]
+            public decimal VlSldDevAntFcp { get; set; }
+
+            /// <summary>
+            ///     Valor total das deduções "FCP"
+            /// </summary>
+            [SpedCampos(19, "VL_DEDUÇÕES_FCP", "N", 0, 2, true)]
+            public decimal VlDeduoesFcp { get; set; }
+
+            /// <summary>
+            ///     Valor recolhido ou a recolher referente ao FCP (18-19)
+            /// </summary>
+            [SpedCampos(20, "VL_RECOL_FCP", "N", 0, 2, true)]
+            public decimal VlRecolFCP { get; set; }
+
+            /// <summary>
+            ///     Saldo credor a transportar para o período seguinte referente ao FCP
+            /// </summary>
+            [SpedCampos(21, "VL_SLD_CRED_TRANSPORTAR_FCP", "N", 0, 2, true)]
+            public decimal VlSldCredTransportarFcp { get; set; }
+
+            /// <summary>
+            ///     Valores recolhidos ou a recolher, extra-apuração - FCP
+            /// </summary>
+            [SpedCampos(22, "DEB_ESP_FCP", "N", 0, 2, true)]
+            public decimal DebEspFcp { get; set; }
+            
         }
 
         /// <summary>
