@@ -8,6 +8,19 @@ namespace SpedBr.Common
     {
         /// <summary>
         /// Escrever campos p/ qualquer arquivo do projeto SPED (Contábil, Fiscal, Pis/Cofins)
+        /// e não pula linha (util para quem quer controlar as quebras de linha manualmente
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="competenciaDeclaracao"></param>
+        /// <returns></returns>
+        public static string EscreverCamposTrim(this object source, DateTime competenciaDeclaracao)
+        {
+            return source.EscreverCampos(competenciaDeclaracao).Trim();
+        }
+        
+        
+        /// <summary>
+        /// Escrever campos p/ qualquer arquivo do projeto SPED (Contábil, Fiscal, Pis/Cofins)
         /// </summary>
         /// <param name="source"></param>
         /// <param name="competenciaDeclaracao"></param>
