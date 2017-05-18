@@ -378,6 +378,112 @@ namespace SpedBr.EfdContribuicoes
             public string InfoCompl { get; set; }
         }
 
+        /// <summary>
+        ///     REGISTRO M400: RECEITAS ISENTAS, NÃO ALCANÇADAS PELA INCIDÊNCIA DA
+        ///     CONTRIBUIÇÃO, SUJEITAS A ALÍQUOTA ZERO OU DE VENDAS COM SUSPENSÃO - PIS/PASEP
+        /// </summary>
+        public class RegistroM400:RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classse <see cref="RegistroM400"/>
+            /// </summary>
+            public RegistroM400()
+            {
+                Reg = "M400";
+            }
+
+            /// <summary>
+            ///     Código de Situação Tributária – CST das demais receitas 
+            ///     auferidas no período, sem incidência da contribuição, ou 
+            ///     sem contribuição apurada a pagar, conforme a Tabela 4.3.3.
+            /// </summary>
+            [SpedCampos(2, "CST_PIS", "C", 2, 0, true)]
+            public int CstPis { get; set; }
+
+            /// <summary>
+            ///     Valor total da receita bruta no período. 
+            /// </summary>
+            [SpedCampos(3, "VL_TOT_REC", "N", 0, 2, true)]
+            public decimal VlTotRec { get; set; }
+
+            /// <summary>
+            ///     Código da conta analítica contábil debitada/creditada.
+            /// </summary>
+            [SpedCampos(4, "COD_CTA", "C", 60, 0, false)]
+            public string CodCta { get; set; }
+
+            /// <summary>
+            ///     Descrição Complementar da Natureza da Receita.
+            /// </summary>
+            [SpedCampos(4, "DESC_COMPL", "C",int.MaxValue, 0, false)]
+            public string DescCompl { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO M410: DETALHAMENTO DAS RECEITAS ISENTAS, NÃO ALCANÇADAS PELA 
+        ///     INCIDÊNCIA DA CONTRIBUIÇÃO, SUJEITAS A ALÍQUOTA ZERO OU DE VENDAS COM
+        ///     SUSPENSÃO – PIS/PASEP 
+        /// </summary>
+        public class RegistroM410 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroM410"/>
+            /// </summary>
+            public RegistroM410()
+            {
+                Reg = "M410";
+            }
+
+            /// <summary>
+            ///     Natureza da Receita, conforme relação constante nas 
+            ///     Tabelas de Detalhamento da Natureza da Receita por 
+            ///     Situação Tributária abaixo: 
+            ///     
+            ///     - Tabela 4.3.10: Produtos Sujeitos à Incidência
+            ///     Monofásica da Contribuição Social – Alíquotas 
+            ///     Diferenciadas(CST 04 - Revenda); 
+            ///     
+            ///     - Tabela 4.3.11: Produtos Sujeitos à Incidência 
+            ///     Monofásica da Contribuição Social – Alíquotas por 
+            ///     Unidade de Medida de Produto(CST 04 - Revenda); 
+            ///     
+            ///     - Tabela 4.3.12: Produtos Sujeitos à Substituição 
+            ///     Tributária da Contribuição Social(CST 05 - Revenda); 
+            ///     
+            ///     - Tabela 4.3.13: Produtos Sujeitos à Alíquota Zero da 
+            ///     Contribuição Social(CST 06); 
+            ///     
+            ///     - Tabela 4.3.14: Operações com Isenção da Contribuição 
+            ///     Social(CST 07); 
+            ///     
+            ///     - Tabela 4.3.15: Operações sem Incidência da
+            ///     Contribuição Social(CST 08);
+            ///     
+            ///     - Tabela 4.3.16: Operações com Suspensão da 
+            ///     Contribuição Social (CST 09). 
+            /// </summary>
+            [SpedCampos(2, "NAT_REC", "C", 3, 0, true)]
+            public string NatRec { get; set; }
+
+            /// <summary>
+            ///     Valor da receita bruta no período, relativo a natureza da receita (NAT_REC)
+            /// </summary>
+            [SpedCampos(3, "VL_REC", "N", 0, 2, true)]
+            public decimal VlRec { get; set; }
+
+            /// <summary>
+            ///     Código da conta analítica contábil debitada/creditada.
+            /// </summary>
+            [SpedCampos(4, "COD_CTA", "C", 60, 0, false)]
+            public string CodCta { get; set; }
+
+            /// <summary>
+            ///     Descrição Complementar da Natureza da Receita.
+            /// </summary>
+            [SpedCampos(5, "DESC_COMPL", "C", int.MaxValue, 0, false)]
+            public string DescCompl { get; set; }
+        }
+
         public class RegistroM600 : RegistroBaseSped
         {
             public RegistroM600()
