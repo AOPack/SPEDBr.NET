@@ -24,7 +24,7 @@ namespace SpedBr.SpedFiscal
             ///     Indicador de movimento: 0 - Bloco com dados informados; 1 - Bloco sem dados informados.
             /// </summary>
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true)]
-            public int IndMov { get; set; }
+            public IndMovimento IndMov { get; set; }
         }
 
         /// <summary>
