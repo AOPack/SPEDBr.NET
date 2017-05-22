@@ -301,7 +301,7 @@ namespace SpedBr.EfdContribuicoes
             /// Código do centro de custos
             /// </summary>
             [SpedCampos(18, "COD_CCUS", "C", 60, 0, false)]
-            public string CodCcus { get; set; }S
+            public string CodCcus { get; set; }
         }
 
 
