@@ -295,14 +295,13 @@ namespace SpedBr.EfdContribuicoes
             /// Código da conta analítica contábil debitada/creditada
             /// </summary>
             [SpedCampos(17, "COD_CTA", "C", 60, 0, false)]
-            public int? CodCta { get; set; }
+            public string CodCta { get; set; }
 
             /// <summary>
             /// Código do centro de custos
             /// </summary>
             [SpedCampos(18, "COD_CCUS", "C", 60, 0, false)]
-            public int? CodCcus { get; set; }
-
+            public string CodCcus { get; set; }S
         }
 
 

@@ -19,7 +19,7 @@ namespace SpedBr.EfdContribuicoes
             public int TipoEscrit { get; set; }
 
             [SpedCampos(4, "IND_SIT_ESP", "N", 1, 0, false)]
-            public int IndSitEsp { get; set; }
+            public int? IndSitEsp { get; set; }
 
             [SpedCampos(5, "NUM_REC_ANTERIOR", "C", 41, 0, false)]
             public string NumRecAnterior { get; set; }
@@ -46,7 +46,7 @@ namespace SpedBr.EfdContribuicoes
             public string Suframa { get; set; }
 
             [SpedCampos(13, "IND_NAT_PJ", "N", 2, 0, false)]
-            public int IndNatPj { get; set; }
+            public int? IndNatPj { get; set; }
 
             [SpedCampos(14, "IND_ATIV", "N", 1, 0, true)]
             public int IndAtiv { get; set; }
@@ -91,16 +91,16 @@ namespace SpedBr.EfdContribuicoes
             public string Nome { get; set; }
 
             [SpedCampos(3, "CPF", "N", 11, 0, true)]
-            public int Cpf { get; set; }
+            public string Cpf { get; set; }
 
             [SpedCampos(4, "CRC", "C", 15, 0, true)]
             public string Crc { get; set; }
 
             [SpedCampos(5, "CNPJ", "N", 14, 0, false)]
-            public int Cnpj { get; set; }
+            public string Cnpj { get; set; }
 
             [SpedCampos(6, "CEP", "N", 8, 0, false)]
-            public int Cep { get; set; }
+            public string Cep { get; set; }
 
             [SpedCampos(7, "END", "C", 60, 0, false)]
             public string End { get; set; }
@@ -161,7 +161,7 @@ namespace SpedBr.EfdContribuicoes
             public string Nome { get; set; }
 
             [SpedCampos(4, "CNPJ", "N", 14, 0, true)]
-            public int Cnpj { get; set; }
+            public string Cnpj { get; set; }
 
             [SpedCampos(5, "UF", "C", 2, 0, true)]
             public string Uf { get; set; }
@@ -371,6 +371,32 @@ namespace SpedBr.EfdContribuicoes
             /// </summary>
             [SpedCampos(12, "ALIQ_ICMS", "N", 6, 2, false)]
             public decimal AliqIcms { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO 0400: TABELA DE NATUREZA DA OPERAÇÃO/PRESTAÇÃO
+        /// </summary>
+        public class Registro0400 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0400" />.
+            /// </summary>
+            public Registro0400()
+            {
+                Reg = "0400";
+            }
+
+            /// <summary>
+            ///     Código da natureza da operação/prestação
+            /// </summary>
+            [SpedCampos(2, "COD_NAT", "C", 10, 0, true)]
+            public string CodNat { get; set; }
+
+            /// <summary>
+            ///     Descrição da natureza da operação/prestação
+            /// </summary>
+            [SpedCampos(3, "DESCR_NAT", "C", int.MaxValue, 0, true)]
+            public string DescrNat { get; set; }
         }
 
         public class Registro0990 : RegistroBaseSped
