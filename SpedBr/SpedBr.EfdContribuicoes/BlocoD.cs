@@ -336,13 +336,13 @@ namespace SpedBr.EfdContribuicoes
             ///     Valor da base de cálculo da COFINS
             /// </summary>
             [SpedCampos(6, "VL_BC_COFINS", "N", 0, 2, false)]
-            public decimal? VlBcPis { get; set; }
+            public decimal? VlBcCofins { get; set; }
 
             /// <summary>
             ///     Alíquota da COFINS (em percentual)
             /// </summary>
             [SpedCampos(7, "ALIQ_COFINS", "N", 8, 4, false)]
-            public decimal? AliqPis { get; set; }
+            public decimal? AliqCofins { get; set; }
 
             /// <summary>
             ///     Valor da COFINS
