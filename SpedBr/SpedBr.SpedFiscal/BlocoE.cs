@@ -383,7 +383,7 @@ namespace SpedBr.SpedFiscal
             ///     9- Outros
             /// </summary>
             [SpedCampos(7, "IND_PROC", "C", 1, 0, false)]
-            public int IndProc { get; set; }
+            public int? IndProc { get; set; }
 
             /// <summary>
             ///     Descrição resumida do processo que embasou o lançamento
