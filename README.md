@@ -5,8 +5,8 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2015 - para gera
 ## Sumário
 
 - [Declarações](#declaracoes)
+- [Outros](#outros)
 - [Exemplos](#exemplos)
-- [Screenshots](#screenshots)
 - [Dúvidas?](#dúvidas)
 - [Colaboradores](#colaboradores)
 
@@ -15,7 +15,7 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2015 - para gera
 ###### Projeto SPED
 
 - [x] EFD ICMS/IPI
-- [ ] EFD Contribuições
+- [x] EFD Contribuições
 - [ ] Escrituração Contábil Fiscal (ECF)
 - [ ] Escrituração Contábil Digital (ECD)
 
@@ -23,7 +23,10 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2015 - para gera
 
 - [ ] DCTF
 - [x] DIMOB (Concluído em 02/05/2016)
-- [x] SINTEGRA ([SintegraBr](https://github.com/samuelroliveira/SINTEGRABr))
+
+## Outros
+- [x] [SINTEGRABr](https://github.com/samuelroliveira/SINTEGRABr)
+- [ ] [FISCALBr](https://github.com/samuelroliveira/FiscalBr)
 
 ## Exemplos
 
@@ -51,11 +54,6 @@ foreach (var objContrato in listaContratos) {
   totalLinhasF200++;
 }
 ```
-
-## Screenshots
-
-###### Tela inicial
-![](https://github.com/samuelroliveira/SPEDBr/blob/master/capture_1.PNG)
 
 ## Dúvidas?
 
