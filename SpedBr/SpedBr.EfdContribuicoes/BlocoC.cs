@@ -309,8 +309,8 @@ namespace SpedBr.EfdContribuicoes
             /// <summary>
             ///     Quantidade do item
             /// </summary>
-            [SpedCampos(5, "QTD", "N", 0, 5, true)]
-            public decimal Qtd { get; set; }
+            [SpedCampos(5, "QTD", "N", 0, 5, false)]
+            public decimal? Qtd { get; set; }
 
             /// <summary>
             ///     Unidade do item
