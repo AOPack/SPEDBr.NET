@@ -455,7 +455,7 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Código da unidade de medida.
             /// </summary>
-            [SpedCampos(2, "UNID", "C", 6, 0, true)]
+            [SpedCampos(2, "UNID", "ACM", 6, 0, true)]
             public string Unid { get; set; }
 
             /// <summary>
