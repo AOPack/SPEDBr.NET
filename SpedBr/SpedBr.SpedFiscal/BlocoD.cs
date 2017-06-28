@@ -191,6 +191,40 @@ namespace SpedBr.SpedFiscal
         }
 
         /// <summary>
+        ///     REGISTRO D101: INFORMAÇÃO COMPLEMENTAR DOS DOCUMENTOS FISCAIS QUANDO 
+        ///     DAS PRESTAÇÕES INTERESTADUAIS DESTINADAS A CONSUMIDOR 
+        ///     FINAL NÃO CONTRIBUINTE EC 87/15 (CÓDIGOS 57 e 67)
+        /// </summary>
+        public class RegistroD101 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="RegistroD101"/>.
+            /// </summary>
+            public RegistroD101()
+            {
+                Reg = "D101";
+            }
+
+            /// <summary>
+            /// Valor total relativo ao Fundo de Combate à Pobreza (FCP) da UF de destino
+            /// </summary>
+            [SpedCampos(2, "VL_FCP_UF_DEST", "N", 0, 2, true)]
+            public decimal VlFcpUfDest { get; set; }
+
+            /// <summary>
+            /// Valor total do ICMS Interestadual para a UF de destino
+            /// </summary>
+            [SpedCampos(3, "VL_ICMS_UF_DEST", "N", 0, 2, true)]
+            public decimal VlIcmsUfDest { get; set; }
+
+            /// <summary>
+            /// Valor total do ICMS Interestaduak para a UF do remetente
+            /// </summary>
+            [SpedCampos(4, "VL_ICMS_UF_REM", "N", 0, 2, true)]
+            public decimal VlIcmsUfRem { get; set; }
+        }        
+
+        /// <summary>
         ///     REGISTRO D190: REGISTRO ANALÍTICO DOS DOCUMENTOS (CÓDIGO 07, 08, 8B, 09, 10, 11, 26, 27 e 57).
         /// </summary>
         public class RegistroD190 : RegistroBaseSped
@@ -251,7 +285,7 @@ namespace SpedBr.SpedFiscal
             ///     Código da observação do lançamento fiscal (campo 02 do Registro 0460)
             /// </summary>
             [SpedCampos(9, "COD_OBS", "C", 6, 0, false)]
-            public int CodObs { get; set; }
+            public string CodObs { get; set; }
         }
 
         /// <summary>

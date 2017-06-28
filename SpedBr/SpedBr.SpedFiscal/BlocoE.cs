@@ -25,7 +25,7 @@ namespace SpedBr.SpedFiscal
             ///     Indicador de movimento: 0 - Bloco com dados informados; 1 - Bloco sem dados informados.
             /// </summary>
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true)]
-            public IndMovimento IND_MOV { get; set; }
+            public IndMovimento IndMov { get; set; }
         }
 
         /// <summary>
@@ -45,13 +45,13 @@ namespace SpedBr.SpedFiscal
             ///     Data inicial a que a apuração se refere.
             /// </summary>
             [SpedCampos(2, "DT_INI", "N", 8, 0, true)]
-            public DateTime DT_INI { get; set; }
+            public DateTime DtIni { get; set; }
 
             /// <summary>
             ///     Data final a que a apuração se refere.
             /// </summary>
             [SpedCampos(3, "DT_FIN", "N", 8, 0, true)]
-            public DateTime DT_FIN { get; set; }
+            public DateTime DtFin { get; set; }
         }
 
         /// <summary>
@@ -71,85 +71,85 @@ namespace SpedBr.SpedFiscal
             ///     Valor total dos débitos por "Saídas e prestações com débito do imposto"
             /// </summary>
             [SpedCampos(2, "VL_TOT_DEBITOS", "N", 0, 2, true)]
-            public decimal VL_TOT_DEBITOS { get; set; }
+            public decimal VlTotDebitos { get; set; }
 
             /// <summary>
             ///     Valor total dos ajustes a débito decorrentes do documento fiscal.
             /// </summary>
             [SpedCampos(3, "VL_AJ_DEBITOS", "N", 0, 2, true)]
-            public decimal VL_AJ_DEBITOS { get; set; }
+            public decimal VlAjDebitos { get; set; }
 
             /// <summary>
             ///     Valor total de "Ajustes a débito"
             /// </summary>
             [SpedCampos(4, "VL_TOT_AJ_DEBITOS", "N", 0, 2, true)]
-            public decimal VL_TOT_AJ_DEBITOS { get; set; }
+            public decimal VlTotAjDebitos { get; set; }
 
             /// <summary>
             ///     Valor total de Ajustes “Estornos de créditos”
             /// </summary>
             [SpedCampos(5, "VL_ESTORNOS_CRED", "N", 0, 2, true)]
-            public decimal VL_ESTORNOS_CRED { get; set; }
+            public decimal VlEstornosCred { get; set; }
 
             /// <summary>
             ///     Valor total dos créditos por "Entradas e aquisições com crédito do imposto"
             /// </summary>
             [SpedCampos(6, "VL_TOT_CREDITOS", "N", 0, 2, true)]
-            public decimal VL_TOT_CREDITOS { get; set; }
+            public decimal VlTotCreditos { get; set; }
 
             /// <summary>
             ///     Valor total dos ajustes a crédito decorrentes do documento fiscal.
             /// </summary>
             [SpedCampos(7, "VL_AJ_CREDITOS", "N", 0, 2, true)]
-            public decimal VL_AJ_CREDITOS { get; set; }
+            public decimal VlAjCreditos { get; set; }
 
             /// <summary>
             ///     Valor total de "Ajustes a crédito"
             /// </summary>
             [SpedCampos(8, "VL_TOT_AJ_CREDITOS", "N", 0, 2, true)]
-            public decimal VL_TOT_AJ_CREDITOS { get; set; }
+            public decimal VlTotAjCreditos { get; set; }
 
             /// <summary>
             ///     Valor total de Ajustes “Estornos de Débitos”
             /// </summary>
             [SpedCampos(9, "VL_ESTORNOS_DEB", "N", 0, 2, true)]
-            public decimal VL_ESTORNOS_DEB { get; set; }
+            public decimal VlEstornosDeb { get; set; }
 
             /// <summary>
             ///     Valor total de "Saldo credor do período anterior"
             /// </summary>
             [SpedCampos(10, "VL_SLD_CREDOR_ANT", "N", 0, 2, true)]
-            public decimal VL_SLD_CREDOR_ANT { get; set; }
+            public decimal VlSldCredorAnt { get; set; }
 
             /// <summary>
             ///     Valor do saldo devedor apurado
             /// </summary>
             [SpedCampos(11, "VL_SLD_APURADO", "N", 0, 2, true)]
-            public decimal VL_SLD_APURADO { get; set; }
+            public decimal VlSldApurado { get; set; }
 
             /// <summary>
             ///     Valor total de "Deduções"
             /// </summary>
             [SpedCampos(12, "VL_TOT_DED", "N", 0, 2, true)]
-            public decimal VL_TOT_DED { get; set; }
+            public decimal VlTotDed { get; set; }
 
             /// <summary>
             ///     Valor total de "ICMS a recolher (11-12)
             /// </summary>
             [SpedCampos(13, "VL_ICMS_RECOLHER", "N", 0, 2, true)]
-            public decimal VL_ICMS_RECOLHER { get; set; }
+            public decimal VlIcmsRecolher { get; set; }
 
             /// <summary>
             ///     Valor total de "Saldo credor a transportar para o período seguinte”
             /// </summary>
             [SpedCampos(14, "VL_SLD_CREDOR_TRANSPORTAR", "N", 0, 2, true)]
-            public decimal VL_SLD_CREDOR_TRANSPORTAR { get; set; }
+            public decimal VlSldCredorTransportar { get; set; }
 
             /// <summary>
             ///     Valores recolhidos ou a recolher, extraapuração.
             /// </summary>
             [SpedCampos(15, "DEB_ESP", "N", 0, 2, true)]
-            public decimal DEB_ESP { get; set; }
+            public decimal DebEsp { get; set; }
         }
 
         /// <summary>
@@ -786,7 +786,7 @@ namespace SpedBr.SpedFiscal
             ///     Data final a que a apuração se refere
             /// </summary>
             [SpedCampos(4, "DT_FIN", "N", 8, 0, true)]
-            public DateTime DtFun { get; set; }
+            public DateTime DtFin { get; set; }
         }
 
         /// <summary>
@@ -833,60 +833,108 @@ namespace SpedBr.SpedFiscal
             public decimal VlOutDebDifal { get; set; }
 
             /// <summary>
-            ///     Valor total dos débitos FCP por "Saídas e prestações"
+            ///     Valor total dos créditos do ICMS referente ao diferencial de alíquota devido à UF de Origem/Destino
             /// </summary>
-            [SpedCampos(6, "VL_TOT_DEB_FCP", "N", 0, 2, true)]
-            public decimal VlTotDebFcp { get; set; }
-
-            /// <summary>
-            ///     Valor total dos créditos do ICMS referente ao diferencial de alíquota devido à UF do Remetente/Destinatário
-            /// </summary>
-            [SpedCampos(7, "VL_TOT_CREDITOS_DIFAL", "N", 0, 2, true)]
+            [SpedCampos(6, "VL_TOT_CREDITOS_DIFAL", "N", 0, 2, true)]
             public decimal VlTotCreditosDifal { get; set; }
-
-            /// <summary>
-            ///     Valor total dos créditos FCP por Entradas
-            /// </summary>
-            [SpedCampos(8, "VL_TOT_CRED_FCP", "N", 0, 2, true)]
-            public decimal VlTotCredFcp { get; set; }
 
             /// <summary>
             ///     Valor total de ajustes "Outros créditos ICMS diferencial de Alíquota da UF de Origem/Destino" e "Estorno de débitos
             ///     ICMS Diferencial de Alíquota da UF de Origem/Destino"
             /// </summary>
-            [SpedCampos(9, "VL_OUT_CRED_DIFAL", "N", 0, 2, true)]
+            [SpedCampos(7, "VL_OUT_CRED_DIFAL", "N", 0, 2, true)]
             public decimal VlOutCredDifal { get; set; }
 
             /// <summary>
-            ///     Valor total de saldo devedor ICMS Diferencial de Alíquota da UF de Origem/Destino antes das deduções
+            ///     Valor total de "Saldo devedor ICMS Diferencial de Alíquota da UF de Origem/Destino antes das deduções"
             /// </summary>
-            [SpedCampos(10, "VL_SLD_DEV_ANT_DIFAL", "N", 0, 2, true)]
+            [SpedCampos(8, "VL_SLD_DEV_ANT_DIFAL", "N", 0, 2, true)]
             public decimal VlSldDevAntDifal { get; set; }
 
             /// <summary>
             ///     Valor total dos ajustes "Deduções ICMS Diferencial de Alíquota da UF de Origem/Destino"
             /// </summary>
-            [SpedCampos(11, "VL_DEDUÇÕES_DIFAL", "N", 0, 2, true)]
+            [SpedCampos(9, "VL_DEDUÇÕES_DIFAL", "N", 0, 2, true)]
             public decimal VlDeducoesDifal { get; set; }
 
             /// <summary>
-            ///     Valor recolhido ou a recolher referente a FCP e Imposto do Diferencial de Alíquota da UF de Origem/Destino (10-11)
+            ///     Valor recolhido ou a recolher referente ICMS Diferencial de Alíquota da UF de de Origem/Destino (08-09)
             /// </summary>
-            [SpedCampos(12, "VL_RECOL", "N", 0, 2, true)]
-            public decimal VlRecol { get; set; }
+            [SpedCampos(10, "VL_RECOL_DIFAL", "N", 0, 2, true)]
+            public decimal VlRecolDifal { get; set; }
 
             /// <summary>
-            ///     Saldo credor a transportar para o período seguinte referente a FCP e Imposto do Diferencial de Alíquota da UF de
-            ///     Origem/Destino
+            ///     Saldo credor a transportar para o período seguinte referente ao ICMS Diferencial de Alíquota da UF de Origem/Destino
             /// </summary>
-            [SpedCampos(13, "VL_SLD_CRED_TRANSPORTAR", "N", 0, 2, true)]
-            public decimal VlSldCredTransportar { get; set; }
+            [SpedCampos(11, "VL_SLD_CRED_TRANSPORTAR_DIFAL", "N", 0, 2, true)]
+            public decimal VlSldCredTransportarDifal { get; set; }
 
             /// <summary>
-            ///     Valores recolhidos ou a recolher, extra-apuração
+            ///      Valor recolhido ou a recolher, estra-apuração - ICMS Diferencial de Alíquota da UF de de Origem/Destino
             /// </summary>
-            [SpedCampos(14, "DEB_ESP_DIFAL", "N", 0, 2, true)]
+            [SpedCampos(12, "DEB_ESP_DIFAL", "N", 0, 2, true)]
             public decimal DebEspDifal { get; set; }
+
+            /// <summary>
+            ///     Valor do "Slado credor de período anterior - FCP"
+            /// </summary>
+            [SpedCampos(13, "VL_SLD_CRED_ANT_FCP", "N", 0, 2, true)]
+            public decimal VlSldCredAntFcp { get; set; }
+
+            /// <summary>
+            ///     Valor total dos débitos FCP por "Saídas e prestações"
+            /// </summary>
+            [SpedCampos(14, "VL_TOT_DEB_FCP", "N", 0, 2, true)]
+            public decimal VlTotDebFcp { get; set; }
+
+            /// <summary>
+            ///     Valor total dos ajustes "Outros débitos FCP" e "Estornos de créditos FCP"
+            /// </summary>
+            [SpedCampos(15, "VL_OUT_DEB_FCP", "N", 0, 2, true)]
+            public decimal VlOutDebFcp { get; set; }
+
+            /// <summary>
+            ///     Valor total dos créditos FCP por Entradas
+            /// </summary>
+            [SpedCampos(16, "VL_TOT_CRED_FCP", "N", 0, 2, true)]
+            public decimal VlTotCredFcp { get; set; }
+
+            /// <summary>
+            ///     Valor total dos ajustes "Outros créditos FCP" e "Estornos de débitos FCP"
+            /// </summary>
+            [SpedCampos(17, "VL_OUT_CRED_FCP", "N", 0, 2, true)]
+            public decimal VlOutCredFcp { get; set; }
+
+            /// <summary>
+            ///     Valor total de Saldo devedor FCP antes das deduções
+            /// </summary>
+            [SpedCampos(18, "VL_SLD_DEV_ANT_FCP", "N", 0, 2, true)]
+            public decimal VlSldDevAntFcp { get; set; }
+
+            /// <summary>
+            ///     Valor total das deduções "FCP"
+            /// </summary>
+            [SpedCampos(19, "VL_DEDUÇÕES_FCP", "N", 0, 2, true)]
+            public decimal VlDeduoesFcp { get; set; }
+
+            /// <summary>
+            ///     Valor recolhido ou a recolher referente ao FCP (18-19)
+            /// </summary>
+            [SpedCampos(20, "VL_RECOL_FCP", "N", 0, 2, true)]
+            public decimal VlRecolFCP { get; set; }
+
+            /// <summary>
+            ///     Saldo credor a transportar para o período seguinte referente ao FCP
+            /// </summary>
+            [SpedCampos(21, "VL_SLD_CRED_TRANSPORTAR_FCP", "N", 0, 2, true)]
+            public decimal VlSldCredTransportarFcp { get; set; }
+
+            /// <summary>
+            ///     Valores recolhidos ou a recolher, extra-apuração - FCP
+            /// </summary>
+            [SpedCampos(22, "DEB_ESP_FCP", "N", 0, 2, true)]
+            public decimal DebEspFcp { get; set; }
+            
         }
 
         /// <summary>
@@ -1137,19 +1185,19 @@ namespace SpedBr.SpedFiscal
             ///     1 - Decendial
             /// </remarks>
             [SpedCampos(2, "IND_APUR", "C", 1, 0, true)]
-            public string IND_APUR { get; set; }
+            public string IndApur { get; set; }
 
             /// <summary>
             ///     Data inicial a que a apuração se refere
             /// </summary>
             [SpedCampos(3, "DT_INI", "N", 8, 0, true)]
-            public DateTime DT_INI { get; set; }
+            public DateTime DtIni { get; set; }
 
             /// <summary>
             ///     Data final a que a apuração se refere
             /// </summary>
             [SpedCampos(4, "DT_FIN", "N", 8, 0, true)]
-            public DateTime DT_FIN { get; set; }
+            public DateTime DtFin { get; set; }
         }
 
         /// <summary>
@@ -1331,7 +1379,7 @@ namespace SpedBr.SpedFiscal
             ///     Quantidade total de linhas do Bloco E
             /// </summary>
             [SpedCampos(2, "QTD_LIN_E", "N", int.MaxValue, 0, true)]
-            public string QTD_LIN_E { get; set; }
+            public int QtdLinE { get; set; }
         }
     }
 }

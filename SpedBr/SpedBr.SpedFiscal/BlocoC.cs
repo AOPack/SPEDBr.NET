@@ -98,20 +98,20 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Data da emissão do documento fiscal
             /// </summary>
-            [SpedCampos(10, "DT_DOC", "N", 8, 0, true)]
-            public DateTime DtDoc { get; set; }
+            [SpedCampos(10, "DT_DOC", "N", 8, 0, false)]
+            public DateTime? DtDoc { get; set; }
 
             /// <summary>
             ///     Data da entrada ou da saída
             /// </summary>
             [SpedCampos(11, "DT_E_S", "N", 8, 0, false)]
-            public DateTime DtEs { get; set; }
+            public DateTime? DtEs { get; set; }
 
             /// <summary>
             ///     Valor total do documento fiscal
             /// </summary>
-            [SpedCampos(12, "VL_DOC", "N", 0, 2, true)]
-            public decimal VlDoc { get; set; }
+            [SpedCampos(12, "VL_DOC", "N", 0, 2, false)]
+            public decimal? VlDoc { get; set; }
 
             /// <summary>
             ///     Indicador do tipo de pagamento:
@@ -120,27 +120,27 @@ namespace SpedBr.SpedFiscal
             ///     2 - Outros (a partir de 01/07/2012).
             ///     9 - Sem pagamento (até 30/06/2012).
             /// </summary>
-            [SpedCampos(13, "IND_PGTO", "C", 1, 0, true)]
-            public int IndPgto { get; set; }
+            [SpedCampos(13, "IND_PGTO", "C", 1, 0, false)]
+            public int? IndPgto { get; set; }
 
             /// <summary>
             ///     Valor total do desconto
             /// </summary>
             [SpedCampos(14, "VL_DESC", "N", 0, 2, false)]
-            public decimal VlDesc { get; set; }
+            public decimal? VlDesc { get; set; }
 
             /// <summary>
             ///     Abatimento não tributado e não comercial.
             ///     Ex.: desconto ICMS nas remessas para ZFM.
             /// </summary>
             [SpedCampos(15, "VL_ABAT_NT", "N", 0, 2, false)]
-            public decimal VlAbatNt { get; set; }
+            public decimal? VlAbatNt { get; set; }
 
             /// <summary>
             ///     Valor total das mercadorias e serviços
             /// </summary>
             [SpedCampos(16, "VL_MERC", "N", 0, 2, false)]
-            public decimal VlMerc { get; set; }
+            public decimal? VlMerc { get; set; }
 
             /// <summary>
             ///     Indicador do tipo do frete:
@@ -149,80 +149,80 @@ namespace SpedBr.SpedFiscal
             ///     2 - Por conta de terceiros;
             ///     9 - Sem cobrança de frete.
             /// </summary>
-            [SpedCampos(17, "IND_FRT", "C", 1, 0, true)]
-            public int IndFrt { get; set; }
+            [SpedCampos(17, "IND_FRT", "C", 1, 0, false)]
+            public int? IndFrt { get; set; }
 
             /// <summary>
             ///     Valor do frete indicado no documento fiscal
             /// </summary>
             [SpedCampos(18, "VL_FRT", "N", 0, 2, false)]
-            public decimal VlFrt { get; set; }
+            public decimal? VlFrt { get; set; }
 
             /// <summary>
             ///     Valor do seguro indicado no documento fiscal
             /// </summary>
             [SpedCampos(19, "VL_SEG", "N", 0, 2, false)]
-            public decimal VlSeg { get; set; }
+            public decimal? VlSeg { get; set; }
 
             /// <summary>
             ///     Valor de outras despesas acessórias
             /// </summary>
             [SpedCampos(20, "VL_OUT_DA", "N", 0, 2, false)]
-            public decimal VlOutDa { get; set; }
+            public decimal? VlOutDa { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo do ICMS
             /// </summary>
             [SpedCampos(21, "VL_BC_ICMS", "N", 0, 2, false)]
-            public decimal VlBcIcms { get; set; }
+            public decimal? VlBcIcms { get; set; }
 
             /// <summary>
             ///     Valor do ICMS
             /// </summary>
             [SpedCampos(22, "VL_ICMS", "N", 0, 2, false)]
-            public decimal VlIcms { get; set; }
+            public decimal? VlIcms { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo do ICMS substituição tributária
             /// </summary>
             [SpedCampos(23, "VL_BC_ICMS_ST", "N", 0, 2, false)]
-            public decimal VlBcIcmsSt { get; set; }
+            public decimal? VlBcIcmsSt { get; set; }
 
             /// <summary>
             ///     Valor do ICMS retido por substituição tributária
             /// </summary>
             [SpedCampos(24, "VL_ICMS_ST", "N", 0, 2, false)]
-            public decimal VlIcmsSt { get; set; }
+            public decimal? VlIcmsSt { get; set; }
 
             /// <summary>
             ///     Valor total do IPI
             /// </summary>
             [SpedCampos(25, "VL_IPI", "N", 0, 2, false)]
-            public decimal VlIpi { get; set; }
+            public decimal? VlIpi { get; set; }
 
             /// <summary>
             ///     Valor total do PIS
             /// </summary>
             [SpedCampos(26, "VL_PIS", "N", 0, 2, false)]
-            public decimal VlPis { get; set; }
+            public decimal? VlPis { get; set; }
 
             /// <summary>
             ///     Valor total da COFINS
             /// </summary>
             [SpedCampos(27, "VL_COFINS", "N", 0, 2, false)]
-            public decimal VlCofins { get; set; }
+            public decimal? VlCofins { get; set; }
 
             /// <summary>
             ///     Valor total do PIS retido por substituição tributária
             /// </summary>
             [SpedCampos(28, "VL_PIS_ST", "N", 0, 2, false)]
-            public decimal VlPisSt { get; set; }
+            public decimal? VlPisSt { get; set; }
 
             /// <summary>
             ///     Valor total da COFINS retido por substituição tributária
             /// </summary>
             [SpedCampos(29, "VL_COFINS_ST", "N", 0, 2, false)]
-            public decimal VlCofinsSt { get; set; }
+            public decimal? VlCofinsSt { get; set; }
         }
 
         /// <summary>
