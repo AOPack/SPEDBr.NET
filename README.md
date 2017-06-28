@@ -21,7 +21,6 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2015 - para gera
 
 ###### Outras
 
-- [ ] DCTF
 - [x] DIMOB (Concluído em 02/05/2016)
 
 ## Outros
