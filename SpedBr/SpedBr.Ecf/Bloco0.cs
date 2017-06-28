@@ -1,5 +1,5 @@
-﻿using SpedBr.Common;
-using System;
+﻿using System;
+using SpedBr.Common;
 
 namespace SpedBr.Ecf
 {
