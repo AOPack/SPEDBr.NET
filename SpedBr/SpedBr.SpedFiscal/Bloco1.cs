@@ -1781,25 +1781,26 @@ namespace SpedBr.SpedFiscal
             [SpedCampos(10, "MES_REF", "MA", 6, 0, true)]
             public DateTime MesRef { get; set; }
         }
-    }
 
-    /// <summary>
-    ///     REGISTRO 1990: ENCERRAMENTO DO BLOCO 1
-    /// </summary>
-    public class Registro1990 : RegistroBaseSped
-    {
         /// <summary>
-        ///     Inicializa uma nova instância da classe <see cref="Registro1990" />.
+        ///     REGISTRO 1990: ENCERRAMENTO DO BLOCO 1
         /// </summary>
-        public Registro1990()
+        public class Registro1990 : RegistroBaseSped
         {
-            Reg = "1990";
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro1990" />.
+            /// </summary>
+            public Registro1990()
+            {
+                Reg = "1990";
+            }
+
+            /// <summary>
+            ///     Quantidade total de linhas do Bloco 1.
+            /// </summary>
+            [SpedCampos(2, "QTD_LIN_1", "N", int.MaxValue, 0, true)]
+            public int QtdLin1 { get; set; }
         }
 
-        /// <summary>
-        ///     Quantidade total de linhas do Bloco 1.
-        /// </summary>
-        [SpedCampos(2, "QTD_LIN_1", "N", int.MaxValue, 0, true)]
-        public int QtdLin1 { get; set; }
     }
 }

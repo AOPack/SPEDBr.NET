@@ -461,7 +461,7 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Descrição da unidade de medida.
             /// </summary>
-            [SpedCampos(3, "DESCR", "C", 0, 0, true)]
+            [SpedCampos(3, "DESCR", "C", int.MaxValue, 0, true)]
             public string Descr { get; set; }
         }
 
@@ -487,7 +487,7 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Descrição do item.
             /// </summary>
-            [SpedCampos(3, "DESCR_ITEM", "C", 0, 0, true)]
+            [SpedCampos(3, "DESCR_ITEM", "C", int.MaxValue, 0, true)]
             public string DescrItem { get; set; }
 
             /// <summary>
@@ -546,6 +546,14 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(12, "ALIQ_ICMS", "N", 6, 2, false)]
             public decimal AliqIcms { get; set; }
+
+            /// <summary>
+            ///     Código Especificador da Substituição Tributária
+            ///     Guia Prático EFD-ICMS/IPI – Versão 2.0.20
+            ///     Atualização: 07/12/2016
+            /// </summary>
+            [SpedCampos(13, "CEST", "C", 7, 0, false)]
+            public string Cest { get; set; }
         }
 
         /// <summary>
@@ -776,7 +784,7 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Descrição da natureza da operação/prestação
             /// </summary>
-            [SpedCampos(3, "DESCR_NAT", "C", 0, 0, true)]
+            [SpedCampos(3, "DESCR_NAT", "C", int.MaxValue, 0, true)]
             public string DescrNat { get; set; }
         }
 
@@ -806,7 +814,7 @@ namespace SpedBr.SpedFiscal
             ///     referências pertinentes com indicação referentes ao
             ///     tributo.
             /// </summary>
-            [SpedCampos(3, "TXT", "C", 0, 0, true)]
+            [SpedCampos(3, "TXT", "C", int.MaxValue, 0, true)]
             public string Txt { get; set; }
         }
 
