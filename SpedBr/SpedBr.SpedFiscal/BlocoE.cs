@@ -366,7 +366,7 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Código de receita referente à obrigação, próprio da unidade da federação, conforme legislação estadual.
             /// </summary>
-            [SpedCampos(5, "COD_REC", "C", 0, 0, true)]
+            [SpedCampos(5, "COD_REC", "C", int.MaxValue, 0, true)]
             public string CodRec { get; set; }
 
             /// <summary>
@@ -383,12 +383,12 @@ namespace SpedBr.SpedFiscal
             ///     9- Outros
             /// </summary>
             [SpedCampos(7, "IND_PROC", "C", 1, 0, false)]
-            public int IndProc { get; set; }
+            public int? IndProc { get; set; }
 
             /// <summary>
             ///     Descrição resumida do processo que embasou o lançamento
             /// </summary>
-            [SpedCampos(8, "PROC", "C", 0, 0, false)]
+            [SpedCampos(8, "PROC", "C", int.MaxValue, 0, false)]
             public string Proc { get; set; }
 
             /// <summary>
