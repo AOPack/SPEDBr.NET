@@ -840,7 +840,7 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Descrição da observação vinculada ao lançamento fiscal
             /// </summary>
-            [SpedCampos(3, "TXT", "C", 0, 0, true)]
+            [SpedCampos(3, "TXT", "C", int.MaxValue, 0, true)]
             public string Txt { get; set; }
         }
 
