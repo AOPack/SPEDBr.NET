@@ -9,8 +9,9 @@ namespace SpedBr.Common
         /// <summary>
         /// Escrever campos p/ qualquer arquivo do projeto SPED (Contábil, Fiscal, Pis/Cofins)
         /// </summary>
-        /// <param name="source"></param>
-        /// <param name="competenciaDeclaracao"></param>
+        /// <param name="source">Objeto com os dados a serem tratados e gerados na linha do arquivo.</param>
+        /// <param name="competenciaDeclaracao">Mês a que se referem as informações no arquivo(exceto informações extemporâneas).</param>
+        /// <param name="tryTrim">Remove a quebra de linha no final de cada registro.</param>
         /// <returns></returns>
         public static string EscreverCampos(this object source, DateTime competenciaDeclaracao, bool tryTrim = false)
         {
