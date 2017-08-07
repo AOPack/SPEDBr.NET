@@ -11,7 +11,6 @@ namespace SpedBr.Common
 
         private enum InformationType
         {
-            Blank, // Usado no C420 do SPED Fiscal
             CodeOrNumber,
             DateTime,
             NullableDateTime,
@@ -65,11 +64,11 @@ namespace SpedBr.Common
             //        $"O campo {spedCampoAttr.Ordem} - {spedCampoAttr.Campo} no Registro {registroAtual} é obrigatório e não foi informado!");
 
             if (!hasValue && isRequired)
-                return Constants.binaryOps;
+                return Constants.StructuralError;
 
             if (isRequired && isDecimal &&
                 (valorEscrever == string.Empty || valorEscrever.ToDecimal() == 0))
-                return Constants.vZero.ToString("N" + decimalPlaces);
+                return Constants.VZero.ToString("N" + decimalPlaces);
             else
             {
                 if (isDecimal && hasValue)
@@ -106,30 +105,34 @@ namespace SpedBr.Common
 
         private static InformationType ObtemTipoDoAtributo(SpedCamposAttribute attribute)
         {
-            if (attribute.Tipo == "LE")
-                return InformationType.LiteralEnum;
-            else if ((attribute.Tipo == "C" || attribute.Tipo == "N"))
-                return InformationType.CodeOrNumber;
-            else if (attribute.Tipo == "H")
-                return InformationType.Hour;
-            else if (attribute.Tipo == "MA")
-                return InformationType.MonthAndYear;
-            else
-                return InformationType.Generic;
+            switch (attribute.Tipo)
+            {
+                case "LE":
+                    return InformationType.LiteralEnum;
+                case "C":
+                case "N":
+                    return InformationType.CodeOrNumber;
+                case "H":
+                    return InformationType.Hour;
+                case "MA":
+                    return InformationType.MonthAndYear;
+            }
+
+            return InformationType.Generic;
         }
 
         private static InformationType ObtemTipoDaPropriedade(System.Reflection.PropertyInfo property)
         {
             if (property.PropertyType == typeof (decimal))
                 return InformationType.Decimal;
-            else if (property.PropertyType == typeof (decimal?))
+            if (property.PropertyType == typeof (decimal?))
                 return InformationType.NullableDecimal;
-            else if (property.PropertyType == typeof (DateTime))
+            if (property.PropertyType == typeof (DateTime))
                 return InformationType.DateTime;
-            else if (property.PropertyType == typeof (DateTime?))
+            if (property.PropertyType == typeof (DateTime?))
                 return InformationType.NullableDateTime;
-            else
-                return InformationType.Generic;
+
+            return InformationType.Generic;
         }
 
         private static Type ObtemTipo(object source)
@@ -175,16 +178,14 @@ namespace SpedBr.Common
         /// <returns></returns>
         private static bool VerificaObrigatoriedadeRegistro(Tuple<DateTime?, DateTime?, DateTime> datas)
         {
-            var obritagorio = true;
-
-            if (datas.Item1.HasValue &&
-                (datas.Item1.Value > datas.Item3)) obritagorio = false;
+            var obrigatorio = !(datas.Item1.HasValue &&
+                (datas.Item1.Value > datas.Item3));
 
             if (datas.Item2.HasValue &&
                 (datas.Item2.Value < datas.Item3.ObterProximoMesPrimeiroDia().AddDays(-1)))
-                obritagorio = false;
+                obrigatorio = false;
 
-            return obritagorio;
+            return obrigatorio;
         }
 
         #endregion Private Methods
@@ -248,7 +249,7 @@ namespace SpedBr.Common
                                     spedCampoAttr.QtdCasas
                                     ));
 
-                        if (campoEscrito == Constants.binaryOps)
+                        if (campoEscrito == Constants.StructuralError)
                             throw new Exception(
                                 $"O campo {spedCampoAttr.Ordem} - {spedCampoAttr.Campo} no Registro {registroAtual} é obrigatório e não foi informado!");
 
@@ -325,7 +326,7 @@ namespace SpedBr.Common
                                     spedCampoAttr.QtdCasas
                                     ));
 
-                        if (resultadoCampoEscrito == Constants.binaryOps)
+                        if (resultadoCampoEscrito == Constants.StructuralError)
                             errosEncontrados +=
                                 $"O campo {spedCampoAttr.Ordem} - {spedCampoAttr.Campo} no Registro {registroAtual} é obrigatório e não foi informado!\n";
                         else

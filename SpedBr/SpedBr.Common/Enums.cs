@@ -356,7 +356,7 @@
         /// <summary>
         ///     0 - SEFAZ
         /// </summary>
-        SEFAZ = 0,
+        Sefaz = 0,
 
         /// <summary>
         ///     1 - Justiça Federal
@@ -371,7 +371,7 @@
         /// <summary>
         ///     3 - SECEX/SRF
         /// </summary>
-        SECEXSRF = 3,
+        Secexsrf = 3,
 
         /// <summary>
         ///     9 - Outros
@@ -392,7 +392,7 @@
         /// <summary>
         ///     GNRE
         /// </summary>
-        GNRE = 1
+        Gnre = 1
     }
 
     /// <summary>
@@ -666,29 +666,29 @@
     public enum IndClasseConsumoAgua
     {
         ConsResidencialAte50 = 00,
-        ConsResidencialDe50a100 = 01,
-        ConsResidencialDe100a200 = 02,
-        ConsResidencialDe200a300 = 03,
-        ConsResidencialDe300a400 = 04,
-        ConsResidencialDe400a500 = 05,
-        ConsResidencialDe500a1000 = 06,
+        ConsResidencialDe50A100 = 01,
+        ConsResidencialDe100A200 = 02,
+        ConsResidencialDe200A300 = 03,
+        ConsResidencialDe300A400 = 04,
+        ConsResidencialDe400A500 = 05,
+        ConsResidencialDe500A1000 = 06,
         ConsResidencialAcima1000 = 07,
         ConsComercialIndustrialAte50 = 20,
-        ConsComercialIndustrialDe50a100 = 21,
-        ConsComercialIndustrialDe100a200 = 22,
-        ConsComercialIndustrialDe200a300 = 23,
-        ConsComercialIndustrialDe300a400 = 24,
-        ConsComercialIndustrialDe400a500 = 25,
-        ConsComercialIndustrialDe500a1000 = 26,
+        ConsComercialIndustrialDe50A100 = 21,
+        ConsComercialIndustrialDe100A200 = 22,
+        ConsComercialIndustrialDe200A300 = 23,
+        ConsComercialIndustrialDe300A400 = 24,
+        ConsComercialIndustrialDe400A500 = 25,
+        ConsComercialIndustrialDe500A1000 = 26,
         ConsComercialIndustrialAcima1000 = 27,
         ConsOrgaoPublico = 80,
         OutrosTiposConsumoAte50 = 90,
-        OutrosTiposConsumoDe50a100 = 91,
-        OutrosTiposConsumoDe100a200 = 92,
-        OutrosTiposConsumoDe200a300 = 93,
-        OutrosTiposConsumoDe300a400 = 94,
-        OutrosTiposConsumoDe400a500 = 95,
-        OutrosTiposConsumoDe500a1000 = 96,
+        OutrosTiposConsumoDe50A100 = 91,
+        OutrosTiposConsumoDe100A200 = 92,
+        OutrosTiposConsumoDe200A300 = 93,
+        OutrosTiposConsumoDe300A400 = 94,
+        OutrosTiposConsumoDe400A500 = 95,
+        OutrosTiposConsumoDe500A1000 = 96,
         OutrosTiposConsumoAcima1000 = 97,
         RegPorDocumentoFiscalEmitido = 99
     }
@@ -699,29 +699,29 @@
     public enum IndClasseConsumoGas
     {
         ConsResidencialAte50 = 00,
-        ConsResidencialDe50a100 = 01,
-        ConsResidencialDe100a200 = 02,
-        ConsResidencialDe200a300 = 03,
-        ConsResidencialDe300a400 = 04,
-        ConsResidencialDe400a500 = 05,
-        ConsResidencialDe500a1000 = 06,
+        ConsResidencialDe50A100 = 01,
+        ConsResidencialDe100A200 = 02,
+        ConsResidencialDe200A300 = 03,
+        ConsResidencialDe300A400 = 04,
+        ConsResidencialDe400A500 = 05,
+        ConsResidencialDe500A1000 = 06,
         ConsResidencialAcima1000 = 07,
         ConsComercialIndustrialAte50 = 20,
-        ConsComercialIndustrialDe50a100 = 21,
-        ConsComercialIndustrialDe100a200 = 22,
-        ConsComercialIndustrialDe200a300 = 23,
-        ConsComercialIndustrialDe300a400 = 24,
-        ConsComercialIndustrialDe400a500 = 25,
-        ConsComercialIndustrialDe500a1000 = 26,
+        ConsComercialIndustrialDe50A100 = 21,
+        ConsComercialIndustrialDe100A200 = 22,
+        ConsComercialIndustrialDe200A300 = 23,
+        ConsComercialIndustrialDe300A400 = 24,
+        ConsComercialIndustrialDe400A500 = 25,
+        ConsComercialIndustrialDe500A1000 = 26,
         ConsComercialIndustrialAcima1000 = 27,
         ConsOrgaoPublico = 80,
         OutrosTiposConsumoAte50 = 90,
-        OutrosTiposConsumoDe50a100 = 91,
-        OutrosTiposConsumoDe100a200 = 92,
-        OutrosTiposConsumoDe200a300 = 93,
-        OutrosTiposConsumoDe300a400 = 94,
-        OutrosTiposConsumoDe400a500 = 95,
-        OutrosTiposConsumoDe500a1000 = 96,
+        OutrosTiposConsumoDe50A100 = 91,
+        OutrosTiposConsumoDe100A200 = 92,
+        OutrosTiposConsumoDe200A300 = 93,
+        OutrosTiposConsumoDe300A400 = 94,
+        OutrosTiposConsumoDe400A500 = 95,
+        OutrosTiposConsumoDe500A1000 = 96,
         OutrosTiposConsumoAcima1000 = 97,
         RegPorDocumentoFiscalEmitido = 99
     }
