@@ -27,11 +27,9 @@ namespace SpedBr.Tests
             reg0000.IndPerfil = IndPerfilArquivo.A;
             reg0000.IndAtiv = IndTipoAtividade.Outros;
 
-            string value = "";
+            string errosEncontrados = string.Empty;
 
-            var result = reg0000.EscreverCampos(new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1), out value);
-
-            var atoa = 1;
+            var result = reg0000.EscreverCampos(new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1), out errosEncontrados);
         }
 
         [TestMethod]

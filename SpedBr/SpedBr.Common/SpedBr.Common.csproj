@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="EscreverCamposSpedByAttribute.cs" />
     <Compile Include="ExtensionMethods.cs" />

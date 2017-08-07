@@ -2324,8 +2324,8 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Número do totalizador quando ocorrer mais de uma situação com a mesma carga tributária efetiva
             /// </summary>
-            [SpedCampos(4, "NR_TOT", "N", 2, 0, false)]
-            public int NrTot { get; set; }
+            [SpedCampos(4, "NR_TOT", "BLANK", 2, 0, false)]
+            public int? NrTot { get; set; }
 
             /// <summary>
             ///     Descrição da situação tributária relativa ao totalizador parcial, quando houver mais de um com a mesma carga
@@ -2401,7 +2401,7 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Código do modelo do documento fiscal
             /// </summary>
-            [SpedCampos(2, "COD_MOD", "C", 4, 0, true)]
+            [SpedCampos(2, "COD_MOD", "C", 2, 0, true)]
             public string CodMod { get; set; }
 
             /// <summary>

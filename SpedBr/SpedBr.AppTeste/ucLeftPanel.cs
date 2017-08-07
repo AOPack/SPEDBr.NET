@@ -143,5 +143,10 @@ namespace SpedBr.AppTeste
             btn.ForeColor = SystemColors.ControlText;
             btn.FlatAppearance.BorderColor = SystemColors.Control;
         }
+
+        private void btnSintegra_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

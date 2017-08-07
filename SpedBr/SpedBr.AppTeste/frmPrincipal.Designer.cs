@@ -36,8 +36,10 @@
             this.lblSpedBr = new System.Windows.Forms.Label();
             this.lblGitHub = new System.Windows.Forms.Label();
             this.lblDonate = new System.Windows.Forms.Label();
-            this.lblSystemInformation = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lnkGerarArquivo = new System.Windows.Forms.LinkLabel();
             this.pnlTopo.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -108,9 +110,9 @@
             // pnlCentro
             // 
             this.pnlCentro.BackColor = System.Drawing.Color.Transparent;
-            this.pnlCentro.Location = new System.Drawing.Point(15, 86);
+            this.pnlCentro.Location = new System.Drawing.Point(12, 76);
             this.pnlCentro.Name = "pnlCentro";
-            this.pnlCentro.Size = new System.Drawing.Size(992, 510);
+            this.pnlCentro.Size = new System.Drawing.Size(1217, 551);
             this.pnlCentro.TabIndex = 1;
             // 
             // lblSpedBr
@@ -119,7 +121,7 @@
             this.lblSpedBr.BackColor = System.Drawing.Color.Transparent;
             this.lblSpedBr.Font = new System.Drawing.Font("Segoe UI Black", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSpedBr.ForeColor = System.Drawing.Color.White;
-            this.lblSpedBr.Location = new System.Drawing.Point(27, 53);
+            this.lblSpedBr.Location = new System.Drawing.Point(12, 43);
             this.lblSpedBr.Name = "lblSpedBr";
             this.lblSpedBr.Size = new System.Drawing.Size(94, 30);
             this.lblSpedBr.TabIndex = 2;
@@ -159,34 +161,55 @@
             this.lblDonate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblDonate.Click += new System.EventHandler(this.lblDonate_Click);
             // 
-            // lblSystemInformation
-            // 
-            this.lblSystemInformation.BackColor = System.Drawing.Color.Transparent;
-            this.lblSystemInformation.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblSystemInformation.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblSystemInformation.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSystemInformation.ForeColor = System.Drawing.Color.White;
-            this.lblSystemInformation.Image = global::SpedBr.AppTeste.Properties.Resources.icons8_System_Information_26;
-            this.lblSystemInformation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblSystemInformation.Location = new System.Drawing.Point(1098, 0);
-            this.lblSystemInformation.Name = "lblSystemInformation";
-            this.lblSystemInformation.Size = new System.Drawing.Size(143, 40);
-            this.lblSystemInformation.TabIndex = 2;
-            this.lblSystemInformation.Text = "Informações do Sistema";
-            this.lblSystemInformation.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblSystemInformation.Click += new System.EventHandler(this.lblSystemInformation_Click);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.lblDonate);
             this.panel1.Controls.Add(this.lblGitHub);
-            this.panel1.Controls.Add(this.lblSystemInformation);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 633);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1241, 40);
             this.panel1.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(271, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(137, 21);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Validar Estrutura";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(439, 50);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 21);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Ajuda";
+            // 
+            // lnkGerarArquivo
+            // 
+            this.lnkGerarArquivo.AutoSize = true;
+            this.lnkGerarArquivo.BackColor = System.Drawing.Color.Transparent;
+            this.lnkGerarArquivo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkGerarArquivo.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.lnkGerarArquivo.LinkColor = System.Drawing.Color.White;
+            this.lnkGerarArquivo.Location = new System.Drawing.Point(126, 50);
+            this.lnkGerarArquivo.Name = "lnkGerarArquivo";
+            this.lnkGerarArquivo.Size = new System.Drawing.Size(116, 21);
+            this.lnkGerarArquivo.TabIndex = 5;
+            this.lnkGerarArquivo.TabStop = true;
+            this.lnkGerarArquivo.Text = "Gerar Arquivo";
+            this.lnkGerarArquivo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkGerarArquivo_LinkClicked);
             // 
             // frmPrincipal
             // 
@@ -195,6 +218,9 @@
             this.BackgroundImage = global::SpedBr.AppTeste.Properties.Resources.mountains_wall;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1241, 673);
+            this.Controls.Add(this.lnkGerarArquivo);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblSpedBr);
             this.Controls.Add(this.pnlCentro);
             this.Controls.Add(this.pnlTopo);
@@ -221,7 +247,9 @@
         private System.Windows.Forms.Label lblSpedBr;
         private System.Windows.Forms.Label lblGitHub;
         private System.Windows.Forms.Label lblDonate;
-        private System.Windows.Forms.Label lblSystemInformation;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.LinkLabel lnkGerarArquivo;
     }
 }

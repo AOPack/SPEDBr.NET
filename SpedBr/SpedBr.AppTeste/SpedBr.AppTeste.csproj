@@ -93,11 +93,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="TransparentPanel.cs">
-      <SubType>Component</SubType>
+    <Compile Include="ucGerarArquivo.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TransparentTabControl.cs">
-      <SubType>Component</SubType>
+    <Compile Include="ucGerarArquivo.Designer.cs">
+      <DependentUpon>ucGerarArquivo.cs</DependentUpon>
     </Compile>
     <Compile Include="ucHome.cs">
       <SubType>UserControl</SubType>
@@ -144,6 +144,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucGerarArquivo.resx">
+      <DependentUpon>ucGerarArquivo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucHome.resx">
       <DependentUpon>ucHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,6 +186,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="My Computer.ico" />
+    <None Include="Resources\Play_26px.png" />
     <None Include="Resources\icons8-System Information-26.png" />
     <None Include="Resources\icons8-Donate-26.png" />
     <None Include="Resources\icons8-GitHub-26.png" />

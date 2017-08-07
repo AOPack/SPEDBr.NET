@@ -14,8 +14,6 @@ namespace SpedBr.AppTeste
 {
     public partial class frmPrincipal : Form, IMessageFilter
     {
-        private Panel _pnlRight;
-
         public frmPrincipal()
         {
             InitializeComponent();
@@ -87,67 +85,16 @@ namespace SpedBr.AppTeste
             Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FDBYCQDQ368KA");
         }
 
-        private void lblSystemInformation_Click(object sender, EventArgs e)
+        private void lnkGerarArquivo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //if (_pnlRight == null)
-            //{
-            //    _pnlRight = new Panel();
-            //    _pnlRight.BackColor = Color.Transparent;
-            //    _pnlRight.Dock = DockStyle.Right;
-            //    _pnlRight.Height = 100;
-            //    _pnlRight.Width = 200;
-
-            //    var lblInformations = new Label();
-
-            //    lblInformations.Text = "SystemInformation:<br/>" + SystemInformation();
-
-            //    _pnlRight.Controls.Add(lblInformations);
-
-            //    this.Controls.Add(_pnlRight);
-
-            //    _pnlRight.BringToFront();
-            //    _pnlRight.Update();
-            //}
-
-            textBox1.Text = "SystemInformation:<br/>" + SystemInformation();
-        }
-
-        private string SystemInformation()
-        {
-            StringBuilder sb = new StringBuilder(string.Empty);
-            try
+            if (!pnlCentro.Controls.Contains(ucGerarArquivo.Instancia))
             {
-                sb.AppendFormat("Operation System: {0}<br/>", Environment.OSVersion);
-                if (Environment.Is64BitOperatingSystem)
-                    sb.AppendFormat("64 Bit Operating System<br/>");
-                else
-                    sb.AppendFormat("32 Bit Operating System<br/>");
-                sb.AppendFormat("SystemDirectory: {0}<br/>", Environment.SystemDirectory);
-                sb.AppendFormat("ProcessorCount: {0}<br/>", Environment.ProcessorCount);
-                sb.AppendFormat("UserDomainName: {0}<br/>", Environment.UserDomainName);
-                sb.AppendFormat("UserName: {0}<br>", Environment.UserName);
-                //Drives
-                sb.AppendFormat("LogicalDrives:<br>");
-                foreach (System.IO.DriveInfo driveInfo in System.IO.DriveInfo.GetDrives())
-                {
-                    try
-                    {
-                        sb.AppendFormat("Drive: {0}<br/>VolumeLabel: {1}<br/>DriveType: {2}<br/>DriveFormat: " +
-                            "{3}<br/>TotalSize: {4}<br/>AvailableFreeSpace: {5}<br/>",
-                            driveInfo.Name, driveInfo.VolumeLabel, driveInfo.DriveType,
-                            driveInfo.DriveFormat, driveInfo.TotalSize, driveInfo.AvailableFreeSpace);
-                    }
-                    catch
-                    {
-                    }
-                }
-                sb.AppendFormat("SystemPageSize: {0}<br/>", Environment.SystemPageSize);
-                sb.AppendFormat("Version: {0}", Environment.Version);
+                pnlCentro.Controls.Add(ucGerarArquivo.Instancia);
+                ucGerarArquivo.Instancia.Dock = DockStyle.Fill;
+                ucGerarArquivo.Instancia.BringToFront();
             }
-            catch
-            {
-            }
-            return sb.ToString();
+            else
+                ucGerarArquivo.Instancia.BringToFront();
         }
     }
 }

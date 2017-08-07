@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -6,148 +7,187 @@ namespace SpedBr.Common
 {
     public static class EscreverCamposSpedByAttribute
     {
-        /// <summary>
-        /// Escrever campos p/ qualquer arquivo do projeto SPED (Contábil, Fiscal, Pis/Cofins)
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="competenciaDeclaracao"></param>
-        /// <param name="errosEncontrados"></param>
-        /// <param name="tryTrim"></param>
-        /// <returns></returns>
-        public static string EscreverCampos(this object source, DateTime competenciaDeclaracao, out string errosEncontrados, bool tryTrim = false)
+        #region Private Methods
+
+        private enum InformationType
         {
-            errosEncontrados = string.Empty;
+            Blank, // Usado no C420 do SPED Fiscal
+            CodeOrNumber,
+            DateTime,
+            NullableDateTime,
+            Decimal,
+            NullableDecimal,
+            Generic,
+            Hour,
+            LiteralEnum,
+            MonthAndYear
+        }
 
-            var type = source.GetType();
+        /// <summary>
+        /// Escrever campo do Registro atual.
+        /// </summary>
+        /// <param name="valorEscrever">Dado que será inserido na linha a ser escrita.</param>
+        /// <param name="info">Informações essenciais para escrita dos dados.<para />
+        /// <remarks>
+        /// [1] Tipo do atributo.<para />
+        /// [2] Tipo da propriedade.<para />
+        /// [3] É obrigatório?<para />
+        /// [4] Tamanho do campo.<para />
+        /// [5] Quantidade de casas decimais.
+        /// </remarks>
+        /// </param>
+        /// <returns>Campo escrito.</returns>
+        private static string EscreverCampo(this string valorEscrever,
+            Tuple<InformationType, InformationType, bool, int, int> info)
+        {
+            var hasValue = !string.IsNullOrEmpty(valorEscrever) ||
+                           !string.IsNullOrWhiteSpace(valorEscrever);
+            var isDecimal = info.Item2 == InformationType.Decimal;
+            var isNullableDecimal = info.Item2 == InformationType.NullableDecimal;
+            var isDateTime = info.Item2 == InformationType.DateTime;
+            var isNullableDateTime = info.Item2 == InformationType.NullableDateTime;
+            var isLiteralEnum = info.Item1 == InformationType.LiteralEnum;
+            var isHour = info.Item1 == InformationType.Hour;
+            var onlyMonthAndYear = info.Item1 == InformationType.MonthAndYear;
+            var isRequired = info.Item3;
+            var fieldLength = info.Item4;
+            var decimalPlaces = info.Item5;
 
-            if (type == null)
+            var propertyLength = hasValue ? valorEscrever.Length : 0;
+
+
+            // Verificação necessária p/ ajustes no tamanho de campos como CSTs e Indicadores. Ex.: CST PIS '1' -> Deve estar no arquivo como '01'.
+            var isCodeOrNumberAndHasLength = info.Item2 == InformationType.CodeOrNumber &&
+                                             (fieldLength > 0 && fieldLength <= 4);
+
+            //if (isRequired && !hasValue)
+            //    throw new Exception(
+            //        $"O campo {spedCampoAttr.Ordem} - {spedCampoAttr.Campo} no Registro {registroAtual} é obrigatório e não foi informado!");
+
+            if (!hasValue && isRequired)
+                return Constants.binaryOps;
+
+            if (isRequired && isDecimal &&
+                (valorEscrever == string.Empty || valorEscrever.ToDecimal() == 0))
+                return Constants.vZero.ToString("N" + decimalPlaces);
+            else
+            {
+                if (isDecimal && hasValue)
+                {
+                    var vDecimal =
+                        Convert.ToDecimal(valorEscrever).ToString("N" + decimalPlaces);
+                    return vDecimal.ToStringSafe().Replace(".", "");
+                }
+                else if (isNullableDecimal && hasValue)
+                {
+                    var vDecimal =
+                        Convert.ToDecimal(valorEscrever).ToString("N" + decimalPlaces);
+                    return vDecimal.ToStringSafe().Replace(".", "");
+                }
+                else if (isDateTime && hasValue)
+                    return Convert.ToDateTime(valorEscrever).Date.ToString("ddMMyyyy");
+                else if (isNullableDateTime && hasValue)
+                    return Convert.ToDateTime(valorEscrever).Date.ToString("ddMMyyyy");
+                else if ((isDateTime && hasValue) && isHour)
+                    return Convert.ToDateTime(valorEscrever).Date.ToString("hhmmss");
+                else if ((isDateTime && hasValue) && onlyMonthAndYear)
+                    return Convert.ToDateTime(valorEscrever).Date.ToString("MMyyyy");
+                else if ((isCodeOrNumberAndHasLength && hasValue) || (isLiteralEnum && hasValue))
+                    return valorEscrever.PadLeft(fieldLength, '0');
+                else
+                {
+                    if (propertyLength > 0 && (propertyLength > fieldLength))
+                        return valorEscrever.Substring(0, fieldLength);
+                    else
+                        return valorEscrever;
+                }
+            }
+        }
+
+        private static InformationType ObtemTipoDoAtributo(SpedCamposAttribute attribute)
+        {
+            if (attribute.Tipo == "LE")
+                return InformationType.LiteralEnum;
+            else if ((attribute.Tipo == "C" || attribute.Tipo == "N"))
+                return InformationType.CodeOrNumber;
+            else if (attribute.Tipo == "H")
+                return InformationType.Hour;
+            else if (attribute.Tipo == "MA")
+                return InformationType.MonthAndYear;
+            else
+                return InformationType.Generic;
+        }
+
+        private static InformationType ObtemTipoDaPropriedade(System.Reflection.PropertyInfo property)
+        {
+            if (property.PropertyType == typeof (decimal))
+                return InformationType.Decimal;
+            else if (property.PropertyType == typeof (decimal?))
+                return InformationType.NullableDecimal;
+            else if (property.PropertyType == typeof (DateTime))
+                return InformationType.DateTime;
+            else if (property.PropertyType == typeof (DateTime?))
+                return InformationType.NullableDateTime;
+            else
+                return InformationType.Generic;
+        }
+
+        private static Type ObtemTipo(object source)
+        {
+            return source.GetType();
+        }
+
+        /// <summary>
+        /// Extrai o nome do registro atual. Ex.: RegistroA001 -> Resultado: A001
+        /// </summary>
+        /// <param name="tipo"></param>
+        /// <returns></returns>
+        private static string ObtemRegistroAtual(Type tipo)
+        {
+            if (tipo == null)
                 throw new Exception("Falha ao identificar tipo do objeto!");
 
             // Extrai o nome do registro atual. Ex.: RegistroA001 -> Resultado: A001
-            var registroAtual = type.Name.Substring(type.Name.Length - 4);
+            return tipo.Name.Substring(tipo.Name.Length - 4);
+        }
 
-            var spedRegistroAttr =
-                (SpedRegistrosAttribute)
-                    Attribute.GetCustomAttribute(type, typeof(SpedRegistrosAttribute));
+        private static SpedRegistrosAttribute ObtemAtributoAtual(Type tipo)
+        {
+            return (SpedRegistrosAttribute) Attribute.GetCustomAttribute(tipo, typeof (SpedRegistrosAttribute));
+        }
 
-            var deveGerarCamposDoRegistro = true;
-            var dataObrigatoriedadeInicial = spedRegistroAttr?.ObrigatoriedadeInicial.ToDateTimeNullable();
-            var dataObrigatoriedadeFinal = spedRegistroAttr?.ObrigatoriedadeFinal.ToDateTimeNullable();
-
-            /*
-             * Verifica obrigatoriedade de escrita do registro. Ex.: M225/M625 -> Obrigatório a partir de 01/10/2015
-             */
-            if (dataObrigatoriedadeInicial.HasValue &&
-                (dataObrigatoriedadeInicial.Value > competenciaDeclaracao)) deveGerarCamposDoRegistro = false;
-
-            if (dataObrigatoriedadeFinal.HasValue &&
-                (dataObrigatoriedadeFinal.Value < competenciaDeclaracao.ObterProximoMesPrimeiroDia().AddDays(-1)))
-                deveGerarCamposDoRegistro = false;
-
+        private static List<System.Reflection.PropertyInfo> ObtemListaComPropriedadesOrdenadas(Type tipo)
+        {
             /*
              * http://stackoverflow.com/questions/22306689/get-properties-of-class-by-order-using-reflection
              */
-            var listaComPropriedadesOrdenadas =
-                type.GetProperties().OrderBy(p => p.GetCustomAttributes(typeof(SpedCamposAttribute), true)
-                    .Cast<SpedCamposAttribute>()
-                    .Select(a => a.Ordem)
-                    .FirstOrDefault())
-                    .ToList();
-
-            var sb = new StringBuilder();
-            if (deveGerarCamposDoRegistro)
-            {
-                foreach (var property in listaComPropriedadesOrdenadas)
-                {
-                    sb.Append("|");
-                    foreach (
-                        var spedCampoAttr in
-                            from Attribute attr in property.GetCustomAttributes(true) select attr as SpedCamposAttribute
-                        )
-                    {
-                        if (spedCampoAttr == null)
-                            //throw new Exception(
-                            errosEncontrados += $"O campo {property.Name} no registro {registroAtual} não possui atributo SPED definido!\n";
-
-                        var isLiteralEnum = spedCampoAttr.Tipo == "LE"; // Literal Enum
-                        var propertyValue = RegistroBaseSped.GetPropValue(source, property.Name, isLiteralEnum);
-                        var propertyValueToStringSafe = propertyValue.ToStringSafe().Trim();
-
-                        /*
-                        * INDICADORES PARA FORMATAÇÃO DOS CAMPOS NOS REGISTROS
-                        */
-
-                        var isRequired = spedCampoAttr.IsObrigatorio;
-                        var isDecimal = property.PropertyType == typeof(decimal);
-                        var isNullableDecimal = property.PropertyType == typeof(decimal?);
-                        var isDateTime = property.PropertyType == typeof(DateTime);
-                        var isNullableDateTime = property.PropertyType == typeof(DateTime?);
-                        var hasValue = !string.IsNullOrEmpty(propertyValueToStringSafe) ||
-                                       !string.IsNullOrWhiteSpace(propertyValueToStringSafe);
-
-                        var propertyLength = hasValue
-                            ? propertyValueToStringSafe.Length
-                            : 0;
-
-
-                        // Verificação necessária p/ ajustes no tamanho de campos como CSTs e Indicadores. Ex.: CST PIS '1' -> Deve estar no arquivo como '01'.
-                        var isCodeOrNumberAndHasLength = (spedCampoAttr.Tipo == "C" || spedCampoAttr.Tipo == "N") &&
-                                                         (spedCampoAttr.Tamanho > 0 && spedCampoAttr.Tamanho <= 4);
-
-                        var isHour = spedCampoAttr.Tipo == "H";
-                        var onlyMonthAndYear = spedCampoAttr.Tipo == "MA";
-
-                        if (isRequired && !hasValue)
-                            //throw new Exception(
-                            errosEncontrados += $"O campo {spedCampoAttr.Ordem} - {spedCampoAttr.Campo} no Registro {registroAtual} é obrigatório e não foi informado!\n";
-
-                        const decimal vZero = 0M;
-                        if (isRequired && isDecimal &&
-                            (propertyValueToStringSafe == string.Empty || propertyValueToStringSafe.ToDecimal() == 0))
-                            sb.Append(vZero.ToString("N" + spedCampoAttr.QtdCasas));
-                        else
-                        {
-                            if (isDecimal && hasValue)
-                            {
-                                var vDecimal =
-                                    Convert.ToDecimal(propertyValue).ToString("N" + spedCampoAttr.QtdCasas);
-                                sb.Append(vDecimal.ToStringSafe().Replace(".", ""));
-                            }
-                            else if (isNullableDecimal && hasValue)
-                            {
-                                var vDecimal =
-                                    Convert.ToDecimal(propertyValue).ToString("N" + spedCampoAttr.QtdCasas);
-                                sb.Append(vDecimal.ToStringSafe().Replace(".", ""));
-                            }
-                            else if (isDateTime && hasValue)
-                                sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("ddMMyyyy"));
-                            else if (isNullableDateTime && hasValue)
-                                sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("ddMMyyyy"));
-                            else if ((isDateTime && hasValue) && isHour)
-                                sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("hhmmss"));
-                            else if ((isDateTime && hasValue) && onlyMonthAndYear)
-                                sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("MMyyyy"));
-                            else if ((isCodeOrNumberAndHasLength && hasValue) || (isLiteralEnum && hasValue))
-                                sb.Append(propertyValue.ToString().PadLeft(spedCampoAttr.Tamanho, '0'));
-                            else
-                            {
-                                if (propertyLength > 0 && (propertyLength > spedCampoAttr.Tamanho))
-                                    sb.Append(propertyValueToStringSafe.Substring(0, spedCampoAttr.Tamanho));
-                                else
-                                    sb.Append(propertyValueToStringSafe);
-                            }
-                        }
-                    }
-                }
-                sb.Append("|");
-                sb.Append(Environment.NewLine);
-            }
-            //if(!string.IsNullOrEmpty(ListaErrosEscrevecampos))
-            //    throw new Exception(ListaErrosEscrevecampos);
-            if (errosEncontrados.Length > 0)
-                errosEncontrados = $"Registro {source.GetType().FullName} -  Contém os seguintes erros: \n{errosEncontrados}";
-            return tryTrim ? sb.ToString().Trim() : sb.ToString();
+            return tipo.GetProperties().OrderBy(p => p.GetCustomAttributes(typeof (SpedCamposAttribute), true)
+                .Cast<SpedCamposAttribute>()
+                .Select(a => a.Ordem)
+                .FirstOrDefault())
+                .ToList();
         }
+
+        /// <summary>
+        /// Verifica obrigatoriedade de escrita do registro. Ex.: M225/M625 -> Obrigatório a partir de 01/10/2015
+        /// </summary>
+        /// <param name="datas"></param>
+        /// <returns></returns>
+        private static bool VerificaObrigatoriedadeRegistro(Tuple<DateTime?, DateTime?, DateTime> datas)
+        {
+            var obritagorio = true;
+
+            if (datas.Item1.HasValue &&
+                (datas.Item1.Value > datas.Item3)) obritagorio = false;
+
+            if (datas.Item2.HasValue &&
+                (datas.Item2.Value < datas.Item3.ObterProximoMesPrimeiroDia().AddDays(-1)))
+                obritagorio = false;
+
+            return obritagorio;
+        }
+
+        #endregion Private Methods
 
         /// <summary>
         /// Escrever campos p/ qualquer arquivo do projeto SPED (Contábil, Fiscal, Pis/Cofins)
@@ -155,44 +195,23 @@ namespace SpedBr.Common
         /// <param name="source">Objeto com os dados a serem tratados e gerados na linha do arquivo.</param>
         /// <param name="competenciaDeclaracao">Mês a que se referem as informações no arquivo(exceto informações extemporâneas).</param>
         /// <param name="tryTrim">Remove a quebra de linha no final de cada registro.</param>
-        /// <returns></returns>
+        /// <returns>Linha de arquivo SPED escrita e formatada.</returns>
         public static string EscreverCampos(this object source, DateTime competenciaDeclaracao, bool tryTrim = false)
         {
-            var type = source.GetType();
+            var type = ObtemTipo(source);
 
-            if (type == null)
-                throw new Exception("Falha ao identificar tipo do objeto!");
+            var registroAtual = ObtemRegistroAtual(type);
 
-            // Extrai o nome do registro atual. Ex.: RegistroA001 -> Resultado: A001
-            var registroAtual = type.Name.Substring(type.Name.Length - 4);
+            var spedRegistroAttr = ObtemAtributoAtual(type);
 
-            var spedRegistroAttr =
-                (SpedRegistrosAttribute)
-                    Attribute.GetCustomAttribute(type, typeof(SpedRegistrosAttribute));
-
-            var deveGerarCamposDoRegistro = true;
             var dataObrigatoriedadeInicial = spedRegistroAttr?.ObrigatoriedadeInicial.ToDateTimeNullable();
             var dataObrigatoriedadeFinal = spedRegistroAttr?.ObrigatoriedadeFinal.ToDateTimeNullable();
 
-            /*
-             * Verifica obrigatoriedade de escrita do registro. Ex.: M225/M625 -> Obrigatório a partir de 01/10/2015
-             */
-            if (dataObrigatoriedadeInicial.HasValue &&
-                (dataObrigatoriedadeInicial.Value > competenciaDeclaracao)) deveGerarCamposDoRegistro = false;
+            var deveGerarCamposDoRegistro =
+                VerificaObrigatoriedadeRegistro(new Tuple<DateTime?, DateTime?, DateTime>(dataObrigatoriedadeInicial,
+                    dataObrigatoriedadeFinal, competenciaDeclaracao));
 
-            if (dataObrigatoriedadeFinal.HasValue &&
-                (dataObrigatoriedadeFinal.Value < competenciaDeclaracao.ObterProximoMesPrimeiroDia().AddDays(-1)))
-                deveGerarCamposDoRegistro = false;
-
-            /*
-             * http://stackoverflow.com/questions/22306689/get-properties-of-class-by-order-using-reflection
-             */
-            var listaComPropriedadesOrdenadas =
-                type.GetProperties().OrderBy(p => p.GetCustomAttributes(typeof(SpedCamposAttribute), true)
-                    .Cast<SpedCamposAttribute>()
-                    .Select(a => a.Ordem)
-                    .FirstOrDefault())
-                    .ToList();
+            var listaComPropriedadesOrdenadas = ObtemListaComPropriedadesOrdenadas(type);
 
             var sb = new StringBuilder();
             if (deveGerarCamposDoRegistro)
@@ -209,80 +228,116 @@ namespace SpedBr.Common
                             throw new Exception(
                                 $"O campo {property.Name} no registro {registroAtual} não possui atributo SPED definido!");
 
-                        var isLiteralEnum = spedCampoAttr.Tipo == "LE"; // Literal Enum
-                        var propertyValue = RegistroBaseSped.GetPropValue(source, property.Name, isLiteralEnum);
+                        var propertyValue = RegistroBaseSped.GetPropValue(source, property.Name,
+                            ObtemTipoDoAtributo(spedCampoAttr) == InformationType.LiteralEnum);
                         var propertyValueToStringSafe = propertyValue.ToStringSafe().Trim();
 
-                        /*
-                        * INDICADORES PARA FORMATAÇÃO DOS CAMPOS NOS REGISTROS
-                        */
-
                         var isRequired = spedCampoAttr.IsObrigatorio;
-                        var isDecimal = property.PropertyType == typeof(decimal);
-                        var isNullableDecimal = property.PropertyType == typeof(decimal?);
-                        var isDateTime = property.PropertyType == typeof(DateTime);
-                        var isNullableDateTime = property.PropertyType == typeof(DateTime?);
-                        var hasValue = !string.IsNullOrEmpty(propertyValueToStringSafe) ||
-                                       !string.IsNullOrWhiteSpace(propertyValueToStringSafe);
+                        var campoEscrito =
+                            propertyValueToStringSafe.EscreverCampo(
+                                new Tuple<
+                                    InformationType,
+                                    InformationType,
+                                    bool,
+                                    int,
+                                    int>(
+                                    ObtemTipoDoAtributo(spedCampoAttr),
+                                    ObtemTipoDaPropriedade(property),
+                                    isRequired,
+                                    spedCampoAttr.Tamanho,
+                                    spedCampoAttr.QtdCasas
+                                    ));
 
-                        var propertyLength = hasValue
-                            ? propertyValueToStringSafe.Length
-                            : 0;
-
-
-                        // Verificação necessária p/ ajustes no tamanho de campos como CSTs e Indicadores. Ex.: CST PIS '1' -> Deve estar no arquivo como '01'.
-                        var isCodeOrNumberAndHasLength = (spedCampoAttr.Tipo == "C" || spedCampoAttr.Tipo == "N") &&
-                                                         (spedCampoAttr.Tamanho > 0 && spedCampoAttr.Tamanho <= 4);
-
-                        var isHour = spedCampoAttr.Tipo == "H";
-                        var onlyMonthAndYear = spedCampoAttr.Tipo == "MA";
-
-                        if (isRequired && !hasValue)
+                        if (campoEscrito == Constants.binaryOps)
                             throw new Exception(
                                 $"O campo {spedCampoAttr.Ordem} - {spedCampoAttr.Campo} no Registro {registroAtual} é obrigatório e não foi informado!");
 
-                        const decimal vZero = 0M;
-                        if (isRequired && isDecimal &&
-                            (propertyValueToStringSafe == string.Empty || propertyValueToStringSafe.ToDecimal() == 0))
-                            sb.Append(vZero.ToString("N" + spedCampoAttr.QtdCasas));
-                        else
-                        {
-                            if (isDecimal && hasValue)
-                            {
-                                var vDecimal =
-                                    Convert.ToDecimal(propertyValue).ToString("N" + spedCampoAttr.QtdCasas);
-                                sb.Append(vDecimal.ToStringSafe().Replace(".", ""));
-                            }
-                            else if (isNullableDecimal && hasValue)
-                            {
-                                var vDecimal =
-                                    Convert.ToDecimal(propertyValue).ToString("N" + spedCampoAttr.QtdCasas);
-                                sb.Append(vDecimal.ToStringSafe().Replace(".", ""));
-                            }
-                            else if (isDateTime && hasValue)
-                                sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("ddMMyyyy"));
-                            else if (isNullableDateTime && hasValue)
-                                sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("ddMMyyyy"));
-                            else if ((isDateTime && hasValue) && isHour)
-                                sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("hhmmss"));
-                            else if ((isDateTime && hasValue) && onlyMonthAndYear)
-                                sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("MMyyyy"));
-                            else if ((isCodeOrNumberAndHasLength && hasValue) || (isLiteralEnum && hasValue))
-                                sb.Append(propertyValue.ToString().PadLeft(spedCampoAttr.Tamanho, '0'));
-                            else
-                            {
-                                if (propertyLength > 0 && (propertyLength > spedCampoAttr.Tamanho))
-                                    sb.Append(propertyValueToStringSafe.Substring(0, spedCampoAttr.Tamanho));
-                                else
-                                    sb.Append(propertyValueToStringSafe);
-                            }
-                        }
+                        sb.Append(campoEscrito);
                     }
                 }
                 sb.Append("|");
                 sb.Append(Environment.NewLine);
             }
 
+            return tryTrim ? sb.ToString().Trim() : sb.ToString();
+        }
+
+        /// <summary>
+        /// Escrever campos p/ qualquer arquivo do projeto SPED (Contábil, Fiscal, Pis/Cofins)
+        /// </summary>
+        /// <param name="source">Objeto com os dados a serem tratados e gerados na linha do arquivo.</param>
+        /// <param name="competenciaDeclaracao">Mês a que se referem as informações no arquivo(exceto informações extemporâneas).</param>
+        /// <param name="errosEncontrados">Lista com erros encontrados no processo de escrita.</param>
+        /// <param name="tryTrim">Remove a quebra de linha no final de cada registro.</param>
+        /// <returns>Linha de arquivo SPED escrita e formatada.</returns>
+        public static string EscreverCampos(this object source, DateTime competenciaDeclaracao,
+            out string errosEncontrados, bool tryTrim = false)
+        {
+            errosEncontrados = string.Empty;
+
+            var type = ObtemTipo(source);
+
+            var registroAtual = ObtemRegistroAtual(type);
+
+            var spedRegistroAttr = ObtemAtributoAtual(type);
+
+            var dataObrigatoriedadeInicial = spedRegistroAttr?.ObrigatoriedadeInicial.ToDateTimeNullable();
+            var dataObrigatoriedadeFinal = spedRegistroAttr?.ObrigatoriedadeFinal.ToDateTimeNullable();
+
+            var deveGerarCamposDoRegistro =
+                VerificaObrigatoriedadeRegistro(new Tuple<DateTime?, DateTime?, DateTime>(dataObrigatoriedadeInicial,
+                    dataObrigatoriedadeFinal, competenciaDeclaracao));
+
+            var listaComPropriedadesOrdenadas = ObtemListaComPropriedadesOrdenadas(type);
+
+            var sb = new StringBuilder();
+            if (deveGerarCamposDoRegistro)
+            {
+                foreach (var property in listaComPropriedadesOrdenadas)
+                {
+                    sb.Append("|");
+                    foreach (
+                        var spedCampoAttr in
+                            from Attribute attr in property.GetCustomAttributes(true) select attr as SpedCamposAttribute
+                        )
+                    {
+                        if (spedCampoAttr == null)
+                            errosEncontrados +=
+                                $"O campo {property.Name} no registro {registroAtual} não possui atributo SPED definido!\n";
+
+                        var propertyValue = RegistroBaseSped.GetPropValue(source, property.Name,
+                            ObtemTipoDoAtributo(spedCampoAttr) == InformationType.LiteralEnum);
+                        var propertyValueToStringSafe = propertyValue.ToStringSafe().Trim();
+
+                        var isRequired = spedCampoAttr.IsObrigatorio;
+                        var resultadoCampoEscrito =
+                            propertyValueToStringSafe.EscreverCampo(
+                                new Tuple<
+                                    InformationType,
+                                    InformationType,
+                                    bool,
+                                    int,
+                                    int>(
+                                    ObtemTipoDoAtributo(spedCampoAttr),
+                                    ObtemTipoDaPropriedade(property),
+                                    isRequired,
+                                    spedCampoAttr.Tamanho,
+                                    spedCampoAttr.QtdCasas
+                                    ));
+
+                        if (resultadoCampoEscrito == Constants.binaryOps)
+                            errosEncontrados +=
+                                $"O campo {spedCampoAttr.Ordem} - {spedCampoAttr.Campo} no Registro {registroAtual} é obrigatório e não foi informado!\n";
+                        else
+                            sb.Append(resultadoCampoEscrito);
+                    }
+                }
+                sb.Append("|");
+                sb.Append(Environment.NewLine);
+            }
+            if (errosEncontrados.Length > 0)
+                errosEncontrados =
+                    $"Registro {source.GetType().FullName} -  Contém os seguintes erros: \n{errosEncontrados}";
             return tryTrim ? sb.ToString().Trim() : sb.ToString();
         }
     }

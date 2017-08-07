@@ -163,6 +163,16 @@ namespace SpedBr.AppTeste.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Play_26px {
+            get {
+                object obj = ResourceManager.GetObject("Play_26px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Restore_Window_26px_w8_white {
             get {
                 object obj = ResourceManager.GetObject("Restore Window_26px_w8_white", resourceCulture);
