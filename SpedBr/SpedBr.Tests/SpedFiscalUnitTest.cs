@@ -13,9 +13,25 @@ namespace SpedBr.Tests
             // SPED Fiscal
             var reg0000 = new SpedFiscal.Bloco0.Registro0000();
 
+            reg0000.CodVer = 1;
+            reg0000.CodFin = IndCodFinalidadeArquivo.RemessaArquivoOriginal;
+            reg0000.DtIni = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            reg0000.DtFin = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).ObterUltimoDiaMesAtual();
+            reg0000.Nome = "EMPRESA ABC LTDA - ME";
             reg0000.Cnpj = "01.234.567/0008-99";
-            
-            var result = reg0000.EscreverCampos(new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1));
+            reg0000.Uf = "GO";
+            // I.E.
+            reg0000.CodMun = "5204508"; // Caldas Novas
+            reg0000.Im = "";
+            // Suframa
+            reg0000.IndPerfil = IndPerfilArquivo.A;
+            reg0000.IndAtiv = IndTipoAtividade.Outros;
+
+            string value = "";
+
+            var result = reg0000.EscreverCampos(new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1), out value);
+
+            var atoa = 1;
         }
 
         [TestMethod]

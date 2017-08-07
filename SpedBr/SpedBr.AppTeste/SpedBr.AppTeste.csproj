@@ -82,10 +82,22 @@
     <Compile Include="frmMain2.Designer.cs">
       <DependentUpon>frmMain2.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TransparentPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TransparentTabControl.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="ucHome.cs">
       <SubType>UserControl</SubType>
@@ -123,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain2.resx">
       <DependentUpon>frmMain2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -168,6 +183,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="My Computer.ico" />
+    <None Include="Resources\icons8-System Information-26.png" />
+    <None Include="Resources\icons8-Donate-26.png" />
+    <None Include="Resources\icons8-GitHub-26.png" />
+    <None Include="Resources\Restore Window_26px_w8_white.png" />
+    <None Include="Resources\Minimize Window_26px_w8_white.png" />
+    <None Include="Resources\Maximize Window_26px_w8_white.png" />
+    <None Include="Resources\Close Window_26px_w8_white.png" />
+    <None Include="Resources\mountains-wall.png" />
     <None Include="Resources\SPEDBr_w_l.png" />
     <None Include="Resources\Delete_2.png" />
     <None Include="Resources\help-white-48.png" />
