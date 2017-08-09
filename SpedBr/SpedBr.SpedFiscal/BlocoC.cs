@@ -487,7 +487,7 @@ namespace SpedBr.SpedFiscal
             ///     Código do modelo do documento fiscal
             /// </summary>
             [SpedCampos(2, "COD_MOD", "C", 2, 0, true)]
-            public int CodMod { get; set; }
+            public string CodMod { get; set; }
 
             /// <summary>
             ///     Número de série de fabricação do ECF
