@@ -312,7 +312,7 @@ namespace SpedBr.EfdContribuicoes
                 Reg = "A990";
             }
 
-            [SpedCampos(2, "QTD_LIN_A", "N", 0, 0, true)]
+            [SpedCampos(2, "QTD_LIN_A", "N", int.MaxValue, 0, true)]
             public int QtdLinA { get; set; }
         }
     }
