@@ -25,6 +25,7 @@ namespace SpedBr.Common
 
             return textoformatar;
         }
+
         public static bool SomenteNumeros(this string texto)
         {
             try
@@ -71,11 +72,13 @@ namespace SpedBr.Common
             {
                 if (!string.IsNullOrEmpty(s) && s.Trim().Length > 0)
                 {
-                    TypeConverter conv = TypeDescriptor.GetConverter(typeof(T));
-                    result = (T)conv.ConvertFrom(s);
+                    TypeConverter conv = TypeDescriptor.GetConverter(typeof (T));
+                    result = (T) conv.ConvertFrom(s);
                 }
             }
-            catch { }
+            catch
+            {
+            }
             return result;
         }
 
@@ -86,12 +89,14 @@ namespace SpedBr.Common
             {
                 if (!string.IsNullOrEmpty(s) && s.Trim().Length > 0)
                 {
-                    TypeConverter conv = TypeDescriptor.GetConverter(typeof(long));
-                    result = (long)conv.ConvertFrom(s);
+                    TypeConverter conv = TypeDescriptor.GetConverter(typeof (long));
+                    result = (long) conv.ConvertFrom(s);
                 }
                 else result = 0;
             }
-            catch { }
+            catch
+            {
+            }
             return result;
         }
 
@@ -136,12 +141,14 @@ namespace SpedBr.Common
             {
                 if (!string.IsNullOrEmpty(s) && s.Trim().Length > 0)
                 {
-                    TypeConverter conv = TypeDescriptor.GetConverter(typeof(decimal));
-                    result = (decimal)conv.ConvertFrom(s);
+                    TypeConverter conv = TypeDescriptor.GetConverter(typeof (decimal));
+                    result = (decimal) conv.ConvertFrom(s);
                 }
                 else result = 0;
             }
-            catch { }
+            catch
+            {
+            }
             return result;
         }
 
@@ -152,12 +159,14 @@ namespace SpedBr.Common
             {
                 if (!string.IsNullOrEmpty(s) && s.Trim().Length > 0)
                 {
-                    TypeConverter conv = TypeDescriptor.GetConverter(typeof(double));
-                    result = (double)conv.ConvertFrom(s);
+                    TypeConverter conv = TypeDescriptor.GetConverter(typeof (double));
+                    result = (double) conv.ConvertFrom(s);
                 }
                 else result = 0;
             }
-            catch { }
+            catch
+            {
+            }
             return result;
         }
 
@@ -172,12 +181,14 @@ namespace SpedBr.Common
             {
                 if (!string.IsNullOrEmpty(s) && s.Trim().Length > 0)
                 {
-                    TypeConverter conv = TypeDescriptor.GetConverter(typeof(DateTime));
-                    result = (DateTime)conv.ConvertFrom(s);
+                    TypeConverter conv = TypeDescriptor.GetConverter(typeof (DateTime));
+                    result = (DateTime) conv.ConvertFrom(s);
                 }
                 else result = new DateTime();
             }
-            catch { }
+            catch
+            {
+            }
             return result;
         }
 
@@ -192,12 +203,14 @@ namespace SpedBr.Common
             {
                 if (!string.IsNullOrEmpty(s) && s.Trim().Length > 0)
                 {
-                    TypeConverter conv = TypeDescriptor.GetConverter(typeof(DateTime));
-                    result = (DateTime)conv.ConvertFrom(s);
+                    TypeConverter conv = TypeDescriptor.GetConverter(typeof (DateTime));
+                    result = (DateTime) conv.ConvertFrom(s);
                 }
                 else result = new DateTime();
             }
-            catch { }
+            catch
+            {
+            }
             return result;
         }
 
@@ -355,6 +368,24 @@ namespace SpedBr.Common
                 new DateTime(date.Year, date.Month, DateTime.DaysInMonth(date.Year, date.Month)).AddHours(23)
                     .AddMinutes(59)
                     .AddSeconds(59);
+        }
+
+        // This extension method is broken out so you can use a similar pattern with 
+        // other MetaData elements in the future. This is your base method for each.
+        private static T GetAttribute<T>(this Enum value) where T : Attribute
+        {
+            var type = value.GetType();
+            var memberInfo = type.GetMember(value.ToString());
+            var attributes = memberInfo[0].GetCustomAttributes(typeof (T), false);
+            return (T) attributes[0];
+        }
+
+        // This method creates a specific call to the above method, requesting the
+        // Description MetaData attribute.
+        public static string ToDefaultValue(this Enum value)
+        {
+            var attribute = value.GetAttribute<DefaultValueAttribute>();
+            return attribute == null ? value.ToStringSafe() : attribute.Value.ToStringSafe();
         }
     }
 }

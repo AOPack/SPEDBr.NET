@@ -229,8 +229,7 @@ namespace SpedBr.Common
                             throw new Exception(
                                 $"O campo {property.Name} no registro {registroAtual} não possui atributo SPED definido!");
 
-                        var propertyValue = RegistroBaseSped.GetPropValue(source, property.Name,
-                            ObtemTipoDoAtributo(spedCampoAttr) == InformationType.LiteralEnum);
+                        var propertyValue = RegistroBaseSped.GetPropValue(source, property.Name);
                         var propertyValueToStringSafe = propertyValue.ToStringSafe().Trim();
 
                         var isRequired = spedCampoAttr.IsObrigatorio;
@@ -306,8 +305,7 @@ namespace SpedBr.Common
                             errosEncontrados +=
                                 $"O campo {property.Name} no registro {registroAtual} não possui atributo SPED definido!\n";
 
-                        var propertyValue = RegistroBaseSped.GetPropValue(source, property.Name,
-                            ObtemTipoDoAtributo(spedCampoAttr) == InformationType.LiteralEnum);
+                        var propertyValue = RegistroBaseSped.GetPropValue(source, property.Name);
                         var propertyValueToStringSafe = propertyValue.ToStringSafe().Trim();
 
                         var isRequired = spedCampoAttr.IsObrigatorio;

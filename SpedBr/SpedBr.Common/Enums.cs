@@ -1,16 +1,18 @@
-﻿namespace SpedBr.Common
+﻿using System.ComponentModel;
+
+namespace SpedBr.Common
 {
     public enum SimOuNao
     {
         /// <summary>
         ///     Não
         /// </summary>
-        N,
+        [DefaultValue("N")] N,
 
         /// <summary>
         ///     Sim
         /// </summary>
-        S
+        [DefaultValue("S")] S
     }
 
     public enum IndMovimento
@@ -18,12 +20,12 @@
         /// <summary>
         ///     Bloco com dados informados
         /// </summary>
-        BlocoComDados = 0,
+        [DefaultValue("0")] BlocoComDados,
 
         /// <summary>
         ///     Bloco sem dados informados
         /// </summary>
-        BlocoSemDados = 1
+        [DefaultValue("1")] BlocoSemDados
     }
 
     /// <summary>
@@ -34,12 +36,12 @@
         /// <summary>
         ///     Remessa do arquivo original
         /// </summary>
-        RemessaArquivoOriginal = 0,
+        [DefaultValue("0")] RemessaArquivoOriginal,
 
         /// <summary>
         ///     Remessa do arquivo substituto
         /// </summary>
-        RemessaArquivoSubstituto = 1
+        [DefaultValue("1")] RemessaArquivoSubstituto
     }
 
     /// <summary>
@@ -50,17 +52,17 @@
         /// <summary>
         ///     Perfil A
         /// </summary>
-        A,
+        [DefaultValue("A")] A,
 
         /// <summary>
         ///     Perfil B
         /// </summary>
-        B,
+        [DefaultValue("B")] B,
 
         /// <summary>
         ///     Perfil C
         /// </summary>
-        C
+        [DefaultValue("C")] C
     }
 
     /// <summary>
@@ -71,12 +73,165 @@
         /// <summary>
         ///     Industrial ou equiparado a industrial
         /// </summary>
-        IndustrialOuEquiparado = 0,
+        [DefaultValue("0")] IndustrialOuEquiparado,
 
         /// <summary>
         ///     Outros
         /// </summary>
-        Outros = 1
+        [DefaultValue("1")] Outros
+    }
+
+    public enum IndCodMod
+    {
+        /// <summary>
+        /// Nota Fiscal
+        /// </summary>
+        [DefaultValue("01")] Mod1Ou1A,
+
+        /// <summary>
+        /// Nota Fiscal Avulsa
+        /// </summary>
+        [DefaultValue("1B")] Mod1B,
+
+        /// <summary>
+        /// Nota Fiscal de Venda a Consumidor
+        /// </summary>
+        [DefaultValue("02")] Mod02,
+
+        /// <summary>
+        /// Cupom Fiscal
+        /// </summary>
+        [DefaultValue("2D")] Mod2D,
+
+        /// <summary>
+        /// Cupom Fiscal Bilhete de Passagem
+        /// </summary>
+        [DefaultValue("2E")] Mod2E,
+
+        /// <summary>
+        /// Nota Fiscal de Produtor
+        /// </summary>
+        [DefaultValue("04")] Mod04,
+
+        /// <summary>
+        /// Nota Fiscal/Conta de Energia Elétrica
+        /// </summary>
+        [DefaultValue("06")] Mod06,
+
+        /// <summary>
+        /// Nota Fiscal de Serviço de Transporte
+        /// </summary>
+        [DefaultValue("07")] Mod07,
+
+        /// <summary>
+        /// Conhecimento de Transporte Rodoviário de Cargas
+        /// </summary>
+        [DefaultValue("08")] Mod08,
+
+        /// <summary>
+        /// Conhecimento de Transporte de Cargas Avulso
+        /// </summary>
+        [DefaultValue("8B")] Mod8B,
+
+        /// <summary>
+        /// Conhecimento de Transporte Aquaviário de Cargas
+        /// </summary>
+        [DefaultValue("09")] Mod09,
+
+        /// <summary>
+        /// Conhecimento Aéreo
+        /// </summary>
+        [DefaultValue("10")] Mod10,
+
+        /// <summary>
+        /// Conhecimento de Transporte Ferroviário de Cargas
+        /// </summary>
+        [DefaultValue("11")] Mod11,
+
+        /// <summary>
+        /// Bilhete de Passagem Rodoviário
+        /// </summary>
+        [DefaultValue("13")] Mod13,
+
+        /// <summary>
+        /// Bilhete de Passagem Aquaviário
+        /// </summary>
+        [DefaultValue("14")] Mod14,
+
+        /// <summary>
+        /// Bilhete de Passagem e Nota de Bagagem
+        /// </summary>
+        [DefaultValue("15")] Mod15,
+
+        /// <summary>
+        /// Bilhete de Passagem Ferroviário
+        /// </summary>
+        [DefaultValue("16")] Mod16,
+
+        /// <summary>
+        /// Resumo de Movimento Diário
+        /// </summary>
+        [DefaultValue("18")] Mod18,
+
+        /// <summary>
+        /// Nota Fiscal de Serviço de Comunicação
+        /// </summary>
+        [DefaultValue("21")] Mod21,
+
+        /// <summary>
+        /// Nota Fiscal de Serviço de Telecomunicação
+        /// </summary>
+        [DefaultValue("22")] Mod22,
+
+        /// <summary>
+        /// Conhecimento de Transporte Multimodal de Cargas
+        /// </summary>
+        [DefaultValue("26")] Mod26,
+
+        /// <summary>
+        /// Nota Fiscal de Transporte Ferroviário de Cargas
+        /// </summary>
+        [DefaultValue("27")] Mod27,
+
+        /// <summary>
+        /// Nota Fiscal/Conta de Fornecimento de Gás Canalizado
+        /// </summary>
+        [DefaultValue("28")] Mod28,
+
+        /// <summary>
+        /// Nota Fiscal/Conta de Fornecimento de Água Canalizada
+        /// </summary>
+        [DefaultValue("29")] Mod29,
+
+        /// <summary>
+        /// Nota Fiscal Eletrônica - NF-e
+        /// </summary>
+        [DefaultValue("55")] Mod55,
+
+        /// <summary>
+        /// Conhecimento de Transporte Eletrônico - CT-e
+        /// </summary>
+        [DefaultValue("57")] Mod57,
+
+        /// <summary>
+        /// Cupom Fiscal Eletrônico - CF-e (SAT)
+        /// </summary>
+        [DefaultValue("59")] Mod59,
+
+        /// <summary>
+        /// Cupom Fiscal Eletrônico - CF-e (ECF)
+        /// </summary>
+        [DefaultValue("60")] Mod60,
+
+        /// <summary>
+        /// Nota Fiscal Eletrônica p/ Consumidor Final - NFC-e
+        /// </summary>
+        [DefaultValue("65")] Mod65,
+
+        /// <summary>
+        /// Conhecimento de Transporte Eletrônico - CT-e (OS)
+        /// </summary>
+        [DefaultValue("67")] Mod67
     }
 
     /// <summary>
@@ -87,7 +242,7 @@
         /// <summary>
         ///     Mercadoria para revenda: produto adquirido para comercialização
         /// </summary>
-        MercadoriaRevenda = 00,
+        [DefaultValue("00")] MercadoriaRevenda,
 
         /// <summary>
         ///     Matéria-prima: a mercadoria que componha, física e/ou quimicamente, um produto em processo  ou  produto acabado e
@@ -95,12 +250,12 @@
         ///     01, pois  não decorre do processo produtivo, mesmo que no processo de  produção se produza mercadoria similar
         ///     classificada como Tipo 03;
         /// </summary>
-        MateriaPrima = 01,
+        [DefaultValue("01")] MateriaPrima,
 
         /// <summary>
         ///     Embalagem
         /// </summary>
-        Embalagem = 02,
+        [DefaultValue("02")] Embalagem,
 
         /// <summary>
         ///     Produto em processo: o  produto  que  possua  as  seguintes  características,  cumulativamente:  oriundo  do
@@ -112,52 +267,52 @@
         ///     pois o normal  é  o  produto  em  processo  ser  consumido  em  uma  fase  de  produção  posterior  à  qual  ele
         ///     foi  gerado, e acontece, portanto, em poucos processos produtivos.
         /// </summary>
-        ProdutoProcesso = 03,
+        [DefaultValue("03")] ProdutoProcesso,
 
         /// <summary>
         ///     Produto acabado: o  produto  que  possua  as  seguintes  características,  cumulativamente:  oriundo  do  processo
         ///     produtivo; produto  final  resultante  do  objeto  da    atividade  econômica  do    contribuinte; e  pronto  para
         ///     ser comercializado;
         /// </summary>
-        ProdutoAcabado = 04,
+        [DefaultValue("04")] ProdutoAcabado,
 
         /// <summary>
         ///     Subproduto: o  produto  que  possua  as  seguintes    características,  cumulativamente:  oriundo  do  processo
         ///     produtivo  e  não  é  objeto  da  produção  principal  do  estabelecimento; tem    aproveitamento  econômico; não
         ///     se enquadre no conceito de produto  em  processo (Tipo 03) ou de produto acabado (Tipo 04);
         /// </summary>
-        Subproduto = 05,
+        [DefaultValue("05")] Subproduto,
 
         /// <summary>
         ///     Produto intermediário: aquele que, embora não se integrando ao novo produto, for consumido no processo de
         ///     industrialização.
         /// </summary>
-        ProdutoIntermediario = 06,
+        [DefaultValue("06")] ProdutoIntermediario,
 
         /// <summary>
         ///     Material de uso e consumo
         /// </summary>
-        MaterialUsoConsumo = 07,
+        [DefaultValue("07")] MaterialUsoConsumo,
 
         /// <summary>
         ///     Ativo imobilizado
         /// </summary>
-        AtivoImobilizado = 08,
+        [DefaultValue("08")] AtivoImobilizado,
 
         /// <summary>
         ///     Serviços
         /// </summary>
-        Servicos = 09,
+        [DefaultValue("09")] Servicos,
 
         /// <summary>
         ///     Outros insumos
         /// </summary>
-        OutrosInsumos = 10,
+        [DefaultValue("10")] OutrosInsumos,
 
         /// <summary>
         ///     Outras
         /// </summary>
-        Outras = 99
+        [DefaultValue("99")] Outras
     }
 
     /// <summary>
@@ -169,14 +324,14 @@
         ///     Bem: uma mercadoria será considerada "bem" quando possua todas as condições necessárias para ser utilizado nas
         ///     atividades do estabelecimento.
         /// </summary>
-        Bem = 1,
+        [DefaultValue("1")] Bem,
 
         /// <summary>
         ///     Componente: uma mercadoria será considerada "componente" quando fizer parte de um bem móvel que estiver sendo
         ///     construído no estabelecimento do contribuinte, onde somente o bem móvel resultante é que possuirá as condições
         ///     necessárias para ser utilizado nas atividades do estabelecimento.
         /// </summary>
-        Componente = 2
+        [DefaultValue("2")] Componente
     }
 
     /// <summary>
@@ -187,32 +342,32 @@
         /// <summary>
         ///     Contas de ativo
         /// </summary>
-        ContasAtivo = 01,
+        [DefaultValue("01")] ContasAtivo,
 
         /// <summary>
         ///     Contas de passivo
         /// </summary>
-        ContasPassivo = 02,
+        [DefaultValue("02")] ContasPassivo,
 
         /// <summary>
         ///     Patrimônio líquido
         /// </summary>
-        PatrimonioLiquido = 03,
+        [DefaultValue("03")] PatrimonioLiquido,
 
         /// <summary>
         ///     Contas de resultado
         /// </summary>
-        ContasResultado = 04,
+        [DefaultValue("04")] ContasResultado,
 
         /// <summary>
         ///     Contas de compensação
         /// </summary>
-        ContasCompensacao = 05,
+        [DefaultValue("05")] ContasCompensacao,
 
         /// <summary>
         ///     Outras
         /// </summary>
-        Outras = 09
+        [DefaultValue("09")] Outras
     }
 
     /// <summary>
@@ -223,12 +378,12 @@
         /// <summary>
         ///     Sintética (grupo de contas)
         /// </summary>
-        S,
+        [DefaultValue("S")] S,
 
         /// <summary>
         ///     Analítica (conta)
         /// </summary>
-        A
+        [DefaultValue("A")] A
     }
 
     /// <summary>
@@ -239,12 +394,12 @@
         /// <summary>
         ///     Entrada
         /// </summary>
-        Entrada = 0,
+        [DefaultValue("0")] Entrada,
 
         /// <summary>
         ///     Saída
         /// </summary>
-        Saida = 1
+        [DefaultValue("1")] Saida
     }
 
     /// <summary>
@@ -255,12 +410,12 @@
         /// <summary>
         ///     Aquisição
         /// </summary>
-        Aquisicao = 0,
+        [DefaultValue("0")] Aquisicao,
 
         /// <summary>
         ///     Prestação
         /// </summary>
-        Prestacao = 1
+        [DefaultValue("1")] Prestacao
     }
 
     /// <summary>
@@ -271,12 +426,12 @@
         /// <summary>
         ///     Emissão própria
         /// </summary>
-        EmissaoPropria = 0,
+        [DefaultValue("0")] EmissaoPropria,
 
         /// <summary>
         ///     Terceiros
         /// </summary>
-        Terceiros = 1
+        [DefaultValue("1")] Terceiros
     }
 
     /// <summary>
@@ -284,15 +439,15 @@
     /// </summary>
     public enum IndCodSitDoc
     {
-        DocumentoRegular = 00,
-        DocumentoRegularExtemporaneo = 01,
-        DocumentoCancelado = 02,
-        DocumentoCanceladoExtemporaneo = 03,
-        DFeDenegado = 04,
-        DFeInutilizado = 05,
-        DocumentoFiscalComplementar = 06,
-        DocumentoFiscalComplementarExtemporaneo = 07,
-        DocumentoFiscalRegimeEspecial = 08
+        [DefaultValue("00")] DocumentoRegular,
+        [DefaultValue("01")] DocumentoRegularExtemporaneo,
+        [DefaultValue("02")] DocumentoCancelado,
+        [DefaultValue("03")] DocumentoCanceladoExtemporaneo,
+        [DefaultValue("04")] DFeDenegado,
+        [DefaultValue("05")] DFeInutilizado,
+        [DefaultValue("06")] DocumentoFiscalComplementar,
+        [DefaultValue("07")] DocumentoFiscalComplementarExtemporaneo,
+        [DefaultValue("08")] DocumentoFiscalRegimeEspecial
     }
 
     /// <summary>
@@ -303,22 +458,22 @@
         /// <summary>
         ///     À vista
         /// </summary>
-        AVista = 0,
+        [DefaultValue("0")] AVista,
 
         /// <summary>
         ///     A prazo
         /// </summary>
-        APrazo = 1,
+        [DefaultValue("1")] APrazo,
 
         /// <summary>
         ///     Outros
         /// </summary>
-        Outros = 2,
+        [DefaultValue("2")] Outros,
 
         /// <summary>
         ///     Sem pagamento
         /// </summary>
-        SemPagamento = 9
+        [DefaultValue("9")] SemPagamento
     }
 
     /// <summary>
@@ -326,10 +481,10 @@
     /// </summary>
     public enum IndTipoFrete
     {
-        ContaEmitente = 0,
-        ContaDestinatarioRemetente = 1,
-        ContaTerceiros = 2,
-        SemCobrancaFrete = 9
+        [DefaultValue("0")] ContaEmitente,
+        [DefaultValue("1")] ContaDestinatarioRemetente,
+        [DefaultValue("2")] ContaTerceiros,
+        [DefaultValue("9")] SemCobrancaFrete
     }
 
     /// <summary>
@@ -340,12 +495,12 @@
         /// <summary>
         ///     0 - Combustíveis e lubrificantes;
         /// </summary>
-        CombustiveisLubrificantes = 0,
+        [DefaultValue("0")] CombustiveisLubrificantes,
 
         /// <summary>
         ///     1 - Leasing de veículos ou faturamento direto.
         /// </summary>
-        LeasingVeiculosFaturamentoDireto = 1
+        [DefaultValue("1")] LeasingVeiculosFaturamentoDireto
     }
 
     /// <summary>
@@ -356,27 +511,27 @@
         /// <summary>
         ///     0 - SEFAZ
         /// </summary>
-        Sefaz = 0,
+        [DefaultValue("0")] Sefaz,
 
         /// <summary>
         ///     1 - Justiça Federal
         /// </summary>
-        JusticaFederal = 1,
+        [DefaultValue("1")] JusticaFederal,
 
         /// <summary>
         ///     2 - Justiça Estadual
         /// </summary>
-        JusticaEstadual = 2,
+        [DefaultValue("2")] JusticaEstadual,
 
         /// <summary>
         ///     3 - SECEX/SRF
         /// </summary>
-        Secexsrf = 3,
+        [DefaultValue("3")] Secexsrf,
 
         /// <summary>
         ///     9 - Outros
         /// </summary>
-        Outros = 9
+        [DefaultValue("9")] Outros
     }
 
     /// <summary>
@@ -387,12 +542,12 @@
         /// <summary>
         ///     Documento estadual de arrecadação
         /// </summary>
-        DocumentoEstadual = 0,
+        [DefaultValue("0")] DocumentoEstadual,
 
         /// <summary>
         ///     GNRE
         /// </summary>
-        Gnre = 1
+        [DefaultValue("1")] Gnre
     }
 
     /// <summary>
@@ -403,37 +558,37 @@
         /// <summary>
         ///     Rodoviário
         /// </summary>
-        Rodoviario = 0,
+        [DefaultValue("0")] Rodoviario,
 
         /// <summary>
         ///     Ferroviário
         /// </summary>
-        Ferroviario = 1,
+        [DefaultValue("1")] Ferroviario,
 
         /// <summary>
         ///     Rodo-Ferroviário
         /// </summary>
-        RodoFerroviario = 2,
+        [DefaultValue("2")] RodoFerroviario,
 
         /// <summary>
         ///     Aquaviário
         /// </summary>
-        Aquaviario = 3,
+        [DefaultValue("3")] Aquaviario,
 
         /// <summary>
         ///     Dutoviário
         /// </summary>
-        Dutoviario = 4,
+        [DefaultValue("4")] Dutoviario,
 
         /// <summary>
         ///     Aéreo
         /// </summary>
-        Aereo = 5,
+        [DefaultValue("5")] Aereo,
 
         /// <summary>
         ///     Outros
         /// </summary>
-        Outros = 9
+        [DefaultValue("9")] Outros
     }
 
     /// <summary>
@@ -444,12 +599,12 @@
         /// <summary>
         ///     Declaração de Importação
         /// </summary>
-        DeclaracaoImportacao = 0,
+        [DefaultValue("0")] DeclaracaoImportacao,
 
         /// <summary>
         ///     Declaração Simplificada de Importação
         /// </summary>
-        DeclaracaoSimplificadaImportacao = 1
+        [DefaultValue("1")] DeclaracaoSimplificadaImportacao
     }
 
     /// <summary>
@@ -460,27 +615,27 @@
         /// <summary>
         ///     Duplicata
         /// </summary>
-        Duplicata = 00,
+        [DefaultValue("00")] Duplicata,
 
         /// <summary>
         ///     Cheque
         /// </summary>
-        Cheque = 01,
+        [DefaultValue("01")] Cheque,
 
         /// <summary>
         ///     Promissória
         /// </summary>
-        Promissoria = 02,
+        [DefaultValue("02")] Promissoria,
 
         /// <summary>
         ///     Recibo
         /// </summary>
-        Recibo = 03,
+        [DefaultValue("03")] Recibo,
 
         /// <summary>
         ///     Outros
         /// </summary>
-        Outros = 99
+        [DefaultValue("99")] Outros
     }
 
     /// <summary>
@@ -491,12 +646,12 @@
         /// <summary>
         ///     Mensal
         /// </summary>
-        Mensal = 0,
+        [DefaultValue("0")] Mensal,
 
         /// <summary>
         ///     Decendial
         /// </summary>
-        Decendial = 1
+        [DefaultValue("1")] Decendial
     }
 
     /// <summary>
@@ -507,12 +662,12 @@
         /// <summary>
         ///     Sim
         /// </summary>
-        Sim = 0,
+        [DefaultValue("0")] Sim,
 
         /// <summary>
         ///     Não
         /// </summary>
-        Nao = 1
+        [DefaultValue("1")] Nao
     }
 
     /// <summary>
@@ -523,27 +678,27 @@
         /// <summary>
         ///     Base de cálculo referente ao preço tabelado ou preço máximo sugerido
         /// </summary>
-        BcPrecoTabeladoOuPrecoMaximo = 0,
+        [DefaultValue("0")] BcPrecoTabeladoOuPrecoMaximo,
 
         /// <summary>
         ///     Base de cálculo - Margem de valor agregado
         /// </summary>
-        BcMargemValorAgregado = 1,
+        [DefaultValue("1")] BcMargemValorAgregado,
 
         /// <summary>
         ///     Base de cálculo referente à Lista Negativa
         /// </summary>
-        BcListaNegativa = 2,
+        [DefaultValue("2")] BcListaNegativa,
 
         /// <summary>
         ///     Base de cálculo referente à Lista Positiva
         /// </summary>
-        BcListaPositiva = 3,
+        [DefaultValue("3")] BcListaPositiva,
 
         /// <summary>
         ///     Base de cálculo referente à Lista Neutra
         /// </summary>
-        BcListaNeutra = 4
+        [DefaultValue("4")] BcListaNeutra
     }
 
     /// <summary>
@@ -554,17 +709,17 @@
         /// <summary>
         ///     Similar
         /// </summary>
-        Similar = 0,
+        [DefaultValue("0")] Similar,
 
         /// <summary>
         ///     Genérico
         /// </summary>
-        Generico = 1,
+        [DefaultValue("1")] Generico,
 
         /// <summary>
         ///     Ético ou de marca
         /// </summary>
-        EticoOuMarca = 2
+        [DefaultValue("2")] EticoOuMarca
     }
 
     /// <summary>
@@ -575,12 +730,12 @@
         /// <summary>
         ///     Uso permitido
         /// </summary>
-        UsoPermitido,
+        [DefaultValue("0")] UsoPermitido,
 
         /// <summary>
         ///     Uso restrito
         /// </summary>
-        UsoRestrito
+        [DefaultValue("1")] UsoRestrito
     }
 
     /// <summary>
@@ -591,27 +746,27 @@
         /// <summary>
         ///     Venda para concessionária
         /// </summary>
-        VendaParaConcessionaria = 0,
+        [DefaultValue("0")] VendaParaConcessionaria,
 
         /// <summary>
         ///     Faturamento direto
         /// </summary>
-        FaturamentoDireto = 1,
+        [DefaultValue("1")] FaturamentoDireto,
 
         /// <summary>
         ///     Venda direta
         /// </summary>
-        VendaDireta = 2,
+        [DefaultValue("2")] VendaDireta,
 
         /// <summary>
         ///     Venda da concessionária
         /// </summary>
-        VendaDaConcessionaria = 3,
+        [DefaultValue("3")] VendaDaConcessionaria,
 
         /// <summary>
         ///     Outros
         /// </summary>
-        Outros = 9
+        [DefaultValue("9")] Outros
     }
 
     /// <summary>
@@ -622,42 +777,42 @@
         /// <summary>
         ///     Comercial
         /// </summary>
-        Comercial = 01,
+        [DefaultValue("01")] Comercial,
 
         /// <summary>
         ///     Consumo Próprio
         /// </summary>
-        ConsumoProprio = 02,
+        [DefaultValue("02")] ConsumoProprio,
 
         /// <summary>
         ///     Iluminação Pública
         /// </summary>
-        IluminacaoPublica = 03,
+        [DefaultValue("03")] IluminacaoPublica,
 
         /// <summary>
         ///     Industrial
         /// </summary>
-        Industrial = 04,
+        [DefaultValue("04")] Industrial,
 
         /// <summary>
         ///     Poder Público
         /// </summary>
-        PoderPublico = 05,
+        [DefaultValue("05")] PoderPublico,
 
         /// <summary>
         ///     Residencial
         /// </summary>
-        Residencial = 06,
+        [DefaultValue("06")] Residencial,
 
         /// <summary>
         ///     Rural
         /// </summary>
-        Rural = 07,
+        [DefaultValue("07")] Rural,
 
         /// <summary>
         ///     Serviço Público
         /// </summary>
-        ServicoPublico = 08
+        [DefaultValue("08")] ServicoPublico
     }
 
     /// <summary>
@@ -665,32 +820,32 @@
     /// </summary>
     public enum IndClasseConsumoAgua
     {
-        ConsResidencialAte50 = 00,
-        ConsResidencialDe50A100 = 01,
-        ConsResidencialDe100A200 = 02,
-        ConsResidencialDe200A300 = 03,
-        ConsResidencialDe300A400 = 04,
-        ConsResidencialDe400A500 = 05,
-        ConsResidencialDe500A1000 = 06,
-        ConsResidencialAcima1000 = 07,
-        ConsComercialIndustrialAte50 = 20,
-        ConsComercialIndustrialDe50A100 = 21,
-        ConsComercialIndustrialDe100A200 = 22,
-        ConsComercialIndustrialDe200A300 = 23,
-        ConsComercialIndustrialDe300A400 = 24,
-        ConsComercialIndustrialDe400A500 = 25,
-        ConsComercialIndustrialDe500A1000 = 26,
-        ConsComercialIndustrialAcima1000 = 27,
-        ConsOrgaoPublico = 80,
-        OutrosTiposConsumoAte50 = 90,
-        OutrosTiposConsumoDe50A100 = 91,
-        OutrosTiposConsumoDe100A200 = 92,
-        OutrosTiposConsumoDe200A300 = 93,
-        OutrosTiposConsumoDe300A400 = 94,
-        OutrosTiposConsumoDe400A500 = 95,
-        OutrosTiposConsumoDe500A1000 = 96,
-        OutrosTiposConsumoAcima1000 = 97,
-        RegPorDocumentoFiscalEmitido = 99
+        [DefaultValue("00")] ConsResidencialAte50,
+        [DefaultValue("01")] ConsResidencialDe50A100,
+        [DefaultValue("02")] ConsResidencialDe100A200,
+        [DefaultValue("03")] ConsResidencialDe200A300,
+        [DefaultValue("04")] ConsResidencialDe300A400,
+        [DefaultValue("05")] ConsResidencialDe400A500,
+        [DefaultValue("06")] ConsResidencialDe500A1000,
+        [DefaultValue("07")] ConsResidencialAcima1000,
+        [DefaultValue("20")] ConsComercialIndustrialAte50,
+        [DefaultValue("21")] ConsComercialIndustrialDe50A100,
+        [DefaultValue("22")] ConsComercialIndustrialDe100A200,
+        [DefaultValue("23")] ConsComercialIndustrialDe200A300,
+        [DefaultValue("24")] ConsComercialIndustrialDe300A400,
+        [DefaultValue("25")] ConsComercialIndustrialDe400A500,
+        [DefaultValue("26")] ConsComercialIndustrialDe500A1000,
+        [DefaultValue("27")] ConsComercialIndustrialAcima1000,
+        [DefaultValue("80")] ConsOrgaoPublico,
+        [DefaultValue("90")] OutrosTiposConsumoAte50,
+        [DefaultValue("91")] OutrosTiposConsumoDe50A100,
+        [DefaultValue("92")] OutrosTiposConsumoDe100A200,
+        [DefaultValue("93")] OutrosTiposConsumoDe200A300,
+        [DefaultValue("94")] OutrosTiposConsumoDe300A400,
+        [DefaultValue("95")] OutrosTiposConsumoDe400A500,
+        [DefaultValue("96")] OutrosTiposConsumoDe500A1000,
+        [DefaultValue("97")] OutrosTiposConsumoAcima1000,
+        [DefaultValue("99")] RegPorDocumentoFiscalEmitido
     }
 
     /// <summary>
@@ -698,32 +853,32 @@
     /// </summary>
     public enum IndClasseConsumoGas
     {
-        ConsResidencialAte50 = 00,
-        ConsResidencialDe50A100 = 01,
-        ConsResidencialDe100A200 = 02,
-        ConsResidencialDe200A300 = 03,
-        ConsResidencialDe300A400 = 04,
-        ConsResidencialDe400A500 = 05,
-        ConsResidencialDe500A1000 = 06,
-        ConsResidencialAcima1000 = 07,
-        ConsComercialIndustrialAte50 = 20,
-        ConsComercialIndustrialDe50A100 = 21,
-        ConsComercialIndustrialDe100A200 = 22,
-        ConsComercialIndustrialDe200A300 = 23,
-        ConsComercialIndustrialDe300A400 = 24,
-        ConsComercialIndustrialDe400A500 = 25,
-        ConsComercialIndustrialDe500A1000 = 26,
-        ConsComercialIndustrialAcima1000 = 27,
-        ConsOrgaoPublico = 80,
-        OutrosTiposConsumoAte50 = 90,
-        OutrosTiposConsumoDe50A100 = 91,
-        OutrosTiposConsumoDe100A200 = 92,
-        OutrosTiposConsumoDe200A300 = 93,
-        OutrosTiposConsumoDe300A400 = 94,
-        OutrosTiposConsumoDe400A500 = 95,
-        OutrosTiposConsumoDe500A1000 = 96,
-        OutrosTiposConsumoAcima1000 = 97,
-        RegPorDocumentoFiscalEmitido = 99
+        [DefaultValue("00")] ConsResidencialAte50,
+        [DefaultValue("01")] ConsResidencialDe50A100,
+        [DefaultValue("02")] ConsResidencialDe100A200,
+        [DefaultValue("03")] ConsResidencialDe200A300,
+        [DefaultValue("04")] ConsResidencialDe300A400,
+        [DefaultValue("05")] ConsResidencialDe400A500,
+        [DefaultValue("06")] ConsResidencialDe500A1000,
+        [DefaultValue("07")] ConsResidencialAcima1000,
+        [DefaultValue("20")] ConsComercialIndustrialAte50,
+        [DefaultValue("21")] ConsComercialIndustrialDe50A100,
+        [DefaultValue("22")] ConsComercialIndustrialDe100A200,
+        [DefaultValue("23")] ConsComercialIndustrialDe200A300,
+        [DefaultValue("24")] ConsComercialIndustrialDe300A400,
+        [DefaultValue("25")] ConsComercialIndustrialDe400A500,
+        [DefaultValue("26")] ConsComercialIndustrialDe500A1000,
+        [DefaultValue("27")] ConsComercialIndustrialAcima1000,
+        [DefaultValue("80")] ConsOrgaoPublico,
+        [DefaultValue("90")] OutrosTiposConsumoAte50,
+        [DefaultValue("91")] OutrosTiposConsumoDe50A100,
+        [DefaultValue("92")] OutrosTiposConsumoDe100A200,
+        [DefaultValue("93")] OutrosTiposConsumoDe200A300,
+        [DefaultValue("94")] OutrosTiposConsumoDe300A400,
+        [DefaultValue("95")] OutrosTiposConsumoDe400A500,
+        [DefaultValue("96")] OutrosTiposConsumoDe500A1000,
+        [DefaultValue("97")] OutrosTiposConsumoAcima1000,
+        [DefaultValue("99")] RegPorDocumentoFiscalEmitido
     }
 
     /// <summary>
@@ -734,34 +889,37 @@
         /// <summary>
         ///     Monofásico
         /// </summary>
-        Monofasico = 1,
+        [DefaultValue("1")]
+        Monofasico,
 
         /// <summary>
         ///     Bifásico
         /// </summary>
-        Bifasico = 2,
+        [DefaultValue("2")]
+        Bifasico,
 
         /// <summary>
         ///     Trifásico
         /// </summary>
-        Trifasico = 3
+        [DefaultValue("3")]
+        Trifasico
     }
 
     public enum IndCodGrupoTensao
     {
-        A1 = 01,
-        A2 = 02,
-        A3 = 03,
-        A3a = 04,
-        A4 = 05,
-        AS = 06,
-        B1 = 07,
-        B1BaixaRenda = 08,
-        B2Rural = 09,
-        B2Cooperativa = 10,
-        B2ServicoPublico = 11,
-        B3DemaisClasses = 12,
-        B4a = 13,
-        B4b = 14
+        [DefaultValue("01")] A1,
+        [DefaultValue("02")] A2,
+        [DefaultValue("03")] A3,
+        [DefaultValue("04")] A3a,
+        [DefaultValue("05")] A4,
+        [DefaultValue("06")] AS,
+        [DefaultValue("07")] B1,
+        [DefaultValue("08")] B1BaixaRenda,
+        [DefaultValue("09")] B2Rural,
+        [DefaultValue("10")] B2Cooperativa,
+        [DefaultValue("11")] B2ServicoPublico,
+        [DefaultValue("12")] B3DemaisClasses,
+        [DefaultValue("13")] B4a,
+        [DefaultValue("14")] B4b
     }
 }

@@ -395,7 +395,7 @@ namespace SpedBr.EfdContribuicoes
             /// <summary>
             ///     Descrição da natureza da operação/prestação
             /// </summary>
-            [SpedCampos(3, "DESCR_NAT", "C", int.MaxValue, 0, true)]
+            [SpedCampos(3, "DESCR_NAT", "C", 200, 0, true)]
             public string DescrNat { get; set; }
         }
 
