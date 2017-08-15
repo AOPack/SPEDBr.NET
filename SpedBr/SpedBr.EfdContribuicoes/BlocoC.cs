@@ -1389,7 +1389,7 @@ namespace SpedBr.EfdContribuicoes
                 Reg = "C990";
             }
 
-            [SpedCampos(2, "QTD_LIN_C", "N", 0, 0, true)]
+            [SpedCampos(2, "QTD_LIN_C", "N", int.MaxValue, 0, true)]
             public int QtdLinC { get; set; }
         }
     }
