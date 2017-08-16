@@ -3,19 +3,211 @@ using SpedBr.Common;
 
 namespace SpedBr.EfdContribuicoes
 {
+	/// <summary>
+    /// BLOCO M - APURAÇÃO DA CONTRIBUIÇÃO E CRÉDITO DE PIS/PASEP E DA COFINS
+    /// </summary>
     public class BlocoM
     {
+		/// <summary>
+        /// REGISTRO 0001: ABERTURA DO BLOCO M
+        /// </summary>
         public class RegistroM001 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="RegistroM001"/>.
+            /// </summary>
             public RegistroM001()
             {
                 Reg = "M001";
             }
 
+            /// <summary>
+            /// Indicador de movimento:
+            /// 0 - Bloco com dados informados;
+            /// 1 - Bloco sem dados informados.
+            /// </summary>
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
             public int IndMov { get; set; }
         }
 
+		/// <summary>
+        /// REGISTRO M100: CRÉDITO DE PIS/PASEP RELATIVO AO PERÍODO
+        /// </summary>
+        public class RegistroM100 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="RegistroM100"/>.
+            /// </summary>
+            public RegistroM100()
+            {
+                Reg = "M100";
+            }
+
+            /// <summary>
+            /// Código de Tipo de Crédito apurado no período, conforme a Tabela 4.3.6
+            /// </summary>
+            [SpedCampos(2, "COD_CRED", "C", 3, 0, true)]
+            public string CodCred { get; set; }
+
+            /// <summary>
+            /// Indicador de Crédito Oriundo de:
+            /// 0 – Operações próprias
+            /// 1 – Evento de incorporação, cisão ou fusão
+            /// </summary>
+            [SpedCampos(3, "IND_CRED_ORI", "N", 1, 0, true)]
+            public int IndCredOri { get; set; }
+
+            /// <summary>
+            /// Valor da Base de Cálculo do Crédito
+            /// </summary>
+            [SpedCampos(4, "VL_BC_PIS", "N", 0, 2, false)]
+            public decimal VlBcPis { get; set; }
+
+            /// <summary>
+            /// Alíquota do PIS/PASEP (em percentual)
+            /// </summary>
+            [SpedCampos(5, "ALIQ_PIS", "N", 8, 4, false)]
+            public decimal AliqPis { get; set; }
+
+            /// <summary>
+            /// Quantidade – Base de cálculo PIS
+            /// </summary>
+            [SpedCampos(6, "QUANT_BC_PIS", "T", 0, 3, false)]
+            public string QuantBcPis { get; set; }
+
+            /// <summary>
+            /// Alíquota do PIS (em reais)
+            /// </summary>
+            [SpedCampos(7, "ALIQ_PIS_QUANT", "T", 0, 4, false)]
+            public string AliqPisQuant { get; set; }
+
+            /// <summary>
+            /// Valor total do crédito apurado no período
+            /// </summary>
+            [SpedCampos(8, "VL_CRED", "N", 0, 2, true)]
+            public decimal VlCred { get; set; }
+
+            /// <summary>
+            /// Valor total dos ajustes de acréscimo
+            /// </summary>
+            [SpedCampos(9, "VL_AJUS_ACRES", "N", 0, 2, true)]
+            public decimal VlAjusAcres { get; set; }
+
+            /// <summary>
+            /// Valor total dos ajustes de redução
+            /// </summary>
+            [SpedCampos(10, "VL_AJUS_REDUC", "N", 0, 2, true)]
+            public decimal VlAjusReduc { get; set; }
+
+            /// <summary>
+            /// Valor total do crédito diferido no período
+            /// </summary>
+            [SpedCampos(11, "VL_CRED_DIF", "N", 0, 2, true)]
+            public decimal VlCredDif { get; set; }
+
+            /// <summary>
+            /// Valor Total do Crédito Disponível relativo ao Período(08 + 09 – 10 – 11)
+            /// </summary>
+            [SpedCampos(12, "VL_CRED_DISP", "N", 0, 2, true)]
+            public decimal VlCredDisp { get; set; }
+
+            /// <summary>
+            /// Indicador de opção de utilização do crédito disponível no período:
+            /// 0 – Utilização do valor total para desconto da contribuição apurada no período, no Registro M200
+            /// 1 – Utilização de valor parcial para desconto da contribuição apurada no período, no Registro M200
+            /// </summary>
+            [SpedCampos(13, "IND_DESC_CRED", "C", 1, 0, true)]
+            public int IndDescCred { get; set; }
+
+            /// <summary>
+            /// Valor do Crédito disponível, descontado da contribuição apurada no próprio período
+            /// - Se IND_DESC_CRED = 0, informar o valor total do Campo 12
+            /// - Se IND_DESC_CRED = 1, informar o valor parcial do Campo 12
+            /// </summary>
+            [SpedCampos(14, "VL_CRED_DESC", "T", 0, 2, false)]
+            public string VlCredDesc { get; set; }
+
+            /// <summary>
+            /// Saldo de créditos a utilizar em períodos futuros (12 – 14)
+            /// </summary>
+            [SpedCampos(15, "SLD_CRED", "N", 0, 2, true)]
+            public decimal SldCred { get; set; }
+        }
+
+        public class RegistroM105 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="RegistroM105"/>.
+            /// </summary>
+            public RegistroM105()
+            {
+                Reg = "M105";
+            }
+
+            /// <summary>
+            /// Código da Base de Cálculo do Crédito apurado no período, conforme a Tabela 4.3.7
+            /// </summary>
+            [SpedCampos(2, "NAT_BC_CRED", "C", 2, 0, true)]
+            public string NatBcCred { get; set; }
+
+            /// <summary>
+            /// Código da Situação Tributária referente ao crédito de PIS/Pasep (Tabela 4.3.3) vinculado ao tipo de crédito escriturado em M100
+            /// </summary>
+            [SpedCampos(3, "CST_PIS", "N", 2, 0, true)]
+            public string CstPis { get; set; }
+
+            /// <summary>
+            /// Valor Total da Base de Cálculo escriturada nos documentos e operações (Blocos “A”, “C”, “D” e “F”), referente ao CST_PIS informado no Campo 03
+            /// </summary>
+            [SpedCampos(4, "VL_BC_PIS_TOT", "N", 0, 2, false)]
+            public decimal VlBcPisTot { get; set; }
+
+            /// <summary>
+            /// Parcela do Valor Total da Base de Cálculo informada no Campo 04, vinculada a receitas com incidência cumulativa. Campo de preenchimento específico para a pessoa jurídica sujeita ao regime cumulativo e não-cumulativo da contribuição (COD_INC_TRIB = 3 do Registro 0110)
+            /// </summary>
+            [SpedCampos(5, "VL_BC_PIS_CUM", "N", 0, 2, false)]
+            public decimal VlBcPisCum { get; set; }
+
+            /// <summary>
+            /// Valor Total da Base de Cálculo do Crédito, vinculada a receitas com incidência não-cumulativa (Campo 04 – Campo 05)
+            /// </summary>
+            [SpedCampos(6, "VL_BC_PIS_NC", "N", 0, 2, false)]
+            public decimal VlBcPisNc { get; set; }
+
+            /// <summary>
+            /// Valor da Base de Cálculo do Crédito, vinculada ao tipo de Crédito escriturado em M100.
+            /// - Para os CST_PIS = “50”, “51”, “52”, “60”, “61” e “62”: Informar o valor do Campo 06 (VL_BC_PIS_NC);
+            /// - Para os CST_PIS = “53”, “54”, “55”, “56”, “63”, “64”, “65” e “66” (Crédito sobre operações vinculadas a mais de um tipo de receita): Informar a parcela do valor do Campo 06 (VL_BC_PIS_NC) vinculada especificamente ao tipo de crédito escriturado em M100.
+            /// O valor deste campo será transportado para o Campo 04 (VL_BC_PIS) do registro M100
+            /// </summary>
+            [SpedCampos(7, "VL_BC_PIS", "N", 0, 2, false)]
+            public decimal VlBcPis { get; set; }
+
+            /// <summary>
+            /// Quantidade Total da Base de Cálculo do Crédito apurado em Unidade de Medida de Produto, escriturada nos documentos e operações (Blocos “A”, “C”, “D” e “F”), referente ao CST_PIS informado no Campo 03
+            /// </summary>
+            [SpedCampos(8, "QUANT_BC_PIS_TOT", "T", 0, 3, false)]
+            public string QuantBcPisTot { get; set; }
+
+            /// <summary>
+            /// Parcela da base de cálculo do crédito em quantidade (campo 08) vinculada ao tipo de crédito escriturado em M100.
+            /// - Para os CST_PIS = “50”, “51” e “52”: Informar o valor do Campo 08 (QUANT_BC_PIS);
+            /// - Para os CST_PIS = “53”, “54”, “55” e “56” (crédito vinculado a mais de um tipo de receita): Informar a parcela do valor do Campo 08(QUANT_BC_PIS) vinculada ao tipo de crédito escriturado em M100.
+            /// O valor deste campo será transportado para o Campo 06 (QUANT_BC_PIS) do registro M100.
+            /// </summary>
+            [SpedCampos(9, "QUANT_BC_PIS", "T", 0, 3, false)]
+            public string QuantBcPis { get; set; }
+
+            /// <summary>
+            /// Descrição do crédito
+            /// </summary>
+            [SpedCampos(10, "DESC_CRED", "C", 60, 0, false)]
+            public string DescCred { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO M200: CONSOLIDAÇÃO DA CONTRIBUIÇÃO PARA O PIS/PASEP DO PERÍODO
+        /// </summary>
         public class RegistroM200 : RegistroBaseSped
         {
             public RegistroM200()
@@ -180,6 +372,184 @@ namespace SpedBr.EfdContribuicoes
             public string InfoCompl { get; set; }
         }
 
+		/// <summary>
+        /// REGISTRO M500: CRÉDITO DE COFINS RELATIVO AO PERÍODO
+        /// </summary>
+        public class RegistroM500 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="RegistroM500"/>.
+            /// </summary>
+            public RegistroM500()
+            {
+                Reg = "M500";
+            }
+
+            /// <summary>
+            /// Código de Tipo de Crédito apurado no período, conforme a Tabela 4.3.6
+            /// </summary>
+            [SpedCampos(2, "COD_CRED", "C", 3, 0, true)]
+            public string CodCred { get; set; }
+
+            /// <summary>
+            /// Indicador de Crédito Oriundo de:
+            /// 0 – Operações próprias
+            /// 1 – Evento de incorporação, cisão ou fusão
+            /// </summary>
+            [SpedCampos(3, "IND_CRED_ORI", "N", 1, 0, true)]
+            public int IndCredOri { get; set; }
+
+            /// <summary>
+            /// Valor da Base de Cálculo do Crédito
+            /// </summary>
+            [SpedCampos(4, "VL_BC_COFINS", "N", 0, 2, false)]
+            public decimal VlBcCofins { get; set; }
+
+            /// <summary>
+            /// Valor da Base de Cálculo do Crédito
+            /// </summary>
+            [SpedCampos(5, "ALIQ_COFINS", "N", 8, 4, false)]
+            public decimal AliqCofins { get; set; }
+
+            /// <summary>
+            /// Quantidade – Base de cálculo COFINS
+            /// </summary>
+            [SpedCampos(6, "QUANT_BC_COFINS", "T", 0, 3, false)]
+            public string QuantBcCofins { get; set; }
+
+            /// <summary>
+            /// Alíquota do COFINS (em reais)
+            /// </summary>
+            [SpedCampos(7, "ALIQ_COFINS_QUANT", "T", 0, 4, false)]
+            public string AliqCofinsQuant { get; set; }
+
+            /// <summary>
+            /// Valor total do crédito apurado no período
+            /// </summary>
+            [SpedCampos(8, "VL_CRED", "N", 0, 2, true)]
+            public decimal VlCred { get; set; }
+
+            /// <summary>
+            /// Valor total dos ajustes de acréscimo
+            /// </summary>
+            [SpedCampos(9, "VL_AJUS_ACRES", "N", 0, 2, true)]
+            public decimal VlAjusAcres { get; set; }
+
+            /// <summary>
+            /// Valor total dos ajustes de redução
+            /// </summary>
+            [SpedCampos(10, "VL_AJUS_REDUC", "N", 0, 2, true)]
+            public decimal VlAjusReduc { get; set; }
+
+            /// <summary>
+            /// Valor total do crédito diferido no período
+            /// </summary>
+            [SpedCampos(11, "VL_CRED_DIF", "N", 0, 2, true)]
+            public decimal VlCredDif { get; set; }
+
+            /// <summary>
+            /// Valor Total do Crédito Disponível relativo ao Período(08 + 09 – 10 – 11)
+            /// </summary>
+            [SpedCampos(12, "VL_CRED_DISP", "N", 0, 2, true)]
+            public decimal VlCredDisp { get; set; }
+
+            /// <summary>
+            /// Indicador de opção de utilização do crédito disponível no período:
+            /// 0 – Utilização do valor total para desconto da contribuição apurada no período, no Registro M200;
+            /// 1 – Utilização de valor parcial para desconto da contribuição apurada no período, no Registro M200.
+            /// </summary>
+            [SpedCampos(13, "IND_DESC_CRED", "C", 0, 2, true)]
+            public int IndDescCred { get; set; }
+
+            /// <summary>
+            /// Valor do Crédito disponível, descontado da contribuição apurada no próprio período.
+            /// - Se IND_DESC_CRED = 0, informar o valor total do Campo 12;
+            /// - Se IND_DESC_CRED = 1, informar o valor parcial do Campo 12;
+            /// </summary>
+            [SpedCampos(14, "VL_CRED_DESC", "T", 0, 2, false)]
+            public string VlCredDesc { get; set; }
+
+            /// <summary>
+            /// Saldo de créditos a utilizar em períodos futuros (12 – 14)
+            /// </summary>
+            [SpedCampos(15, "SLD_CRED", "N", 0, 2, true)]
+            public decimal SldCred { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO M505: DETALHAMENTO DA BASE DE CALCULO DO CRÉDITO APURADO NO PERÍODO – COFINS
+        /// </summary>
+        public class RegistroM505 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="RegistroM505"/>.
+            /// </summary>
+            public RegistroM505()
+            {
+                Reg = "M505";
+            }
+
+            /// <summary>
+            /// Código da Base de Cálculo do Crédito apurado no período, conforme a Tabela 4.3.7.
+            /// </summary>
+            [SpedCampos(2, "NAT_BC_CRED", "C", 2, 0, true)]
+            public string NatBcCred { get; set; }
+
+            /// <summary>
+            /// Código da Situação Tributária referente ao crédito do COFINS (Tabela 4.3.4) vinculado ao tipo de crédito escriturado em M500.
+            /// </summary>
+            [SpedCampos(3, "CST_COFINS", "N", 2, 0, true)]
+            public string CstCofins { get; set; }
+
+            /// <summary>
+            /// Valor Total da Base de Cálculo escriturada nos documentos e operações (Blocos “A”, “C”, “D” e “F”), referente ao CST_COFINS informado no Campo 03.
+            /// </summary>
+            [SpedCampos(4, "VL_BC_COFINS_TOT", "N", 0, 2, false)]
+            public decimal VlBcCofinsTot { get; set; }
+
+            /// <summary>
+            /// Parcela do Valor Total da Base de Cálculo informada no Campo 04, vinculada a receitas com incidência cumulativa. Campo de preenchimento específico para a pessoa jurídica sujeita ao regime cumulativo e não-cumulativo da contribuição (COD_INC_TRIB = 3 do Registro 0110)
+            /// </summary>
+            [SpedCampos(5, "VL_BC_COFINS_CUM", "N", 0, 2, false)]
+            public decimal VlBcCofinsCum { get; set; }
+
+            /// <summary>
+            /// Valor Total da Base de Cálculo do Crédito, vinculada a receitas com incidência não-cumulativa (Campo 04 – Campo 05).
+            /// </summary>
+            [SpedCampos(6, "VL_BC_COFINS_NC", "N", 0, 2, false)]
+            public decimal VlBcCofinsNc { get; set; }
+
+            /// <summary>
+            /// Valor da Base de Cálculo do Crédito, vinculada ao tipo de Crédito escriturado em M500.
+            /// - Para os CST_PIS = “50”, “51”, “52”, “60”, “61” e “62”: Informar o valor do Campo 06 (VL_BC_COFINS_NC);
+            /// - Para os CST_COFINS = “53”, “54”, “55”, “56”, “63”, “64”, “65” e “66” (Crédito sobre operações vinculadas a mais de um tipo de receita): Informar a parcela do valor do Campo 06 (VL_BC_COFINS_NC) vinculada especificamente ao tipo de crédito escriturado em M500.
+            /// O valor deste campo será transportado para o Campo 04 (VL_BC_COFINS) do registro M500.
+            /// </summary>
+            [SpedCampos(7, "VL_BC_COFINS", "N", 0, 2, false)]
+            public decimal VlBcCofins { get; set; }
+
+            /// <summary>
+            /// Quantidade Total da Base de Cálculo do Crédito apurado em Unidade de Medida de Produto, escriturada nos documentos e operações (Blocos “A”, “C”, “D” e “F”), referente ao CST_COFINS informado no Campo 03
+            /// </summary>
+            [SpedCampos(8, "QUANT_BC_COFINS_TOT", "T", 0, 3, false)]
+            public string QuantBcCofinsTot { get; set; }
+
+            /// <summary>
+            /// Quantidade Total da Base de Cálculo do Crédito apurado em Unidade de Medida de Produto, escriturada nos documentos e operações (Blocos “A”, “C”, “D” e “F”), referente ao CST_COFINS informado no Campo 03
+            /// </summary>
+            [SpedCampos(9, "QUANT_BC_COFINS", "T", 0, 3, false)]
+            public string QuantBcCofins { get; set; }
+
+            /// <summary>
+            /// Descrição do crédito
+            /// </summary>
+            [SpedCampos(10, "DESC_CRED", "C", 60, 0, false)]
+            public string DescCred { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO M600:  CONSOLIDAÇÃO DA CONTRIBUIÇÃO PARA A SEGURIDADE SOCIAL - COFINS DO PERÍODO
+        /// </summary>
         public class RegistroM600 : RegistroBaseSped
         {
             public RegistroM600()
@@ -343,7 +713,10 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(9, "INFO_COMPL", "C", 0, 0, false)]
             public string InfoCompl { get; set; }
         }
-
+		
+		/// <summary>
+        /// REGISTRO M990: ENCERRAMENTO DO BLOCO M
+        /// </summary>
         public class RegistroM990 : RegistroBaseSped
         {
             public RegistroM990()

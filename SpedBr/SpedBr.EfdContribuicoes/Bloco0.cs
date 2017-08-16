@@ -3,8 +3,14 @@ using SpedBr.Common;
 
 namespace SpedBr.EfdContribuicoes
 {
+	/// <summary>
+    /// BLOCO 0 - ABERTURA, IDENTIFICAÇÃO E REFERÊNCIAS
+    /// </summary>
     public class Bloco0
     {
+		/// <summary>
+        /// REGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICAÇÃO DA PESSOA JURÍDICA
+        /// </summary>
         public class Registro0000 : RegistroBaseSped
         {
             public Registro0000()
@@ -15,9 +21,22 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(2, "COD_VER", "N", 3, 0, true)]
             public int CodVer { get; set; }
 
+			/// <summary>
+            /// Tipo de escrituração:
+            /// 0 - Original
+            /// 1 - Retificadora
+            /// </summary>
             [SpedCampos(3, "TIPO_ESCRIT", "N", 1, 0, true)]
             public int TipoEscrit { get; set; }
 
+			/// <summary>
+            /// Indicador de situação especial
+            /// 0 - Abertura
+            /// 1 - Cisão
+            /// 2 - Fusão
+            /// 3 - Incorporação
+            /// 4 - Encerramento
+            /// </summary>
             [SpedCampos(4, "IND_SIT_ESP", "N", 1, 0, false)]
             public int IndSitEsp { get; set; }
 
@@ -45,13 +64,31 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(12, "SUFRAMA", "C", 9, 0, false)]
             public string Suframa { get; set; }
 
+			/// <summary>
+            /// Indicador da natureza da pessoa jurídica:
+            /// 00 - Sociedade empresária em geral
+            /// 01 - Sociedade cooperativa
+            /// 02 - Entidade sujeita ao PIS/Pasep exclusivamente com base na Folha de Salários
+            /// </summary>
             [SpedCampos(13, "IND_NAT_PJ", "N", 2, 0, false)]
             public int IndNatPj { get; set; }
 
+			/// <summary>
+            /// Indicador de tipo de atividade preponderante:
+            /// 0 - Industrial ou equiparado a industrial;
+            /// 1 - Prestador de serviços;
+            /// 2 - Atividade de comércio;
+            /// 3 - Atividade financeira;
+            /// 4 - Atividade imobiliária;
+            /// 9 - Outros
+            /// </summary>
             [SpedCampos(14, "IND_ATIV", "N", 1, 0, true)]
             public int IndAtiv { get; set; }
         }
 
+		/// <summary>
+        /// REGISTRO 0001: ABERTURA DO BLOCO 0
+        /// </summary>
         public class Registro0001 : RegistroBaseSped
         {
             public Registro0001()
@@ -80,6 +117,9 @@ namespace SpedBr.EfdContribuicoes
             public string InfComp { get; set; }
         }
 
+		/// <summary>
+        /// REGISTRO 0100: DADOS DO CONTABILISTA
+        /// </summary>
         public class Registro0100 : RegistroBaseSped
         {
             public Registro0100()
@@ -127,6 +167,9 @@ namespace SpedBr.EfdContribuicoes
             public int CodMun { get; set; }
         }
 
+		/// <summary>
+        /// REGISTRO 0110: REGIMES DE APURAÇÃO DA CONTRIBUIÇÃO SOCIAL E DE APROPRIAÇÃO DE CRÉDITO
+        /// </summary>
         public class Registro0110 : RegistroBaseSped
         {
             public Registro0110()
@@ -134,15 +177,37 @@ namespace SpedBr.EfdContribuicoes
                 Reg = "0110";
             }
 
+			/// <summary>
+            /// Código indicador da incidência tributária no período:
+            /// 1 - Escrituração de operações com incidência exclusivamente no regime não-cumulativo
+            /// 2 - Escrituração de operações com incidência exclusivamente no regime cumulativo
+            /// 3 - Escrituração de operações com incidência nos regimes não-cumulativo e cumulativo
+            /// </summary>
             [SpedCampos(2, "COD_INC_TRIB", "N", 1, 0, true)]
             public int CodIncTrib { get; set; }
 
+			/// <summary>
+            /// Código indicador de método de apropriação de créditos comuns, no caso de incidência no regime não-cumulativo (COD_INC_TRIB = 1 ou 3):
+            /// 1 - Método de Apropriação Direta
+            /// 2 - Método de Rateio Proporcional(Receita Bruta)
+            /// </summary>
             [SpedCampos(3, "IND_APRO_CRED", "N", 1, 0, false)]
             public int IndAproCred { get; set; }
 
+			/// <summary>
+            /// Código indicador do Tipo de Contribuição Apurada no Período:
+            /// 1 - Apuração da Contribuição Exclusivamente a Alíquota Básica
+            /// 2 - Apuração da Contribuição a Alíquotas Específicas(Diferenciadas e/ou por Unidade de Medida de Produto)
+            /// </summary>
             [SpedCampos(4, "COD_TIPO_CONT", "N", 1, 0, false)]
             public int CodTipoCont { get; set; }
 
+			/// <summary>
+            /// Código indicador do critério de escrituração e apuração adotado, no caso de incidência exclusivamente no regime cumulativo (COD_INC_TRIB = 2), pela pessoa jurídica submetida ao regime de tributação com base no lucro presumido:
+            /// 1 –Regime de Caixa – Escrituração consolidada(Registro F500 e/ou F510)
+            /// 2 – Regime de Competência - Escrituração consolidada(Registro F550 e/ou F560)
+            /// 9 – Regime de Competência - Escrituração detalhada, com base nos registros dos Blocos “A”, “C”, “D” e “F”
+            /// </summary>
             [SpedCampos(5, "IND_REG_CUM", "N", 1, 0, false)]
             public int IndRegCum { get; set; }
         }
@@ -179,6 +244,272 @@ namespace SpedBr.EfdContribuicoes
             public string Suframa { get; set; }
         }
 
+        /// <summary>
+        ///     REGISTRO 0150: TABELA DE CADASTRO DO PARTICIPANTE
+        /// </summary>
+        public class Registro0150 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0150" />.
+            /// </summary>
+            public Registro0150()
+            {
+                Reg = "0150";
+            }
+
+            /// <summary>
+            ///     Código de identificação do participante no arquivo.
+            /// </summary>
+            [SpedCampos(2, "COD_PART", "C", 60, 0, true)]
+            public string CodPart { get; set; }
+
+            /// <summary>
+            ///     Nome pessoal ou empresarial do participante.
+            /// </summary>
+            [SpedCampos(3, "NOME", "C", 100, 0, true)]
+            public string Nome { get; set; }
+
+            /// <summary>
+            ///     Código do país do participante, conforme a tabela indicada no item 3.2.1.
+            /// </summary>
+            [SpedCampos(4, "COD_PAIS", "N", 5, 0, true)]
+            public string CodPais { get; set; }
+
+            /// <summary>
+            ///     CNPJ do participante.
+            /// </summary>
+            [SpedCampos(5, "CNPJ", "N", 14, 0, false)]
+            public string Cnpj { get; set; }
+
+            /// <summary>
+            ///     CPF do participante.
+            /// </summary>
+            [SpedCampos(6, "CPF", "N", 11, 0, false)]
+            public string Cpf { get; set; }
+
+            /// <summary>
+            ///     Inscrição Estadual do participante.
+            /// </summary>
+            [SpedCampos(7, "IE", "C", 14, 0, false)]
+            public string Ie { get; set; }
+
+            /// <summary>
+            ///     Código do município, conforme a tabela IBGE.
+            /// </summary>
+            [SpedCampos(8, "COD_MUN", "N", 7, 0, false)]
+            public string CodMun { get; set; }
+
+            /// <summary>
+            ///     Número de inscrição do participante na SUFRAMA
+            /// </summary>
+            [SpedCampos(9, "SUFRAMA", "C", 9, 0, false)]
+            public string Suframa { get; set; }
+
+            /// <summary>
+            ///     Logradouro e endereço do imóvel.
+            /// </summary>
+            [SpedCampos(10, "END", "C", 60, 0, true)]
+            public string End { get; set; }
+
+            /// <summary>
+            ///     Número do imóvel.
+            /// </summary>
+            [SpedCampos(11, "NUM", "C", 10, 0, false)]
+            public string Num { get; set; }
+
+            /// <summary>
+            ///     Dados complementares do endereço.
+            /// </summary>
+            [SpedCampos(12, "COMPL", "C", 60, 0, false)]
+            public string Compl { get; set; }
+
+            /// <summary>
+            ///     Bairro em que o imóvel está situado.
+            /// </summary>
+            [SpedCampos(13, "BAIRRO", "C", 60, 0, false)]
+            public string Bairro { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO 0190: IDENTIFICAÇÃO DAS UNIDADES DE MEDIDA
+        /// </summary>
+        public class Registro0190 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0190" />.
+            /// </summary>
+            public Registro0190()
+            {
+                Reg = "0190";
+            }
+
+            /// <summary>
+            ///     Código da unidade de medida.
+            /// </summary>
+            [SpedCampos(2, "UNID", "C", 6, 0, true)]
+            public string Unid { get; set; }
+
+            /// <summary>
+            ///     Descrição da unidade de medida.
+            /// </summary>
+            [SpedCampos(3, "DESCR", "C", 0, 0, true)]
+            public string Descr { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO 0200: IDENTIFICAÇÃO DO ITEM (PRODUTOS E SERVIÇOS)
+        /// </summary>
+        public class Registro0200 : RegistroBaseSped
+        {
+
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0200"/>.
+            /// </summary>
+            public Registro0200()
+            {
+
+                Reg = "0200";
+            }
+			
+            /// <summary>
+            /// Código do item.
+            /// </summary>
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            /// Descrição do item.
+            /// </summary>
+            [SpedCampos(3, "DESCR_ITEM", "T", 0, 0, true)]
+            public string DescrItem { get; set; }
+
+            /// <summary>
+            /// Representação alfanumérica do código de barra do produto, se houver.
+            /// </summary>
+            [SpedCampos(4, "COD_BARRA", "C", 0, 0, false)]
+            public string CodBarra { get; set; }
+
+            /// <summary>
+            /// Código anterior do item com relação à última informação apresentada.
+            /// Conforme Guia_Prático_da_EFD_Versao_2.0.17 -> "informar no 0205"
+            /// </summary>
+            [SpedCampos(5, "COD_ANT_ITEM", "C", 60, 0, false)]
+            public string CodAntItem => "";
+
+            /// <summary>
+            /// Unidade de medida utilizada na quantificação de estoques.
+            /// </summary>
+            [SpedCampos(6, "UNID_INV", "T", 6, 0, true)]
+            public string UnidInv { get; set; }
+
+            /// <summary>
+            /// Tipo do item - Atividades Industriais, Comerciais e Serviços: 00 - Mercadoria para Revenda; 01 - Matéria-Prima; 02 - Embalagem; 03 - Produto em Processo; 04 - Produto Acabado; 05 - Subproduto; 06 - Produto Intermediário; 07 - Material de Uso e Consumo; 08 - Ativo Imobilizado; 09 - Serviços; 10 - Outros insumos; 99 - Outras.
+            /// </summary>
+            [SpedCampos(7, "TIPO_ITEM", "N", 2, 0, true)]
+            public string TipoItem { get; set; }
+
+            /// <summary>
+            /// Código da Nomenclatura Comum do Mercosul
+            /// </summary>
+            [SpedCampos(8, "COD_NCM", "C", 8, 0, false)]
+            public string CodNcm { get; set; }
+
+            /// <summary>
+            /// Código EX, conforme a TIPI
+            /// </summary>
+            [SpedCampos(9, "EX_IPI", "C", 3, 0, false)]
+            public string ExIpi { get; set; }
+
+            /// <summary>
+            /// Código do gênero do item
+            /// </summary>
+            [SpedCampos(10, "COD_GEN", "N", 2, 0, false)]
+            public string CodGen { get; set; }
+
+            /// <summary>
+            /// Código do serviço conforme a lista do Anexo I da Lei Complementar Federal n 116/2003.
+            /// </summary>
+            [SpedCampos(11, "COD_LST", "C", 5, 0, false)]
+            public string CodLst { get; set; }
+
+            /// <summary>
+            /// Alíquota de ICMS aplicável ao item nas operações internas.
+            /// </summary>
+            [SpedCampos(12, "ALIQ_ICMS", "N", 6, 2, false)]
+            public decimal AliqIcms { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO 0500: PLANO DE CONTAS CONTÁBEIS
+        /// </summary>
+        public class Registro0500 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0500" />.
+            /// </summary>
+            public Registro0500()
+            {
+                Reg = "0500";
+            }
+
+            /// <summary>
+            ///     Data de inclusão/alteração
+            /// </summary>
+            [SpedCampos(2, "DT_ALT", "N", 8, 0, true)]
+            public DateTime DtAlt { get; set; }
+
+            /// <summary>
+            ///     Código da natureza da conta/grupo de contas:
+            ///     01 - Contas de ativo;
+            ///     02 - Contas de passivo;
+            ///     03 - Patrimônio líquido;
+            ///     04 - Contas de resultado;
+            ///     05 - Contas de compensação;
+            ///     09 - Outras.
+            /// </summary>
+            [SpedCampos(3, "COD_NAT_CC", "C", 2, 0, true)]
+            public int CodNatCc { get; set; }
+
+            /// <summary>
+            ///     Indicador do tipo de conta: S - Sintética (grupo de contas); A - Analítica (conta).
+            /// </summary>
+            [SpedCampos(4, "IND_CTA", "C", 1, 0, true)]
+            public string IndCta { get; set; }
+
+            /// <summary>
+            ///     Nível da conta analítica/grupo de contas.
+            /// </summary>
+            [SpedCampos(5, "NIVEL", "N", 5, 0, true)]
+            public int Nivel { get; set; }
+
+            /// <summary>
+            ///     Código da conta analítica/grupo de contas.
+            /// </summary>
+            [SpedCampos(6, "COD_CTA", "C", 60, 0, true)]
+            public string CodCta { get; set; }
+
+            /// <summary>
+            ///     Nome da conta analítica/grupo de contas.
+            /// </summary>
+            [SpedCampos(7, "NOME_CTA", "C", 60, 0, true)]
+            public string NomeCta { get; set; }
+
+            /// <summary>
+            /// Código do item.
+            /// </summary>
+            [SpedCampos(8, "COD_CTA_REF", "C", 60, 0, false)]
+            public string CodCtaRef { get; set; }
+
+            /// <summary>
+            /// Descrição do item.
+            /// </summary>
+            [SpedCampos(9, "CNPJ_EST", "T", 14, 0, false)]
+            public string CnpjEst { get; set; }
+        }
+		
+		/// <summary>
+        /// REGISTRO 0990: ENCERRAMENTO DO BLOCO 0
+        /// </summary>
         public class Registro0990 : RegistroBaseSped
         {
             public Registro0990()
