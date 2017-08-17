@@ -1000,6 +1000,122 @@ namespace SpedBr.EfdContribuicoes
             public string CodCta { get; set; }
         }
 
+        public class RegistroC400 : RegistroBaseSped
+        {
+            public RegistroC400()
+            {
+                Reg = "C400";
+            }
+
+            [SpedCampos(2, "COD_MOD", "C", 2, 0, true)]
+            public string CodMod { get; set; }
+
+            [SpedCampos(3, "ECF_MOD", "C", 20, 0, true)]
+            public string EcfMod { get; set; }
+
+            [SpedCampos(4, "ECF_FAB", "C", 20, 0, true)]
+            public string EcfFab { get; set; }
+
+            [SpedCampos(5, "ECF_CX", "N", 3, 0, true)]
+            public int EcfCx { get; set; }
+        }
+
+        public class RegistroC405 : RegistroBaseSped
+        {
+            public RegistroC405()
+            {
+                Reg = "C405";
+            }
+
+            [SpedCampos(2, "DT_DOC", "N", 8, 0, true)]
+            public DateTime DtDoc { get; set; }
+
+            [SpedCampos(3, "CRO", "N", 3, 0, true)]
+            public int Cro { get; set; }
+
+            [SpedCampos(4, "CRZ", "N", 6, 0, true)]
+            public int Crz { get; set; }
+
+            [SpedCampos(5, "NUM_COO_FIN", "N", 6, 0, true)]
+            public int NumCooFin { get; set; }
+
+            [SpedCampos(6, "GT_FIN", "N", 0, 2, true)]
+            public decimal GtFin { get; set; }
+
+            [SpedCampos(7, "VL_BRT", "N", 0, 2, true)]
+            public decimal VlBrt { get; set; }
+        }
+
+        public class RegistroC481 : RegistroBaseSped
+        {
+            public RegistroC481()
+            {
+                Reg = "C481";
+            }
+
+            [SpedCampos(2, "CST_PIS", "N", 2, 0, true)]
+            public int CstPis { get; set; }
+
+            [SpedCampos(3, "VL_ITEM", "N", 0, 2, true)]
+            public decimal VlItem { get; set; }
+
+            [SpedCampos(4, "VL_BC_PIS", "N", 0, 2, false)]
+            public decimal? VlBcPis { get; set; }
+
+            [SpedCampos(5, "ALIQ_PIS", "N", 8, 4, false)]
+            public decimal? AliqPis { get; set; }
+
+            [SpedCampos(6, "QUANT_BC_PIS", "N", 0, 3, false)]
+            public decimal? QuantBcPis { get; set; }
+
+            [SpedCampos(7, "ALIQ_PIS_QUANT", "N", 0, 4, false)]
+            public decimal? AliqPisQuant { get; set; }
+
+            [SpedCampos(8, "VL_PIS", "N", 0, 2, false)]
+            public decimal? VlPis { get; set; }
+
+            [SpedCampos(9, "COD_ITEM", "C", 60, 0, false)]
+            public string CodItem { get; set; }
+
+            [SpedCampos(10, "COD_CTA", "C", 60, 0, false)]
+            public string CodCta { get; set; }
+        }
+
+        public class RegistroC485 : RegistroBaseSped
+        {
+            public RegistroC485()
+            {
+                Reg = "C485";
+            }
+
+            [SpedCampos(2, "CST_COFINS", "N", 2, 0, true)]
+            public int CstCofins { get; set; }
+
+            [SpedCampos(3, "VL_ITEM", "N", 0, 2, true)]
+            public decimal VlItem { get; set; }
+
+            [SpedCampos(4, "VL_BC_COFINS", "N", 0, 2, false)]
+            public decimal? VlBcCofins { get; set; }
+
+            [SpedCampos(5, "ALIQ_COFINS", "N", 8, 4, false)]
+            public decimal? AliqCofins { get; set; }
+
+            [SpedCampos(6, "QUANT_BC_COFINS", "N", 0, 3, false)]
+            public decimal? QuantBcCofins { get; set; }
+
+            [SpedCampos(7, "ALIQ_COFINS_QUANT", "N", 0, 4, false)]
+            public decimal? AliqCofinsQuant { get; set; }
+
+            [SpedCampos(8, "VL_COFINS", "N", 0, 2, false)]
+            public decimal? VlCofins { get; set; }
+
+            [SpedCampos(9, "COD_ITEM", "C", 60, 0, false)]
+            public string CodItem { get; set; }
+
+            [SpedCampos(10, "COD_CTA", "C", 60, 0, false)]
+            public string CodCta { get; set; }
+        }
+
         public class RegistroC500 : RegistroBaseSped
         {
             /// <summary>
