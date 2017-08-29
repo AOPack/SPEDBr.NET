@@ -143,7 +143,7 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(4, "COD_TIPO_CONT", "N", 1, 0, false)]
             public int CodTipoCont { get; set; }
 
-            [SpedCampos(5, "IND_REG_CUM", "N", 1, 0, false)]
+            [SpedCampos(5, "IND_REG_CUM", "BLANK", 1, 0, false)]
             public int IndRegCum { get; set; }
         }
 
