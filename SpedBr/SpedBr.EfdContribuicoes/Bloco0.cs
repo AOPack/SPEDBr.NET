@@ -144,7 +144,7 @@ namespace SpedBr.EfdContribuicoes
             public int CodTipoCont { get; set; }
 
             [SpedCampos(5, "IND_REG_CUM", "N", 1, 0, false)]
-            public int IndRegCum { get; set; }
+            public int? IndRegCum { get; set; }
         }
 
         public class Registro0140 : RegistroBaseSped
@@ -395,7 +395,7 @@ namespace SpedBr.EfdContribuicoes
             /// <summary>
             ///     Descrição da natureza da operação/prestação
             /// </summary>
-            [SpedCampos(3, "DESCR_NAT", "C", 200, 0, true)]
+            [SpedCampos(3, "DESCR_NAT", "C", 250, 0, true)]
             public string DescrNat { get; set; }
         }
 
