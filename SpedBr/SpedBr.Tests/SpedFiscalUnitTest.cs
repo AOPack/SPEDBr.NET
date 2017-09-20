@@ -29,7 +29,7 @@ namespace SpedBr.Tests
 
             string errosEncontrados = string.Empty;
 
-            var result = reg0000.EscreverCampos(new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1), out errosEncontrados);
+            var result = reg0000.EscreverCampos(out errosEncontrados);
         }
 
         [TestMethod]

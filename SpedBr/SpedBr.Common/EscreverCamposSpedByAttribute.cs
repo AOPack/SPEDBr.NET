@@ -123,14 +123,17 @@ namespace SpedBr.Common
 
         private static InformationType ObtemTipoDaPropriedade(System.Reflection.PropertyInfo property)
         {
-            if (property.PropertyType == typeof (decimal))
+            if (property.PropertyType == typeof(decimal))
                 return InformationType.Decimal;
-            if (property.PropertyType == typeof (decimal?))
+            if (property.PropertyType == typeof(decimal?))
                 return InformationType.NullableDecimal;
-            if (property.PropertyType == typeof (DateTime))
+            if (property.PropertyType == typeof(DateTime))
                 return InformationType.DateTime;
-            if (property.PropertyType == typeof (DateTime?))
+            if (property.PropertyType == typeof(DateTime?))
                 return InformationType.NullableDateTime;
+            if (property.PropertyType == typeof(Int32) ||
+                property.PropertyType == typeof(Int32?))
+                return InformationType.CodeOrNumber;
 
             return InformationType.Generic;
         }
@@ -156,7 +159,7 @@ namespace SpedBr.Common
 
         private static SpedRegistrosAttribute ObtemAtributoAtual(Type tipo)
         {
-            return (SpedRegistrosAttribute) Attribute.GetCustomAttribute(tipo, typeof (SpedRegistrosAttribute));
+            return (SpedRegistrosAttribute)Attribute.GetCustomAttribute(tipo, typeof(SpedRegistrosAttribute));
         }
 
         private static List<System.Reflection.PropertyInfo> ObtemListaComPropriedadesOrdenadas(Type tipo)
@@ -164,7 +167,7 @@ namespace SpedBr.Common
             /*
              * http://stackoverflow.com/questions/22306689/get-properties-of-class-by-order-using-reflection
              */
-            return tipo.GetProperties().OrderBy(p => p.GetCustomAttributes(typeof (SpedCamposAttribute), true)
+            return tipo.GetProperties().OrderBy(p => p.GetCustomAttributes(typeof(SpedCamposAttribute), true)
                 .Cast<SpedCamposAttribute>()
                 .Select(a => a.Ordem)
                 .FirstOrDefault())
@@ -194,10 +197,9 @@ namespace SpedBr.Common
         /// Escrever campos p/ qualquer arquivo do projeto SPED (Contábil, Fiscal, Pis/Cofins)
         /// </summary>
         /// <param name="source">Objeto com os dados a serem tratados e gerados na linha do arquivo.</param>
-        /// <param name="competenciaDeclaracao">Mês a que se referem as informações no arquivo(exceto informações extemporâneas).</param>
         /// <param name="tryTrim">Remove a quebra de linha no final de cada registro.</param>
         /// <returns>Linha de arquivo SPED escrita e formatada.</returns>
-        public static string EscreverCampos(this object source, DateTime competenciaDeclaracao, bool tryTrim = false)
+        public static string EscreverCampos(this object source, bool tryTrim)
         {
             var type = ObtemTipo(source);
 
@@ -208,6 +210,8 @@ namespace SpedBr.Common
             var dataObrigatoriedadeInicial = spedRegistroAttr?.ObrigatoriedadeInicial.ToDateTimeNullable();
             var dataObrigatoriedadeFinal = spedRegistroAttr?.ObrigatoriedadeFinal.ToDateTimeNullable();
 
+            var competenciaDeclaracao = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            
             var deveGerarCamposDoRegistro =
                 VerificaObrigatoriedadeRegistro(new Tuple<DateTime?, DateTime?, DateTime>(dataObrigatoriedadeInicial,
                     dataObrigatoriedadeFinal, competenciaDeclaracao));
@@ -267,11 +271,88 @@ namespace SpedBr.Common
         /// </summary>
         /// <param name="source">Objeto com os dados a serem tratados e gerados na linha do arquivo.</param>
         /// <param name="competenciaDeclaracao">Mês a que se referem as informações no arquivo(exceto informações extemporâneas).</param>
+        /// <param name="tryTrim">Remove a quebra de linha no final de cada registro.</param>
+        /// <returns>Linha de arquivo SPED escrita e formatada.</returns>
+        public static string EscreverCampos(this object source, DateTime? competenciaDeclaracao = null, bool tryTrim = false)
+        {
+            var type = ObtemTipo(source);
+
+            var registroAtual = ObtemRegistroAtual(type);
+
+            var spedRegistroAttr = ObtemAtributoAtual(type);
+
+            var dataObrigatoriedadeInicial = spedRegistroAttr?.ObrigatoriedadeInicial.ToDateTimeNullable();
+            var dataObrigatoriedadeFinal = spedRegistroAttr?.ObrigatoriedadeFinal.ToDateTimeNullable();
+
+            if (!competenciaDeclaracao.HasValue)
+                competenciaDeclaracao = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            else
+                competenciaDeclaracao = new DateTime(competenciaDeclaracao.Value.Year, competenciaDeclaracao.Value.Month, 1);
+
+            var deveGerarCamposDoRegistro =
+                VerificaObrigatoriedadeRegistro(new Tuple<DateTime?, DateTime?, DateTime>(dataObrigatoriedadeInicial,
+                    dataObrigatoriedadeFinal, competenciaDeclaracao.Value));
+
+            var listaComPropriedadesOrdenadas = ObtemListaComPropriedadesOrdenadas(type);
+
+            var sb = new StringBuilder();
+            if (deveGerarCamposDoRegistro)
+            {
+                foreach (var property in listaComPropriedadesOrdenadas)
+                {
+                    sb.Append("|");
+                    foreach (
+                        var spedCampoAttr in
+                            from Attribute attr in property.GetCustomAttributes(true) select attr as SpedCamposAttribute
+                        )
+                    {
+                        if (spedCampoAttr == null)
+                            throw new Exception(
+                                $"O campo {property.Name} no registro {registroAtual} não possui atributo SPED definido!");
+
+                        var propertyValue = RegistroBaseSped.GetPropValue(source, property.Name);
+                        var propertyValueToStringSafe = propertyValue.ToStringSafe().Trim();
+
+                        var isRequired = spedCampoAttr.IsObrigatorio;
+                        var campoEscrito =
+                            propertyValueToStringSafe.EscreverCampo(
+                                new Tuple<
+                                    InformationType,
+                                    InformationType,
+                                    bool,
+                                    int,
+                                    int>(
+                                    ObtemTipoDoAtributo(spedCampoAttr),
+                                    ObtemTipoDaPropriedade(property),
+                                    isRequired,
+                                    spedCampoAttr.Tamanho,
+                                    spedCampoAttr.QtdCasas
+                                    ));
+
+                        if (campoEscrito == Constants.StructuralError)
+                            throw new Exception(
+                                $"O campo {spedCampoAttr.Ordem} - {spedCampoAttr.Campo} no Registro {registroAtual} é obrigatório e não foi informado!");
+
+                        sb.Append(campoEscrito);
+                    }
+                }
+                sb.Append("|");
+                sb.Append(Environment.NewLine);
+            }
+
+            return tryTrim ? sb.ToString().Trim() : sb.ToString();
+        }
+
+        /// <summary>
+        /// Escrever campos p/ qualquer arquivo do projeto SPED (Contábil, Fiscal, Pis/Cofins)
+        /// </summary>
+        /// <param name="source">Objeto com os dados a serem tratados e gerados na linha do arquivo.</param>
+        /// <param name="competenciaDeclaracao">Mês a que se referem as informações no arquivo(exceto informações extemporâneas).</param>
         /// <param name="errosEncontrados">Lista com erros encontrados no processo de escrita.</param>
         /// <param name="tryTrim">Remove a quebra de linha no final de cada registro.</param>
         /// <returns>Linha de arquivo SPED escrita e formatada.</returns>
-        public static string EscreverCampos(this object source, DateTime competenciaDeclaracao,
-            out string errosEncontrados, bool tryTrim = false)
+        public static string EscreverCampos(this object source, out string errosEncontrados, 
+            DateTime? competenciaDeclaracao = null, bool tryTrim = false)
         {
             errosEncontrados = string.Empty;
 
@@ -284,9 +365,14 @@ namespace SpedBr.Common
             var dataObrigatoriedadeInicial = spedRegistroAttr?.ObrigatoriedadeInicial.ToDateTimeNullable();
             var dataObrigatoriedadeFinal = spedRegistroAttr?.ObrigatoriedadeFinal.ToDateTimeNullable();
 
+            if (!competenciaDeclaracao.HasValue)
+                competenciaDeclaracao = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            else
+                competenciaDeclaracao = new DateTime(competenciaDeclaracao.Value.Year, competenciaDeclaracao.Value.Month, 1);
+
             var deveGerarCamposDoRegistro =
                 VerificaObrigatoriedadeRegistro(new Tuple<DateTime?, DateTime?, DateTime>(dataObrigatoriedadeInicial,
-                    dataObrigatoriedadeFinal, competenciaDeclaracao));
+                    dataObrigatoriedadeFinal, competenciaDeclaracao.Value));
 
             var listaComPropriedadesOrdenadas = ObtemListaComPropriedadesOrdenadas(type);
 
