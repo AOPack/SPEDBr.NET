@@ -398,7 +398,7 @@ namespace SpedBr.EfdContribuicoes
             ///     sem contribuição apurada a pagar, conforme a Tabela 4.3.3.
             /// </summary>
             [SpedCampos(2, "CST_PIS", "C", 2, 0, true)]
-            public int CstPis { get; set; }
+            public string CstPis { get; set; }
 
             /// <summary>
             ///     Valor total da receita bruta no período. 
@@ -560,7 +560,7 @@ namespace SpedBr.EfdContribuicoes
             public decimal VlCredDif { get; set; }
 
             /// <summary>
-            ///     Valor Total do Crédito Disponível relativo ao Período (08  09 – 10 – 11)
+            ///     Valor Total do Crédito Disponível relativo ao Período (08 + 09 – 10 – 11)
             /// </summary>
             [SpedCampos(12, "VL_CRED_DISP", "N", 0, 2, true)]
             public decimal VlCredDisp { get; set; }
@@ -669,8 +669,8 @@ namespace SpedBr.EfdContribuicoes
             ///     Informar a parcela do valor do Campo 08 (QUANT_BC_COFINS) vinculada 
             ///     ao tipo de crédito escriturado em M500. 
             ///
-            /// O valor deste campo será transportado para o Campo 06 (QUANT_BC_COFINS) do registro M500.
-            /// <summary>
+            ///O valor deste campo será transportado para o Campo 06 (QUANT_BC_COFINS) do registro M500.
+            /// </summary>
             [SpedCampos(9, "QUANT_BC_COFINS", "N", 0, 3, false)]
             public decimal? QuantBcCofins { get; set; }
 
@@ -680,10 +680,10 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(10, "DESC_CRED", "C", 60, 0, false)]
             public string DescCred { get; set; }
         }
-
+      
         /// <summary>
         ///     REGISTRO M600: CONSOLIDAÇÃO DA CONTRIBUIÇÃO PARA A SEGURIDADE SOCIAL - COFINS DO PERIODO
-        /// <summary>
+        /// </summary>
         public class RegistroM600 : RegistroBaseSped
         {
             public RegistroM600()
@@ -868,7 +868,7 @@ namespace SpedBr.EfdContribuicoes
             ///     sem contribuição apurada a pagar, conforme a Tabela 4.3.3.
             /// </summary>
             [SpedCampos(2, "CST_COFINS", "C", 2, 0, true)]
-            public int CstCofins { get; set; }
+            public string CstCofins { get; set; }
 
             /// <summary>
             ///     Valor total da receita bruta no período. 
