@@ -27,6 +27,12 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2015 - para gera
 - [x] [SINTEGRABr](https://github.com/samuelroliveira/SINTEGRABr)
 - [ ] [FISCALBr](https://github.com/samuelroliveira/FiscalBr)
 
+## TODO
+
+- [ ] Mapear enums restantes do SPED.
+- [ ] Mapear registros restantes da EFD Contribuições. [#28](https://github.com/samuelrochaoliveira/SPEDBr/issues/28)
+- [ ] Melhorar performance na geração das linhas, monitorar tempo da geração.
+
 ## Exemplos
 
 ###### EFD Contribuições

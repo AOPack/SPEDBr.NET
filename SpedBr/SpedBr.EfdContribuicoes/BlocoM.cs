@@ -92,7 +92,7 @@ namespace SpedBr.EfdContribuicoes
             public decimal VlCredDif { get; set; }
 
             /// <summary>
-            ///     Valor Total do Crédito Disponível relativo ao Período (08 + 09 – 10 – 11)
+            ///     Valor Total do Crédito Disponível relativo ao Período (08  09 – 10 – 11)
             /// </summary>
             [SpedCampos(12, "VL_CRED_DISP", "N", 0, 2, true)]
             public decimal VlCredDisp { get; set; }
@@ -680,7 +680,7 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(10, "DESC_CRED", "C", 60, 0, false)]
             public string DescCred { get; set; }
         }
-
+      
         /// <summary>
         ///     REGISTRO M600: CONSOLIDAÇÃO DA CONTRIBUIÇÃO PARA A SEGURIDADE SOCIAL - COFINS DO PERIODO
         /// </summary>

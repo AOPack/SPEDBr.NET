@@ -28,7 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnGerarArquivo = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // btnGerarArquivo
+            // 
+            this.btnGerarArquivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGerarArquivo.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnGerarArquivo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnGerarArquivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGerarArquivo.Location = new System.Drawing.Point(745, 479);
+            this.btnGerarArquivo.Name = "btnGerarArquivo";
+            this.btnGerarArquivo.Size = new System.Drawing.Size(90, 30);
+            this.btnGerarArquivo.TabIndex = 0;
+            this.btnGerarArquivo.Text = "&Gerar Arquivo";
+            this.btnGerarArquivo.UseVisualStyleBackColor = true;
             // 
             // ucGerarArquivo
             // 
@@ -36,7 +50,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.ForeColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnGerarArquivo);
             this.Name = "ucGerarArquivo";
             this.Size = new System.Drawing.Size(838, 512);
             this.ResumeLayout(false);
@@ -44,5 +58,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnGerarArquivo;
     }
 }

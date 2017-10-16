@@ -137,13 +137,13 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(2, "COD_INC_TRIB", "N", 1, 0, true)]
             public int CodIncTrib { get; set; }
 
-            [SpedCampos(3, "IND_APRO_CRED", "N", 1, 0, false)]
-            public int IndAproCred { get; set; }
+            [SpedCampos(3, "IND_APRO_CRED", "BLANK", 1, 0, false)]
+            public int? IndAproCred { get; set; }
 
-            [SpedCampos(4, "COD_TIPO_CONT", "N", 1, 0, false)]
-            public int CodTipoCont { get; set; }
+            [SpedCampos(4, "COD_TIPO_CONT", "BLANK", 1, 0, false)]
+            public int? CodTipoCont { get; set; }
 
-            [SpedCampos(5, "IND_REG_CUM", "N", 1, 0, false)]
+            [SpedCampos(5, "IND_REG_CUM", "BLANK", 1, 0, false)]
             public int? IndRegCum { get; set; }
         }
 
