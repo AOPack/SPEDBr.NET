@@ -419,20 +419,26 @@ namespace SpedBr.EfdContribuicoes
             public DateTime DtAlt { get; set; }
 
             /// <summary>
-            ///     Código da natureza da conta/grupo de contas:
-            ///     01 - Contas de ativo;
-            ///     02 - Contas de passivo;
-            ///     03 - Patrimônio líquido;
-            ///     04 - Contas de resultado;
-            ///     05 - Contas de compensação;
-            ///     09 - Outras.
+            ///     Código da natureza da conta/grupo de contas.
             /// </summary>
+            /// <remarks>
+            ///     01 - Contas de ativo;<para/>
+            ///     02 - Contas de passivo;<para/>
+            ///     03 - Patrimônio líquido;<para/>
+            ///     04 - Contas de resultado;<para/>
+            ///     05 - Contas de compensação; e<para/>
+            ///     09 - Outras.
+            /// </remarks>
             [SpedCampos(3, "COD_NAT_CC", "C", 2, 0, true)]
             public int CodNatCc { get; set; }
 
             /// <summary>
-            ///     Indicador do tipo de conta: S - Sintética (grupo de contas); A - Analítica (conta).
+            ///     Indicador do tipo de conta.
             /// </summary>
+            /// <remarks>
+            ///  S - Sintética (grupo de contas); e<para/>
+            ///  A - Analítica (conta).
+            /// </remarks>
             [SpedCampos(4, "IND_CTA", "C", 1, 0, true)]
             public string IndCta { get; set; }
 

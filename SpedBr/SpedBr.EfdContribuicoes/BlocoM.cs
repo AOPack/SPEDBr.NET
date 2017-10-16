@@ -398,7 +398,7 @@ namespace SpedBr.EfdContribuicoes
             ///     sem contribuição apurada a pagar, conforme a Tabela 4.3.3.
             /// </summary>
             [SpedCampos(2, "CST_PIS", "C", 2, 0, true)]
-            public string CstPis { get; set; }
+            public int CstPis { get; set; }
 
             /// <summary>
             ///     Valor total da receita bruta no período. 
@@ -647,7 +647,6 @@ namespace SpedBr.EfdContribuicoes
             ///       (Crédito sobre operações vinculadas a mais de um tipo de receita): 
             ///       Informar a parcela do valor do Campo 06 (VL_BC_COFINS_NC) vinculada especificamente ao tipo 
             ///       de crédito escriturado em M500. 
-            ///
             ///       O valor deste campo será transportado para o Campo 04 (VL_BC_COFINS) do registro M500.
             /// </summary>
             [SpedCampos(7, "VL_BC_COFINS", "N", 0, 2, false)]
@@ -668,8 +667,7 @@ namespace SpedBr.EfdContribuicoes
             ///     - Para os CST_COFINS = "53", “54", "55" e "56" (crédito vinculado a mais de um tipo de receita): 
             ///     Informar a parcela do valor do Campo 08 (QUANT_BC_COFINS) vinculada 
             ///     ao tipo de crédito escriturado em M500. 
-            ///
-            ///O valor deste campo será transportado para o Campo 06 (QUANT_BC_COFINS) do registro M500.
+            ///     O valor deste campo será transportado para o Campo 06 (QUANT_BC_COFINS) do registro M500.
             /// </summary>
             [SpedCampos(9, "QUANT_BC_COFINS", "N", 0, 3, false)]
             public decimal? QuantBcCofins { get; set; }
@@ -868,7 +866,7 @@ namespace SpedBr.EfdContribuicoes
             ///     sem contribuição apurada a pagar, conforme a Tabela 4.3.3.
             /// </summary>
             [SpedCampos(2, "CST_COFINS", "C", 2, 0, true)]
-            public string CstCofins { get; set; }
+            public int CstCofins { get; set; }
 
             /// <summary>
             ///     Valor total da receita bruta no período. 
