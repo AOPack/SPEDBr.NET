@@ -399,6 +399,106 @@ namespace SpedBr.EfdContribuicoes
             public string DescrNat { get; set; }
         }
 
+        /// <summary>
+        ///     REGISTRO 0500: PLANO DE CONTAS CONTÁBEIS
+        /// </summary>
+        public class Registro0500 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0500" />.
+            /// </summary>
+            public Registro0500()
+            {
+                Reg = "0500";
+            }
+
+            /// <summary>
+            ///     Data de inclusão/alteração
+            /// </summary>
+            [SpedCampos(2, "DT_ALT", "N", 8, 0, true)]
+            public DateTime DtAlt { get; set; }
+
+            /// <summary>
+            ///     Código da natureza da conta/grupo de contas:
+            ///     01 - Contas de ativo;
+            ///     02 - Contas de passivo;
+            ///     03 - Patrimônio líquido;
+            ///     04 - Contas de resultado;
+            ///     05 - Contas de compensação;
+            ///     09 - Outras.
+            /// </summary>
+            [SpedCampos(3, "COD_NAT_CC", "C", 2, 0, true)]
+            public int CodNatCc { get; set; }
+
+            /// <summary>
+            ///     Indicador do tipo de conta: S - Sintética (grupo de contas); A - Analítica (conta).
+            /// </summary>
+            [SpedCampos(4, "IND_CTA", "C", 1, 0, true)]
+            public string IndCta { get; set; }
+
+            /// <summary>
+            ///     Nível da conta analítica/grupo de contas.
+            /// </summary>
+            [SpedCampos(5, "NIVEL", "N", 5, 0, true)]
+            public int Nivel { get; set; }
+
+            /// <summary>
+            ///     Código da conta analítica/grupo de contas.
+            /// </summary>
+            [SpedCampos(6, "COD_CTA", "C", 255, 0, true)]
+            public string CodCta { get; set; }
+
+            /// <summary>
+            ///     Nome da conta analítica/grupo de contas.
+            /// </summary>
+            [SpedCampos(7, "NOME_CTA", "C", 60, 0, true)]
+            public string NomeCta { get; set; }
+
+            /// <summary>
+            ///     Codigo da conta correlacionada no Plano de Contas Referenciado, publicado pela RFB.
+            /// </summary>
+            [SpedCampos(8, "COD_CTA_REF", "C", 60, 0, false)]
+            public string CodCtaRef { get; set; }
+
+            /// <summary>
+            ///     CNPJ do estabelecimento, no caso da conta informada no campo COD_CTA ser específica de um estabelecimento.
+            /// </summary>
+            [SpedCampos(9, "CNPJ_EST", "N", 14, 0, false)]
+            public string CnpjEst { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO 0600: CENTRO DE CUSTOS
+        /// </summary>
+        public class Registro0600 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0600" />.
+            /// </summary>
+            public Registro0600()
+            {
+                Reg = "0600";
+            }
+
+            /// <summary>
+            ///     Data da inclusão/alteração
+            /// </summary>
+            [SpedCampos(2, "DT_ALT", "N", 8, 0, true)]
+            public DateTime DtAlt { get; set; }
+
+            /// <summary>
+            ///     Código do centro de custos.
+            /// </summary>
+            [SpedCampos(3, "COD_CCUS", "C", 255, 0, true)]
+            public string CodCcus { get; set; }
+
+            /// <summary>
+            ///     Nome do centro de custos.
+            /// </summary>
+            [SpedCampos(4, "CCUS", "C", 60, 0, true)]
+            public string Ccus { get; set; }
+        }
+
         public class Registro0990 : RegistroBaseSped
         {
             public Registro0990()
