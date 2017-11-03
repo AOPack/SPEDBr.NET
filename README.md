@@ -2,6 +2,10 @@
 ###### SITE OFICIAL DO SPED: http://sped.rfb.gov.br/
 Biblioteca gratuita  - desenvolvida com Visual Studio Community 2015 - para geração dos arquivos SPED e demais declarações necessárias no cenário contábil/fiscal brasileiro.
 
+![#f03c15](https://placehold.it/15/f03c15/000000?text=+) <b>AVISO IMPORTANTE</b>
+
+Esta biblioteca será atualizada até 31/12/2017, após esse prazo será descontinuada e novas atualizações serão feitas em um novo repositório, para acessar [clique aqui](https://github.com/samuelrochaoliveira/SPEDBr).
+
 ## Sumário
 
 - [Declarações](#declaracoes)
