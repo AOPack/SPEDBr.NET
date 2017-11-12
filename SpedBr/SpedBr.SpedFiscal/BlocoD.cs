@@ -222,7 +222,45 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(4, "VL_ICMS_UF_REM", "N", 0, 2, true)]
             public decimal VlIcmsUfRem { get; set; }
-        }        
+        }
+
+        /// <summary>
+        ///     REGISTRO D110: ITENS DO DOCUMENTO - NOTA FISCAL DE SERVIÇOS DE TRANSPORTE (CODIGO 07)
+        /// </summary>
+        public class RegistroD110 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="RegistroD110"/>.
+            /// </summary>
+            public RegistroD110()
+            {
+                Reg = "D110";
+            }
+
+            /// <summary>
+            /// Numero sequencial do item no documento fiscal
+            /// </summary>
+            [SpedCampos(2, "NUM_ITEM", "N", 3, 0, true)]
+            public decimal NumItem { get; set; }
+
+            /// <summary>
+            /// Codigo do item (campo 02 do Registro 0200)
+            /// </summary>
+            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            /// Valor do serviço
+            /// </summary>
+            [SpedCampos(4, "VL_SERV", "N", 0, 2, true)]
+            public decimal VlServ { get; set; }
+
+            /// <summary>
+            /// Outros valores
+            /// </summary>
+            [SpedCampos(5, "VL_OUT", "N", 0, 2, true)]
+            public decimal VlOut { get; set; }
+        }
 
         /// <summary>
         ///     REGISTRO D190: REGISTRO ANALÍTICO DOS DOCUMENTOS (CÓDIGO 07, 08, 8B, 09, 10, 11, 26, 27 e 57).
