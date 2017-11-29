@@ -258,8 +258,46 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             /// Outros valores
             /// </summary>
-            [SpedCampos(5, "VL_OUT", "N", 0, 2, true)]
+            [SpedCampos(5, "VL_OUT", "N", 0, 2, false)]
             public decimal VlOut { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO D120: COMPLEMENTO DA NOTA FISCAL DE SERVIÇOS DE TRANSPORTE (CODIGO 07)
+        /// </summary>
+        public class RegistroD120 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="RegistroD120"/>.
+            /// </summary>
+            public RegistroD120()
+            {
+                Reg = "D120";
+            }
+
+            /// <summary>
+            /// Codigo do municipio de origem do serviço, conforme a tabela IBGE(Preencher com 9999999, se Exterior)
+            /// </summary>
+            [SpedCampos(2, "COD_MUN_ORIG", "N", 7, 0, true)]
+            public decimal CodMunOrig { get; set; }
+
+            /// <summary>
+            /// Codigo do municipio de destino, conforme a tabela IBGE(Preencher com 9999999, se Exterior)
+            /// </summary>
+            [SpedCampos(3, "COD_MUN_DEST", "N", 7, 0, true)]
+            public decimal CodMunDest { get; set; }
+
+            /// <summary>
+            /// Placa de identificacao do veiculo
+            /// </summary>
+            [SpedCampos(4, "VEIC_ID", "C", 7, 0, false)]
+            public decimal VeicId { get; set; }
+
+            /// <summary>
+            /// Sigla da UF da placa do veiculo
+            /// </summary>
+            [SpedCampos(5, "UF_ID", "C", 2, 0, false)]
+            public decimal UfId { get; set; }
         }
 
         /// <summary>
