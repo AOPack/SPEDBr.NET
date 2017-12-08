@@ -365,6 +365,170 @@ namespace SpedBr.SpedFiscal
         }
 
         /// <summary>
+        ///     REGISTRO D500: NOTA FISCAL DE SERVIÇO DE COMUNICAÇÃO (CÓDIGO 21) E NOTA FISCAL DE SERVIÇO DE TELECOMUNICAÇÃO (CÓDIGO 22)
+        /// </summary>
+        public class RegistroD500 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="RegistroD500"/>.
+            /// </summary>
+            public RegistroD500()
+            {
+                Reg = "D500";
+            }
+
+            /// <summary>
+            ///     Indicador do tipo de operação:
+            ///     0 - Aquisição;
+            ///     1 - Prestação;
+            /// </summary>
+            [SpedCampos(2, "IND_OPER", "C", 1, 0, true)]
+            public string IndOper { get; set; }
+
+            /// <summary>
+            ///     Indicador do emitente do documento fiscal:
+            ///     0 - Emissao própria;
+            ///     1 - Terceiros;
+            /// </summary>
+            [SpedCampos(3, "IND_EMIT", "C", 1, 0, true)]
+            public string IndEmit { get; set; }
+
+            /// <summary>
+            ///     Código do participante (campo 02 do Registro 0150);
+            ///     -do prestador do serviço, no caso de aquisição;
+            ///     -do tomador do serviço, no caso de prestação;
+            /// </summary>
+            [SpedCampos(4, "COD_PART", "C", 60, 0, true)]
+            public string CodPart { get; set; }
+
+            /// <summary>
+            ///     Código do modelo do documento fiscal, conforme a Tabela 4.1.1
+            /// </summary>
+            [SpedCampos(5, "COD_MOD", "C", 2, 0, true)]
+            public string CodMod { get; set; }
+
+            /// <summary>
+            ///     Código da situação do documento fiscal, conforme a Tabela 4.1.2
+            /// </summary>
+            [SpedCampos(6, "COD_SIT", "N", 2, 0, true)]
+            public decimal CodSit { get; set; }
+
+            /// <summary>
+            ///     Série do documento fiscal
+            /// </summary>
+            [SpedCampos(7, "SER", "C", 4, 0, false)]
+            public string Ser { get; set; }
+
+            /// <summary>
+            ///     Subsérie do documento fiscal
+            /// </summary>
+            [SpedCampos(8, "SUB", "C", 3, 0, false)]
+            public string Sub { get; set; }
+
+            /// <summary>
+            ///     Número do documento fiscal
+            /// </summary>
+            [SpedCampos(9, "NUM_DOC", "N", 9, 0, true)]
+            public decimal NumDoc { get; set; }
+
+            /// <summary>
+            ///     Data da emissão do documento fiscal
+            /// </summary>
+            [SpedCampos(10, "DT_DOC", "N", 8, 0, true)]
+            public decimal DtDoc { get; set; }
+
+            /// <summary>
+            ///     Data da entrada(aquisição) ou da saida(prestação do serviço)
+            /// </summary>
+            [SpedCampos(11, "DT_A_P", "N", 8, 0, false)]
+            public decimal DtAP { get; set; }
+
+            /// <summary>
+            ///     Valor total do documento fiscal
+            /// </summary>
+            [SpedCampos(12, "VL_DOC", "N", 0, 2, true)]
+            public decimal VlDoc { get; set; }
+
+            /// <summary>
+            ///     Valor total do desconto
+            /// </summary>
+            [SpedCampos(13, "VL_DESC", "N", 0, 2, false)]
+            public decimal VlDesc { get; set; }
+
+            /// <summary>
+            ///     Valor da prestação de serviços
+            /// </summary>
+            [SpedCampos(14, "VL_SERV", "N", 0, 2, true)]
+            public decimal VlServ { get; set; }
+
+            /// <summary>
+            ///     Valor total dos serviços não-tributados pelo ICMS
+            /// </summary>
+            [SpedCampos(15, "VL_SERV_NT", "N", 0, 2, false)]
+            public decimal VlServNt { get; set; }
+
+            /// <summary>
+            ///     Valores cobrados em nome de terceiros
+            /// </summary>
+            [SpedCampos(16, "VL_TERC", "N", 0, 2, false)]
+            public decimal VlTerc { get; set; }
+
+            /// <summary>
+            ///     Valor de outras despesas indicadas no documento fiscal
+            /// </summary>
+            [SpedCampos(17, "VL_DA", "N", 0, 2, false)]
+            public decimal VlDa { get; set; }
+
+            /// <summary>
+            ///     Valor da base de cálculo do ICMS
+            /// </summary>
+            [SpedCampos(18, "VL_BC_ICMS", "N", 0, 2, false)]
+            public decimal VlBcIcms { get; set; }
+
+            /// <summary>
+            ///     Valor do ICMS
+            /// </summary>
+            [SpedCampos(19, "VL_ICMS", "N", 0, 2, false)]
+            public decimal VlIcms { get; set; }
+
+            /// <summary>
+            ///     Código da informação complementar (campo 02 do Registro 0450)
+            /// </summary>
+            [SpedCampos(20, "COD_INF", "C", 6, 0, false)]
+            public string CodInf { get; set; }
+
+            /// <summary>
+            ///     Valor do PIS
+            /// </summary>
+            [SpedCampos(21, "VL_PIS", "N", 0, 2, false)]
+            public decimal VlPis { get; set; }
+
+            /// <summary>
+            ///     Valor total do desconto
+            /// </summary>
+            [SpedCampos(22, "VL_COFINS", "N", 0, 2, false)]
+            public decimal VlCofins { get; set; }
+
+            /// <summary>
+            ///     Código da conta analítica contábil debitada/creditada
+            /// </summary>
+            [SpedCampos(23, "COD_CTA", "C", 0, 0, false)]
+            public string CodCta { get; set; }
+
+            /// <summary>
+            ///     Código do Tipo de Assinante:
+            ///     1 - Comercial/Industrial
+            ///     2 - Poder Público
+            ///     3 - Residencial/Pessoa física
+            ///     4 - Público
+            ///     5 - Semi-Público
+            ///     6 - Outros
+            /// </summary>
+            [SpedCampos(24, "TP_ASSINANTE", "N", 1, 0, false)]
+            public decimal TpAssinante { get; set; }
+        }
+
+        /// <summary>
         ///     REGISTRO D990: ENCERRAMENTO DO BLOCO D.
         /// </summary>
         public class RegistroD990 : RegistroBaseSped
