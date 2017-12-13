@@ -504,7 +504,7 @@ namespace SpedBr.SpedFiscal
             public decimal VlPis { get; set; }
 
             /// <summary>
-            ///     Valor total do desconto
+            ///     Valor da COFINS
             /// </summary>
             [SpedCampos(22, "VL_COFINS", "N", 0, 2, false)]
             public decimal VlCofins { get; set; }
@@ -526,6 +526,141 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(24, "TP_ASSINANTE", "N", 1, 0, false)]
             public decimal TpAssinante { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO D510: ITENS DO DOCUMENTO - NOTA FISCAL DE SERVIÇO DE COMUNICAÇÃO (CÓDIGO 21) E SERVIÇO DE TELECOMUNICAÇÃO (CÓDIGO 22).
+        /// </summary>
+        public class RegistroD510 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="RegistroD510"/>.
+            /// </summary>
+            public RegistroD510()
+            {
+                Reg = "D510";
+            }
+
+            /// <summary>
+            ///     Número sequencial do item no documento fiscal
+            /// </summary>
+            [SpedCampos(2, "NUM_ITEM", "N", 3, 0, true)]
+            public int NumItem { get; set; }
+
+            /// <summary>
+            ///     Código do item (campo 02 do Registro 0200)
+            /// </summary>
+            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            ///     Código de classificação do item do serviço de comunicação ou de telecomunicação, conforme a Tabela 4.4.1
+            /// </summary>
+            [SpedCampos(4, "COD_CLASS", "N", 4, 0, true)]
+            public int CodClass { get; set; }
+
+            /// <summary>
+            ///     Quantidade do item
+            /// </summary>
+            [SpedCampos(5, "QTD", "N", 0, 3, true)]
+            public decimal Qtd { get; set; }
+
+            /// <summary>
+            ///     Unidade do item (Campo 02 do registro 0190)
+            /// </summary>
+            [SpedCampos(6, "UNID", "C", 6, 0, true)]
+            public string Unid { get; set; }
+
+            /// <summary>
+            ///     Valor do item
+            /// </summary>
+            [SpedCampos(7, "VL_ITEM", "N", 0, 2, true)]
+            public decimal Vl_Item { get; set; }
+
+            /// <summary>
+            ///     Valor total do desconto
+            /// </summary>
+            [SpedCampos(8, "VL_DESC", "N", 0, 2, false)]
+            public decimal Vl_Desc { get; set; }
+
+            /// <summary>
+            ///     Código da Situação Tributária, conforme a Tabela indicada no item 4.3.1
+            /// </summary>
+            [SpedCampos(9, "CST_ICMS", "N", 3, 0, true)]
+            public decimal CstIcms { get; set; }
+
+            /// <summary>
+            ///     Código Fiscal de Operação e Prestação
+            /// </summary>
+            [SpedCampos(10, "CFOP", "N", 4, 0, true)]
+            public decimal Cfop { get; set; }
+
+            /// <summary>
+            ///     Valor da base de cálculo do ICMS
+            /// </summary>
+            [SpedCampos(11, "VL_BC_ICMS", "N", 0, 2, false)]
+            public decimal VlBcIcms { get; set; }
+
+            /// <summary>
+            ///     Alíquota do ICMS
+            /// </summary>
+            [SpedCampos(12, "ALIQ_ICMS", "N", 6, 2, false)]
+            public decimal AliqIcms { get; set; }
+
+            /// <summary>
+            ///     Valor do ICMS creditado/debitado
+            /// </summary>
+            [SpedCampos(13, "VL_ICMS", "N", 0, 2, false)]
+            public decimal VlIcms { get; set; }
+
+            /// <summary>
+            ///     Valor da base de cálculo do ICMS de outras UFs
+            /// </summary>
+            [SpedCampos(14, "VL_BC_ICMS_UF", "N", 0, 2, false)]
+            public decimal VlBcIcmsUf { get; set; }
+
+            /// <summary>
+            ///     Valor do ICMS de outras UFs
+            /// </summary>
+            [SpedCampos(15, "VL_ICMS_UF", "N", 0, 2, false)]
+            public decimal VlIcmsUf { get; set; }
+
+            /// <summary>
+            ///     Indicador do tipo de receita:
+            ///     0 - Receita própria - serviços prestados;
+            ///     1 - Receita própria - cobrança de débitos;
+            ///     2 - Receita própria - venda de mercadorias;
+            ///     3 - Receita própria - venda de serviço pré-pago;
+            ///     4 - Outras receitas próprias;
+            ///     5 - Receitas de terceiros (co-faturamento);
+            ///     9 - Outras receitas de terceiros;
+            /// </summary>
+            [SpedCampos(16, "IND_REC", "C", 1, 0, true)]
+            public string IndRec { get; set; }
+
+            /// <summary>
+            ///     Código do participante (campo 02 do Registro 0150) receptor da receita, terceiro da operação, se houver.
+            /// </summary>
+            [SpedCampos(17, "COD_PART", "C", 60, 0, false)]
+            public string CodPart { get; set; }
+
+            /// <summary>
+            ///     Valor do PIS
+            /// </summary>
+            [SpedCampos(18, "VL_PIS", "N", 0, 2, false)]
+            public decimal VlPis { get; set; }
+
+            /// <summary>
+            ///     Valor da COFINS
+            /// </summary>
+            [SpedCampos(19, "VL_COFINS", "N", 0, 2, false)]
+            public decimal VlCofins { get; set; }
+
+            /// <summary>
+            ///     Código da conta analítica contábil debitada/creditada
+            /// </summary>
+            [SpedCampos(20, "COD_CTA", "C", 0, 0, false)]
+            public string CodCta { get; set; }
         }
 
         /// <summary>
