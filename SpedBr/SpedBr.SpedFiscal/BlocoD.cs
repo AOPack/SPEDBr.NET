@@ -115,7 +115,7 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Data da aquisição ou da prestação do serviço
             /// </summary>
-            [SpedCampos(12, "DT_DOC", "N", 8, 0, false)]
+            [SpedCampos(12, "DT_AP", "N", 8, 0, false)]
             public DateTime DtAP { get; set; }
 
             /// <summary>
@@ -188,6 +188,22 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(22, "COD_CTA", "C", 0, 0, false)]
             public string CodCta { get; set; }
+
+            /// <summary>
+            ///     Código do município de origem do serviço, conforme a tabela IBGE (Preencher com 9999999, se Exterior)
+            ///     Guia Prático EFD-ICMS/IPI – Versão 2.0.21
+            ///     Atualização: 22/08/2017
+            /// </summary>
+            [SpedCampos(24, "COD_MUN_ORIG", "N", 7, 0, false)]
+            public string CodMunOrig { get; set; }
+
+            /// <summary>
+            ///     Código do município de destino, conforme a tabela IBGE (Preencher com 9999999, se Exterior)
+            ///     Guia Prático EFD-ICMS/IPI – Versão 2.0.21
+            ///     Atualização: 22/08/2017
+            /// </summary>
+            [SpedCampos(25, "COD_MUN_DEST", "N", 7, 0, false)]
+            public string CodMunDest { get; set; }
         }
 
         /// <summary>
