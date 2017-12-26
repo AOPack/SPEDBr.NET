@@ -1363,6 +1363,76 @@ namespace SpedBr.SpedFiscal
         }
 
         /// <summary>
+        ///     REGISTRO E531: INFORMAÇÕES ADICIONAIS DOS AJUSTES DA APURAÇÃO DO IPI – IDENTIFICAÇÃO DOS DOCUMENTOS FISCAIS(01 e 55)
+        /// </summary>
+        public class RegistroE531 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE531" />.
+            /// </summary>
+            public RegistroE531()
+            {
+                Reg = "E531";
+            }
+
+            /// <summary>
+            ///     Código do participante (campo 02 do Registro 0150):
+            ///     - do emitente do documento ou do remetente das mercadorias, no caso de entradas;
+            ///     - do adquirente, no caso de saídas.
+            /// </summary>
+            [SpedCampos(2, "COD_PART", "C", 60, 0, false)]
+            public string CodPart { get; set; }
+
+            /// <summary>
+            ///     Código do modelo do documento fiscal, conforme a Tabela 4.1.1
+            /// </summary>
+            [SpedCampos(3, "COD_MOD", "C", 2, 0, true)]
+            public string CodMod { get; set; }
+
+            /// <summary>
+            ///     Série do documento fiscal
+            /// </summary>
+            [SpedCampos(4, "SER", "C", 4, 0, false)]
+            public string Ser { get; set; }
+
+            /// <summary>
+            ///     Subsérie do documento fiscal
+            /// </summary>
+            [SpedCampos(5, "SUB", "C", 3, 0, false)]
+            public string Sub { get; set; }
+
+            /// <summary>
+            ///     Número do documento fiscal
+            /// </summary>
+            [SpedCampos(6, "NUM_DOC", "N", 9, 0, true)]
+            public string NumDoc { get; set; }
+
+            /// <summary>
+            ///     Data da emissão do documento fiscal
+            /// </summary>
+            [SpedCampos(7, "DT_DOC", "N", 8, 0, true)]
+            public DateTime DtDoc { get; set; }
+
+            /// <summary>
+            /// Codigo do item (campo 02 do Registro 0200)
+            /// </summary>
+            [SpedCampos(8, "COD_ITEM", "C", 60, 0, true)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            ///     Valor do ajuste para operação/item
+            /// </summary>
+            [SpedCampos(9, "VL_AJ_ITEM", "N", 0, 2, true)]
+            public decimal VlAjItem { get; set; }
+
+            /// <summary>
+            ///     Chave da nota fiscal eletrônica (modelo 55)
+            /// </summary>
+            [SpedCampos(10, "CHV_NFE", "N", 44, 0, false)]
+            public string ChvNfe { get; set; }
+        }
+
+        /// <summary>
         ///     REGISTRO E990: ENCERRAMENTO DO BLOCO E
         /// </summary>
         public class RegistroE990 : RegistroBaseSped

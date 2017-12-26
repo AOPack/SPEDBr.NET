@@ -149,6 +149,14 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(5, "QTD", "N", 0, 3, true)]
             public decimal Qtd { get; set; }
+
+            /// <summary>
+            ///     Quantidade movimentada do item de destino
+            ///     Guia Prático EFD-ICMS/IPI – Versão 2.0.21
+            ///     Atualização: 22/08/2017
+            /// </summary>
+            [SpedCampos(6, "QTD_DEST", "N", 3, 0, false)]
+            public string QtdDest { get; set; }
         }
 
         /// <summary>
