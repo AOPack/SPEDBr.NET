@@ -435,13 +435,13 @@ namespace SpedBr.SpedFiscal
             ///     Data da emissão do documento fiscal
             /// </summary>
             [SpedCampos(10, "DT_DOC", "N", 8, 0, true)]
-            public decimal DtDoc { get; set; }
+            public DateTime DtDoc { get; set; }
 
             /// <summary>
             ///     Data da entrada(aquisição) ou da saida(prestação do serviço)
             /// </summary>
             [SpedCampos(11, "DT_A_P", "N", 8, 0, false)]
-            public decimal DtAP { get; set; }
+            public DateTime? DtAP { get; set; }
 
             /// <summary>
             ///     Valor total do documento fiscal
