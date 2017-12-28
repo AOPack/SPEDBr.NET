@@ -365,6 +365,33 @@ namespace SpedBr.SpedFiscal
         }
 
         /// <summary>
+        ///     REGISTRO D195: OBSERVAÇÕES DO LANÇAMENTO FISCAL
+        /// </summary>
+        public class RegistroD195 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="RegistroD195"/>.
+            /// </summary>
+            public RegistroD195()
+            {
+                Reg = "D195";
+            }
+
+            /// <summary>
+            ///     Código da observação do lançamento fiscal (campo 02 do Registro 0460)
+            /// </summary>
+            [SpedCampos(2, "COD_OBS", "C", 6, 0, true)]
+            public string CodObs { get; set; }
+
+            /// <summary>
+            ///     Descrição complementar do código de observação
+            /// </summary>
+            [SpedCampos(3, "TXT_COMPL", "C", 0, 0, false)]
+            public string TxtCompl { get; set; }
+
+        }
+
+        /// <summary>
         ///     REGISTRO D500: NOTA FISCAL DE SERVIÇO DE COMUNICAÇÃO (CÓDIGO 21) E NOTA FISCAL DE SERVIÇO DE TELECOMUNICAÇÃO (CÓDIGO 22)
         /// </summary>
         public class RegistroD500 : RegistroBaseSped
