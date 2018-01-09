@@ -86,9 +86,27 @@ namespace SpedBr.Tests
 
             
             var result = regd100.EscreverCampos();
+            
+            Assert.AreEqual("|D100|1|0||57|02|2|2|49|35180102102588000110570020000000491284782639||||||||||||||||", result.ToStringSafe());
+        }
 
-            var a = result.ToStringSafe();
-            Console.Out.WriteLine(a);
+        [TestMethod]
+        public void EscreverBlocoDRegistro100CTeInutilizacao()
+        {
+            var regd100 = new SpedFiscal.BlocoD.RegistroD100
+            {
+                IndOper = 1,
+                IndEmit = 0,
+                CodMod = "57",
+                CodSit = 02,
+                Ser = "2",
+                Sub = "2",
+                NumDoc = "999"
+            };
+
+
+            var result = regd100.EscreverCampos();
+            Assert.AreEqual("|D100|1|0||57|02|2|2|999|||||||||||||||||", result.ToStringSafe());
         }
     }
 }
