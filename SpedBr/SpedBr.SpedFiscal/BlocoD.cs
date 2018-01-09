@@ -67,7 +67,7 @@ namespace SpedBr.SpedFiscal
             ///     - do emitente do documento ou do remetente das mercadorias, no caso de entradas;
             ///     - do adquirente, no caso de saídas.
             /// </summary>
-            [SpedCampos(4, "COD_PART", "C", 60, 0, true)]
+            [SpedCampos(4, "COD_PART", "C", 60, 0, false)]
             public string CodPart { get; set; }
 
             /// <summary>
@@ -109,20 +109,20 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Data da emissão do documento fiscal
             /// </summary>
-            [SpedCampos(11, "DT_DOC", "N", 8, 0, true)]
-            public DateTime DtDoc { get; set; }
+            [SpedCampos(11, "DT_DOC", "N", 8, 0, false)]
+            public DateTime? DtDoc { get; set; }
 
             /// <summary>
             ///     Data da aquisição ou da prestação do serviço
             /// </summary>
             [SpedCampos(12, "DT_AP", "N", 8, 0, false)]
-            public DateTime DtAP { get; set; }
+            public DateTime? DtAP { get; set; }
 
             /// <summary>
             ///     Tipo de Conhecimento de Transporte Eletrônico conforme definido no Manual de Integração do CT-e
             /// </summary>
             [SpedCampos(13, "TP_CT-e", "N", 1, 0, false)]
-            public int TpCte { get; set; }
+            public int? TpCte { get; set; }
 
             /// <summary>
             ///     Chave do CT-e de referência cujos valores foram complementados (opção “1” do campo anterior) ou cujo débito foi
@@ -134,14 +134,14 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Valor total do documento fisca
             /// </summary>
-            [SpedCampos(15, "VL_DOC", "N", 0, 2, true)]
-            public decimal VlDoc { get; set; }
+            [SpedCampos(15, "VL_DOC", "N", 0, 2, false)]
+            public decimal? VlDoc { get; set; }
 
             /// <summary>
             ///     Valor total do desconto
             /// </summary>
             [SpedCampos(16, "VL_DESC", "N", 0, 2, false)]
-            public decimal VlDesc { get; set; }
+            public decimal? VlDesc { get; set; }
 
             /// <summary>
             ///     Indicador do tipo do frete:
@@ -150,32 +150,32 @@ namespace SpedBr.SpedFiscal
             ///     2- Por conta do destinatário;
             ///     9- Sem cobrança de frete.
             /// </summary>
-            [SpedCampos(17, "IND_FRT", "N", 1, 0, true)]
-            public int IndFrt { get; set; }
+            [SpedCampos(17, "IND_FRT", "N", 1, 0, false)]
+            public int? IndFrt { get; set; }
 
             /// <summary>
             ///     Valor total do serviço
             /// </summary>
-            [SpedCampos(18, "VL_SERV", "N", 0, 2, true)]
-            public decimal VlServ { get; set; }
+            [SpedCampos(18, "VL_SERV", "N", 0, 2, false)]
+            public decimal? VlServ { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo do ICMS
             /// </summary>
             [SpedCampos(19, "VL_BC_ICMS", "N", 0, 2, false)]
-            public decimal VlBcIcms { get; set; }
+            public decimal? VlBcIcms { get; set; }
 
             /// <summary>
             ///     Valor do ICMS
             /// </summary>
             [SpedCampos(20, "VL_ICMS", "N", 0, 2, false)]
-            public decimal VlIcms { get; set; }
+            public decimal? VlIcms { get; set; }
 
             /// <summary>
             ///     Valor do ICMS
             /// </summary>
             [SpedCampos(21, "VL_NT", "N", 0, 2, false)]
-            public decimal VlNt { get; set; }
+            public decimal? VlNt { get; set; }
 
             /// <summary>
             ///     Código da informação complementar do documento fiscal (campo 02 do Registro 0450)
