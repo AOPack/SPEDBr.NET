@@ -4,7 +4,7 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2015 - para gera
 
 ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) <b>AVISO IMPORTANTE</b>
 
-Esta biblioteca será atualizada até 31/12/2017, após esse prazo será descontinuada e novas atualizações serão feitas em um novo repositório, para acessar [clique aqui](https://github.com/samuelrochaoliveira/SPEDBr).
+Esta biblioteca será atualizada até 30/06/2018, após esse prazo será descontinuada e novas atualizações serão feitas em um novo repositório, para acessar [clique aqui](https://github.com/samuelrochaoliveira/SPEDBr).
 
 ## Sumário
 
