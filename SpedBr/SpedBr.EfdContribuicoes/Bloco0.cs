@@ -428,7 +428,7 @@ namespace SpedBr.EfdContribuicoes
             ///     09 - Outras.
             /// </summary>
             [SpedCampos(3, "COD_NAT_CC", "C", 2, 0, true)]
-            public int CodNatCc { get; set; }
+            public string CodNatCc { get; set; }
 
             /// <summary>
             ///     Indicador do tipo de conta: S - Sintética (grupo de contas); A - Analítica (conta).
@@ -464,7 +464,7 @@ namespace SpedBr.EfdContribuicoes
             ///     CNPJ do estabelecimento, no caso da conta informada no campo COD_CTA ser específica de um estabelecimento.
             /// </summary>
             [SpedCampos(9, "CNPJ_EST", "N", 14, 0, false)]
-            public string CnpjEst { get; set; }
+            public int CnpjEst { get; set; }
         }
 
         /// <summary>

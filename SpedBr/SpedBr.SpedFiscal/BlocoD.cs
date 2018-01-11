@@ -691,6 +691,80 @@ namespace SpedBr.SpedFiscal
         }
 
         /// <summary>
+        ///     REGISTRO D590: REGISTRO ANALÍTICO DO DOCUMENTO (CÓDIGO 21 E 22).
+        /// </summary>
+        public class RegistroD590 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="RegistroD590"/>.
+            /// </summary>
+            public RegistroD590()
+            {
+                Reg = "D590";
+            }
+
+            /// <summary>
+            ///     Código da Situação Tributária, conforme a tabela indicada no item 4.3.1.
+            /// </summary>
+            [SpedCampos(2, "CST_ICMS", "N", 3, 0, true)]
+            public int CstIcms { get; set; }
+
+            /// <summary>
+            ///     Código Fiscal de Operação e Prestação, conforme a tabela indicada no item 4.2.2.
+            /// </summary>
+            [SpedCampos(3, "CFOP", "N", 4, 0, true)]
+            public int Cfop { get; set; }
+
+            /// <summary>
+            ///     Alíquota do ICMS.
+            /// </summary>
+            [SpedCampos(4, "ALIQ_ICMS", "N", 6, 2, false)]
+            public decimal AliqIcms { get; set; }
+
+            /// <summary>
+            ///     Valor da operação correspondente à combinação de CST_ICMS, CFOP, e alíquota do ICMS, incluídas as despesas acessórias e acrescímos.
+            /// </summary>
+            [SpedCampos(5, "VL_OPR", "N", 0, 2, true)]
+            public decimal VlOpr { get; set; }
+
+            /// <summary>
+            ///     Parcela correspondente ao "Valor da base de cálculo do ICMS" referente à combinação CST_ICMS, CFOP, e alíquota do ICMS. 
+            /// </summary>
+            [SpedCampos(6, "VL_BC_ICMS", "N", 0, 2, true)]
+            public decimal VlBcIcms { get; set; }
+
+            /// <summary>
+            ///     Parcela correspondente ao "Valor do ICMS" referente à combinação CST_ICMS, CFOP, e alíquota do ICMS.
+            /// </summary>
+            [SpedCampos(7, "VL_ICMS", "N", 0, 2, true)]
+            public decimal VlIcms { get; set; }
+
+            /// <summary>
+            ///     Parcela correspondente ao valor da base de cálculo do ICMS de outras UFs, referente à combinação de CST_ICMS, CFOP, e alíquota do ICMS. 
+            /// </summary>
+            [SpedCampos(8, "VL_BC_ICMS_UF", "N", 0, 2, true)]
+            public decimal VlBcIcmsUf { get; set; }
+
+            /// <summary>
+            ///     Parcela correspondente ao valor do ICMS de outras UFs, referente à combinação de CST_ICMS, CFOP, e alíquota do ICMS. 
+            /// </summary>
+            [SpedCampos(9, "VL_ICMS_UF", "N", 0, 2, true)]
+            public decimal VlIcmsUf { get; set; }
+
+            /// <summary>
+            ///     Valor não tributado em função da redução da base de cálculo do ICMS, referente à combinação de CST_ICMS, CFOP e alíquota do ICMS.
+            /// </summary>
+            [SpedCampos(10, "VL_RED_BC", "N", 0, 2, true)]
+            public decimal VlRedBc { get; set; }
+
+            /// <summary>
+            ///     Código da observação (campo 02 do Registro 0460).
+            /// </summary>
+            [SpedCampos(11, "COD_OBS", "C", 6, 0, false)]
+            public string CodObs { get; set; }
+        }
+
+        /// <summary>
         ///     REGISTRO D990: ENCERRAMENTO DO BLOCO D.
         /// </summary>
         public class RegistroD990 : RegistroBaseSped
