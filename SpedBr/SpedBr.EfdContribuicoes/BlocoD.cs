@@ -562,7 +562,7 @@ namespace SpedBr.EfdContribuicoes
             /// Alíquota do PIS/PASEP
             /// </summary>
             [SpedCampos(6, "ALIQ_PIS", "N", 8, 0, false)]
-            public decimal Aliqpis { get; set; }
+            public decimal AliqPis { get; set; }
 
             /// <summary>
             /// Valor do PIS/PASEP
