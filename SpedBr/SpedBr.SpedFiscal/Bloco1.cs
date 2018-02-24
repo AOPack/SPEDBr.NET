@@ -1,5 +1,5 @@
-﻿using System;
-using SpedBr.Common;
+﻿using SpedBr.Common;
+using System;
 
 namespace SpedBr.SpedFiscal
 {
@@ -1209,19 +1209,19 @@ namespace SpedBr.SpedFiscal
             ///     Código do participante (campo 02 do Registro 0150): identificação da administradora do cartão de débito/crédito
             /// </summary>
             [SpedCampos(2, "COD_PART", "C", 60, 0, true)]
-            public int CodPart { get; set; }
+            public string CodPart { get; set; }
 
             /// <summary>
             ///     Valor total das operações realizadas no período referente a Cartão de Crédito
             /// </summary>
             [SpedCampos(3, "TOT_CREDITO", "N", 0, 2, true)]
-            public int TotCredito { get; set; }
+            public decimal TotCredito { get; set; }
 
             /// <summary>
             ///     Valor total das operações realizadas no período referente a Cartão de Débito
             /// </summary>
             [SpedCampos(3, "TOT_DEBITO", "N", 0, 2, true)]
-            public int TotDebito { get; set; }
+            public decimal TotDebito { get; set; }
         }
 
         /// <summary>
