@@ -470,7 +470,7 @@ namespace SpedBr.EfdContribuicoes
             ///     CNPJ do estabelecimento, no caso da conta informada no campo COD_CTA ser específica de um estabelecimento.
             /// </summary>
             [SpedCampos(9, "CNPJ_EST", "N", 14, 0, false)]
-            public int CnpjEst { get; set; }
+            public string CnpjEst { get; set; }
         }
 
         /// <summary>
