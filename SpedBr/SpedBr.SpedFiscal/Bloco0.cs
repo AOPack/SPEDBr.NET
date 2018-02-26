@@ -873,7 +873,7 @@ namespace SpedBr.SpedFiscal
             ///     09 - Outras.
             /// </summary>
             [SpedCampos(3, "COD_NAT_CC", "C", 2, 0, true)]
-            public int CodNatCc { get; set; }
+            public string CodNatCc { get; set; }
 
             /// <summary>
             ///     Indicador do tipo de conta: S - Sintética (grupo de contas); A - Analítica (conta).
