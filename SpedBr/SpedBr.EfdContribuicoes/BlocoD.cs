@@ -502,6 +502,7 @@ namespace SpedBr.EfdContribuicoes
             public decimal VlCofins { get; set; }
 
         }
+
         /// <summary>
         /// REGISTRO D501: COMPLEMENTO DA OPERAÇÃO (CÓDIGO 21 e 22) - PIS/Pasep
         /// </summary>
@@ -578,6 +579,82 @@ namespace SpedBr.EfdContribuicoes
         }
 
         /// <summary>
+        /// REGISTRO D505: COMPLEMENTO DA OPERAÇÃO (CÓDIGO 21 e 22) - Cofins
+        /// </summary>
+        public class RegistroD505 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma instância da classe <see cref="RegistroD505"/>
+            /// </summary>
+            public RegistroD505()
+            {
+                Reg = "D505";
+            }
+
+            /// <summary>
+            /// Código da situação tributária referente ao Cofins
+            /// </summary>
+            [SpedCampos(2, "CST_COFINS", "C", 2, 0, true)]
+            public int CstCofins { get; set; }
+
+            /// <summary>
+            /// Valor total dos itens (serviços)
+            /// </summary>
+            [SpedCampos(3, "VL_ITEM", "N", 0, 2, true)]
+            public decimal VlItem { get; set; }
+
+            /// <summary>
+            /// Código da base de cálculo do crédito:
+            /// <remarks>
+            /// 01 - Aquisição de bens para revenda<para />
+            /// 02 - Aquisição de bens utilizados como insumos<para />
+            /// 03 - Aquisição de serviços utilizados como insumos<para />
+            /// 04 - Energia elétrica e térmica, inclusive sob a forma de vapor<para />
+            /// 05 - Aluguéis de prédios<para />
+            /// 06 - Aluguéis de máquinas e equipamentos<para />
+            /// 07 - Armazenagem de mercadoria e frete na operação de venda<para />
+            /// 08 - Contraprestação de arredamento mercantil<para />
+            /// 09 - Máquinas, equipamentos e outros bens incorporados ao ativo imobilizado (crédito sobre encargo de depreciação)<para />
+            /// 10 - Máquinas, equipamentos e outros bens incorporados ao ativo imobilizado (crédito com base no valor de aquisição)<para />
+            /// 11 - Amortização e depreciação de edificações e benefícios em imóveis<para />
+            /// 12 - Devolução de vendas sujeitas à incidência não-cumulativa<para />
+            /// 13 - Outras operações com direito a crédito (inclusive os créditos presumidos sobre receitas)<para />
+            /// 14 - Atividade de transporte de cargas - subcontratação<para />
+            /// 15 - Atividade imobiliária - Custo incorrido de unidade imobiliária<para />
+            /// 16 - Atividade imobiliária - Custo orçado de unidade não concluída<para />
+            /// 17 - Atividade de prestação de serviço de limpeza, conservação e manutenção - vale-transporte, vale-refeitção ou vale-alimentação, fardamento ou uniforme<para />
+            /// 18 - Estoque de abertura de bens<para />
+            /// </remarks>
+            /// </summary>
+            [SpedCampos(4, "NAT_BC_CRED", "N", 2, 0, false)]
+            public int NatBcCred { get; set; }
+
+            /// <summary>
+            /// Valor da base de cálculo do COFINS
+            /// </summary>
+            [SpedCampos(5, "VL_BC_COFINS", "C", 0, 2, false)]
+            public decimal VlBcCofins { get; set; }
+
+            /// <summary>
+            /// Alíquota do COFINS
+            /// </summary>
+            [SpedCampos(6, "ALIQ_COFINS", "N", 8, 0, false)]
+            public decimal AliqCofins { get; set; }
+
+            /// <summary>
+            /// Valor do COFINS
+            /// </summary>
+            [SpedCampos(7, "VL_COFINS", "N", 0, 2, false)]
+            public decimal VlCofins { get; set; }
+
+            /// <summary>
+            /// Código da conta analítica contábil debitada/creditada
+            /// </summary>
+            [SpedCampos(8, "COD_CTA", "C", 255, 0, false)]
+            public string CodCta { get; set; }
+        }
+
+        /// <summary>
         ///     REGISTRO D990: ENCERRAMENTO DO BLOCO D.
         /// </summary>
         public class RegistroD990 : RegistroBaseSped
@@ -596,6 +673,5 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(2, "QTD_LIN_D", "N", int.MaxValue, 0, true)]
             public int QtdLinD { get; set; }
         }
-        
     }
 }
