@@ -1,5 +1,5 @@
-﻿using System;
-using SpedBr.Common;
+﻿using SpedBr.Common;
+using System;
 
 namespace SpedBr.EfdContribuicoes
 {
@@ -397,6 +397,36 @@ namespace SpedBr.EfdContribuicoes
             /// </summary>
             [SpedCampos(3, "DESCR_NAT", "C", 250, 0, true)]
             public string DescrNat { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO 0450: TABELA DE INFORMAÇÃO COMPLEMENTAR DO DOCUMENTO FISCAL
+        /// </summary>
+        public class Registro0450 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0450" />.
+            /// </summary>
+            public Registro0450()
+            {
+                Reg = "0450";
+            }
+
+            /// <summary>
+            ///     Código da informação complementar do documento fiscal
+            /// </summary>
+            [SpedCampos(2, "COD_INF", "C", 6, 0, true)]
+            public string CodInf { get; set; }
+
+            /// <summary>
+            ///     Texto livre da informação complementar existente no
+            ///     documento fiscal, inclusive espécie de normas legais,
+            ///     poder normativo, número, capitulação, data e demais
+            ///     referências pertinentes com indicação referentes ao
+            ///     tributo.
+            /// </summary>
+            [SpedCampos(3, "TXT", "C", int.MaxValue, 0, true)]
+            public string Txt { get; set; }
         }
 
         /// <summary>
