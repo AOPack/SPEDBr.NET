@@ -10,42 +10,89 @@ namespace SpedBr.Tests
     public class DimobUnitTest
     {
         [TestMethod]
-        public void EscreverR01()
+        public void EscreverDimob()
         {
-            var anoAtual = DateTime.Now.Year;
+            var listaContratos =
+                new List<Tuple<string, int, int, string, string, string, DateTime>>();
 
-            var linhaDimobR01 = new List<string>();
+            var tuple1 = new Tuple<string, int, int, string, string, string, DateTime>("29358139000193", 2017, 99999, "01234567890", "Samuel Oliveira", "201799", new DateTime(2017, 02, 15));
+
+            listaContratos.Add(tuple1);
+
+            var tuple2 = new Tuple<string, int, int, string, string, string, DateTime>("29358139000193", 2017, 00001, "01234567890", "Samuel Oliveira", "201701", new DateTime(2017, 05, 25));
+
+            listaContratos.Add(tuple2);
+
+            var anoAtual = DateTime.Now.AddYears(-1).Year;
+
+            var linhasDimob = new List<string>();
+
+            var header = new DimobHeader();
+            
+            linhasDimob.Add(header.EscreverCampos());
 
             var r01 = new DimobR01
             {
-                CnpjDeclarante = "01.234.567/0008-99",
+                CnpjDeclarante = "29358139000193",
                 AnoCalendario = anoAtual,
                 DeclaracaoRetificadora = 0,
                 SituacaoEspecial = 0,
                 NomeEmpresarial = "EMPRESA TESTE 123 LTDA",
-                CpfResponsavelEmpresa = "012.345.678-90",
+                CpfResponsavelEmpresa = "01234567890",
                 EnderecoCompleto = "R 01 NRO 1001 DISTRITO NOVO MUNDO",
                 UfContribuinte = "GO",
                 CodigoMunicipio = 9289
             };
 
-            linhaDimobR01.Add(r01.EscreverCampos());
+            linhasDimob.Add(r01.EscreverCampos());
 
-            //var nomeArquivo =
-            //    $"{"DIMOB_"}" +
-            //    $"{DateTime.Now.Year.ToString("00")}" +
-            //    $"{DateTime.Now.Month.ToString("00")}" +
-            //    $"{DateTime.Now.Day.ToString("00")}_" +
-            //    $"{DateTime.Now.Hour.ToString("00")}" +
-            //    $"{DateTime.Now.Minute.ToString("00")}" +
-            //    $"{DateTime.Now.Second.ToString("00")}" +
-            //    $"{DateTime.Now.Millisecond.ToString("000")}.txt";
 
-            //var path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            //var linhasDimobR03 = new List<string>();
 
-            //var pathArquivo = Path.Combine(path, nomeArquivo);
+            foreach (var contrato in listaContratos)
+            {
+                var r03 = new DimobR03
+                {
+                    CnpjDeclarante = contrato.Item1,
+                    AnoCalendario = contrato.Item2,
+                    SequencialLocacao = contrato.Item3,
+                    CpfCnpjComprador = contrato.Item4,
+                    NomeComprador = contrato.Item5,
+                    NumeroContrato = contrato.Item6,
+                    DataContrato = contrato.Item7,
+                    ValorOperacao = 20000m,
+                    ValorPagoAno = 20000m,
+                    TipoImovel = "U",
+                    EnderecoImovel = "221B Baker Street",
+                    Cep = "75690000",
+                    CodigoMunicipio = 9289,
+                    Uf = "GO",
+                };
 
-            //File.WriteAllLines(pathArquivo, linhaDimobR01.ToArray());
+                linhasDimob.Add(r03.EscreverCampos());
+            }
+
+            var t9 = new DimobT9();
+
+            linhasDimob.Add(t9.EscreverCampos());
+
+            Assert.IsNotNull(linhasDimob);
+
+            var nomeArquivo =
+                $"{"DIMOB_"}" +
+                $"{DateTime.Now.Year.ToString("00")}" +
+                $"{DateTime.Now.Month.ToString("00")}" +
+                $"{DateTime.Now.Day.ToString("00")}_" +
+                $"{DateTime.Now.Hour.ToString("00")}" +
+                $"{DateTime.Now.Minute.ToString("00")}" +
+                $"{DateTime.Now.Second.ToString("00")}" +
+                $"{DateTime.Now.Millisecond.ToString("000")}.txt";
+
+            var path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            var pathArquivo = Path.Combine(path, nomeArquivo);
+
+            File.WriteAllLines(pathArquivo, linhasDimob.ToArray());
         }
     }
 }
