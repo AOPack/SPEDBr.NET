@@ -384,6 +384,12 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(4, "VL_CRED_UTIL", "N", 0, 2, true)]
             public decimal VlCredUtil { get; set; }
+
+            /// <summary>
+            ///     Chave de Documento Eletrônico
+            /// </summary>
+            [SpedCampos(5, "CHV_DOCe", "N", 0, 44, false)]
+            public string ChvDoce { get; set; }
         }
 
         /// <summary>
