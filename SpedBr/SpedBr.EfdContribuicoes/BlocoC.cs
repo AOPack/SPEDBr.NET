@@ -1144,7 +1144,7 @@ namespace SpedBr.EfdContribuicoes
             ///     Código da situação do documento fiscal, conforme a Tabela 4.1.2
             /// </summary>
             [SpedCampos(4, "COD_SIT", "N", 2, 0, true)]
-            public int CodSit { get; set; }
+            public IndCodSitDoc CodSit { get; set; }
 
             /// <summary>
             ///     Série do documento fiscal
