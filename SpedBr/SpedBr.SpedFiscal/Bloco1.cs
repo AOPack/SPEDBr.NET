@@ -388,8 +388,8 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Chave de Documento Eletrônico
             /// </summary>
-            [SpedCampos(5, "CHV_DOCe", "N", 0, 44, false)]
-            public string ChvDoce { get; set; }
+            [SpedCampos(5, "CHV_DOCe", "C", 44, 0, false)]
+            public string ChvDocE { get; set; }
         }
 
         /// <summary>

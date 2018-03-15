@@ -119,7 +119,7 @@ namespace SpedBr.Outros.Dimob
                     }
                 }
             }
-            sb.Append(Environment.NewLine);
+            //sb.Append(Environment.NewLine);
 
             return sb.ToString();
         }
@@ -131,7 +131,7 @@ namespace SpedBr.Outros.Dimob
 
         private static string RetornaCampoDecimalFormatado2String(this decimal valor)
         {
-            return valor.ToString("N2").PadLeft(12, '0').Replace(",", "").Replace(".", "");
+            return valor.ToString("N2").Replace(",", "").Replace(".", "").PadLeft(14, '0');
         }
     }
 }

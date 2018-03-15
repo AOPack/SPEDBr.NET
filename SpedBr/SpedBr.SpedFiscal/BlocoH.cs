@@ -127,7 +127,7 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Código da conta analítica contábil debitada/creditada
             /// </summary>
-            [SpedCampos(10, "COD_CTA", "C", 0, 0, false)]
+            [SpedCampos(10, "COD_CTA", "C", int.MaxValue, 0, false)]
             public string CodCta { get; set; }
 
             /// <summary>

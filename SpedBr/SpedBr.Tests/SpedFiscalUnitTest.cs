@@ -108,5 +108,21 @@ namespace SpedBr.Tests
             var result = regd100.EscreverCampos();
             Assert.AreEqual("|D100|1|0||57|02|2|2|999|||||||||||||||||", result.ToStringSafe());
         }
+
+        [TestMethod]
+        public void EscreverBlocoERegistro116()
+        {
+            var regE116 = new SpedFiscal.BlocoE.RegistroE116
+            {
+                CodOr = "9",
+                VlOr = 999.99m,
+                DtVcto = new DateTime(DateTime.Now.Year, DateTime.Now.AddMonths(1).Month, 10),
+                CodRec = "1234",
+                MesRef = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1)
+            };
+
+            var result = regE116.EscreverCampos();
+            //Assert.AreEqual("|D100|1|0||57|02|2|2|999|||||||||||||||||", result.ToStringSafe());
+        }
     }
 }
