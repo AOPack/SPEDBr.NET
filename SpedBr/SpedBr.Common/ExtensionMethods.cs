@@ -57,7 +57,7 @@ namespace SpedBr.Common
             //}
             //return sbReturn.ToString();
             if (string.IsNullOrEmpty(text))
-                return "";
+                return string.Empty;
             else
             {
                 byte[] bytes = Encoding.GetEncoding("iso-8859-8").GetBytes(text);
@@ -108,8 +108,8 @@ namespace SpedBr.Common
             var resultado = obj.ToString();
 
             // remove caracteres de escapebind
-            resultado = resultado.Replace("\r", "");
-            resultado = resultado.Replace("\n", "");
+            resultado = resultado.Replace("\r", string.Empty);
+            resultado = resultado.Replace("\n", string.Empty);
 
             return resultado;
         }

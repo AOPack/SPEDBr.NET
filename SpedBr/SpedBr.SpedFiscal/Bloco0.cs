@@ -522,7 +522,7 @@ namespace SpedBr.SpedFiscal
             ///     Conforme Guia_Prático_da_EFD_Versao_2.0.17 -> "informar no 0205"
             /// </summary>
             [SpedCampos(5, "COD_ANT_ITEM", "C", 60, 0, false)]
-            public string CodAntItem => "";
+            public string CodAntItem => string.Empty;
 
             /// <summary>
             ///     Unidade de medida utilizada na quantificação de estoques.

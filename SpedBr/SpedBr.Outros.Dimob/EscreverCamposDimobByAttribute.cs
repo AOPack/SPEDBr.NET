@@ -131,7 +131,7 @@ namespace SpedBr.Outros.Dimob
 
         private static string RetornaCampoDecimalFormatado2String(this decimal valor)
         {
-            return valor.ToString("N2").Replace(",", "").Replace(".", "").PadLeft(14, '0');
+            return valor.ToString("N2").Replace(",", string.Empty).Replace(".", string.Empty).PadLeft(14, '0');
         }
     }
 }
