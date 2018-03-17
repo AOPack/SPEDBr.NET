@@ -83,14 +83,14 @@ namespace SpedBr.Common
                         Convert.ToDecimal(valorEscrever).ToString("N" + decimalPlaces);
                     return vDecimal.ToStringSafe().Replace(".", "");
                 }
-                else if (isDateTime && hasValue)
-                    return Convert.ToDateTime(valorEscrever).Date.ToString("ddMMyyyy");
                 else if (isNullableDateTime && hasValue)
                     return Convert.ToDateTime(valorEscrever).Date.ToString("ddMMyyyy");
                 else if ((isDateTime && hasValue) && isHour)
                     return Convert.ToDateTime(valorEscrever).Date.ToString("hhmmss");
                 else if ((isDateTime && hasValue) && onlyMonthAndYear)
                     return Convert.ToDateTime(valorEscrever).Date.ToString("MMyyyy");
+                else if (isDateTime && hasValue)
+                    return Convert.ToDateTime(valorEscrever).Date.ToString("ddMMyyyy");
                 else if ((isCodeOrNumberAndHasLength && hasValue) || (isLiteralEnum && hasValue))
                     return valorEscrever.PadLeft(fieldLength, '0');
                 else

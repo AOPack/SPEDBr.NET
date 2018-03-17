@@ -219,7 +219,7 @@ namespace SpedBr.SpedFiscal
             ///     9 - Outros
             /// </remarks>
             [SpedCampos(4, "IND_PROC", "C", 1, 0, false)]
-            public string IndProc { get; set; }
+            public int? IndProc { get; set; }
 
             /// <summary>
             ///     Descrição resumida do processo que embasou o lançamento
@@ -361,7 +361,7 @@ namespace SpedBr.SpedFiscal
             ///     Data de vencimento da obrigação
             /// </summary>
             [SpedCampos(4, "DT_VCTO", "N", 8, 0, true)]
-            public string DtVcto { get; set; }
+            public DateTime DtVcto { get; set; }
 
             /// <summary>
             ///     Código de receita referente à obrigação, próprio da unidade da federação, conforme legislação estadual.
@@ -400,8 +400,8 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Informe o mês de referência no formato "mmaaaa"
             /// </summary>
-            [SpedCampos(10, "MES_REF", "N", 6, 0, true)]
-            public string MesRef { get; set; }
+            [SpedCampos(10, "MES_REF", "MA", 6, 0, true)]
+            public DateTime MesRef { get; set; }
         }
 
         /// <summary>
@@ -605,7 +605,7 @@ namespace SpedBr.SpedFiscal
             ///     9 - Outros
             /// </remarks>
             [SpedCampos(4, "IND_PROC", "N", 1, 0, false)]
-            public int IndProc { get; set; }
+            public int? IndProc { get; set; }
 
             /// <summary>
             ///     Descrição resumida do processo que embasou o lançamento
@@ -656,7 +656,7 @@ namespace SpedBr.SpedFiscal
             ///     Subsérie do documento fiscal
             /// </summary>
             [SpedCampos(5, "SUB", "N", 3, 0, false)]
-            public int Sub { get; set; }
+            public string Sub { get; set; }
 
             /// <summary>
             ///     Número do documento fiscal
@@ -736,7 +736,7 @@ namespace SpedBr.SpedFiscal
             ///     9 - Outros
             /// </remarks>
             [SpedCampos(7, "IND_PROC", "C", 1, 0, false)]
-            public string IndProc { get; set; }
+            public int? IndProc { get; set; }
 
             /// <summary>
             ///     Descrição resumida do processo que embasou o lançamento
@@ -1005,7 +1005,7 @@ namespace SpedBr.SpedFiscal
             ///     9 - Outros
             /// </remarks>
             [SpedCampos(4, "IND_PROC", "N", 1, 0, false)]
-            public int IndProc { get; set; }
+            public int? IndProc { get; set; }
 
             /// <summary>
             ///     Descrição resumida do processo que embasou o lançamento
@@ -1143,7 +1143,7 @@ namespace SpedBr.SpedFiscal
             ///     9 - Outros
             /// </remarks>
             [SpedCampos(7, "IND_PROC", "C", 1, 0, false)]
-            public int IndProc { get; set; }
+            public int? IndProc { get; set; }
 
             /// <summary>
             ///     Descrição resumida do processo que embasou o lançamento
@@ -1347,7 +1347,7 @@ namespace SpedBr.SpedFiscal
             ///     9 - Outros
             /// </remarks>
             [SpedCampos(5, "IND_DOC", "C", 1, 0, false)]
-            public int IndDoc { get; set; }
+            public int? IndDoc { get; set; }
 
             /// <summary>
             ///     Número do documento/processo/declaração ao qual o ajuste está vinculado, se houver
@@ -1405,7 +1405,7 @@ namespace SpedBr.SpedFiscal
             ///     Número do documento fiscal
             /// </summary>
             [SpedCampos(6, "NUM_DOC", "N", 9, 0, true)]
-            public string NumDoc { get; set; }
+            public long NumDoc { get; set; }
 
             /// <summary>
             ///     Data da emissão do documento fiscal

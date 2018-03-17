@@ -21,6 +21,27 @@ namespace SpedBr.SpedFiscal
                 Reg = "0000";
             }
 
+            public Registro0000(string linha)
+            {
+                CodVer = LerCamposSped.ReturnPosition(linha, 2).ToInt();
+                Enum.TryParse(LerCamposSped.ReturnPosition(linha, 3).ToStringSafe(), out IndCodFinalidadeArquivo indCodFin);
+                CodFin = indCodFin;
+                DtIni = LerCamposSped.ReturnPosition(linha, 4).ToDateTime();
+                DtFin = LerCamposSped.ReturnPosition(linha, 5).ToDateTime();
+                Nome = LerCamposSped.ReturnPosition(linha, 6).ToStringSafe();
+                Cnpj = LerCamposSped.ReturnPosition(linha, 7).ToStringSafe();
+                Cpf = LerCamposSped.ReturnPosition(linha, 8).ToStringSafe();
+                Uf = LerCamposSped.ReturnPosition(linha, 9).ToStringSafe();
+                Ie = LerCamposSped.ReturnPosition(linha, 10).ToStringSafe();
+                CodMun = LerCamposSped.ReturnPosition(linha, 11).ToStringSafe();
+                Im = LerCamposSped.ReturnPosition(linha, 12).ToStringSafe();
+                Suframa = LerCamposSped.ReturnPosition(linha, 13).ToStringSafe();
+                Enum.TryParse(LerCamposSped.ReturnPosition(linha, 14).ToStringSafe(), out IndPerfilArquivo indCodPerfil);
+                IndPerfil = indCodPerfil;
+                Enum.TryParse(LerCamposSped.ReturnPosition(linha, 15).ToStringSafe(), out IndTipoAtividade indCodAtiv);
+                IndAtiv = indCodAtiv;
+            }
+
             /// <summary>
             ///     Código da versão do leiaute conforme a tabela indicada no Ato COTEPE.
             /// </summary>
@@ -873,7 +894,7 @@ namespace SpedBr.SpedFiscal
             ///     09 - Outras.
             /// </summary>
             [SpedCampos(3, "COD_NAT_CC", "C", 2, 0, true)]
-            public int CodNatCc { get; set; }
+            public string CodNatCc { get; set; }
 
             /// <summary>
             ///     Indicador do tipo de conta: S - Sintética (grupo de contas); A - Analítica (conta).

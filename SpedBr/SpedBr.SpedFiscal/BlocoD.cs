@@ -67,7 +67,7 @@ namespace SpedBr.SpedFiscal
             ///     - do emitente do documento ou do remetente das mercadorias, no caso de entradas;
             ///     - do adquirente, no caso de saídas.
             /// </summary>
-            [SpedCampos(4, "COD_PART", "C", 60, 0, true)]
+            [SpedCampos(4, "COD_PART", "C", 60, 0, false)]
             public string CodPart { get; set; }
 
             /// <summary>
@@ -109,20 +109,20 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Data da emissão do documento fiscal
             /// </summary>
-            [SpedCampos(11, "DT_DOC", "N", 8, 0, true)]
-            public DateTime DtDoc { get; set; }
+            [SpedCampos(11, "DT_DOC", "N", 8, 0, false)]
+            public DateTime? DtDoc { get; set; }
 
             /// <summary>
             ///     Data da aquisição ou da prestação do serviço
             /// </summary>
             [SpedCampos(12, "DT_AP", "N", 8, 0, false)]
-            public DateTime DtAP { get; set; }
+            public DateTime? DtAP { get; set; }
 
             /// <summary>
             ///     Tipo de Conhecimento de Transporte Eletrônico conforme definido no Manual de Integração do CT-e
             /// </summary>
             [SpedCampos(13, "TP_CT-e", "N", 1, 0, false)]
-            public int TpCte { get; set; }
+            public int? TpCte { get; set; }
 
             /// <summary>
             ///     Chave do CT-e de referência cujos valores foram complementados (opção “1” do campo anterior) ou cujo débito foi
@@ -134,14 +134,14 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Valor total do documento fisca
             /// </summary>
-            [SpedCampos(15, "VL_DOC", "N", 0, 2, true)]
-            public decimal VlDoc { get; set; }
+            [SpedCampos(15, "VL_DOC", "N", 0, 2, false)]
+            public decimal? VlDoc { get; set; }
 
             /// <summary>
             ///     Valor total do desconto
             /// </summary>
             [SpedCampos(16, "VL_DESC", "N", 0, 2, false)]
-            public decimal VlDesc { get; set; }
+            public decimal? VlDesc { get; set; }
 
             /// <summary>
             ///     Indicador do tipo do frete:
@@ -150,32 +150,32 @@ namespace SpedBr.SpedFiscal
             ///     2- Por conta do destinatário;
             ///     9- Sem cobrança de frete.
             /// </summary>
-            [SpedCampos(17, "IND_FRT", "N", 1, 0, true)]
-            public int IndFrt { get; set; }
+            [SpedCampos(17, "IND_FRT", "N", 1, 0, false)]
+            public int? IndFrt { get; set; }
 
             /// <summary>
             ///     Valor total do serviço
             /// </summary>
-            [SpedCampos(18, "VL_SERV", "N", 0, 2, true)]
-            public decimal VlServ { get; set; }
+            [SpedCampos(18, "VL_SERV", "N", 0, 2, false)]
+            public decimal? VlServ { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo do ICMS
             /// </summary>
             [SpedCampos(19, "VL_BC_ICMS", "N", 0, 2, false)]
-            public decimal VlBcIcms { get; set; }
+            public decimal? VlBcIcms { get; set; }
 
             /// <summary>
             ///     Valor do ICMS
             /// </summary>
             [SpedCampos(20, "VL_ICMS", "N", 0, 2, false)]
-            public decimal VlIcms { get; set; }
+            public decimal? VlIcms { get; set; }
 
             /// <summary>
             ///     Valor do ICMS
             /// </summary>
             [SpedCampos(21, "VL_NT", "N", 0, 2, false)]
-            public decimal VlNt { get; set; }
+            public decimal? VlNt { get; set; }
 
             /// <summary>
             ///     Código da informação complementar do documento fiscal (campo 02 do Registro 0450)
@@ -381,6 +381,33 @@ namespace SpedBr.SpedFiscal
         }
 
         /// <summary>
+        ///     REGISTRO D195: OBSERVAÇÕES DO LANÇAMENTO FISCAL
+        /// </summary>
+        public class RegistroD195 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="RegistroD195"/>.
+            /// </summary>
+            public RegistroD195()
+            {
+                Reg = "D195";
+            }
+
+            /// <summary>
+            ///     Código da observação do lançamento fiscal (campo 02 do Registro 0460)
+            /// </summary>
+            [SpedCampos(2, "COD_OBS", "C", 6, 0, true)]
+            public string CodObs { get; set; }
+
+            /// <summary>
+            ///     Descrição complementar do código de observação
+            /// </summary>
+            [SpedCampos(3, "TXT_COMPL", "C", 0, 0, false)]
+            public string TxtCompl { get; set; }
+
+        }
+
+        /// <summary>
         ///     REGISTRO D500: NOTA FISCAL DE SERVIÇO DE COMUNICAÇÃO (CÓDIGO 21) E NOTA FISCAL DE SERVIÇO DE TELECOMUNICAÇÃO (CÓDIGO 22)
         /// </summary>
         public class RegistroD500 : RegistroBaseSped
@@ -451,13 +478,13 @@ namespace SpedBr.SpedFiscal
             ///     Data da emissão do documento fiscal
             /// </summary>
             [SpedCampos(10, "DT_DOC", "N", 8, 0, true)]
-            public decimal DtDoc { get; set; }
+            public DateTime DtDoc { get; set; }
 
             /// <summary>
             ///     Data da entrada(aquisição) ou da saida(prestação do serviço)
             /// </summary>
             [SpedCampos(11, "DT_A_P", "N", 8, 0, false)]
-            public decimal DtAP { get; set; }
+            public DateTime? DtAP { get; set; }
 
             /// <summary>
             ///     Valor total do documento fiscal
@@ -677,6 +704,80 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(20, "COD_CTA", "C", 0, 0, false)]
             public string CodCta { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO D590: REGISTRO ANALÍTICO DO DOCUMENTO (CÓDIGO 21 E 22).
+        /// </summary>
+        public class RegistroD590 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="RegistroD590"/>.
+            /// </summary>
+            public RegistroD590()
+            {
+                Reg = "D590";
+            }
+
+            /// <summary>
+            ///     Código da Situação Tributária, conforme a tabela indicada no item 4.3.1.
+            /// </summary>
+            [SpedCampos(2, "CST_ICMS", "N", 3, 0, true)]
+            public int CstIcms { get; set; }
+
+            /// <summary>
+            ///     Código Fiscal de Operação e Prestação, conforme a tabela indicada no item 4.2.2.
+            /// </summary>
+            [SpedCampos(3, "CFOP", "N", 4, 0, true)]
+            public int Cfop { get; set; }
+
+            /// <summary>
+            ///     Alíquota do ICMS.
+            /// </summary>
+            [SpedCampos(4, "ALIQ_ICMS", "N", 6, 2, false)]
+            public decimal AliqIcms { get; set; }
+
+            /// <summary>
+            ///     Valor da operação correspondente à combinação de CST_ICMS, CFOP, e alíquota do ICMS, incluídas as despesas acessórias e acrescímos.
+            /// </summary>
+            [SpedCampos(5, "VL_OPR", "N", 0, 2, true)]
+            public decimal VlOpr { get; set; }
+
+            /// <summary>
+            ///     Parcela correspondente ao "Valor da base de cálculo do ICMS" referente à combinação CST_ICMS, CFOP, e alíquota do ICMS. 
+            /// </summary>
+            [SpedCampos(6, "VL_BC_ICMS", "N", 0, 2, true)]
+            public decimal VlBcIcms { get; set; }
+
+            /// <summary>
+            ///     Parcela correspondente ao "Valor do ICMS" referente à combinação CST_ICMS, CFOP, e alíquota do ICMS.
+            /// </summary>
+            [SpedCampos(7, "VL_ICMS", "N", 0, 2, true)]
+            public decimal VlIcms { get; set; }
+
+            /// <summary>
+            ///     Parcela correspondente ao valor da base de cálculo do ICMS de outras UFs, referente à combinação de CST_ICMS, CFOP, e alíquota do ICMS. 
+            /// </summary>
+            [SpedCampos(8, "VL_BC_ICMS_UF", "N", 0, 2, true)]
+            public decimal VlBcIcmsUf { get; set; }
+
+            /// <summary>
+            ///     Parcela correspondente ao valor do ICMS de outras UFs, referente à combinação de CST_ICMS, CFOP, e alíquota do ICMS. 
+            /// </summary>
+            [SpedCampos(9, "VL_ICMS_UF", "N", 0, 2, true)]
+            public decimal VlIcmsUf { get; set; }
+
+            /// <summary>
+            ///     Valor não tributado em função da redução da base de cálculo do ICMS, referente à combinação de CST_ICMS, CFOP e alíquota do ICMS.
+            /// </summary>
+            [SpedCampos(10, "VL_RED_BC", "N", 0, 2, true)]
+            public decimal VlRedBc { get; set; }
+
+            /// <summary>
+            ///     Código da observação (campo 02 do Registro 0460).
+            /// </summary>
+            [SpedCampos(11, "COD_OBS", "C", 6, 0, false)]
+            public string CodObs { get; set; }
         }
 
         /// <summary>

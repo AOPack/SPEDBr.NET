@@ -41,6 +41,38 @@ namespace SpedBr.SpedFiscal
                 Reg = "C100";
             }
 
+            public RegistroC100(string linha)
+            {
+                IndOper = LerCamposSped.ReturnPosition(linha, 2).ToInt();
+                IndEmit = LerCamposSped.ReturnPosition(linha, 3).ToInt();
+                CodPart = LerCamposSped.ReturnPosition(linha, 4).ToStringSafe();
+                CodMod = LerCamposSped.ReturnPosition(linha, 5).ToStringSafe();
+                CodSit = LerCamposSped.ReturnPosition(linha, 6).ToInt();
+                Ser = LerCamposSped.ReturnPosition(linha, 7).ToStringSafe();
+                NumDoc = LerCamposSped.ReturnPosition(linha, 8).ToStringSafe();
+                ChvNfe = LerCamposSped.ReturnPosition(linha, 9).ToStringSafe();
+                DtDoc = LerCamposSped.ReturnPosition(linha, 10).ToDateTime();
+                DtEs = LerCamposSped.ReturnPosition(linha, 11).ToDateTimeNullable();
+                VlDoc = LerCamposSped.ReturnPosition(linha, 12).ToDecimal();
+                IndPgto = LerCamposSped.ReturnPosition(linha, 13).ToInt();
+                VlDesc = LerCamposSped.ReturnPosition(linha, 14).ToDecimal();
+                VlAbatNt = LerCamposSped.ReturnPosition(linha, 15).ToDecimal();
+                VlMerc = LerCamposSped.ReturnPosition(linha, 16).ToDecimal();
+                IndFrt = LerCamposSped.ReturnPosition(linha, 17).ToInt();
+                VlFrt = LerCamposSped.ReturnPosition(linha, 18).ToDecimal();
+                VlSeg = LerCamposSped.ReturnPosition(linha, 19).ToDecimal();
+                VlOutDa = LerCamposSped.ReturnPosition(linha, 20).ToDecimal();
+                VlBcIcms = LerCamposSped.ReturnPosition(linha, 21).ToDecimal();
+                VlIcms = LerCamposSped.ReturnPosition(linha, 22).ToDecimal();
+                VlBcIcmsSt = LerCamposSped.ReturnPosition(linha, 23).ToDecimal();
+                VlIcmsSt = LerCamposSped.ReturnPosition(linha, 24).ToDecimal();
+                VlIpi = LerCamposSped.ReturnPosition(linha, 25).ToDecimal();
+                VlPis = LerCamposSped.ReturnPosition(linha, 26).ToDecimal();
+                VlCofins = LerCamposSped.ReturnPosition(linha, 27).ToDecimal();
+                VlPisSt = LerCamposSped.ReturnPosition(linha, 28).ToDecimal();
+                VlCofinsSt = LerCamposSped.ReturnPosition(linha, 29).ToDecimal();
+            }
+
             /// <summary>
             ///     Indicador do tipo de operação:
             ///     0 - Entrada;
@@ -98,8 +130,8 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Data da emissão do documento fiscal
             /// </summary>
-            [SpedCampos(10, "DT_DOC", "N", 8, 0, false)]
-            public DateTime? DtDoc { get; set; }
+            [SpedCampos(10, "DT_DOC", "N", 8, 0, true)]
+            public DateTime DtDoc { get; set; }
 
             /// <summary>
             ///     Data da entrada ou da saída
@@ -110,8 +142,8 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Valor total do documento fiscal
             /// </summary>
-            [SpedCampos(12, "VL_DOC", "N", 0, 2, false)]
-            public decimal? VlDoc { get; set; }
+            [SpedCampos(12, "VL_DOC", "N", 0, 2, true)]
+            public decimal VlDoc { get; set; }
 
             /// <summary>
             ///     Indicador do tipo de pagamento:
@@ -120,8 +152,8 @@ namespace SpedBr.SpedFiscal
             ///     2 - Outros (a partir de 01/07/2012).
             ///     9 - Sem pagamento (até 30/06/2012).
             /// </summary>
-            [SpedCampos(13, "IND_PGTO", "C", 1, 0, false)]
-            public int? IndPgto { get; set; }
+            [SpedCampos(13, "IND_PGTO", "C", 1, 0, true)]
+            public int IndPgto { get; set; }
 
             /// <summary>
             ///     Valor total do desconto

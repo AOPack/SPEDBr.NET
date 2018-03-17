@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SpedBr.Common;
+using SpedBr.SpedFiscal;
 
 namespace SpedBr.Tests
 {
@@ -67,6 +68,70 @@ namespace SpedBr.Tests
             var result = reg1010.EscreverCampos(new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1));
 
             Assert.AreEqual("|1010|S|N|N|N|N|N|N|N|N|", result.ToStringSafe());
+        }
+
+        [TestMethod]
+        public void EscreverBlocoDRegistro100CTeCancelada()
+        {
+            var regd100 = new SpedFiscal.BlocoD.RegistroD100
+            {
+                IndOper = 1,
+                IndEmit = 0,
+                CodMod = "57",
+                CodSit = 02,
+                Ser = "2",
+                Sub = "2",
+                NumDoc = "49",
+                ChvCte = "35180102102588000110570020000000491284782639"
+            };
+
+            
+            var result = regd100.EscreverCampos();
+            
+            Assert.AreEqual("|D100|1|0||57|02|2|2|49|35180102102588000110570020000000491284782639||||||||||||||||", result.ToStringSafe());
+        }
+
+        [TestMethod]
+        public void EscreverBlocoDRegistro100CTeInutilizacao()
+        {
+            var regd100 = new SpedFiscal.BlocoD.RegistroD100
+            {
+                IndOper = 1,
+                IndEmit = 0,
+                CodMod = "57",
+                CodSit = 02,
+                Ser = "2",
+                Sub = "2",
+                NumDoc = "999"
+            };
+
+
+            var result = regd100.EscreverCampos();
+            Assert.AreEqual("|D100|1|0||57|02|2|2|999|||||||||||||||||", result.ToStringSafe());
+        }
+
+        [TestMethod]
+        public void EscreverBlocoERegistro116()
+        {
+            var regE116 = new SpedFiscal.BlocoE.RegistroE116
+            {
+                CodOr = "9",
+                VlOr = 999.99m,
+                DtVcto = new DateTime(DateTime.Now.Year, DateTime.Now.AddMonths(1).Month, 10),
+                CodRec = "1234",
+                MesRef = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1)
+            };
+
+            var result = regE116.EscreverCampos();
+            //Assert.AreEqual("|D100|1|0||57|02|2|2|999|||||||||||||||||", result.ToStringSafe());
+        }
+
+        [TestMethod]
+        public void LerBloco0Registro000()
+        {
+            var fileToRead = LerCamposSpedFiscal.ParserSpedFiscalFile("C:\\arquivo-sped-fiscal.txt");
+
+            Assert.IsNotNull(fileToRead);
         }
     }
 }
