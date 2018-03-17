@@ -23,7 +23,7 @@ namespace SpedBr.Tests
             reg0000.Uf = "GO";
             // I.E.
             reg0000.CodMun = "5204508"; // Caldas Novas
-            reg0000.Im = "";
+            reg0000.Im = string.Empty;
             // Suframa
             reg0000.IndPerfil = IndPerfilArquivo.A;
             reg0000.IndAtiv = IndTipoAtividade.Outros;

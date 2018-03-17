@@ -75,13 +75,13 @@ namespace SpedBr.Common
                 {
                     var vDecimal =
                         Convert.ToDecimal(valorEscrever).ToString("N" + decimalPlaces);
-                    return vDecimal.ToStringSafe().Replace(".", "");
+                    return vDecimal.ToStringSafe().Replace(".", string.Empty);
                 }
                 else if (isNullableDecimal && hasValue)
                 {
                     var vDecimal =
                         Convert.ToDecimal(valorEscrever).ToString("N" + decimalPlaces);
-                    return vDecimal.ToStringSafe().Replace(".", "");
+                    return vDecimal.ToStringSafe().Replace(".", string.Empty);
                 }
                 else if (isNullableDateTime && hasValue)
                     return Convert.ToDateTime(valorEscrever).Date.ToString("ddMMyyyy");
