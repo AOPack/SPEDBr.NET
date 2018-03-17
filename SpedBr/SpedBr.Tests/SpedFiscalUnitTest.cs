@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SpedBr.Common;
+using SpedBr.SpedFiscal;
 
 namespace SpedBr.Tests
 {
@@ -123,6 +124,14 @@ namespace SpedBr.Tests
 
             var result = regE116.EscreverCampos();
             //Assert.AreEqual("|D100|1|0||57|02|2|2|999|||||||||||||||||", result.ToStringSafe());
+        }
+
+        [TestMethod]
+        public void LerBloco0Registro000()
+        {
+            var fileToRead = LerCamposSpedFiscal.ParserSpedFiscalFile("C:\\arquivo-sped-fiscal.txt");
+
+            Assert.IsNotNull(fileToRead);
         }
     }
 }
