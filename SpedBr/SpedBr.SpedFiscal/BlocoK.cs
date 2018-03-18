@@ -127,15 +127,76 @@ namespace SpedBr.SpedFiscal
             public string CodPart { get; set; }
         }
 
+        /// <summary>
+        ///     REGISTRO K210: DESMONTAGEM DE MERCADORIAS – ITEM DE ORIGEM
+        /// </summary>
         public class RegistroK210 : RegistroBaseSped
         {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroK210" />.
+            /// </summary>
+            public RegistroK210()
+            {
+                Reg = "K210";
+            }
+
+            /// <summary>
+            ///     Data de início da ordem de serviço
+            /// </summary>
+            [SpedCampos(2, "DT_INI_OS", "N", 8, 0, false)]
+            public DateTime? DtIniOS { get; set; }
+
+            /// <summary>
+            ///     Data de conclusão da ordem de serviço
+            /// </summary>
+            [SpedCampos(3, "DT_FIN_OS", "N", 8, 0, false)]
+            public DateTime? DtFinOS { get; set; }
+
+            /// <summary>
+            ///     Código de identificação da ordem de serviço
+            /// </summary>
+            [SpedCampos(4, "COD_DOC_OS", "C", 30, 0, false)]
+            public string CodDocOS { get; set; }
+
+            /// <summary>
+            ///     Código do item de origem (campo 02 do Registro 0200)
+            /// </summary>
+            [SpedCampos(5, "COD_ITEM_ORI", "C", 30, 0, true)]
+            public string CodItemOri { get; set; }
+
+            /// <summary>
+            ///    Quantidade de origem – saída do estoque
+            /// </summary>
+            [SpedCampos(6, "QTD_ORI", "N", 0, 3, false)]
+            public string QtdOri { get; set; }
 
             public List<RegistroK215> RegK215s { get; set; }
         }
 
+        /// <summary>
+        ///     REGISTRO K215: DESMONTAGEM DE MERCADORIAS – ITENS DE DESTINO
+        /// </summary>
         public class RegistroK215: RegistroBaseSped
         {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroK215" />.
+            /// </summary>
+            public RegistroK215()
+            {
+                Reg = "K215";
+            }
 
+            /// <summary>
+            ///     Código do item de destino (campo 02 do Registro 0200)
+            /// </summary>
+            [SpedCampos(2, "COD_ITEM_DES", "C", 30, 0, true)]
+            public string CodItemDes { get; set; }
+
+            /// <summary>
+            ///    Quantidade de destino – entrada em estoque
+            /// </summary>
+            [SpedCampos(3, "QTD_DES", "N", 0, 3, false)]
+            public string QtdDes { get; set; }
         }
 
         /// <summary>
@@ -340,6 +401,9 @@ namespace SpedBr.SpedFiscal
             public string CodInsSubst { get; set; }
         }
 
+        /// <summary>
+        ///     REGISTRO K260: REPROCESSAMENTO/REPARO DE PRODUTO/INSUMO
+        /// </summary>
         public class RegistroK260 : RegistroBaseSped
         {
             public List<RegistroK265> RegK265s { get; set; }
