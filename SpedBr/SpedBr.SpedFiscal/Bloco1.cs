@@ -1,5 +1,6 @@
 ﻿using SpedBr.Common;
 using System;
+using System.Collections.Generic;
 
 namespace SpedBr.SpedFiscal
 {
@@ -8,6 +9,9 @@ namespace SpedBr.SpedFiscal
     /// </summary>
     public class Bloco1
     {
+        public Registro1001 Reg1001 { get; set; }
+        public Registro1990 Reg1990 { get; set; }
+
         /// <summary>
         ///     REGISTRO 1001: ABERTURA DO BLOCO 1
         /// </summary>
@@ -31,6 +35,18 @@ namespace SpedBr.SpedFiscal
             /// </remarks>
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
+
+            public Registro1010 Reg1010 { get; set; }
+            public List<Registro1100> Reg1100s { get; set; }
+            public List<Registro1300> Reg1300s { get; set; }
+            public List<Registro1350> Reg1350s { get; set; }
+            public List<Registro1390> Reg1390s { get; set; }
+            public List<Registro1400> Reg1400s { get; set; }
+            public List<Registro1500> Reg1500s { get; set; }
+            public List<Registro1600> Reg1600s { get; set; }
+            public List<Registro1700> Reg1700s { get; set; }
+            public Registro1800 Reg1800  { get; set; }
+            public List<Registro1900> Reg1900s { get; set; }
         }
 
         /// <summary>
@@ -103,7 +119,7 @@ namespace SpedBr.SpedFiscal
             ///     Reg 1800 – A empresa prestou serviços de transporte aéreo de cargas e de passageiros: S - Sim; N - Não
             /// </summary>
             [SpedCampos(10, "IND_AER", "LE", 1, 0, true)]
-            public SimOuNao IndAer { get; set; }
+            public SimOuNao IndAer { get; set; }            
         }
 
         /// <summary>
@@ -184,6 +200,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(12, "PAIS", "N", 3, 0, true)]
             public int Pais { get; set; }
+
+            public List<Registro1105> Reg1105s { get; set; }
         }
 
         /// <summary>
@@ -234,6 +252,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(7, "COD_ITEM", "C", 60, 0, true)]
             public string CodItem { get; set; }
+
+            public List<Registro1110> Reg1110s { get; set; }
         }
 
         /// <summary>
@@ -352,6 +372,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(7, "SLD_CRED_FIM", "N", 0, 2, true)]
             public decimal SldCredFim { get; set; }
+
+            public List<Registro1210> Reg1210s { get; set; }
         }
 
         /// <summary>
@@ -464,6 +486,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(11, "FECH_FISICO", "N", 0, 3, true)]
             public decimal FechFisico { get; set; }
+
+            public List<Registro1310> Reg1310s { get; set; }
         }
 
         /// <summary>
@@ -532,6 +556,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(10, "FECH_FISICO", "N", 0, 3, true)]
             public decimal FechFisico { get; set; }
+
+            public List<Registro1320> Reg1320s { get; set; }
         }
 
         /// <summary>
@@ -644,6 +670,9 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(5, "TIPO_MEDICAO", "C", 1, 0, true)]
             public string TipoMedicao { get; set; }
+
+            public List<Registro1360> Reg1360s { get; set; }
+            public List<Registro1360> Reg1370s { get; set; }
         }
 
         /// <summary>
@@ -722,6 +751,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(2, "COD_PROD", "N", 2, 0, true)]
             public int CodProd { get; set; }
+
+            public List<Registro1391> Reg1391s { get; set; }
         }
 
         /// <summary>
@@ -1058,6 +1089,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(27, "COD_GRUPO_TENSAO", "C", 2, 0, false)]
             public int CodGrupoTensao { get; set; }
+
+            public List<Registro1510> Reg1510s { get; set; }
         }
 
         /// <summary>
@@ -1292,6 +1325,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(8, "NUM_AUT", "N", 60, 0, true)]
             public string NumAut { get; set; }
+
+            public List<Registro1710> Reg1710s { get; set; }
         }
 
         /// <summary>
@@ -1420,6 +1455,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(3, "DESCR_COMPL_OUT_APUR", "C", 1024, 0, true)]
             public string DescrComplOutApur { get; set; }
+
+            public List<Registro1910> Reg1910s { get; set; }
         }
 
         /// <summary>
@@ -1446,6 +1483,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(3, "DT_FIN", "N", 8, 0, true)]
             public DateTime DtFin { get; set; }
+
+            public Registro1920 Reg1920 { get; set; }
         }
 
         /// <summary>
@@ -1532,6 +1571,10 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(13, "DEB_ESP_OA", "N", 0, 2, true)]
             public decimal DebEspOa { get; set; }
+
+            public List<Registro1921> Reg1921s { get; set; }
+            public List<Registro1925> Reg1925s { get; set; }
+            public List<Registro1926> Reg1926s { get; set; }
         }
 
         /// <summary>
@@ -1564,6 +1607,9 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(4, "VL_AJ_APUR", "N", 0, 2, true)]
             public decimal VlAjApur { get; set; }
+
+            public List<Registro1922> Reg1922s { get; set; }
+            public List<Registro1923> Reg1923s { get; set; }
         }
 
         /// <summary>
