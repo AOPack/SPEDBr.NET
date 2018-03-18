@@ -10,7 +10,7 @@ namespace SpedBr.SpedFiscal
     public class BlocoK
     {
         public RegistroK001 RegK001 { get; set; }
-        public RegistroK990 RegK990 { get; set; }
+        public RegistroK990 RegK990 { get; set; }            
 
         /// <summary>
         ///     REGISTRO K001: ABERTURA DO BLOCO K
@@ -72,6 +72,8 @@ namespace SpedBr.SpedFiscal
             public List<RegistroK260> RegK260s { get; set; }
             public List<RegistroK270> RegK270s { get; set; }
             public List<RegistroK280> RegK280s { get; set; }
+            public List<RegistroK290> RegK290s { get; set; }
+            public List<RegistroK300> RegK300s { get; set; }
         }
 
         /// <summary>
@@ -634,6 +636,168 @@ namespace SpedBr.SpedFiscal
             ///         - proprietário/possuidor que não seja o informante do arquivo            /// </summary>
             [SpedCampos(6, "COD_PART", "C", 60, 0, false)]
             public string CodPart { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO K290: PRODUÇÃO CONJUNTA – ORDEM DE PRODUÇÃ
+        /// </summary>
+        public class RegistroK290 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroK290" />.
+            /// </summary>
+            public RegistroK290()
+            {
+                Reg = "K290";
+            }
+
+            /// <summary>
+            ///     Data de início da ordem de produção
+            /// </summary>
+            [SpedCampos(2, "DT_INI_OP", "N", 8, 0, false)]
+            public DateTime? DtIniOp { get; set; }
+
+            /// <summary>
+            ///     Data de conclusão da ordem de produção
+            /// </summary>
+            [SpedCampos(3, "DT_FIN_OP", "N", 8, 0, false)]
+            public DateTime? DtFinOp { get; set; }
+
+            /// <summary>
+            ///     Código de identificação da ordem de produção
+            /// </summary>
+            [SpedCampos(3, "COD_DOC_OP", "C", 30, 0, false)]
+            public string CodDocOp { get; set; }
+
+            public List<RegistroK291> RegK291s { get; set; }
+            public List<RegistroK292> RegK292s { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO K291: PRODUÇÃO CONJUNTA - ITENS PRODUZIDOS
+        /// </summary>
+        public class RegistroK291 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroK291" />.
+            /// </summary>
+            public RegistroK291()
+            {
+                Reg = "K291";
+            }
+
+            /// <summary>
+            ///     Código do item produzido (campo 02 do Registro 0200)
+            /// </summary>
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            ///    Quantidade de produção acabada
+            /// </summary>
+            [SpedCampos(3, "QTD", "N", 0, 3, true)]
+            public decimal Qtd { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO K292: PRODUÇÃO CONJUNTA – INSUMOS CONSUMIDOS
+        /// </summary>
+        public class RegistroK292 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroK292" />.
+            /// </summary>
+            public RegistroK292()
+            {
+                Reg = "K292";
+            }
+
+            /// <summary>
+            ///     Código do insumo/componente consumido (campo 02 do Registro 0200)
+            /// </summary>
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            ///    Quantidade consumida
+            /// </summary>
+            [SpedCampos(3, "QTD", "N", 0, 3, true)]
+            public decimal Qtd { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO K300: PRODUÇÃO CONJUNTA – INDUSTRIALIZAÇÃO EFETUADA POR TERCEIROS
+        /// </summary>
+        public class RegistroK300 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroK300" />.
+            /// </summary>
+            public RegistroK300()
+            {
+                Reg = "K300";
+            }
+
+            /// <summary>
+            ///    Data do reconhecimento da produção ocorrida no terceiro
+            /// </summary>
+            [SpedCampos(2, "DT_PROD", "N", 8, 0, true)]
+            public DateTime DtProd{ get; set; }
+
+            public List<RegistroK301> RegK301s { get; set; }
+            public List<RegistroK302> RegK302s { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO K301: PRODUÇÃO CONJUNTA – INDUSTRIALIZAÇÃO EFETUADA POR TERCEIROS – ITENS PRODUZIDOS
+        /// </summary>
+        public class RegistroK301 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroK301" />.
+            /// </summary>
+            public RegistroK301()
+            {
+                Reg = "K301";
+            }
+
+            /// <summary>
+            ///     Código do item produzido (campo 02 do Registro 0200)
+            /// </summary>
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            ///    Quantidade produzida
+            /// </summary>
+            [SpedCampos(3, "QTD", "N", 0, 3, true)]
+            public decimal Qtd { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO K302: PRODUÇÃO CONJUNTA – INDUSTRIALIZAÇÃO EFETUADA POR TERCEIROS – INSUMOS CONSUMIDOS
+        /// </summary>
+        public class RegistroK302 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroK302" />.
+            /// </summary>
+            public RegistroK302()
+            {
+                Reg = "K302";
+            }
+
+            /// <summary>
+            ///     Código do insumo (campo 02 do Registro 0200)
+            /// </summary>
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            ///    Quantidade consumida
+            /// </summary>
+            [SpedCampos(3, "QTD", "N", 0, 3, true)]
+            public decimal Qtd { get; set; }
         }
 
         /// <summary>
