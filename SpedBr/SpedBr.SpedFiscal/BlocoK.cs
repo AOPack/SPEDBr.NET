@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using SpedBr.Common;
 
 namespace SpedBr.SpedFiscal
@@ -8,6 +9,8 @@ namespace SpedBr.SpedFiscal
     /// </summary>
     public class BlocoK
     {
+        public RegistroK001 RegK001 { get; set; }
+
         /// <summary>
         ///     REGISTRO K001: ABERTURA DO BLOCO K
         /// </summary>
@@ -31,6 +34,8 @@ namespace SpedBr.SpedFiscal
             /// </remarks>
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
+
+            public List<RegistroK100> RegK100s { get; set; }
         }
 
         /// <summary>
@@ -57,6 +62,15 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(3, "DT_FIN", "N", 8, 0, true)]
             public DateTime DtFin { get; set; }
+
+            public List<RegistroK200> RegK200s { get; set; }
+            public List<RegistroK210> RegK210s { get; set; }
+            public List<RegistroK220> RegK220s { get; set; }
+            public List<RegistroK230> RegK230s { get; set; }        
+            public List<RegistroK250> RegK250s { get; set; }
+            public List<RegistroK260> RegK260s { get; set; }
+            public List<RegistroK270> RegK270s { get; set; }
+            public List<RegistroK280> RegK280s { get; set; }
         }
 
         /// <summary>
@@ -111,6 +125,17 @@ namespace SpedBr.SpedFiscal
             /// </remarks>
             [SpedCampos(6, "COD_PART", "C", 60, 0, false)]
             public string CodPart { get; set; }
+        }
+
+        public class RegistroK210 : RegistroBaseSped
+        {
+
+            public List<RegistroK215> RegK215s { get; set; }
+        }
+
+        public class RegistroK215: RegistroBaseSped
+        {
+
         }
 
         /// <summary>
@@ -201,6 +226,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(6, "QTD_ENC", "N", 0, 3, true)]
             public decimal QtdEnc { get; set; }
+
+            public List<RegistroK235> RegK235s { get; set; }
         }
 
         /// <summary>
@@ -271,6 +298,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(4, "QTD", "N", 0, 3, true)]
             public decimal Qtd { get; set; }
+
+            public List<RegistroK250> RegK255s { get; set; }
         }
 
         /// <summary>
@@ -309,6 +338,31 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(5, "COD_INS_SUBST", "C", 60, 0, false)]
             public string CodInsSubst { get; set; }
+        }
+
+        public class RegistroK260 : RegistroBaseSped
+        {
+            public List<RegistroK265> RegK265s { get; set; }
+        }
+
+        public class RegistroK265 : RegistroBaseSped
+        {
+
+        }
+
+        public class RegistroK270 : RegistroBaseSped
+        {
+            public List<RegistroK275> RegK265s { get; set; }
+        }
+
+        public class RegistroK275 : RegistroBaseSped
+        {
+
+        }
+
+        public class RegistroK280 : RegistroBaseSped
+        {
+
         }
 
         /// <summary>
