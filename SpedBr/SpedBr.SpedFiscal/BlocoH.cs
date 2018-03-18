@@ -30,7 +30,7 @@ namespace SpedBr.SpedFiscal
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
 
-            public List<RegistroH005> RegH05s { get; set; }
+            public List<RegistroH005> RegH005s { get; set; }
         }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace SpedBr.SpedFiscal
             [SpedCampos(4, "MOT_INV", "C", 2, 0, true)]
             public int MotInv { get; set; }
 
-            public List<RegistroH010> RegH010 { get; set; }
+            public List<RegistroH010> RegH010s { get; set; }
         }
 
         /// <summary>
@@ -144,7 +144,7 @@ namespace SpedBr.SpedFiscal
             [SpedCampos(11, "VL_ITEM_IR", "N", 0, 2, false)]
             public decimal VlItemIr { get; set; }
 
-            public List<RegistroH010> RegH020 { get; set; }
+            public List<RegistroH020> RegH020s { get; set; }
         }
 
         /// <summary>
