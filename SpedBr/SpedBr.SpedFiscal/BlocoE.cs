@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using SpedBr.Common;
 
 namespace SpedBr.SpedFiscal
@@ -8,6 +9,10 @@ namespace SpedBr.SpedFiscal
     /// </summary>
     public class BlocoE
     {
+        public RegistroE001 RegE001 { get; set; }
+        public RegistroE990 RegE990 { get; set; }
+
+
         /// <summary>
         ///     REGISTRO E001: ABERTURA DO BLOCO E
         /// </summary>
@@ -26,6 +31,11 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
+
+            public List<RegistroE100> RegE100s { get; set; }
+            public List<RegistroE200> RegE200s { get; set; }
+            public List<RegistroE300> RegE300s { get; set; }
+            public List<RegistroE500> RegE500s { get; set; }
         }
 
         /// <summary>
@@ -52,6 +62,9 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(3, "DT_FIN", "N", 8, 0, true)]
             public DateTime DtFin { get; set; }
+
+            public RegistroE110 RegE110 { get; set; }
+            public List<RegistroE200> RegE200s { get; set; }
         }
 
         /// <summary>
@@ -150,6 +163,10 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(15, "DEB_ESP", "N", 0, 2, true)]
             public decimal DebEsp { get; set; }
+
+            public List<RegistroE111> RegE111s { get; set; }
+            public List<RegistroE115> RegE115s { get; set; }
+            public List<RegistroE116> RegE116s { get; set; }
         }
 
         /// <summary>
@@ -182,6 +199,9 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(4, "VL_AJ_APUR", "N", 0, 2, true)]
             public decimal VlAjApur { get; set; }
+
+            public List<RegistroE112> RegE112s { get; set; }
+            public List<RegistroE113> RegE113s { get; set; }
         }
 
         /// <summary>
@@ -434,6 +454,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(4, "DT_FUN", "N", 8, 0, true)]
             public DateTime DtFin { get; set; }
+
+            public RegistroE210 RegE210 { get; set; }
         }
 
         /// <summary>
@@ -536,6 +558,9 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(15, "DEB_ESP_ST", "N", 0, 2, true)]
             public decimal DebEspSt { get; set; }
+
+            public List<RegistroE220> RegE220s { get; set; }
+            public List<RegistroE250> RegE250s { get; set; }
         }
 
         /// <summary>
@@ -787,6 +812,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(4, "DT_FIN", "N", 8, 0, true)]
             public DateTime DtFin { get; set; }
+
+            public RegistroE310 RegE310 { get; set; }
         }
 
         /// <summary>
@@ -934,7 +961,9 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(22, "DEB_ESP_FCP", "N", 0, 2, true)]
             public decimal DebEspFcp { get; set; }
-            
+
+            public List<RegistroE310> RegE311s { get; set; }
+            public List<RegistroE316> RegE316s { get; set; }
         }
 
         /// <summary>
@@ -967,6 +996,9 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(4, "VL_AJ_APUR", "N", 0, 2, true)]
             public decimal VlAjApur { get; set; }
+
+            public List<RegistroE312> RegE312s { get; set; }
+            public List<RegistroE313> RegE313s { get; set; }
         }
 
         /// <summary>
@@ -1198,6 +1230,9 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(4, "DT_FIN", "N", 8, 0, true)]
             public DateTime DtFin { get; set; }
+
+            public List<RegistroE510> RegE510s { get; set; }
+            public RegistroE520 RegE520 { get; set; }
         }
 
         /// <summary>
@@ -1300,6 +1335,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(8, "VL_SD_IPI", "N", 0, 2, true)]
             public decimal VlSdIpi { get; set; }
+
+            public List<RegistroE530> RegE530s { get; set; }
         }
 
         /// <summary>
@@ -1360,6 +1397,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(7, "DESCR_AJ", "C", 1024, 0, true)]
             public string DescrAj { get; set; }
+
+            public List<RegistroE531> RegE531s { get; set; }
         }
 
         /// <summary>
