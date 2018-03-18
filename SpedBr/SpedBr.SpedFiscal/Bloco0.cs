@@ -162,7 +162,7 @@ namespace SpedBr.SpedFiscal
             
             public Registro0005 Reg0005 { get; set; }
             public List<Registro0015> Reg0015s { get; set; }
-            public Registro0005 Reg0100 { get; set; }
+            public Registro0100 Reg0100 { get; set; }
             public List<Registro0150> Reg0150s { get; set; }
             public List<Registro0190> Reg0190s { get; set; }
             public List<Registro0200> Reg0200s { get; set; }
@@ -171,7 +171,7 @@ namespace SpedBr.SpedFiscal
             public List<Registro0450> Reg0450s { get; set; }
             public List<Registro0460> Reg0460s { get; set; }
             public List<Registro0500> Reg0500s { get; set; }
-            public List<Registro0500> Reg0600s { get; set; }
+            public List<Registro0600> Reg0600s { get; set; }
         }
 
         /// <summary>
@@ -445,7 +445,7 @@ namespace SpedBr.SpedFiscal
             [SpedCampos(13, "BAIRRO", "C", 60, 0, false)]
             public string Bairro { get; set; }
 
-            public List<Registro0175> Reg0175 { get; set; }
+            public List<Registro0175> Reg0175s { get; set; }
         }
 
         /// <summary>
@@ -596,10 +596,10 @@ namespace SpedBr.SpedFiscal
             [SpedCampos(13, "CEST", "C", 7, 0, false)]
             public string Cest { get; set; }
 
-            public List<Registro0205> Reg0205 { get; set; }
-            public List<Registro0206> Reg0206 { get; set; }
-            public List<Registro0210> Reg0210 { get; set; }
-            public List<Registro0220> Reg0220 { get; set; }
+            public List<Registro0205> Reg0205s { get; set; }
+            public List<Registro0206> Reg0206s { get; set; }
+            public List<Registro0210> Reg0210s { get; set; }
+            public List<Registro0220> Reg0220s { get; set; }
         }
 
         /// <summary>
