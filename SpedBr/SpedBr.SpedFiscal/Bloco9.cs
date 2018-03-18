@@ -1,4 +1,5 @@
 ﻿using SpedBr.Common;
+using System.Collections.Generic;
 
 namespace SpedBr.SpedFiscal
 {
@@ -7,6 +8,10 @@ namespace SpedBr.SpedFiscal
     /// </summary>
     public class Bloco9
     {
+        public Registro9001 Reg9001 { get; set; }
+        public Registro9990 Reg9990 { get; set; }
+        public Registro9999 Reg9999 { get; set; }
+
         /// <summary>
         ///     REGISTRO 9001: ABERTURA DO BLOCO 9
         /// </summary>
@@ -51,6 +56,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(3, "QTD_REG_BLC", "N", int.MaxValue, 0, true)]
             public int QtdRegBlc { get; set; }
+
+            public List<Registro9990> Reg9990s { get; set; }
         }
 
         /// <summary>
