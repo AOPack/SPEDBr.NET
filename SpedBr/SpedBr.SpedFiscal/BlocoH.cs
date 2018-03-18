@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using SpedBr.Common;
 
 namespace SpedBr.SpedFiscal
@@ -8,6 +9,9 @@ namespace SpedBr.SpedFiscal
     /// </summary>
     public class BlocoH
     {
+        public RegistroH001 RegH001 { get; set; }
+        public RegistroH990 RegH990 { get; set; }
+
         /// <summary>
         ///     REGISTRO H001: ABERTURA DO BLOCO H
         /// </summary>
@@ -25,6 +29,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
+
+            public List<RegistroH005> RegH05s { get; set; }
         }
 
         /// <summary>
@@ -61,6 +67,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(4, "MOT_INV", "C", 2, 0, true)]
             public int MotInv { get; set; }
+
+            public List<RegistroH010> RegH010 { get; set; }
         }
 
         /// <summary>
@@ -135,6 +143,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(11, "VL_ITEM_IR", "N", 0, 2, false)]
             public decimal VlItemIr { get; set; }
+
+            public List<RegistroH010> RegH020 { get; set; }
         }
 
         /// <summary>
