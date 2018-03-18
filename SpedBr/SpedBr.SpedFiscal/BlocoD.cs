@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using SpedBr.Common;
 
 namespace SpedBr.SpedFiscal
@@ -8,6 +9,9 @@ namespace SpedBr.SpedFiscal
     /// </summary>
     public class BlocoD
     {
+        public RegistroD001 RegD001 { get; set; }
+        public RegistroD001 RegD990 { get; set; }
+
         /// <summary>
         ///     REGISTRO D001: ABERTURA DO BLOCO D
         /// </summary>
@@ -26,6 +30,14 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
+
+            public List<RegistroD100> RegD100s { get; set; }
+            //public List<RegistroD300> RegD300s { get; set; } -> //To do
+            //public List<RegistroD350> RegD350s { get; set; } -> //To do
+            //public List<RegistroD400> RegD400s { get; set; } -> //To do
+            public List<RegistroD500> RegD500s { get; set; }
+            //public List<RegistroD600> RegD600s { get; set; } -> //To do
+            //public List<RegistroD695> RegD695s { get; set; } -> //To do
         }
 
         /// <summary>
@@ -204,6 +216,17 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(25, "COD_MUN_DEST", "N", 7, 0, false)]
             public string CodMunDest { get; set; }
+
+            public RegistroD101 RegD101 { get; set; }
+            public List<RegistroD110> RegD110 { get; set; }
+            //public List<RegistroD130> RegD130s { get; set; } -> //To do
+            //public List<RegistroD140> RegD140s { get; set; } -> //To do
+            //public List<RegistroD150> RegD150s { get; set; } -> //To do
+            //public List<RegistroD160> RegD160s { get; set; } -> //To do
+            //public List<RegistroD170> RegD170s { get; set; } -> //To do
+            //public List<RegistroD180> RegD180s { get; set; } -> //To do
+            public List<RegistroD190> RegD190s { get; set; }
+            public List<RegistroD195> RegD195s { get; set; }
         }
 
         /// <summary>
@@ -405,6 +428,7 @@ namespace SpedBr.SpedFiscal
             [SpedCampos(3, "TXT_COMPL", "C", 0, 0, false)]
             public string TxtCompl { get; set; }
 
+            //public List<RegistroD197> RegD197s { get; set; } -> //To do
         }
 
         /// <summary>
@@ -569,6 +593,10 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(24, "TP_ASSINANTE", "N", 1, 0, false)]
             public decimal TpAssinante { get; set; }
+
+            public List<RegistroD510> RegD510s { get; set; }
+            //public List<RegistroD530> RegD530s { get; set; }  //-> To do
+            public List<RegistroD590> RegD590s { get; set; }
         }
 
         /// <summary>
