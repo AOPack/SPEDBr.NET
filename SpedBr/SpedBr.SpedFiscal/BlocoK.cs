@@ -363,7 +363,7 @@ namespace SpedBr.SpedFiscal
             [SpedCampos(4, "QTD", "N", 0, 3, true)]
             public decimal Qtd { get; set; }
 
-            public List<RegistroK250> RegK255s { get; set; }
+            public List<RegistroK255> RegK255s { get; set; }
         }
 
         /// <summary>
@@ -551,7 +551,7 @@ namespace SpedBr.SpedFiscal
             [SpedCampos(8, "ORIGEM", "C", 1, 0, true)]
             public string Origem { get; set; }
 
-            public List<RegistroK275> RegK265s { get; set; }
+            public List<RegistroK275> RegK275s { get; set; }
         }
 
         /// <summary>
