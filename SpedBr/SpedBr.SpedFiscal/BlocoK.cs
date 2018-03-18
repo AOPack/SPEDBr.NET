@@ -10,6 +10,7 @@ namespace SpedBr.SpedFiscal
     public class BlocoK
     {
         public RegistroK001 RegK001 { get; set; }
+        public RegistroK990 RegK990 { get; set; }
 
         /// <summary>
         ///     REGISTRO K001: ABERTURA DO BLOCO K
@@ -485,19 +486,154 @@ namespace SpedBr.SpedFiscal
             public decimal? QtdRet { get; set; }
         }
 
+        /// <summary>
+        ///     REGISTRO K270: CORREÇÃO DE APONTAMENTO DOS REGISTROS K210, K220, K230, K250 , K260, K291, K292, K301 E K302
+        /// </summary>
         public class RegistroK270 : RegistroBaseSped
         {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroK270"/>.
+            /// </summary>
+            public RegistroK270()
+            {
+                Reg = "K270";
+            }
+
+            /// <summary>
+            ///     Data inicial do período de apuração em que ocorreu o apontamento que está sendo corrigido
+            /// </summary>
+            [SpedCampos(2, "DT_INI_AP", "N", 8, 0, false)]
+            public DateTime? DtIniAP { get; set; }
+
+            /// <summary>
+            ///     Data final do período de apuração em que ocorreu o apontamento que está sendo corrigido
+            /// </summary>
+            [SpedCampos(3, "DT_FIN_AP", "N", 8, 0, false)]
+            public DateTime? DtFinAP { get; set; }
+
+            /// <summary>
+            ///     Código de identificação da ordem de produção ou da ordem de serviço que está sendo corrigida
+            /// </summary>
+            [SpedCampos(4, "COD_OP_OS", "C", 30, 0, false)]
+            public string CodOpOs { get; set; }
+
+            /// <summary>
+            ///     Código da mercadoria que está sendo corrigido (campo 02 do Registro 0200)
+            /// </summary>
+            [SpedCampos(5, "COD_ITEM", "C", 60, 0, true)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            ///     Quantidade de correção positiva de apontamento ocorrido em período de apuração anterior
+            /// </summary>
+            [SpedCampos(6, "QTD_COR_POS", "N", 0, 3, false)]
+            public decimal? QtdCorPos { get; set; }
+
+            /// <summary>
+            ///     Quantidade de correção negativa de apontamento ocorrido em período de apuração anterior
+            /// </summary>
+            [SpedCampos(7, "QTD_COR_NEG", "N", 0, 3, false)]
+            public decimal? QtdCorNeg { get; set; }
+
+            /// <summary>
+            ///     1 - correção de apontamento de produção e/ou consumo relativo aos Registros K230/K235;
+            ///     2 - correção de apontamento de produção e/ou consumo relativo aos Registros K250/K255;
+            ///     3 - correção de apontamento de desmontagem e/ou consumo relativo aos Registros K210/K215;
+            ///     4 - correção de apontamento de reprocessamento/reparo e/ou consumo relativo aos Registros K260/K265;
+            ///     5 - correção de apontamento de movimentação interna relativo ao Registro K220.
+            ///     6 – correção de apontamento de produção relativo ao Registro K291; 
+            ///     7 – correção de apontamento de consumo relativo ao Registro K292;
+            ///     8 – correção de apontamento de produção relativo ao Registro K301;
+            ///     9 – correção de apontamento de consumo relativo ao Registro K302.
+            /// </summary>
+            [SpedCampos(8, "ORIGEM", "C", 1, 0, true)]
+            public string Origem { get; set; }
+
             public List<RegistroK275> RegK265s { get; set; }
         }
 
+        /// <summary>
+        ///     REGISTRO K275: CORREÇÃO DE APONTAMENTO E RETORNO DE INSUMOS DOS REGISTROS K215, K220, K235, K255 E K265.        /// </summary>
         public class RegistroK275 : RegistroBaseSped
         {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroK275" />.
+            /// </summary>
+            public RegistroK275()
+            {
+                Reg = "K275";
+            }
 
+            /// <summary>
+            ///     Código da mercadoria (campo 02 do Registro 0200)
+            /// </summary>
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            ///    Quantidade de correção positiva de apontamento ocorrido em período de apuração anterior
+            /// </summary>
+            [SpedCampos(3, "QTD_COR_POS", "N", 0, 3, false)]
+            public decimal? QtdCorPos { get; set; }
+
+            /// <summary>
+            ///    Quantidade de correção negativa de apontamento ocorrido em período de apuração anterior
+            /// </summary>
+            [SpedCampos(4, "QTD_COR NEG", "N", 0, 3, false)]
+            public decimal? QtdCorNeg { get; set; }
+
+            /// <summary>
+            ///    Código do insumo que foi substituído, caso ocorra a substituição, relativo aos Registros K235/K255
+            /// </summary>
+            [SpedCampos(5, "COD_INS_SUBST", "C", 60, 0, false)]
+            public string CodInstSubst { get; set; }
         }
 
+        /// <summary>
+        ///     REGISTRO K280: CORREÇÃO DE APONTAMENTO – ESTOQUE ESCRITURADO
+        /// </summary>
         public class RegistroK280 : RegistroBaseSped
         {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroK280" />.
+            /// </summary>
+            public RegistroK280()
+            {
+                Reg = "K280";
+            }
 
+            /// <summary>
+            ///     Código da mercadoria (campo 02 do Registro 0200)
+            /// </summary>
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            ///    Quantidade de correção positiva de apontamento ocorrido em período de apuração anterior
+            /// </summary>
+            [SpedCampos(3, "QTD_COR_POS", "N", 0, 3, false)]
+            public decimal? QtdCorPos { get; set; }
+
+            /// <summary>
+            ///    Quantidade de correção negativa de apontamento ocorrido em período de apuração anterior
+            /// </summary>
+            [SpedCampos(4, "QTD_COR NEG", "N", 0, 3, false)]
+            public decimal? QtdCorNeg { get; set; }
+
+            /// <summary>
+            ///     Indicador do tipo de estoque:
+            ///         0 = Estoque de propriedade do informante e em seu poder;
+            ///         1 = Estoque de propriedade do informante e em posse de terceiros;
+            ///         2 = Estoque de propriedade de terceiros e em posse do informante
+            /// </summary>
+            [SpedCampos(5, "IND_EST", "C", 1, 0, true)]
+            public string IndEst { get; set; }
+
+            /// <summary>
+            ///     Código do participante (campo 02 do Registro 0150):
+            ///         - proprietário/possuidor que não seja o informante do arquivo            /// </summary>
+            [SpedCampos(6, "COD_PART", "C", 60, 0, false)]
+            public string CodPart { get; set; }
         }
 
         /// <summary>
