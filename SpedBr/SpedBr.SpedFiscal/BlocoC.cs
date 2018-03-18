@@ -10,6 +10,7 @@ namespace SpedBr.SpedFiscal
     public class BlocoC
     {
         public RegistroC001 RegC001 { get; set; }
+        public RegistroC990 RegC990 { get; set; }
 
         /// <summary>
         ///     REGISTRO C001: ABERTURA DO BLOCO C
