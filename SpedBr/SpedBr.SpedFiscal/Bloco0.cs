@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using SpedBr.Common;
 
 namespace SpedBr.SpedFiscal
@@ -8,6 +9,10 @@ namespace SpedBr.SpedFiscal
     /// </summary>
     public class Bloco0
     {
+        public Registro0000 Reg0000 { get; set; }
+        public Registro0001 Reg0001 { get; set; }
+        public Registro0990 Reg0990 { get; set; }
+
         /// <summary>
         ///     REGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICAÇÃO DA ENTIDADE
         /// </summary>
@@ -154,6 +159,19 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
+            
+            public Registro0005 Reg0005 { get; set; }
+            public List<Registro0015> Reg0015s { get; set; }
+            public Registro0005 Reg0100 { get; set; }
+            public List<Registro0150> Reg0150s { get; set; }
+            public List<Registro0190> Reg0190s { get; set; }
+            public List<Registro0200> Reg0200s { get; set; }
+            public List<Registro0300> Reg0300s { get; set; }
+            public List<Registro0400> Reg0400s { get; set; }
+            public List<Registro0450> Reg0450s { get; set; }
+            public List<Registro0460> Reg0460s { get; set; }
+            public List<Registro0500> Reg0500s { get; set; }
+            public List<Registro0500> Reg0600s { get; set; }
         }
 
         /// <summary>
@@ -426,6 +444,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(13, "BAIRRO", "C", 60, 0, false)]
             public string Bairro { get; set; }
+
+            public List<Registro0175> Reg0175 { get; set; }
         }
 
         /// <summary>
@@ -575,6 +595,11 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(13, "CEST", "C", 7, 0, false)]
             public string Cest { get; set; }
+
+            public List<Registro0205> Reg0205 { get; set; }
+            public List<Registro0206> Reg0206 { get; set; }
+            public List<Registro0210> Reg0210 { get; set; }
+            public List<Registro0220> Reg0220 { get; set; }
         }
 
         /// <summary>
@@ -748,6 +773,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(7, "NR_PARC", "N", 3, 0, false)]
             public int NrParc { get; set; }
+
+            public Registro0305 Reg0305 { get; set; }
         }
 
         /// <summary>
