@@ -161,14 +161,14 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Código do item de origem (campo 02 do Registro 0200)
             /// </summary>
-            [SpedCampos(5, "COD_ITEM_ORI", "C", 30, 0, true)]
+            [SpedCampos(5, "COD_ITEM_ORI", "C", 60, 0, true)]
             public string CodItemOri { get; set; }
 
             /// <summary>
             ///    Quantidade de origem – saída do estoque
             /// </summary>
-            [SpedCampos(6, "QTD_ORI", "N", 0, 3, false)]
-            public string QtdOri { get; set; }
+            [SpedCampos(6, "QTD_ORI", "N", 0, 3, true)]
+            public decimal QtdOri { get; set; }
 
             public List<RegistroK215> RegK215s { get; set; }
         }
@@ -189,14 +189,14 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Código do item de destino (campo 02 do Registro 0200)
             /// </summary>
-            [SpedCampos(2, "COD_ITEM_DES", "C", 30, 0, true)]
+            [SpedCampos(2, "COD_ITEM_DES", "C", 60, 0, true)]
             public string CodItemDes { get; set; }
 
             /// <summary>
             ///    Quantidade de destino – entrada em estoque
             /// </summary>
-            [SpedCampos(3, "QTD_DES", "N", 0, 3, false)]
-            public string QtdDes { get; set; }
+            [SpedCampos(3, "QTD_DES", "N", 0, 3, true)]
+            public decimal QtdDes { get; set; }
         }
 
         /// <summary>
@@ -406,12 +406,83 @@ namespace SpedBr.SpedFiscal
         /// </summary>
         public class RegistroK260 : RegistroBaseSped
         {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroK260"/>.
+            /// </summary>
+            public RegistroK260()
+            {
+                Reg = "K260";
+            }
+
+            /// <summary>
+            ///     Código de identificação da ordem de produção, no reprocessamento, ou da ordem de serviço, no reparo
+            /// </summary>
+            [SpedCampos(2, "COD_OP_OS", "C", 30, 0, false)]
+            public string CodOpOS { get; set; }
+
+            /// <summary>
+            ///     Código do produto/insumo a ser reprocessado/reparado ou já reprocessado/reparado(campo 02 do Registro 0200)
+            /// </summary>
+            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            ///     Data de saída do estoque
+            /// </summary>
+            [SpedCampos(4, "DT_SAiDA", "N", 8, 0, true)]
+            public DateTime DtSaida { get; set; }
+
+            /// <summary>
+            ///    Quantidade de saída do estoque
+            /// </summary>
+            [SpedCampos(5, "QTD_SAIDA", "N", 0, 3, true)]
+            public decimal QtdSaida { get; set; }
+
+            /// <summary>
+            ///     Data de retorno ao estoque (entrada) 
+            /// </summary>
+            [SpedCampos(6, "DT_RET", "N", 8, 0, false)]
+            public DateTime? DtReg { get; set; }
+
+            /// <summary>
+            ///    Quantidade de retorno ao estoque (entrada)
+            /// </summary>
+            [SpedCampos(7, "QTD_RET", "N", 0, 3, false)]
+            public decimal? QtdRet { get; set; }
+
             public List<RegistroK265> RegK265s { get; set; }
         }
 
+        /// <summary>
+        ///     REGISTRO K265: REPROCESSAMENTO/REPARO – MERCADORIAS CONSUMIDAS E/OU RETORNADAS
+        /// </summary>
         public class RegistroK265 : RegistroBaseSped
         {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroK265" />.
+            /// </summary>
+            public RegistroK265()
+            {
+                Reg = "K265";
+            }
 
+            /// <summary>
+            ///     Código da mercadoria (campo 02 do Registro 0200)
+            /// </summary>
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            ///    Quantidade consumida – saída do estoque
+            /// </summary>
+            [SpedCampos(3, "QTD_CONS", "N", 0, 3, false)]
+            public decimal? QtdCons { get; set; }
+
+            /// <summary>
+            ///    Quantidade retornada – entrada em estoque
+            /// </summary>
+            [SpedCampos(4, "QTD_RET", "N", 0, 3, false)]
+            public decimal? QtdRet { get; set; }
         }
 
         public class RegistroK270 : RegistroBaseSped
