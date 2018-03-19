@@ -555,7 +555,8 @@ namespace SpedBr.SpedFiscal
         }
 
         /// <summary>
-        ///     REGISTRO K275: CORREÇÃO DE APONTAMENTO E RETORNO DE INSUMOS DOS REGISTROS K215, K220, K235, K255 E K265.        /// </summary>
+        ///     REGISTRO K275: CORREÇÃO DE APONTAMENTO E RETORNO DE INSUMOS DOS REGISTROS K215, K220, K235, K255 E K265.
+        /// </summary>
         public class RegistroK275 : RegistroBaseSped
         {
             /// <summary>
@@ -633,7 +634,8 @@ namespace SpedBr.SpedFiscal
 
             /// <summary>
             ///     Código do participante (campo 02 do Registro 0150):
-            ///         - proprietário/possuidor que não seja o informante do arquivo            /// </summary>
+            ///         - proprietário/possuidor que não seja o informante do arquivo
+            /// </summary>
             [SpedCampos(6, "COD_PART", "C", 60, 0, false)]
             public string CodPart { get; set; }
         }

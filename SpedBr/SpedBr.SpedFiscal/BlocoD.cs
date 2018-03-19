@@ -428,7 +428,7 @@ namespace SpedBr.SpedFiscal
             [SpedCampos(3, "TXT_COMPL", "C", 0, 0, false)]
             public string TxtCompl { get; set; }
 
-            //public List<RegistroD197> RegD197s { get; set; } -> //To do
+            public List<RegistroD197> RegD197s { get; set; }
         }
 
         /// <summary>
@@ -651,7 +651,7 @@ namespace SpedBr.SpedFiscal
             public decimal TpAssinante { get; set; }
 
             public List<RegistroD510> RegD510s { get; set; }
-            //public List<RegistroD530> RegD530s { get; set; }  //-> To do
+            public List<RegistroD530> RegD530s { get; set; }
             public List<RegistroD590> RegD590s { get; set; }
         }
 
@@ -788,6 +788,62 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(20, "COD_CTA", "C", 0, 0, false)]
             public string CodCta { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO D530: TERMINAL FATURADO.
+        /// </summary>
+        public class RegistroD530 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="RegistroD530"/>.
+            /// </summary>
+            public RegistroD530()
+            {
+                Reg = "D530";
+            }
+
+            /// <summary>
+            ///     Indicador do tipo de serviço prestado:
+            ///         0- Telefonia;
+            ///         1- Comunicação de dados;
+            ///         2- TV por assinatura;
+            ///         3- Provimento de acesso à Internet;
+            ///         4- Multimídia;
+            ///         9- Outros
+            /// </summary>
+            [SpedCampos(2, "IND_SERV", "C", 1, 0, true)]
+            public string IndServ { get; set; }
+
+            /// <summary>
+            ///     Data em que se iniciou a prestação do serviço
+            /// </summary>
+            [SpedCampos(3, "DT_INI_SERV", "N", 8, 0, false)]
+            public DateTime? DtIniServ { get; set; }
+
+            /// <summary>
+            ///     Data em que se encerrou a prestação do serviço
+            /// </summary>
+            [SpedCampos(4, "DT_FIN_SERV", "N", 8, 0, false)]
+            public DateTime? DtFinServ { get; set; }
+
+            /// <summary>
+            ///     Período fiscal da prestação do serviço (MMAAAA)
+            /// </summary>
+            [SpedCampos(5, "PER_FISCAL", "MA", 6, 0, true)]
+            public DateTime PerFiscal { get; set; }
+
+            /// <summary>
+            ///     Código de área do terminal faturado
+            /// </summary>
+            [SpedCampos(6,"COD_AREA", "C", int.MaxValue, 0, false)]
+            public string CodArea { get; set; }
+
+            /// <summary>
+            ///     Identificação do terminal faturado
+            /// </summary>
+            [SpedCampos(7, "TERMINAL", "N", int.MaxValue, 0, false)]
+            public string Terminal { get; set; }
         }
 
         /// <summary>
