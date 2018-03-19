@@ -432,6 +432,62 @@ namespace SpedBr.SpedFiscal
         }
 
         /// <summary>
+        ///     REGISTRO D197: OUTRAS OBRIGAÇÕES TRIBUTÁRIAS, AJUSTES E INFORMAÇÕES DE VALORES PROVENIENTES DE DOCUMENTO FISCAL.
+        /// </summary>
+        public class RegistroD197 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroD197" />.
+            /// </summary>
+            public RegistroD197()
+            {
+                Reg = "C197";
+            }
+
+            /// <summary>
+            ///     Código do ajustes/benefício/incentivo, conforme tabela indicada no item 5.3
+            /// </summary>
+            [SpedCampos(2, "COD_AJ", "C", 10, 0, true)]
+            public string CodAj { get; set; }
+
+            /// <summary>
+            ///     Descrição complementar do ajuste do documento fiscal
+            /// </summary>
+            [SpedCampos(3, "DESCR_COMPL_AJ", "C", 999, 0, false)]
+            public string DescrComplAj { get; set; }
+
+            /// <summary>
+            ///     Código do item
+            /// </summary>
+            [SpedCampos(4, "COD_ITEM", "C", 60, 0, false)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            ///     Base de cálculo do ICMS ou do ICMS ST
+            /// </summary>
+            [SpedCampos(5, "VL_BC_ICMS", "N", 0, 2, false)]
+            public decimal VlBcIcms { get; set; }
+
+            /// <summary>
+            ///     Alíquota do ICMS
+            /// </summary>
+            [SpedCampos(6, "ALIQ_ICMS", "N", 6, 2, false)]
+            public decimal AliqIcms { get; set; }
+
+            /// <summary>
+            ///     Valor do ICMS ou do ICMS ST
+            /// </summary>
+            [SpedCampos(7, "VL_ICMS", "N", 0, 2, false)]
+            public decimal VlIcms { get; set; }
+
+            /// <summary>
+            ///     Outros valores
+            /// </summary>
+            [SpedCampos(8, "VL_OUTROS", "N", 0, 2, false)]
+            public decimal VlOutros { get; set; }
+        }
+
+        /// <summary>
         ///     REGISTRO D500: NOTA FISCAL DE SERVIÇO DE COMUNICAÇÃO (CÓDIGO 21) E NOTA FISCAL DE SERVIÇO DE TELECOMUNICAÇÃO (CÓDIGO 22)
         /// </summary>
         public class RegistroD500 : RegistroBaseSped
