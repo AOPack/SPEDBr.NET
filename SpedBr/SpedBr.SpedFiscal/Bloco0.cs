@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using SpedBr.Common;
 
 namespace SpedBr.SpedFiscal
@@ -8,6 +9,10 @@ namespace SpedBr.SpedFiscal
     /// </summary>
     public class Bloco0
     {
+        public Registro0000 Reg0000 { get; set; }
+        public Registro0001 Reg0001 { get; set; }
+        public Registro0990 Reg0990 { get; set; }
+
         /// <summary>
         ///     REGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICAÇÃO DA ENTIDADE
         /// </summary>
@@ -19,6 +24,27 @@ namespace SpedBr.SpedFiscal
             public Registro0000()
             {
                 Reg = "0000";
+            }
+
+            public Registro0000(string linha)
+            {
+                CodVer = LerCamposSped.ReturnPosition(linha, 2).ToInt();
+                Enum.TryParse(LerCamposSped.ReturnPosition(linha, 3).ToStringSafe(), out IndCodFinalidadeArquivo indCodFin);
+                CodFin = indCodFin;
+                DtIni = LerCamposSped.ReturnPosition(linha, 4).ToDateTime();
+                DtFin = LerCamposSped.ReturnPosition(linha, 5).ToDateTime();
+                Nome = LerCamposSped.ReturnPosition(linha, 6).ToStringSafe();
+                Cnpj = LerCamposSped.ReturnPosition(linha, 7).ToStringSafe();
+                Cpf = LerCamposSped.ReturnPosition(linha, 8).ToStringSafe();
+                Uf = LerCamposSped.ReturnPosition(linha, 9).ToStringSafe();
+                Ie = LerCamposSped.ReturnPosition(linha, 10).ToStringSafe();
+                CodMun = LerCamposSped.ReturnPosition(linha, 11).ToStringSafe();
+                Im = LerCamposSped.ReturnPosition(linha, 12).ToStringSafe();
+                Suframa = LerCamposSped.ReturnPosition(linha, 13).ToStringSafe();
+                Enum.TryParse(LerCamposSped.ReturnPosition(linha, 14).ToStringSafe(), out IndPerfilArquivo indCodPerfil);
+                IndPerfil = indCodPerfil;
+                Enum.TryParse(LerCamposSped.ReturnPosition(linha, 15).ToStringSafe(), out IndTipoAtividade indCodAtiv);
+                IndAtiv = indCodAtiv;
             }
 
             /// <summary>
@@ -133,6 +159,19 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
+            
+            public Registro0005 Reg0005 { get; set; }
+            public List<Registro0015> Reg0015s { get; set; }
+            public Registro0100 Reg0100 { get; set; }
+            public List<Registro0150> Reg0150s { get; set; }
+            public List<Registro0190> Reg0190s { get; set; }
+            public List<Registro0200> Reg0200s { get; set; }
+            public List<Registro0300> Reg0300s { get; set; }
+            public List<Registro0400> Reg0400s { get; set; }
+            public List<Registro0450> Reg0450s { get; set; }
+            public List<Registro0460> Reg0460s { get; set; }
+            public List<Registro0500> Reg0500s { get; set; }
+            public List<Registro0600> Reg0600s { get; set; }
         }
 
         /// <summary>
@@ -405,6 +444,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(13, "BAIRRO", "C", 60, 0, false)]
             public string Bairro { get; set; }
+
+            public List<Registro0175> Reg0175s { get; set; }
         }
 
         /// <summary>
@@ -501,7 +542,7 @@ namespace SpedBr.SpedFiscal
             ///     Conforme Guia_Prático_da_EFD_Versao_2.0.17 -> "informar no 0205"
             /// </summary>
             [SpedCampos(5, "COD_ANT_ITEM", "C", 60, 0, false)]
-            public string CodAntItem => "";
+            public string CodAntItem => string.Empty;
 
             /// <summary>
             ///     Unidade de medida utilizada na quantificação de estoques.
@@ -554,6 +595,11 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(13, "CEST", "C", 7, 0, false)]
             public string Cest { get; set; }
+
+            public List<Registro0205> Reg0205s { get; set; }
+            public List<Registro0206> Reg0206s { get; set; }
+            public List<Registro0210> Reg0210s { get; set; }
+            public List<Registro0220> Reg0220s { get; set; }
         }
 
         /// <summary>
@@ -727,6 +773,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(7, "NR_PARC", "N", 3, 0, false)]
             public int NrParc { get; set; }
+
+            public Registro0305 Reg0305 { get; set; }
         }
 
         /// <summary>
