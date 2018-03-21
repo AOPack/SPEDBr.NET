@@ -159,12 +159,12 @@ namespace SpedBr.EfdContribuicoes
             {
                 Reg = "0111";
             }
-            
+
             /// <summary>
             ///     Receita Bruta Não-Cumulativa - Tributada no Mercado Interno
             /// </summary>
             [SpedCampos(2, "REC_BRU_NCUM_TRIB_MI", "N", int.MaxValue, 2, true)]
-            public decimal RecCruNCumTribMI { get; set; }
+            public decimal RecBruNCumTribMI { get; set; }
 
             /// <summary>
             ///     Receita Bruta Não-Cumulativa - Não Tributada no Mercado Interno
