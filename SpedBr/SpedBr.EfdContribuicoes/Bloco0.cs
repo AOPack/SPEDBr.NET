@@ -158,7 +158,7 @@ namespace SpedBr.EfdContribuicoes
             }
 
             [SpedCampos(2, "REC_BRU_NCUM_TRIB_MI", "N", int.MaxValue, 2, true)]
-            public decimal RecCruNCumTribMI { get; set; }
+            public decimal RecBruNCumTribMI { get; set; }
 
             [SpedCampos(2, "REC_BRU_NCUM_NT_MI", "N", int.MaxValue, 2, true)]
             public decimal RecBruNCumNTMI { get; set; }
