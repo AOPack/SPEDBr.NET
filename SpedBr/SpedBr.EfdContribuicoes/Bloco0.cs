@@ -147,6 +147,32 @@ namespace SpedBr.EfdContribuicoes
             public int? IndRegCum { get; set; }
         }
 
+        /// <summary>
+        ///     Registro 0111: Tabela de Receita Bruta Mensal Para Fins de Rateio de Créditos Comuns 
+        /// </summary>
+        public class Registro0111 : RegistroBaseSped
+        {
+            public Registro0111()
+            {
+                Reg = "0111";
+            }
+
+            [SpedCampos(2, "REC_BRU_NCUM_TRIB_MI", "N", int.MaxValue, 2, true)]
+            public decimal RecCruNCumTribMI { get; set; }
+
+            [SpedCampos(2, "REC_BRU_NCUM_NT_MI", "N", int.MaxValue, 2, true)]
+            public decimal RecBruNCumNTMI { get; set; }
+
+            [SpedCampos(2, "REC_BRU_NCUM_EXP", "N", int.MaxValue, 2, true)]
+            public decimal RedBruNCumExp { get; set; }
+
+            [SpedCampos(2, "REC_BRU_CUM", "N", int.MaxValue, 2, true)]
+            public decimal RecBruCum { get; set; }
+
+            [SpedCampos(2, "REC_BRU_TOTAL", "N", int.MaxValue, 2, true)]
+            public decimal RecBruTotal { get; set; }
+        }
+
         public class Registro0140 : RegistroBaseSped
         {
             public Registro0140()
