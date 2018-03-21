@@ -152,24 +152,43 @@ namespace SpedBr.EfdContribuicoes
         /// </summary>
         public class Registro0111 : RegistroBaseSped
         {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0111" />.
+            /// </summary>
             public Registro0111()
             {
                 Reg = "0111";
             }
-
+            
+            /// <summary>
+            ///     Receita Bruta Não-Cumulativa - Tributada no Mercado Interno
+            /// </summary>
             [SpedCampos(2, "REC_BRU_NCUM_TRIB_MI", "N", int.MaxValue, 2, true)]
-            public decimal RecBruNCumTribMI { get; set; }
+            public decimal RecCruNCumTribMI { get; set; }
 
-            [SpedCampos(2, "REC_BRU_NCUM_NT_MI", "N", int.MaxValue, 2, true)]
+            /// <summary>
+            ///     Receita Bruta Não-Cumulativa - Não Tributada no Mercado Interno
+            ///     (Vendas com suspensão, alíquota zero, isenção e sem incidência das contribuições)
+            /// </summary>
+            [SpedCampos(3, "REC_BRU_NCUM_NT_MI", "N", int.MaxValue, 2, true)]
             public decimal RecBruNCumNTMI { get; set; }
 
-            [SpedCampos(2, "REC_BRU_NCUM_EXP", "N", int.MaxValue, 2, true)]
+            /// <summary>
+            ///     Receita Bruta Não-Cumulativa - Exportação
+            /// </summary>
+            [SpedCampos(4, "REC_BRU_NCUM_EXP", "N", int.MaxValue, 2, true)]
             public decimal RedBruNCumExp { get; set; }
 
-            [SpedCampos(2, "REC_BRU_CUM", "N", int.MaxValue, 2, true)]
+            /// <summary>
+            ///     Receita Bruta Cumulativa
+            /// </summary>
+            [SpedCampos(5, "REC_BRU_CUM", "N", int.MaxValue, 2, true)]
             public decimal RecBruCum { get; set; }
 
-            [SpedCampos(2, "REC_BRU_TOTAL", "N", int.MaxValue, 2, true)]
+            /// <summary>
+            ///     Receita Bruta Total
+            /// </summary>
+            [SpedCampos(6, "REC_BRU_TOTAL", "N", int.MaxValue, 2, true)]
             public decimal RecBruTotal { get; set; }
         }
 
