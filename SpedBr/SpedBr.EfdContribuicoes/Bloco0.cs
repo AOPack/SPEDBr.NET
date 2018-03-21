@@ -173,6 +173,23 @@ namespace SpedBr.EfdContribuicoes
             public decimal RecBruTotal { get; set; }
         }
 
+        /// <summary>
+        ///     Registro 0120: Identificação de EFD-Contribuições Sem Dados a Escriturar 
+        /// </summary>
+        public class Registro0120 : RegistroBaseSped
+        {
+            public Registro0120()
+            {
+                Reg = "0120";
+            }
+
+            [SpedCampos(2, "MES_REFER", "MA", 6, 0, true)]
+            public DateTime MesRefer { get; set; }
+
+            [SpedCampos(3, "INF_COMP", "C", 90, 0, true)]
+            public string InfComp { get; set; }
+        }
+
         public class Registro0140 : RegistroBaseSped
         {
             public Registro0140()
