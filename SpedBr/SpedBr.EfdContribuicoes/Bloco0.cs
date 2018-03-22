@@ -197,14 +197,33 @@ namespace SpedBr.EfdContribuicoes
         /// </summary>
         public class Registro0120 : RegistroBaseSped
         {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0120" />.
+            /// </summary>
             public Registro0120()
             {
                 Reg = "0120";
             }
 
+            /// <summary>
+            ///     Mês de referência do ano-calendário da escrituração sem dados, dispensada da entrega.
+            /// </summary>
             [SpedCampos(2, "MES_REFER", "MA", 6, 0, true)]
             public DateTime MesRefer { get; set; }
 
+            /// <summary>
+            ///     Informação complementar do registro. No caso de escrituração sem dados, deve ser informado o real motivo dessa situação.
+            /// </summary>
+            /// <remarks>
+            /// 01 - Pessoa jurídica imune ou isenta do IRPJ; <para/>
+            /// 02 - Órgãos públicos, autarquias e fundações públicas; <para/>
+            /// 03 - Pessoa jurídica inativa; <para/>
+            /// 04 - Pessoa jurídica em geral, que não realizou operações geradoras de receitas (tributáveis ou não) ou de créditos; <para/>
+            /// 05 - Sociedade em Conta de Participação - SCP, que não realizou operações geradoras de receitas (tributáveis ou não) ou de créditos; <para/>
+            /// 06 - Sociedade Cooperativa, que não realizou operações geradoras de receitas (tributáveis ou não) ou de créditos; <para/>
+            /// 07 - Escrituração decorrente de incorporação, fusão ou cisão, sem operações geradoras de receitas (tributáveis ou não) ou de créditos; <para/>
+            /// 09 - Demais hipóteses de dispensa de escrituração, relacionadas no art. 5º, da IN RFB nº 1.252, de 2012.
+            /// </remarks>
             [SpedCampos(3, "INF_COMP", "C", 90, 0, true)]
             public string InfComp { get; set; }
         }
