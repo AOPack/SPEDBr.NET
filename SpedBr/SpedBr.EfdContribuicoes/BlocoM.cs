@@ -1,5 +1,5 @@
-﻿using System;
-using SpedBr.Common;
+﻿using SpedBr.Common;
+using System;
 
 namespace SpedBr.EfdContribuicoes
 {
@@ -214,6 +214,122 @@ namespace SpedBr.EfdContribuicoes
             public string DescCred { get; set; }
         }
 
+        /// <summary>
+        ///     REGISTRO M110: AJUSTE SDO CRÉDITO DE PIS/PASEP APURADO
+        /// </summary>
+        public class RegistroM110 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroM110" />.
+            /// </summary>
+            public RegistroM110()
+            {
+                Reg = "M110";
+            }
+
+            /// <summary>
+            ///     Indicador do tipo de ajuste: 
+            ///     0 - Ajuste de redução; 
+            ///     1 - Ajuste de acréscimo
+            /// </summary>
+            [SpedCampos(2, "IND_AJ", "C", 1, 0, true)]
+            public IndTipoAjuste IndAj { get; set; }
+
+            /// <summary>
+            ///     Valor do ajuste
+            /// </summary>
+            [SpedCampos(3, "VL_AJ", "N", int.MaxValue, 2, true)]
+            public decimal VlAj { get; set; }
+
+            /// <summary>
+            ///     Código do ajuste, conforme a Tabela indicada no item 4.3.8.
+            /// </summary>
+            [SpedCampos(4, "COD_AJ", "C", 2, 0, true)]
+            public string CodAj { get; set; }
+
+            /// <summary>
+            ///     Número do processo, documento ou ato concessório ao qual o ajuste está vinculado, se houver.
+            /// </summary>
+            [SpedCampos(5, "NUM_DOC", "C", int.MaxValue, 0, false)]
+            public string NumDoc { get; set; }
+
+            /// <summary>
+            ///     Descrição resumida do ajuste.
+            /// </summary>
+            [SpedCampos(6, "DESCR_AJ", "C", int.MaxValue, 0, false)]
+            public string DescrAj { get; set; }
+
+            /// <summary>
+            ///     Data de referência do ajuste (ddmmaaaa)
+            /// </summary>
+            [SpedCampos(7, "DT_REF", "N", 8, 0, false)]
+            public DateTime? DtRef { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO M115: DETALHAMENTO DOS AJUSTES DO CRÉDITO DE PIS/PASEP APURADO
+        /// </summary>
+        public class RegistroM115 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroM115" />.
+            /// </summary>
+            public RegistroM115()
+            {
+                Reg = "M115";
+            }
+
+            /// <summary>
+            ///     Detalhamento do valor do crédito reduzido ou acrescido, informado no
+            ///     Campo 03 (VL_AJ) do registro M110. 
+            /// </summary>
+            [SpedCampos(2, "DET_VALOR_AJ", "N", 0, 2, true)]
+            public decimal DetValorAj { get; set; }
+
+            /// <summary>
+            ///     Código de Situação Tributária referente à operação detalhada neste registro. 
+            /// </summary>
+            [SpedCampos(3, "CST_PIS", "N", 2, 0, false)]
+            public int CstPis { get; set; }
+
+            /// <summary>
+            ///     Detalhamento da base de cálculo geradora de ajuste de crédito 
+            /// </summary>
+            [SpedCampos(4, "DET_BC_CRED", "N", 0, 3, false)]
+            public decimal? DetBcCred { get; set; }
+
+            /// <summary>
+            ///     Detalhamento da alíquota a que se refere o ajuste de crédito
+            /// </summary>
+            [SpedCampos(5, "DET_ALIQ", "N", 8, 4, false)]
+            public decimal? DetAliq { get; set; }
+
+            /// <summary>
+            ///     Data da operação a que se refere o ajuste informado neste registro. 
+            /// </summary>
+            [SpedCampos(6, "DT_OPER_AJ", "N", 8, 0, true)]
+            public DateTime DtOperAj { get; set; }
+
+            /// <summary>
+            ///     Descrição da(s) operação(ões) a que se refere o valor informado no 
+            ///     Campo 02 (DET_VALOR_AJ)
+            /// </summary>
+            [SpedCampos(7, "DESC_AJ", "C", 0, 0, false)]
+            public string DescAj { get; set; }
+
+            /// <summary>
+            ///     Código da conta contábil debitada/creditada 
+            /// </summary>
+            [SpedCampos(8, "COD_CTA", "C", 60, 0, false)]
+            public string CodCta { get; set; }
+
+            /// <summary>
+            ///     Informação complementar
+            /// </summary>
+            [SpedCampos(9, "INFO_COMPL", "C", 0, 0, false)]
+            public string InfoCompl { get; set; }
+        }
+
         public class RegistroM200 : RegistroBaseSped
         {
             public RegistroM200()
@@ -327,7 +443,7 @@ namespace SpedBr.EfdContribuicoes
             }
 
             [SpedCampos(2, "IND_AJ", "C", 1, 0, true)]
-            public int IndAj { get; set; }
+            public IndTipoAjuste IndAj { get; set; }
 
             [SpedCampos(3, "VL_AJ", "N", 0, 2, true)]
             public decimal VlAj { get; set; }
@@ -382,7 +498,7 @@ namespace SpedBr.EfdContribuicoes
         ///     REGISTRO M400: RECEITAS ISENTAS, NÃO ALCANÇADAS PELA INCIDÊNCIA DA
         ///     CONTRIBUIÇÃO, SUJEITAS A ALÍQUOTA ZERO OU DE VENDAS COM SUSPENSÃO - PIS/PASEP
         /// </summary>
-        public class RegistroM400:RegistroBaseSped
+        public class RegistroM400 : RegistroBaseSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classse <see cref="RegistroM400"/>
@@ -415,7 +531,7 @@ namespace SpedBr.EfdContribuicoes
             /// <summary>
             ///     Descrição Complementar da Natureza da Receita.
             /// </summary>
-            [SpedCampos(4, "DESC_COMPL", "C",int.MaxValue, 0, false)]
+            [SpedCampos(4, "DESC_COMPL", "C", int.MaxValue, 0, false)]
             public string DescCompl { get; set; }
         }
 
@@ -678,7 +794,7 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(10, "DESC_CRED", "C", 60, 0, false)]
             public string DescCred { get; set; }
         }
-      
+
         /// <summary>
         ///     REGISTRO M600: CONSOLIDAÇÃO DA CONTRIBUIÇÃO PARA A SEGURIDADE SOCIAL - COFINS DO PERIODO
         /// </summary>
