@@ -211,12 +211,12 @@ namespace SpedBr.Outros.Dimob
         public int CodigoMunicipio { get; set; }
 
         [DimobCampos(51, "Reservado", 766, 785, 20, "Branco(s)")]
-        public string Reservado1 { get; }
+        public string Reservado1 { get; private set; }
 
         [DimobCampos(52, "UF", 786, 787, 2, "X")]
         public string Uf { get; set; }
 
         [DimobCampos(53, "Reservado", 788, 797, 10, "Branco(s)")]
-        public string Reservado2 { get; }
+        public string Reservado2 { get; private set; }
     }
 }

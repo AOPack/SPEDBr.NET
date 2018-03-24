@@ -34,7 +34,7 @@ namespace SpedBr.Tests
         }
 
         [TestMethod]
-        public void EscreverBloco0ComIndMov()
+        public void EscreverBloco0SemIndMov()
         {
             var reg0001 = new SpedFiscal.Bloco0.Registro0001();
 

@@ -76,7 +76,7 @@ namespace SpedBr.Outros.Dimob
                 {
                     if (dimobCampoAttr == null)
                         throw new Exception(
-                            $"O campo {property.Name} no registro {registroAtual} não possui atributo DIMOB definido!");
+                            string.Format("O campo {0} no registro {1} não possui atributo DIMOB definido!", property.Name, registroAtual));
 
                     var propertyValue = RegistroBaseDimob.GetPropValue(source, property.Name);
                     var propertyValueToStringSafe = propertyValue.ToStringSafe().Trim();
