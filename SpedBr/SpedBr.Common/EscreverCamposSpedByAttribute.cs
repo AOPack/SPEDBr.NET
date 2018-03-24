@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace SpedBr.Common
@@ -193,8 +194,9 @@ namespace SpedBr.Common
 
         private static bool SomenteParaLeitura(System.Reflection.PropertyInfo property)
         {
-            if (property.PropertyType.BaseType.Equals(typeof(RegistroBaseSped)) ||
-                property.PropertyType.IsGenericType &&
+            if (property.PropertyType.BaseType.Equals(typeof(RegistroBaseSped))) return true;
+
+            if (property.PropertyType.IsGenericType &&
                 property.PropertyType.GetGenericTypeDefinition() == typeof(List<>)) return true;
 
             return false;
