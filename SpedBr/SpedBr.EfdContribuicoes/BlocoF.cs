@@ -1,5 +1,5 @@
-﻿using System;
-using SpedBr.Common;
+﻿using SpedBr.Common;
+using System;
 
 namespace SpedBr.EfdContribuicoes
 {
@@ -93,6 +93,98 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(19, "DESC_DOC_OPER", "C", int.MaxValue, 0, false)]
             public string DescDocOper { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO F150: CRÉDITO PRESUMIDO SOBRE ESTOQUE DE ABERTURA
+        /// </summary>
+        public class RegistroF150 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroF150" />.
+            /// </summary>
+            public RegistroF150()
+            {
+                Reg = "F150";
+            }
+
+            /// <summary>
+            ///     Texto fixo contendo "18" Código da Base de Cálculo do Crédito sobre Estoque de Abertura, conforme a Tabela indicada no item 4.3.7.
+            /// </summary>
+            [SpedCampos(2, "NAT_BC_CRED", "C", 2, 0, true)]
+            public string NatBCCred { get; set; }
+
+            /// <summary>
+            ///     Valor Total do Estoque de Abertura
+            /// </summary>
+            [SpedCampos(3, "VL_TOT_EST", "N", int.MaxValue, 2, true)]
+            public decimal VlTotEst { get; set; }
+
+            /// <summary>
+            ///     Parcela do estoque de abertura referente a bens, produtos e mercadorias importados, ou adquiridas no mercado interno sem direito ao crédito
+            /// </summary>
+            [SpedCampos(4, "EST_IMP", "N", int.MaxValue, 2, false)]
+            public decimal EstImp { get; set; }
+
+            /// <summary>
+            ///     Valor da Base de Cálculo do Crédito sobre o Estoque de Abertura (03 – 04)
+            /// </summary>
+            [SpedCampos(5, "VL_BC_EST", "N", int.MaxValue, 2, true)]
+            public decimal VlBcEst { get; set; }
+
+            /// <summary>
+            ///     Valor da Base de Cálculo Mensal do Crédito sobre o Estoque de Abertura (1/12 avos do campo 05)
+            /// </summary>
+            [SpedCampos(6, "VL_BC_MEN_EST", "N", int.MaxValue, 2, true)]
+            public decimal VlBcMenEst { get; set; }
+
+            /// <summary>
+            ///     Código da Situação Tributária referente ao PIS/PASEP, conforme a Tabela indicada no item 4.3.3.
+            /// </summary>
+            [SpedCampos(7, "CST_PIS", "N", 2, 0, true)]
+            public int CstPis { get; set; }
+
+            /// <summary>
+            ///     Alíquota do PIS/PASEP (em percentual)
+            /// </summary>
+            [SpedCampos(8, "ALIQ_PIS", "N", 8, 4, true)]
+            public decimal AliqPis { get; set; }
+
+            /// <summary>
+            ///     Valor Mensal do Crédito Presumido Apurado para o Período - PIS/PASEP (06 x 08)
+            /// </summary>
+            [SpedCampos(9, "VL_CRED_PIS", "N", int.MaxValue, 2, true)]
+            public decimal VlCredPis { get; set; }
+
+            /// <summary>
+            ///     Código da Situação Tributária referente ao COFINS, conforme a Tabela indicada no item 4.3.4
+            /// </summary>
+            [SpedCampos(10, "CST_COFINS", "N", 2, 0, true)]
+            public decimal CstCofins { get; set; }
+
+            /// <summary>
+            ///     Alíquota do COFINS (em percentual)
+            /// </summary>
+            [SpedCampos(11, "ALIQ_COFINS", "N", 8, 4, true)]
+            public decimal AliqCofins { get; set; }
+
+            /// <summary>
+            ///     Valor Mensal do Crédito Presumido Apurado para o Período - COFINS(06 x 11)
+            /// </summary>
+            [SpedCampos(12, "VL_CRED_COFINS", "N", int.MaxValue, 2, true)]
+            public decimal VlCredCofins { get; set; }
+
+            /// <summary>
+            ///     Descrição do estoque
+            /// </summary>
+            [SpedCampos(13, "DESC_EST", "C", 100, 0, false)]
+            public string DescEst { get; set; }
+
+            /// <summary>
+            ///     Código da conta analítica contábil debitada/creditada
+            /// </summary>
+            [SpedCampos(14, "COD_CTA", "C", 255, 0, false)]
+            public string CodCta { get; set; }
         }
 
         /// <summary>
