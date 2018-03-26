@@ -528,18 +528,18 @@ namespace SpedBr.EfdContribuicoes
             ///     04 – Crédito Presumido da Agroindústria. 
             /// </summary>
             [SpedCampos(4, "NAT_CRED_DESC", "C", 2, 0, false)]
-            public string NatCredDesc { get; set; }
+            public int? NatCredDesc { get; set; }
 
             /// <summary>
             ///     Valor do Crédito a Descontar vinculado à contribuição diferida. 
             /// </summary>
             [SpedCampos(5, "VL_CRED_DESC_DIFER", "N", int.MaxValue, 2, false)]
-            public decimal VlCredDescDifer { get; set; }
+            public decimal? VlCredDescDifer { get; set; }
 
             /// <summary>
             ///     Valor da Contribuição a Recolher, diferida em períodos anteriores (Campo 03 – Campo 05)
             /// </summary>
-            [SpedCampos(6, "VL_CONT_DIFER_ANT", "MA", int.MaxValue, 2, true)]
+            [SpedCampos(6, "VL_CONT_DIFER_ANT", "N", int.MaxValue, 2, true)]
             public decimal VlContDiferAnt { get; set; }
 
             /// <summary>
@@ -552,7 +552,7 @@ namespace SpedBr.EfdContribuicoes
             ///     Data de recebimento da receita, objeto de diferimento 
             /// </summary>
             [SpedCampos(8, "DT_RECEB", "N", 8, 0, false)]
-            public DateTime DtReceb { get; set; }
+            public DateTime? DtReceb { get; set; }
 
         }
 
@@ -778,8 +778,8 @@ namespace SpedBr.EfdContribuicoes
             /// <summary>
             ///     Valor total do crédito diferido no período
             /// </summary>
-            [SpedCampos(11, "VL_CRED_DIF", "N", 0, 2, true)]
-            public decimal VlCredDif { get; set; }
+            [SpedCampos(11, "VL_CRED_DIFER", "N", 0, 2, true)]
+            public decimal VlCredDifer { get; set; }
 
             /// <summary>
             ///     Valor Total do Crédito Disponível relativo ao Período (08 + 09 – 10 – 11)
@@ -1220,18 +1220,18 @@ namespace SpedBr.EfdContribuicoes
             ///     04 – Crédito Presumido da Agroindústria. 
             /// </summary>
             [SpedCampos(4, "NAT_CRED_DESC", "C", 2, 0, false)]
-            public string NatCredDesc { get; set; }
+            public int? NatCredDesc { get; set; }
 
             /// <summary>
             ///     Valor do Crédito a Descontar vinculado à contribuição diferida. 
             /// </summary>
             [SpedCampos(5, "VL_CRED_DESC_DIFER", "N", int.MaxValue, 2, false)]
-            public decimal VlCredDescDifer { get; set; }
+            public decimal? VlCredDescDifer { get; set; }
 
             /// <summary>
             ///     Valor da Contribuição a Recolher, diferida em períodos anteriores (Campo 03 – Campo 05)
             /// </summary>
-            [SpedCampos(6, "VL_CONT_DIFER_ANT", "MA", int.MaxValue, 2, true)]
+            [SpedCampos(6, "VL_CONT_DIFER_ANT", "N", int.MaxValue, 2, true)]
             public decimal VlContDiferAnt { get; set; }
 
             /// <summary>
@@ -1244,7 +1244,7 @@ namespace SpedBr.EfdContribuicoes
             ///     Data de recebimento da receita, objeto de diferimento 
             /// </summary>
             [SpedCampos(8, "DT_RECEB", "N", 8, 0, false)]
-            public DateTime DtReceb { get; set; }
+            public DateTime? DtReceb { get; set; }
 
         }
 
