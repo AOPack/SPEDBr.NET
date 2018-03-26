@@ -1185,6 +1185,69 @@ namespace SpedBr.EfdContribuicoes
             public string InfoCompl { get; set; }
         }
 
+
+        /// <summary>
+        ///     REGISTRO M700: CONTRIBUIÇÃO DE PIS/PASEP DIFERIDA EM PREIODOS ANTERIORES - 
+        ///     VALORES A PAGAR NO PERÍODO
+        /// </summary>
+        public class RegistroM700 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classse <see cref="RegistroM700"/>
+            /// </summary>
+            public RegistroM700()
+            {
+                Reg = "M700";
+            }
+
+            /// <summary>
+            ///     Código da contribuição social diferida em períodos anteriores, conforme a Tabela 4.3.5. 
+            /// </summary>
+            [SpedCampos(2, "COD_CONT", "C", 2, 0, true)]
+            public string CodCont { get; set; }
+
+            /// <summary>
+            ///     Valor da Contribuição Apurada, diferida em períodos anteriores.
+            /// </summary>
+            [SpedCampos(3, "VL_CONT_APUR_DIFER", "N", int.MaxValue, 2, true)]
+            public decimal VlContApurDifer { get; set; }
+
+            /// <summary>
+            ///     Natureza do Crédito Diferido, vinculado à receita tributada no mercado interno, a descontar:
+            ///     01 – Crédito a Alíquota Básica; 
+            ///     02 – Crédito a Alíquota Diferenciada; 
+            ///     03 – Crédito a Alíquota por Unidade de Produto; 
+            ///     04 – Crédito Presumido da Agroindústria. 
+            /// </summary>
+            [SpedCampos(4, "NAT_CRED_DESC", "C", 2, 0, false)]
+            public string NatCredDesc { get; set; }
+
+            /// <summary>
+            ///     Valor do Crédito a Descontar vinculado à contribuição diferida. 
+            /// </summary>
+            [SpedCampos(5, "VL_CRED_DESC_DIFER", "N", int.MaxValue, 2, false)]
+            public decimal VlCredDescDifer { get; set; }
+
+            /// <summary>
+            ///     Valor da Contribuição a Recolher, diferida em períodos anteriores (Campo 03 – Campo 05)
+            /// </summary>
+            [SpedCampos(6, "VL_CONT_DIFER_ANT", "MA", int.MaxValue, 2, true)]
+            public decimal VlContDiferAnt { get; set; }
+
+            /// <summary>
+            ///     Período de apuração da contribuição social e dos créditos diferidos (MMAAAA) 
+            /// </summary>
+            [SpedCampos(7, "PER_APUR", "MA", 6, 0, true)]
+            public DateTime PerApur { get; set; }
+
+            /// <summary>
+            ///     Data de recebimento da receita, objeto de diferimento 
+            /// </summary>
+            [SpedCampos(8, "DT_RECEB", "N", 8, 0, false)]
+            public DateTime DtReceb { get; set; }
+
+        }
+
         /// <summary>
         ///     REGISTRO M800: RECEITAS ISENTAS, NÃO ALCANÇADAS PELA INCIDÊNCIA DA 
         ///     CONTRIBUIÇÃO, SUJEITAS A ALÍQUOTA ZERO OU DE VENDAS COM SUSPENSÃO – COFINS 
