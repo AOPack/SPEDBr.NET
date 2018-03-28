@@ -617,6 +617,69 @@ namespace SpedBr.EfdContribuicoes
             public int IndDec { get; set; }
         }
 
+        /// <summary>
+        ///     REGISTRO F700: DEDUÇÕES DIVERSAS
+        /// </summary>
+        public class RegistroF700 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroF700" />.
+            /// </summary>
+            public RegistroF700()
+            {
+                Reg = "F700";
+            }
+
+            /// <summary>
+            ///     Indicador de Origem de Deduções Diversas: 
+            ///     01 – Créditos Presumidos - Medicamentos 
+            ///     02 – Créditos Admitidos no Regime Cumulativo – Bebidas Frias 
+            ///     03 – Contribuição Paga pelo Substituto Tributário - ZFM 
+            ///     04 – Substituição Tributária – Não Ocorrência do Fato Gerador Presumido 
+            ///     99 - Outras Deduções 
+            /// </summary>
+            [SpedCampos(2, "IND_ORI_DED", "N", 2, 0, true)]
+            public int IndOrgDed { get; set; }
+
+            /// <summary>
+            ///     Indicador da Natureza da Dedução: 
+            ///     0 – Dedução de Natureza Não Cumulativa 
+            ///     1 – Dedução de Natureza Cumulativa
+            /// </summary>
+            [SpedCampos(2, "IND_NAT_DED", "N", 1, 0, true)]
+            public int IndNatDed { get; set; }
+
+            /// <summary>
+            ///     Valor a Deduzir - PIS/PASEP
+            /// </summary>
+            [SpedCampos(2, "VL_DED_PIS", "N", int.MaxValue, 2, true)]
+            public decimal VlDedPis { get; set; }
+
+            /// <summary>
+            ///     Valor a Deduzir – Cofins
+            /// </summary>
+            [SpedCampos(2, "VL_DED_COFINS", "N", int.MaxValue, 2, true)]
+            public decimal VlDedCofins { get; set; }
+
+            /// <summary>
+            ///     Valor da Base de Cálculo da Operação que ensejou o Valor a Deduzir informado nos Campos 04 e 05
+            /// </summary>
+            [SpedCampos(2, "VL_BC_OPER", "N", int.MaxValue, 2, false)]
+            public decimal? VlBcOper { get; set; }
+
+            /// <summary>
+            ///     CNPJ da Pessoa Jurídica relacionada à Operação que ensejou o Valor a Deduzir informado nos Campos 04 e 05.
+            /// </summary>
+            [SpedCampos(2, "CNPJ", "N", 14, 0, false)]
+            public string Cnpj { get; set; }
+
+            /// <summary>
+            ///     Informações Complementares do Documento/Operação que ensejou o Valor a Deduzir informado nos Campos 04 e 05.
+            /// </summary>
+            [SpedCampos(2, "INF_COMP", "C", 90, 0, false)]
+            public string InfoComp { get; set; }
+        }
+
         public class RegistroF990 : RegistroBaseSped
         {
             public RegistroF990()
