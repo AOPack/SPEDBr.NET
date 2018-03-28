@@ -407,7 +407,7 @@ namespace SpedBr.EfdContribuicoes
             ///     Código anterior do item com relação à última informação apresentada.
             /// </summary>
             [SpedCampos(5, "COD_ANT_ITEM", "C", 60, 0, false)]
-            public string CodAntItem => string.Empty;
+            public string CodAntItem { get; private set; }
 
             /// <summary>
             ///     Unidade de medida utilizada na quantificação de estoques.

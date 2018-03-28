@@ -26,27 +26,6 @@ namespace SpedBr.SpedFiscal
                 Reg = "0000";
             }
 
-            public Registro0000(string linha)
-            {
-                CodVer = LerCamposSped.ReturnPosition(linha, 2).ToInt();
-                Enum.TryParse(LerCamposSped.ReturnPosition(linha, 3).ToStringSafe(), out IndCodFinalidadeArquivo indCodFin);
-                CodFin = indCodFin;
-                DtIni = LerCamposSped.ReturnPosition(linha, 4).ToDateTime();
-                DtFin = LerCamposSped.ReturnPosition(linha, 5).ToDateTime();
-                Nome = LerCamposSped.ReturnPosition(linha, 6).ToStringSafe();
-                Cnpj = LerCamposSped.ReturnPosition(linha, 7).ToStringSafe();
-                Cpf = LerCamposSped.ReturnPosition(linha, 8).ToStringSafe();
-                Uf = LerCamposSped.ReturnPosition(linha, 9).ToStringSafe();
-                Ie = LerCamposSped.ReturnPosition(linha, 10).ToStringSafe();
-                CodMun = LerCamposSped.ReturnPosition(linha, 11).ToStringSafe();
-                Im = LerCamposSped.ReturnPosition(linha, 12).ToStringSafe();
-                Suframa = LerCamposSped.ReturnPosition(linha, 13).ToStringSafe();
-                Enum.TryParse(LerCamposSped.ReturnPosition(linha, 14).ToStringSafe(), out IndPerfilArquivo indCodPerfil);
-                IndPerfil = indCodPerfil;
-                Enum.TryParse(LerCamposSped.ReturnPosition(linha, 15).ToStringSafe(), out IndTipoAtividade indCodAtiv);
-                IndAtiv = indCodAtiv;
-            }
-
             /// <summary>
             ///     Código da versão do leiaute conforme a tabela indicada no Ato COTEPE.
             /// </summary>
@@ -542,7 +521,13 @@ namespace SpedBr.SpedFiscal
             ///     Conforme Guia_Prático_da_EFD_Versao_2.0.17 -> "informar no 0205"
             /// </summary>
             [SpedCampos(5, "COD_ANT_ITEM", "C", 60, 0, false)]
-            public string CodAntItem => string.Empty;
+            public string CodAntItem
+            {
+                get
+                {
+                    return string.Empty;
+                }
+            }
 
             /// <summary>
             ///     Unidade de medida utilizada na quantificação de estoques.

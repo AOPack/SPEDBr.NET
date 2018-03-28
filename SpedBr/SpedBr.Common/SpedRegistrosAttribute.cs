@@ -13,10 +13,22 @@ namespace SpedBr.Common
 
         protected string ObrigatoriedadeInicialAtt;
 
-        public string ObrigatoriedadeInicial => ObrigatoriedadeInicialAtt;
+        public string ObrigatoriedadeInicial
+        {
+            get
+            {
+                return ObrigatoriedadeInicialAtt;
+            }
+        }
 
         protected string ObrigatoriedadeFinalAtt;
 
-        public string ObrigatoriedadeFinal => ObrigatoriedadeFinalAtt;
+        public string ObrigatoriedadeFinal
+        {
+            get
+            {
+                return ObrigatoriedadeFinalAtt;
+            }
+        }
     }
 }
