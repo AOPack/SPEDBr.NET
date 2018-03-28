@@ -409,6 +409,113 @@ namespace SpedBr.EfdContribuicoes
         }
 
         /// <summary>
+        ///     REGISTRO F560: CONSOLIDAÇÃO DAS OPERAÇÕES DA PESSOA JURÍDICA SUBMETIDA AO REGIME 
+        ///     DE TRIBUTAÇÃO COM BASE NO LUCRO PRESUMIDO – INCIDÊNCIA DO PIS/PASEP E DA COFINS 
+        ///     PELO REGIME DE COMPETÊNCIA (APURAÇÃO DA CONTRIBUIÇÃO POR UNIDADE DE MEDIDA DE PRODUTO
+        ///     – ALÍQUOTA EM REAIS)
+        /// </summary>
+        public class RegistroF560 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroF600" />.
+            /// </summary>
+            public RegistroF560()
+            {
+                Reg = "F560";
+            }
+
+            /// <summary>
+            ///     Valor total da receita auferida, referente à combinação de CST e Alíquota.
+            /// </summary>
+            [SpedCampos(2, "VL_REC_COMP", "N", 0, 2, true)]
+            public decimal VlRecComp { get; set; }
+
+            /// <summary>
+            ///     Código da Situação Tributária referente ao PIS/PASEP 
+            /// </summary>
+            [SpedCampos(3, "CST_PIS", "N", 2, 0, true)]
+            public int CstPis { get; set; }
+
+            /// <summary>
+            ///     Valor do desconto / exclusão
+            /// </summary>
+            [SpedCampos(4, "VL_DESC_PIS", "N", 0, 2, false)]
+            public decimal? VlDescPis { get; set; }
+
+            /// <summary>
+            ///     Base de cálculo em quantidade - PIS/PASEP
+            /// </summary>
+            [SpedCampos(5, "QUANT_BC_PIS", "N", 0, 2, false)]
+            public decimal? QuantBcPis { get; set; }
+
+            /// <summary>
+            ///     Alíquota do PIS/PASEP (em reais)
+            /// </summary>
+            [SpedCampos(6, "ALIQ_PIS_QUANT", "N", 8, 4, false)]
+            public decimal? AliqPisQuant { get; set; }
+
+            /// <summary>
+            ///     Valor do PIS/PASEP
+            /// </summary>
+            [SpedCampos(7, "VL_PIS", "N", 0, 2, false)]
+            public decimal? VlPis { get; set; }
+
+            /// <summary>
+            ///     Código da Situação Tributária referente a COFINS
+            /// </summary>
+            [SpedCampos(8, "CST_COFINS", "N", 2, 0, true)]
+            public int CstCofins { get; set; }
+
+            /// <summary>
+            ///     Valor do desconto / exclusão
+            /// </summary>
+            [SpedCampos(9, "VL_DESC_COFINS", "N", 0, 2, false)]
+            public decimal? VlDescCofins { get; set; }
+
+            /// <summary>
+            ///      Base de cálculo em quantidade - COFINS
+            /// </summary>
+            [SpedCampos(10, "QUANT_BC_COFINS", "N", 0, 2, false)]
+            public decimal? QuantBcCofins { get; set; }
+
+            /// <summary>
+            ///     Alíquota do COFINS (em reais)
+            /// </summary>
+            [SpedCampos(11, "ALIQ_COFINS_QUANT", "N", 8, 4, false)]
+            public decimal? AliqCofinsQuant { get; set; }
+
+            /// <summary>
+            ///     Valor do COFINS
+            /// </summary>
+            [SpedCampos(12, "VL_COFINS", "N", 0, 2, false)]
+            public decimal? VlCofins { get; set; }
+
+            /// <summary>
+            ///     Código do modelo do documento fiscal conforme a Tabela 4.1.1
+            /// </summary>
+            [SpedCampos(13, "COD_MOD", "C", 2, 0, false)]
+            public int? CodMod { get; set; }
+
+            /// <summary>
+            ///     Código fiscal de operação e prestação
+            /// </summary>
+            [SpedCampos(14, "CFOP", "N", 4, 0, false)]
+            public string Cfop { get; set; }
+
+            /// <summary>
+            ///     Código da conta analítica contábil debitada / creditada 
+            /// </summary>
+            [SpedCampos(15, "COD_CTA", "C", 60, 0, false)]
+            public string CodCta { get; set; }
+
+            /// <summary>
+            ///     Informação complementar 
+            /// </summary>
+            [SpedCampos(16, "INFO_COMPL", "C", 0, 0, false)]
+            public string InfoCompl { get; set; }
+        }
+
+        /// <summary>
         /// CONTRIBUIÇÃO RETIDA NA FONTE
         /// </summary>
         public class RegistroF600 : RegistroBaseSped
