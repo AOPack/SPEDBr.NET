@@ -639,7 +639,7 @@ namespace SpedBr.EfdContribuicoes
             ///     99 - Outras Deduções 
             /// </summary>
             [SpedCampos(2, "IND_ORI_DED", "N", 2, 0, true)]
-            public int IndOrgDed { get; set; }
+            public int IndOriDed { get; set; }
 
             /// <summary>
             ///     Indicador da Natureza da Dedução: 
