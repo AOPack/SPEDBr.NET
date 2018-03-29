@@ -417,7 +417,7 @@ namespace SpedBr.EfdContribuicoes
         public class RegistroF560 : RegistroBaseSped
         {
             /// <summary>
-            ///     Inicializa uma nova instância da classe <see cref="RegistroF600" />.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroF560" />.
             /// </summary>
             public RegistroF560()
             {
@@ -445,7 +445,7 @@ namespace SpedBr.EfdContribuicoes
             /// <summary>
             ///     Base de cálculo em quantidade - PIS/PASEP
             /// </summary>
-            [SpedCampos(5, "QUANT_BC_PIS", "N", 0, 2, false)]
+            [SpedCampos(5, "QUANT_BC_PIS", "N", 0, 3, false)]
             public decimal? QuantBcPis { get; set; }
 
             /// <summary>
@@ -475,7 +475,7 @@ namespace SpedBr.EfdContribuicoes
             /// <summary>
             ///      Base de cálculo em quantidade - COFINS
             /// </summary>
-            [SpedCampos(10, "QUANT_BC_COFINS", "N", 0, 2, false)]
+            [SpedCampos(10, "QUANT_BC_COFINS", "N", 0, 3, false)]
             public decimal? QuantBcCofins { get; set; }
 
             /// <summary>
@@ -505,13 +505,13 @@ namespace SpedBr.EfdContribuicoes
             /// <summary>
             ///     Código da conta analítica contábil debitada / creditada 
             /// </summary>
-            [SpedCampos(15, "COD_CTA", "C", 60, 0, false)]
+            [SpedCampos(15, "COD_CTA", "C", 255, 0, false)]
             public string CodCta { get; set; }
 
             /// <summary>
             ///     Informação complementar 
             /// </summary>
-            [SpedCampos(16, "INFO_COMPL", "C", 0, 0, false)]
+            [SpedCampos(16, "INFO_COMPL", "C", int.MaxValue, 0, false)]
             public string InfoCompl { get; set; }
         }
 
