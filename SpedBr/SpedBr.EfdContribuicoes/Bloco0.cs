@@ -455,6 +455,44 @@ namespace SpedBr.EfdContribuicoes
         }
 
         /// <summary>
+        ///     REGISTRO 0205: ALTERAÇÃO DO ITEM
+        /// </summary>
+        public class Registro0205 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0205" />.
+            /// </summary>
+            public Registro0205()
+            {
+                Reg = "0205";
+            }
+
+            /// <summary>
+            ///     Descrição anterior do item
+            /// </summary>
+            [SpedCampos(2, "DESCR_ANT_ITEM", "C", 0, 0, false)]
+            public string DescrAntItem { get; set; }
+
+            /// <summary>
+            ///     Data inicial de utilização da descrição do item.
+            /// </summary>
+            [SpedCampos(3, "DT_INI", "N", 8, 0, true)]
+            public DateTime DtIni { get; set; }
+
+            /// <summary>
+            ///     Data final de utilização da descrição do item.
+            /// </summary>
+            [SpedCampos(4, "DT_FIM", "N", 8, 0, true)]
+            public DateTime DtFin { get; set; }
+
+            /// <summary>
+            ///     Código anterior do item com relação à última informação apresentada.
+            /// </summary>
+            [SpedCampos(5, "COD_ANT_ITEM", "C", 60, 0, false)]
+            public string CodAntItem { get; set; }
+        }
+
+        /// <summary>
         ///     REGISTRO 0400: TABELA DE NATUREZA DA OPERAÇÃO/PRESTAÇÃO
         /// </summary>
         public class Registro0400 : RegistroBaseSped
