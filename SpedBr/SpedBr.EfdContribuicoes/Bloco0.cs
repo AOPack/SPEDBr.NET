@@ -470,7 +470,7 @@ namespace SpedBr.EfdContribuicoes
             /// <summary>
             ///     Descrição anterior do item
             /// </summary>
-            [SpedCampos(2, "DESCR_ANT_ITEM", "C", 0, 0, false)]
+            [SpedCampos(2, "DESCR_ANT_ITEM", "C", int.MaxValue, 0, false)]
             public string DescrAntItem { get; set; }
 
             /// <summary>
