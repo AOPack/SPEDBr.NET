@@ -15,11 +15,13 @@ namespace SpedBr.Tests
             var listaContratos =
                 new List<Tuple<string, int, int, string, string, string, DateTime>>();
 
-            var tuple1 = new Tuple<string, int, int, string, string, string, DateTime>("29358139000193", 2017, 99999, "01234567890", "Samuel Oliveira", "201799", new DateTime(2017, 02, 15));
+            var tuple1 = new Tuple<string, int, int, string, string, string, DateTime>("29358139000193", 2017, 99999,
+                "01234567890", "Samuel Oliveira", "201799", new DateTime(2017, 02, 15));
 
             listaContratos.Add(tuple1);
 
-            var tuple2 = new Tuple<string, int, int, string, string, string, DateTime>("29358139000193", 2017, 00001, "01234567890", "Samuel Oliveira", "201701", new DateTime(2017, 05, 25));
+            var tuple2 = new Tuple<string, int, int, string, string, string, DateTime>("29358139000193", 2017, 00001,
+                "01234567890", "Samuel Oliveira", "201701", new DateTime(2017, 05, 25));
 
             listaContratos.Add(tuple2);
 
@@ -28,7 +30,7 @@ namespace SpedBr.Tests
             var linhasDimob = new List<string>();
 
             var header = new DimobHeader();
-            
+
             linhasDimob.Add(header.EscreverCampos());
 
             var r01 = new DimobR01
@@ -79,14 +81,22 @@ namespace SpedBr.Tests
             Assert.IsNotNull(linhasDimob);
 
             var nomeArquivo =
-                $"{"DIMOB_"}" +
-                $"{DateTime.Now.Year.ToString("00")}" +
-                $"{DateTime.Now.Month.ToString("00")}" +
-                $"{DateTime.Now.Day.ToString("00")}_" +
-                $"{DateTime.Now.Hour.ToString("00")}" +
-                $"{DateTime.Now.Minute.ToString("00")}" +
-                $"{DateTime.Now.Second.ToString("00")}" +
-                $"{DateTime.Now.Millisecond.ToString("000")}.txt";
+                string.Format(
+                    "DIMOB_" +
+                    "{0}" +
+                    "{1}" +
+                    "{2}_" +
+                    "{3}" +
+                    "{4}" +
+                    "{5}" +
+                    "{6}.txt",
+                    DateTime.Now.Year.ToString("00"),
+                    DateTime.Now.Month.ToString("00"),
+                    DateTime.Now.Day.ToString("00"),
+                    DateTime.Now.Hour.ToString("00"),
+                    DateTime.Now.Minute.ToString("00"),
+                    DateTime.Now.Second.ToString("00"),
+                    DateTime.Now.Millisecond.ToString("000"));
 
             var path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 

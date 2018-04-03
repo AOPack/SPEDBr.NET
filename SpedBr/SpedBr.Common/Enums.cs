@@ -922,4 +922,19 @@ namespace SpedBr.Common
         [DefaultValue("13")] B4a,
         [DefaultValue("14")] B4b
     }
+
+    public enum IndTipoAjuste
+    {
+        /// <summary>
+        ///     Ajuste de redução
+        /// </summary>
+        [DefaultValue(0)]
+        Reducao,
+
+        /// <summary>
+        ///     Ajuste de acréscimo
+        /// </summary>
+        [DefaultValue(1)]
+        Acrescimo
+    }
 }

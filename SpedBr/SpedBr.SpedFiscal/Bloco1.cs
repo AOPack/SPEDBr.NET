@@ -917,7 +917,13 @@ namespace SpedBr.SpedFiscal
             ///     1 - Saída
             /// </remarks>
             [SpedCampos(2, "IND_OPER", "C", 1, 0, true)]
-            public int IndOper => 1;
+            public int IndOper
+            {
+                get
+                {
+                    return 1;
+                }
+            }
 
             /// <summary>
             ///     Indicador do emitente do documento fiscal
@@ -926,7 +932,13 @@ namespace SpedBr.SpedFiscal
             ///     0 - Emissão própria
             /// </remarks>
             [SpedCampos(3, "IND_EMIT", "C", 1, 0, true)]
-            public int IndEmit => 0;
+            public int IndEmit
+            {
+                get
+                {
+                    return 0;
+                }
+            }
 
             /// <summary>
             ///     Código do participante

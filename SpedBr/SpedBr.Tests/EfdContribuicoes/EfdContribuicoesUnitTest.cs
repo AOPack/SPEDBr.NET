@@ -35,7 +35,7 @@ namespace SpedBr.Tests.EfdContribuicoes
             regF600.Cnpj = "00394460005887"; // CNPJ da Receita Federal do Brasil (Filial de Brasília)
 
             var todayToString = DateTime.Today.ToShortDateString().Replace("/", string.Empty);
-            var expected = $"|F600|03|{todayToString}|0,0000|0,00|||00394460005887|0,00|0,00|0|";
+            var expected = string.Format("|F600|03|{0}|0,0000|0,00|||00394460005887|0,00|0,00|0|", todayToString);
 
             var result = regF600.EscreverCampos(true);
 

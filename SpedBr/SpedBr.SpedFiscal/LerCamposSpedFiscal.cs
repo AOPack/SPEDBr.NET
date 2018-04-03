@@ -21,9 +21,9 @@ namespace SpedBr.SpedFiscal
                 /*
                 switch (blockCode)
                 {
-                    case "0000":
-                        spedToReturn.R0000 = new SpedFiscal.Bloco0.Registro0000(actualLine);
-                        break;
+                    //case "0000":
+                    //    spedToReturn.R0000 = new SpedFiscal.Bloco0.Registro0000(actualLine);
+                    //    break;
                     case "C100":
                         spedToReturn.C100s.Add(new SpedFiscal.BlocoC.RegistroC100(actualLine));
                         break;
