@@ -18,7 +18,7 @@ namespace SpedBr.SpedFiscal
                 count++;
 
                 var blockCode = SpedBr.Common.LerCamposSped.ReturnPosition(actualLine, 1);
-
+                /*
                 switch (blockCode)
                 {
                     //case "0000":
@@ -28,6 +28,7 @@ namespace SpedBr.SpedFiscal
                         spedToReturn.C100s.Add(new SpedFiscal.BlocoC.RegistroC100(actualLine));
                         break;
                 }
+                */
             }
 
             return spedToReturn;

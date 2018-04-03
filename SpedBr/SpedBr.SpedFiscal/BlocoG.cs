@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using SpedBr.Common;
 
 namespace SpedBr.SpedFiscal
@@ -8,6 +9,9 @@ namespace SpedBr.SpedFiscal
     /// </summary>
     public class BlocoG
     {
+        public RegistroG001 RegG001 { get; set; }
+        public RegistroG990 RegG990 { get; set; }
+
         /// <summary>
         ///     REGISTRO G001: ABERTURA DO BLOCO G
         /// </summary>
@@ -28,6 +32,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
+
+            public List<RegistroG110> RegG110s { get; set; }
         }
 
         /// <summary>
@@ -99,6 +105,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(10, "SOM_ICMS_OC", "N", 0, 2, true)]
             public decimal SomIcmsOc { get; set; }
+
+            public List<RegistroG125> RegG125s { get; set; }
         }
 
         /// <summary>
@@ -179,6 +187,9 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(10, "VL_PARC_PASS", "N", 0, 2, false)]
             public decimal VlParcPass { get; set; }
+
+            public List<RegistroG126> RegG126s { get; set; }
+            public List<RegistroG130> RegG305s { get; set; }
         }
 
         /// <summary>
@@ -307,6 +318,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(8, "DT_DOC", "N", 8, 0, true)]
             public DateTime DtDoc { get; set; }
+
+            public List<RegistroG140> RegG140s { get; set; }
         }
 
         /// <summary>
