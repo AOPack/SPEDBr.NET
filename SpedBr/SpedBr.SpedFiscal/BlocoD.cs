@@ -506,7 +506,7 @@ namespace SpedBr.SpedFiscal
             ///     1 - Prestação;
             /// </summary>
             [SpedCampos(2, "IND_OPER", "C", 1, 0, true)]
-            public string IndOper { get; set; }
+            public Int16 IndOper { get; set; }
 
             /// <summary>
             ///     Indicador do emitente do documento fiscal:
@@ -514,7 +514,7 @@ namespace SpedBr.SpedFiscal
             ///     1 - Terceiros;
             /// </summary>
             [SpedCampos(3, "IND_EMIT", "C", 1, 0, true)]
-            public string IndEmit { get; set; }
+            public Int16 IndEmit { get; set; }
 
             /// <summary>
             ///     Código do participante (campo 02 do Registro 0150);
@@ -534,7 +534,7 @@ namespace SpedBr.SpedFiscal
             ///     Código da situação do documento fiscal, conforme a Tabela 4.1.2
             /// </summary>
             [SpedCampos(6, "COD_SIT", "N", 2, 0, true)]
-            public decimal CodSit { get; set; }
+            public Int16 CodSit { get; set; }
 
             /// <summary>
             ///     Série do documento fiscal
@@ -648,7 +648,7 @@ namespace SpedBr.SpedFiscal
             ///     6 - Outros
             /// </summary>
             [SpedCampos(24, "TP_ASSINANTE", "N", 1, 0, false)]
-            public decimal TpAssinante { get; set; }
+            public Int16 TpAssinante { get; set; }
 
             public List<RegistroD510> RegD510s { get; set; }
             public List<RegistroD530> RegD530s { get; set; }
