@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpedBr.AppTeste", "SpedBr.AppTeste\SpedBr.AppTeste.csproj", "{8144ACC2-2F30-4843-BC80-6FBDB019D39A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpedBr.Common", "SpedBr.Common\SpedBr.Common.csproj", "{95A37905-7053-46A1-82BE-9226A56F9791}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpedBr.EfdContribuicoes", "SpedBr.EfdContribuicoes\SpedBr.EfdContribuicoes.csproj", "{BC4F1488-170C-48BC-9946-9C08A739D75C}"
@@ -25,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8144ACC2-2F30-4843-BC80-6FBDB019D39A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8144ACC2-2F30-4843-BC80-6FBDB019D39A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8144ACC2-2F30-4843-BC80-6FBDB019D39A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8144ACC2-2F30-4843-BC80-6FBDB019D39A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{95A37905-7053-46A1-82BE-9226A56F9791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{95A37905-7053-46A1-82BE-9226A56F9791}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95A37905-7053-46A1-82BE-9226A56F9791}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -59,5 +53,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{98D36077-F62E-43D2-ADC4-7A1C9E6797AF} = {22969813-3170-4961-9AEC-D24A858F74BC}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4EAA3C99-6F57-4C00-8E76-CC96EB688746}
 	EndGlobalSection
 EndGlobal

@@ -17,26 +17,62 @@ namespace SpedBr.Common
 
         protected int OrdemAtt;
 
-        public int Ordem => OrdemAtt;
+        public int Ordem
+        {
+            get
+            {
+                return OrdemAtt;
+            }
+        }
 
         protected string CampoAtt;
 
-        public string Campo => CampoAtt;
+        public string Campo
+        {
+            get
+            {
+                return CampoAtt;
+            }
+        }
 
         protected string TipoAtt;
 
-        public string Tipo => TipoAtt;
+        public string Tipo
+        {
+            get
+            {
+                return TipoAtt;
+            }
+        }
 
         protected int TamanhoAtt;
 
-        public int Tamanho => TamanhoAtt;
+        public int Tamanho
+        {
+            get
+            {
+                return TamanhoAtt;
+            }
+        }
 
         protected int QtdCasasAtt;
 
-        public int QtdCasas => QtdCasasAtt;
+        public int QtdCasas
+        {
+            get
+            {
+                return QtdCasasAtt;
+            }
+        }
 
         protected bool IsObrigatorioAtt;
 
-        public bool IsObrigatorio => IsObrigatorioAtt;
+        public bool IsObrigatorio
+        {
+            get
+            {
+                return IsObrigatorioAtt;
+            }
+        }
     }
 }

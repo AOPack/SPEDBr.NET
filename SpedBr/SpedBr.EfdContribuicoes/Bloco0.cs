@@ -147,6 +147,87 @@ namespace SpedBr.EfdContribuicoes
             public int? IndRegCum { get; set; }
         }
 
+        /// <summary>
+        ///     Registro 0111: Tabela de Receita Bruta Mensal Para Fins de Rateio de Créditos Comuns 
+        /// </summary>
+        public class Registro0111 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0111" />.
+            /// </summary>
+            public Registro0111()
+            {
+                Reg = "0111";
+            }
+
+            /// <summary>
+            ///     Receita Bruta Não-Cumulativa - Tributada no Mercado Interno
+            /// </summary>
+            [SpedCampos(2, "REC_BRU_NCUM_TRIB_MI", "N", int.MaxValue, 2, true)]
+            public decimal RecBruNCumTribMI { get; set; }
+
+            /// <summary>
+            ///     Receita Bruta Não-Cumulativa - Não Tributada no Mercado Interno
+            ///     (Vendas com suspensão, alíquota zero, isenção e sem incidência das contribuições)
+            /// </summary>
+            [SpedCampos(3, "REC_BRU_NCUM_NT_MI", "N", int.MaxValue, 2, true)]
+            public decimal RecBruNCumNTMI { get; set; }
+
+            /// <summary>
+            ///     Receita Bruta Não-Cumulativa - Exportação
+            /// </summary>
+            [SpedCampos(4, "REC_BRU_NCUM_EXP", "N", int.MaxValue, 2, true)]
+            public decimal RedBruNCumExp { get; set; }
+
+            /// <summary>
+            ///     Receita Bruta Cumulativa
+            /// </summary>
+            [SpedCampos(5, "REC_BRU_CUM", "N", int.MaxValue, 2, true)]
+            public decimal RecBruCum { get; set; }
+
+            /// <summary>
+            ///     Receita Bruta Total
+            /// </summary>
+            [SpedCampos(6, "REC_BRU_TOTAL", "N", int.MaxValue, 2, true)]
+            public decimal RecBruTotal { get; set; }
+        }
+
+        /// <summary>
+        ///     Registro 0120: Identificação de EFD-Contribuições Sem Dados a Escriturar 
+        /// </summary>
+        public class Registro0120 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0120" />.
+            /// </summary>
+            public Registro0120()
+            {
+                Reg = "0120";
+            }
+
+            /// <summary>
+            ///     Mês de referência do ano-calendário da escrituração sem dados, dispensada da entrega.
+            /// </summary>
+            [SpedCampos(2, "MES_REFER", "MA", 6, 0, true)]
+            public DateTime MesRefer { get; set; }
+
+            /// <summary>
+            ///     Informação complementar do registro. No caso de escrituração sem dados, deve ser informado o real motivo dessa situação.
+            /// </summary>
+            /// <remarks>
+            /// 01 - Pessoa jurídica imune ou isenta do IRPJ; <para/>
+            /// 02 - Órgãos públicos, autarquias e fundações públicas; <para/>
+            /// 03 - Pessoa jurídica inativa; <para/>
+            /// 04 - Pessoa jurídica em geral, que não realizou operações geradoras de receitas (tributáveis ou não) ou de créditos; <para/>
+            /// 05 - Sociedade em Conta de Participação - SCP, que não realizou operações geradoras de receitas (tributáveis ou não) ou de créditos; <para/>
+            /// 06 - Sociedade Cooperativa, que não realizou operações geradoras de receitas (tributáveis ou não) ou de créditos; <para/>
+            /// 07 - Escrituração decorrente de incorporação, fusão ou cisão, sem operações geradoras de receitas (tributáveis ou não) ou de créditos; <para/>
+            /// 09 - Demais hipóteses de dispensa de escrituração, relacionadas no art. 5º, da IN RFB nº 1.252, de 2012.
+            /// </remarks>
+            [SpedCampos(3, "INF_COMP", "C", 90, 0, true)]
+            public string InfComp { get; set; }
+        }
+
         public class Registro0140 : RegistroBaseSped
         {
             public Registro0140()
@@ -326,7 +407,7 @@ namespace SpedBr.EfdContribuicoes
             ///     Código anterior do item com relação à última informação apresentada.
             /// </summary>
             [SpedCampos(5, "COD_ANT_ITEM", "C", 60, 0, false)]
-            public string CodAntItem => "";
+            public string CodAntItem { get; private set; }
 
             /// <summary>
             ///     Unidade de medida utilizada na quantificação de estoques.
@@ -371,6 +452,44 @@ namespace SpedBr.EfdContribuicoes
             /// </summary>
             [SpedCampos(12, "ALIQ_ICMS", "N", 6, 2, false)]
             public decimal AliqIcms { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO 0205: ALTERAÇÃO DO ITEM
+        /// </summary>
+        public class Registro0205 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0205" />.
+            /// </summary>
+            public Registro0205()
+            {
+                Reg = "0205";
+            }
+
+            /// <summary>
+            ///     Descrição anterior do item
+            /// </summary>
+            [SpedCampos(2, "DESCR_ANT_ITEM", "C", int.MaxValue, 0, false)]
+            public string DescrAntItem { get; set; }
+
+            /// <summary>
+            ///     Data inicial de utilização da descrição do item.
+            /// </summary>
+            [SpedCampos(3, "DT_INI", "N", 8, 0, true)]
+            public DateTime DtIni { get; set; }
+
+            /// <summary>
+            ///     Data final de utilização da descrição do item.
+            /// </summary>
+            [SpedCampos(4, "DT_FIM", "N", 8, 0, true)]
+            public DateTime DtFin { get; set; }
+
+            /// <summary>
+            ///     Código anterior do item com relação à última informação apresentada.
+            /// </summary>
+            [SpedCampos(5, "COD_ANT_ITEM", "C", 60, 0, false)]
+            public string CodAntItem { get; set; }
         }
 
         /// <summary>

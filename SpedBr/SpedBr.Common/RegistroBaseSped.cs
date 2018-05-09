@@ -20,7 +20,7 @@ namespace SpedBr.Common
             return propertyValue;
         }
 
-        private static string IdentifyEnumValueByType(Type type, object valueOfType)
+        public static string IdentifyEnumValueByType(Type type, object valueOfType)
         {
             if (type == typeof(SimOuNao))
                 return ((SimOuNao)valueOfType).ToDefaultValue();

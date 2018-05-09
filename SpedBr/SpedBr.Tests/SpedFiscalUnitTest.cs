@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SpedBr.Common;
+using SpedBr.SpedFiscal;
 
 namespace SpedBr.Tests
 {
@@ -22,7 +23,7 @@ namespace SpedBr.Tests
             reg0000.Uf = "GO";
             // I.E.
             reg0000.CodMun = "5204508"; // Caldas Novas
-            reg0000.Im = "";
+            reg0000.Im = string.Empty;
             // Suframa
             reg0000.IndPerfil = IndPerfilArquivo.A;
             reg0000.IndAtiv = IndTipoAtividade.Outros;
@@ -33,7 +34,7 @@ namespace SpedBr.Tests
         }
 
         [TestMethod]
-        public void EscreverBloco0ComIndMov()
+        public void EscreverBloco0SemIndMov()
         {
             var reg0001 = new SpedFiscal.Bloco0.Registro0001();
 
@@ -123,6 +124,14 @@ namespace SpedBr.Tests
 
             var result = regE116.EscreverCampos();
             //Assert.AreEqual("|D100|1|0||57|02|2|2|999|||||||||||||||||", result.ToStringSafe());
+        }
+
+        [TestMethod]
+        public void LerBloco0Registro000()
+        {
+            var fileToRead = LerCamposSpedFiscal.ParserSpedFiscalFile("C:\\arquivo-sped-fiscal.txt");
+
+            Assert.IsNotNull(fileToRead);
         }
     }
 }

@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,6 +36,7 @@
     <Compile Include="Enums.cs" />
     <Compile Include="EscreverCamposSpedByAttribute.cs" />
     <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="LerCamposSped.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpedCamposAttribute.cs" />
     <Compile Include="RegistroBaseSped.cs" />

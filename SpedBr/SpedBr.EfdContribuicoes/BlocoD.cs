@@ -72,7 +72,13 @@ namespace SpedBr.EfdContribuicoes
             ///     0- Aquisição
             /// </summary>
             [SpedCampos(2, "IND_OPER", "C", 1, 0, true)]
-            public int IndOper => 0;
+            public int IndOper
+            {
+                get
+                {
+                    return 0;
+                }
+            }
 
             /// <summary>
             ///     Indicador do emitente do documento fiscal:

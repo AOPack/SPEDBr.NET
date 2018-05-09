@@ -12,6 +12,6 @@ namespace SpedBr.Outros.Dimob
         }
 
         [DimobCampos(2, "Reservado", 3, 102, 99, "Branco(s)")]
-        public string Reservado { get; }
+        public string Reservado { get; private set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using SpedBr.Common;
 
 namespace SpedBr.SpedFiscal
@@ -8,6 +9,9 @@ namespace SpedBr.SpedFiscal
     /// </summary>
     public class BlocoD
     {
+        public RegistroD001 RegD001 { get; set; }
+        public RegistroD001 RegD990 { get; set; }
+
         /// <summary>
         ///     REGISTRO D001: ABERTURA DO BLOCO D
         /// </summary>
@@ -26,6 +30,14 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
+
+            public List<RegistroD100> RegD100s { get; set; }
+            //public List<RegistroD300> RegD300s { get; set; } -> //To do
+            //public List<RegistroD350> RegD350s { get; set; } -> //To do
+            //public List<RegistroD400> RegD400s { get; set; } -> //To do
+            public List<RegistroD500> RegD500s { get; set; }
+            //public List<RegistroD600> RegD600s { get; set; } -> //To do
+            //public List<RegistroD695> RegD695s { get; set; } -> //To do
         }
 
         /// <summary>
@@ -204,6 +216,17 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(25, "COD_MUN_DEST", "N", 7, 0, false)]
             public string CodMunDest { get; set; }
+
+            public RegistroD101 RegD101 { get; set; }
+            public List<RegistroD110> RegD110 { get; set; }
+            //public List<RegistroD130> RegD130s { get; set; } -> //To do
+            //public List<RegistroD140> RegD140s { get; set; } -> //To do
+            //public List<RegistroD150> RegD150s { get; set; } -> //To do
+            //public List<RegistroD160> RegD160s { get; set; } -> //To do
+            //public List<RegistroD170> RegD170s { get; set; } -> //To do
+            //public List<RegistroD180> RegD180s { get; set; } -> //To do
+            public List<RegistroD190> RegD190s { get; set; }
+            public List<RegistroD195> RegD195s { get; set; }
         }
 
         /// <summary>
@@ -405,6 +428,63 @@ namespace SpedBr.SpedFiscal
             [SpedCampos(3, "TXT_COMPL", "C", 0, 0, false)]
             public string TxtCompl { get; set; }
 
+            public List<RegistroD197> RegD197s { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO D197: OUTRAS OBRIGAÇÕES TRIBUTÁRIAS, AJUSTES E INFORMAÇÕES DE VALORES PROVENIENTES DE DOCUMENTO FISCAL.
+        /// </summary>
+        public class RegistroD197 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroD197" />.
+            /// </summary>
+            public RegistroD197()
+            {
+                Reg = "C197";
+            }
+
+            /// <summary>
+            ///     Código do ajustes/benefício/incentivo, conforme tabela indicada no item 5.3
+            /// </summary>
+            [SpedCampos(2, "COD_AJ", "C", 10, 0, true)]
+            public string CodAj { get; set; }
+
+            /// <summary>
+            ///     Descrição complementar do ajuste do documento fiscal
+            /// </summary>
+            [SpedCampos(3, "DESCR_COMPL_AJ", "C", 999, 0, false)]
+            public string DescrComplAj { get; set; }
+
+            /// <summary>
+            ///     Código do item
+            /// </summary>
+            [SpedCampos(4, "COD_ITEM", "C", 60, 0, false)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            ///     Base de cálculo do ICMS ou do ICMS ST
+            /// </summary>
+            [SpedCampos(5, "VL_BC_ICMS", "N", 0, 2, false)]
+            public decimal VlBcIcms { get; set; }
+
+            /// <summary>
+            ///     Alíquota do ICMS
+            /// </summary>
+            [SpedCampos(6, "ALIQ_ICMS", "N", 6, 2, false)]
+            public decimal AliqIcms { get; set; }
+
+            /// <summary>
+            ///     Valor do ICMS ou do ICMS ST
+            /// </summary>
+            [SpedCampos(7, "VL_ICMS", "N", 0, 2, false)]
+            public decimal VlIcms { get; set; }
+
+            /// <summary>
+            ///     Outros valores
+            /// </summary>
+            [SpedCampos(8, "VL_OUTROS", "N", 0, 2, false)]
+            public decimal VlOutros { get; set; }
         }
 
         /// <summary>
@@ -426,7 +506,7 @@ namespace SpedBr.SpedFiscal
             ///     1 - Prestação;
             /// </summary>
             [SpedCampos(2, "IND_OPER", "C", 1, 0, true)]
-            public string IndOper { get; set; }
+            public Int16 IndOper { get; set; }
 
             /// <summary>
             ///     Indicador do emitente do documento fiscal:
@@ -434,7 +514,7 @@ namespace SpedBr.SpedFiscal
             ///     1 - Terceiros;
             /// </summary>
             [SpedCampos(3, "IND_EMIT", "C", 1, 0, true)]
-            public string IndEmit { get; set; }
+            public Int16 IndEmit { get; set; }
 
             /// <summary>
             ///     Código do participante (campo 02 do Registro 0150);
@@ -454,7 +534,7 @@ namespace SpedBr.SpedFiscal
             ///     Código da situação do documento fiscal, conforme a Tabela 4.1.2
             /// </summary>
             [SpedCampos(6, "COD_SIT", "N", 2, 0, true)]
-            public decimal CodSit { get; set; }
+            public Int16 CodSit { get; set; }
 
             /// <summary>
             ///     Série do documento fiscal
@@ -568,7 +648,11 @@ namespace SpedBr.SpedFiscal
             ///     6 - Outros
             /// </summary>
             [SpedCampos(24, "TP_ASSINANTE", "N", 1, 0, false)]
-            public decimal TpAssinante { get; set; }
+            public Int16 TpAssinante { get; set; }
+
+            public List<RegistroD510> RegD510s { get; set; }
+            public List<RegistroD530> RegD530s { get; set; }
+            public List<RegistroD590> RegD590s { get; set; }
         }
 
         /// <summary>
@@ -704,6 +788,62 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(20, "COD_CTA", "C", 0, 0, false)]
             public string CodCta { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO D530: TERMINAL FATURADO.
+        /// </summary>
+        public class RegistroD530 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="RegistroD530"/>.
+            /// </summary>
+            public RegistroD530()
+            {
+                Reg = "D530";
+            }
+
+            /// <summary>
+            ///     Indicador do tipo de serviço prestado:
+            ///         0- Telefonia;
+            ///         1- Comunicação de dados;
+            ///         2- TV por assinatura;
+            ///         3- Provimento de acesso à Internet;
+            ///         4- Multimídia;
+            ///         9- Outros
+            /// </summary>
+            [SpedCampos(2, "IND_SERV", "C", 1, 0, true)]
+            public string IndServ { get; set; }
+
+            /// <summary>
+            ///     Data em que se iniciou a prestação do serviço
+            /// </summary>
+            [SpedCampos(3, "DT_INI_SERV", "N", 8, 0, false)]
+            public DateTime? DtIniServ { get; set; }
+
+            /// <summary>
+            ///     Data em que se encerrou a prestação do serviço
+            /// </summary>
+            [SpedCampos(4, "DT_FIN_SERV", "N", 8, 0, false)]
+            public DateTime? DtFinServ { get; set; }
+
+            /// <summary>
+            ///     Período fiscal da prestação do serviço (MMAAAA)
+            /// </summary>
+            [SpedCampos(5, "PER_FISCAL", "MA", 6, 0, true)]
+            public DateTime PerFiscal { get; set; }
+
+            /// <summary>
+            ///     Código de área do terminal faturado
+            /// </summary>
+            [SpedCampos(6,"COD_AREA", "C", int.MaxValue, 0, false)]
+            public string CodArea { get; set; }
+
+            /// <summary>
+            ///     Identificação do terminal faturado
+            /// </summary>
+            [SpedCampos(7, "TERMINAL", "N", int.MaxValue, 0, false)]
+            public string Terminal { get; set; }
         }
 
         /// <summary>

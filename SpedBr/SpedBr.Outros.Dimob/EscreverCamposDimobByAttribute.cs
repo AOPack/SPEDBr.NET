@@ -76,7 +76,7 @@ namespace SpedBr.Outros.Dimob
                 {
                     if (dimobCampoAttr == null)
                         throw new Exception(
-                            $"O campo {property.Name} no registro {registroAtual} não possui atributo DIMOB definido!");
+                            string.Format("O campo {0} no registro {1} não possui atributo DIMOB definido!", property.Name, registroAtual));
 
                     var propertyValue = RegistroBaseDimob.GetPropValue(source, property.Name);
                     var propertyValueToStringSafe = propertyValue.ToStringSafe().Trim();
@@ -131,7 +131,7 @@ namespace SpedBr.Outros.Dimob
 
         private static string RetornaCampoDecimalFormatado2String(this decimal valor)
         {
-            return valor.ToString("N2").Replace(",", "").Replace(".", "").PadLeft(14, '0');
+            return valor.ToString("N2").Replace(",", string.Empty).Replace(".", string.Empty).PadLeft(14, '0');
         }
     }
 }
