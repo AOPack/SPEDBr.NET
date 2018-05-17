@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpedBr.Ecf", "SpedBr.Ecf\Sp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{22969813-3170-4961-9AEC-D24A858F74BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpedBr.Ecd", "SpedBr.Ecd\SpedBr.Ecd.csproj", "{65658386-74B0-43B6-968A-6C5F9F5C70D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{2F29E939-0178-4475-A8C5-A0684B00480A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F29E939-0178-4475-A8C5-A0684B00480A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F29E939-0178-4475-A8C5-A0684B00480A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65658386-74B0-43B6-968A-6C5F9F5C70D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65658386-74B0-43B6-968A-6C5F9F5C70D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65658386-74B0-43B6-968A-6C5F9F5C70D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65658386-74B0-43B6-968A-6C5F9F5C70D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
