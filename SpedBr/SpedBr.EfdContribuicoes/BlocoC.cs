@@ -993,10 +993,86 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(8, "ALIQ_COFINS_QUANT", "N", 0, 4, false)]
             public decimal? AliqCofinsQuant { get; set; }
 
-            [SpedCampos(9, "VL_COFINS", "N", 0, 2, false)]
+            [SpedCampos(9, "VL_COFINS", "N", 0, 2, true)]
             public decimal? VlCofins { get; set; }
 
             [SpedCampos(10, "COD_CTA", "C", 60, 0, false)]
+            public string CodCta { get; set; }
+        }
+
+        public class RegistroC395 : RegistroBaseSped
+        {
+            public RegistroC395()
+            {
+                Reg = "C395";
+            }
+
+            [SpedCampos(2, "COD_MOD", "C", 2, 0, true)]
+            public string CodMod { get; set; }
+
+            [SpedCampos(3, "COD_PART", "C", 60, 0, false)]
+            public string CodPart { get; set; }
+
+            [SpedCampos(4, "SER", "C", 3, 0, true)]
+            public string Ser { get; set; }
+
+            [SpedCampos(5, "SUB_SER", "C", 3, 0, false)]
+            public string SubSer { get; set; }
+
+            [SpedCampos(6, "NUM_DOC", "C", 6, 0, true)]
+            public string NumDoc { get; set; }
+
+            [SpedCampos(7, "DT_DOC", "N", 8, 0, true)]
+            public DateTime DtDoc { get; set; }
+
+            [SpedCampos(8, "VL_DOC", "N", 0, 2, true)]
+            public decimal? VlDoc { get; set; }
+        }
+
+        public class RegistroC396 : RegistroBaseSped
+        {
+            public RegistroC396()
+            {
+                Reg = "C396";
+            }
+
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true)]
+            public string CodItem { get; set; }
+
+            [SpedCampos(3, "VL_ITEM", "N", 0, 2, true)]
+            public decimal? VlItem { get; set; }
+
+            [SpedCampos(4, "VL_DESC", "N", 0, 2, false)]
+            public decimal? VlDesc { get; set; }
+
+            [SpedCampos(5, "NAT_BC_CRED", "C", 2, 0, true)]
+            public string NatBcCred { get; set; }
+
+            [SpedCampos(6, "CST_PIS", "N", 2, 0, true)]
+            public int CstPis { get; set; }
+
+            [SpedCampos(7, "VL_BC_PIS", "N", 0, 2, false)]
+            public decimal? VlBcPis { get; set; }
+
+            [SpedCampos(8, "ALIQ_PIS", "N", 8, 4, false)]
+            public decimal? AliqPis { get; set; }
+
+            [SpedCampos(9, "VL_PIS", "N", 0, 2, false)]
+            public decimal? VlPis { get; set; }
+
+            [SpedCampos(10, "CST_COFINS", "N", 2, 0, true)]
+            public int CstCofins { get; set; }
+
+            [SpedCampos(11, "VL_BC_COFINS", "N", 0, 2, false)]
+            public decimal? VlBcCofins { get; set; }
+
+            [SpedCampos(12, "ALIQ_COFINS", "N", 8, 4, false)]
+            public decimal? AliqCofins { get; set; }
+
+            [SpedCampos(13, "VL_COFINS", "N", 0, 2, false)]
+            public decimal? VlCofins { get; set; }
+
+            [SpedCampos(14, "COD_CTA", "C", 60, 0, false)]
             public string CodCta { get; set; }
         }
 
