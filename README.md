@@ -1,4 +1,6 @@
 # SPEDBr
+[![Nuget downloads](https://img.shields.io/nuget/dt/SPEDBr.NET.svg)](https://www.nuget.org/packages/SPEDBr.NET/)
+[![Nuget count](https://img.shields.io/nuget/v/SPEDBr.NET.svg)](https://www.nuget.org/packages/SPEDBr.NET/)
 ###### SITE OFICIAL DO SPED: http://sped.rfb.gov.br/
 Biblioteca gratuita  - desenvolvida com Visual Studio Community 2017 - para geração dos arquivos SPED e demais declarações necessárias no cenário contábil/fiscal brasileiro.
 
