@@ -13,6 +13,9 @@ namespace SpedBr.Ecd
         /// </summary>
         public class Registro0000 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0000"/>.
+            /// </summary>
             public Registro0000()
             {
                 Reg = "0000";
@@ -164,6 +167,56 @@ namespace SpedBr.Ecd
             /// </remarks>
             [SpedCampos(20, "IND_ESC_CONS", "C", 1, 0, true)]
             public SimOuNao IndEscCons { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO 0001: ABERTURA DO BLOCO 0
+        /// </summary>
+        public class Registro0001 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0001"/>.
+            /// </summary>
+            public Registro0001()
+            {
+                Reg = "0001";
+            }
+
+            /// <summary>
+            /// Indicador de Movimento
+            /// </summary>
+            /// <remarks>
+            /// 0 - Bloco com dados informados <para/>
+            /// 1 - Bloco sem dados informados
+            /// </remarks>
+            [SpedCampos(2, "IND_DAD", "N", 1, 0, true)]
+            public IndMovimento IndDad { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO 0007: OUTRAS INSCRIÇÕES CADASTRAIS DA PESSOA JURÍDICA
+        /// </summary>
+        public class Registro0007 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0007"/>.
+            /// </summary>
+            public Registro0007()
+            {
+                Reg = "0007";
+            }
+
+            /// <summary>
+            /// Código da instituição responsável pela administração do cadastro
+            /// </summary>
+            [SpedCampos(2, "COD_ENT_REF", "C", 2, 0, true)]
+            public CodigoEntidade CodEntRef { get; set; }
+
+            /// <summary>
+            /// Código cadastral da pessoa jurídica na instituição identificada
+            /// </summary>
+            [SpedCampos(3, "COD_INSCR", "C", Int16.MaxValue, 0, false)]
+            public string CodInscr { get; set; }
         }
     }
 }
