@@ -218,5 +218,91 @@ namespace SpedBr.Ecd
             [SpedCampos(3, "COD_INSCR", "C", Int16.MaxValue, 0, false)]
             public string CodInscr { get; set; }
         }
+
+        /// <summary>
+        /// REGISTRO 0020: ESCRITURAÇÃO CONTÁBIL DESCENTRALIZADA
+        /// </summary>
+        public class Registro0020 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0020"/>.
+            /// </summary>
+            public Registro0020()
+            {
+                Reg = "0020";
+            }
+
+            /// <summary>
+            /// Indicador de descentraliação
+            /// </summary>
+            /// <remarks>
+            /// 0 - Escrituração da matriz <para/>
+            /// 1 - Escrituração da filial
+            /// </remarks>
+            [SpedCampos(2, "IND_DEC", "N", 1, 0, true)]
+            public int IndDec { get; set; }
+
+            /// <summary>
+            /// Número da inscrição da pessoa jurídica no CNPJ da matriz ou da filial
+            /// </summary>
+            [SpedCampos(3, "CNPJ", "N", 14, 0, true)]
+            public string Cnpj { get; set; }
+
+            /// <summary>
+            /// Sigla da unidade da federação da matriz ou da filial
+            /// </summary>
+            [SpedCampos(4, "UF", "C", 2, 0, true)]
+            public string Uf { get; set; }
+
+            /// <summary>
+            /// Inscrição estadual da matriz ou da filial
+            /// </summary>
+            [SpedCampos(5, "IE", "C", Int16.MaxValue, 0, false)]
+            public string Ie { get; set; }
+
+            /// <summary>
+            /// Código do município do domicílio da matriz ou da filial
+            /// </summary>
+            [SpedCampos(6, "COD_MUN", "N", 7, 0, false)]
+            public string CodMun { get; set; }
+
+            /// <summary>
+            /// Número da inscrição municipal da matriz ou da filial
+            /// </summary>
+            [SpedCampos(7, "IM", "C", Int16.MaxValue, 0, false)]
+            public string Im { get; set; }
+
+            /// <summary>
+            /// Número da identificação do registro de empresas da matriz ou da filial na Junta Comercial
+            /// </summary>
+            [SpedCampos(8, "NIRE", "N", 11, 0, false)]
+            public string Nire { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO 0035: IDENTIFICAÇÃO DA SCP
+        /// </summary>
+        public class Registro0035 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0035"/>.
+            /// </summary>
+            public Registro0035()
+            {
+                Reg = "0035";
+            }
+
+            /// <summary>
+            /// CNPJ da SCP
+            /// </summary>
+            [SpedCampos(2, "COD_SCP", "C", 14, 0, true)]
+            public string CodScp { get; set; }
+
+            /// <summary>
+            /// Nome da SCP
+            /// </summary>
+            [SpedCampos(3, "NOME_SCP", "C", Int16.MaxValue, 0, false)]
+            public string NomeScp { get; set; }
+        }
     }
 }
