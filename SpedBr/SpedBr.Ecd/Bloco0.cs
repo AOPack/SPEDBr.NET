@@ -304,5 +304,143 @@ namespace SpedBr.Ecd
             [SpedCampos(3, "NOME_SCP", "C", Int16.MaxValue, 0, false)]
             public string NomeScp { get; set; }
         }
+
+        /// <summary>
+        /// REGISTRO 0150: TABELA DE CADASTRO DO PARTICIPANTE
+        /// </summary>
+        public class Registro0150 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0150"/>.
+            /// </summary>
+            public Registro0150()
+            {
+                Reg = "0150";
+            }
+
+            /// <summary>
+            /// Código de identificação do participante no arquivo criado pela própria pessoa jurídica
+            /// </summary>
+            [SpedCampos(2, "COD_PART", "C", Int16.MaxValue, 0, true)]
+            public string CodPart { get; set; }
+
+            /// <summary>
+            /// Nome pessoal ou empresarial do participante
+            /// </summary>
+            [SpedCampos(3, "NOME", "C", Int16.MaxValue, 0, true)]
+            public string Nome { get; set; }
+
+            /// <summary>
+            /// Código do país do participante
+            /// </summary>
+            [SpedCampos(4, "COD_PAIS", "N", 5, 0, true)]
+            public string CodPais { get; set; }
+
+            /// <summary>
+            /// CNPJ do participante
+            /// </summary>
+            [SpedCampos(5, "CNPJ", "N", 14, 0, false)]
+            public string Cnpj { get; set; }
+
+            /// <summary>
+            /// CPF do participante
+            /// </summary>
+            [SpedCampos(6, "CPF", "N", 11, 0, false)]
+            public string Cpf { get; set; }
+
+            /// <summary>
+            /// Número de Identificação do Trabalhador, Pis, Pasep, SUS
+            /// </summary>
+            [SpedCampos(7, "NIT", "N", 11, 0, false)]
+            public string Nit { get; set; }
+
+            /// <summary>
+            /// Sigla da unidade da federação do participante
+            /// </summary>
+            [SpedCampos(8, "UF", "C", 2, 0, false)]
+            public string Uf { get; set; }
+
+            /// <summary>
+            /// Inscrição Estadual do participante
+            /// </summary>
+            [SpedCampos(9, "IE", "C", Int16.MaxValue, 0, false)]
+            public string Ie { get; set; }
+
+            /// <summary>
+            /// Inscrição Estadual do participante na unidade da federação do destinatário, na condição de contribuinte substituto
+            /// </summary>
+            [SpedCampos(10, "IE_ST", "C", Int16.MaxValue, 0, false)]
+            public string IeSt { get; set; }
+
+            /// <summary>
+            /// Código do município
+            /// </summary>
+            [SpedCampos(11, "COD_MUN", "N", 7, 0, false)]
+            public string CodMun { get; set; }
+
+            /// <summary>
+            /// Inscrição Municipal do participante
+            /// </summary>
+            [SpedCampos(12, "IM", "C", Int16.MaxValue, 0, false)]
+            public string Im { get; set; }
+
+            /// <summary>
+            /// Número de inscrição do participante na Suframa
+            /// </summary>
+            [SpedCampos(13, "SUFRAMA", "C", 9, 0, false)]
+            public string Suframa { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO 0180: IDENTIFICAÇÃO DO RELACIONAMENTO COM O PARTICIPANTE
+        /// </summary>
+        public class Registro0180 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0180"/>.
+            /// </summary>
+            public Registro0180()
+            {
+                Reg = "0180";
+            }
+
+            /// <summary>
+            /// Código do relacionamento
+            /// </summary>
+            [SpedCampos(2, "COD_REL", "N", 2, 0, true)]
+            public Int16 CodRel { get; set; }
+
+            /// <summary>
+            /// Data do início do relacionamento
+            /// </summary>
+            [SpedCampos(3, "DT_INI_REL", "N", 8, 0, true)]
+            public DateTime DtIniRel { get; set; }
+
+            /// <summary>
+            /// Data do término do relacionamento
+            /// </summary>
+            [SpedCampos(4, "DT_FIN_REL", "N", 8, 0, false)]
+            public DateTime DtFinRel { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO 0990: ENCERRAMENTO DO BLOCO 0
+        /// </summary>
+        public class Registro0990 : RegistroBaseSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0990"/>.
+            /// </summary>
+            public Registro0990()
+            {
+                Reg = "0990";
+            }
+
+            /// <summary>
+            /// Quantidade total de linhas do Bloco 0
+            /// </summary>
+            [SpedCampos(2, "QTD_LIN_0", "N", Int32.MaxValue, 0, true)]
+            public int QtdLin0 { get; set; }
+        }
     }
 }
