@@ -12,6 +12,13 @@ Esta biblioteca será atualizada até 31/12/2019, após esse prazo será descont
 
 Se o projeto lhe ajudou ou contribuiu de alguma forma, faça uma doação. :D Ajude a dar continuidade nesse projeto.
 
+## TODO
+
+- [ ] Implementar Factory Pattern para facilitar uso da biblioteca.
+- [ ] Mapear enums restantes do SPED e implementar leitura dos layouts.
+- [ ] Mapear registros restantes da EFD Contribuições. [#28](https://github.com/samuelrochaoliveira/SPEDBr/issues/28)
+- [ ] Melhorar performance na geração das linhas, monitorar tempo da geração.
+
 ## Sumário
 
 - [Declarações](#declaracoes)
@@ -36,13 +43,6 @@ Se o projeto lhe ajudou ou contribuiu de alguma forma, faça uma doação. :D Aj
 ## Outros
 - [x] [SINTEGRABr](https://github.com/samuelroliveira/SINTEGRABr)
 - [ ] [FISCALBr](https://github.com/samuelroliveira/FiscalBr)
-
-## TODO
-
-- [ ] Implementar Factory Pattern para facilitar uso da biblioteca.
-- [ ] Mapear enums restantes do SPED e implementar leitura dos layouts.
-- [ ] Mapear registros restantes da EFD Contribuições. [#28](https://github.com/samuelrochaoliveira/SPEDBr/issues/28)
-- [ ] Melhorar performance na geração das linhas, monitorar tempo da geração.
 
 ## Exemplos
 
