@@ -39,7 +39,8 @@ Se o projeto lhe ajudou ou contribuiu de alguma forma, faça uma doação. :D Aj
 
 ## TODO
 
-- [ ] Mapear enums restantes do SPED.
+- [ ] Implementar Factory Pattern para facilitar uso da biblioteca.
+- [ ] Mapear enums restantes do SPED e implementar leitura dos layouts.
 - [ ] Mapear registros restantes da EFD Contribuições. [#28](https://github.com/samuelrochaoliveira/SPEDBr/issues/28)
 - [ ] Melhorar performance na geração das linhas, monitorar tempo da geração.
 
