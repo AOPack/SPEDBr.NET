@@ -121,6 +121,9 @@ namespace SpedBr.Common
             if (type == typeof(IndCodGrupoTensao))
                 return ((IndCodGrupoTensao)valueOfType).ToDefaultValue();
 
+            if (type == typeof(IndTipoAjuste))
+                return ((IndTipoAjuste)valueOfType).ToDefaultValue();
+
             return string.Empty;
         }
     }
