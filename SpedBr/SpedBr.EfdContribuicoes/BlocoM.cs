@@ -1134,7 +1134,7 @@ namespace SpedBr.EfdContribuicoes
             }
 
             [SpedCampos(2, "IND_AJ", "C", 1, 0, true)]
-            public int IndAj { get; set; }
+            public IndTipoAjuste IndAj { get; set; }
 
             [SpedCampos(3, "VL_AJ", "N", 0, 2, true)]
             public decimal VlAj { get; set; }
