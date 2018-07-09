@@ -318,6 +318,12 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(9, "VL_AJ_ITEM", "N", 0, 2, true)]
             public decimal VlAjItem { get; set; }
+
+            /// <summary>
+            ///     Chave do Documento Eletrônico
+            /// </summary>
+            [SpedCampos(10, "CHV_DOCe", "N", 44, 0, false)]
+            public string ChvDocE { get; set; }
         }
 
         /// <summary>

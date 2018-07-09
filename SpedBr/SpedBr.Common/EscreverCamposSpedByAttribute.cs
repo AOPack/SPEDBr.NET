@@ -132,7 +132,12 @@ namespace SpedBr.Common
                 return InformationType.DateTime;
             if (property.PropertyType == typeof(DateTime?))
                 return InformationType.NullableDateTime;
-            if (property.PropertyType == typeof(Int32) ||
+            /*
+             * Substituir todos os campos de indicadores por Int16
+             */
+            if (property.PropertyType == typeof(Int16) ||
+                property.PropertyType == typeof(Int16?)||
+                property.PropertyType == typeof(Int32) ||
                 property.PropertyType == typeof(Int32?))
                 return InformationType.CodeOrNumber;
 

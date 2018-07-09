@@ -451,10 +451,10 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(4, "COD_AJ", "C", 2, 0, true)]
             public int CodAj { get; set; }
 
-            [SpedCampos(5, "NUM_DOC", "C", 0, 0, false)]
+            [SpedCampos(5, "NUM_DOC", "C", Int16.MaxValue, 0, false)]
             public string NumDoc { get; set; }
 
-            [SpedCampos(6, "DESCR_AJ", "C", 0, 0, false)]
+            [SpedCampos(6, "DESCR_AJ", "C", Int16.MaxValue, 0, false)]
             public string DescrAj { get; set; }
 
             [SpedCampos(7, "DT_REF", "N", 8, 0, false)]
@@ -484,13 +484,13 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(6, "DT_OPER_AJ", "N", 8, 0, true)]
             public DateTime DtOperAj { get; set; }
 
-            [SpedCampos(7, "DESC_AJ", "C", 0, 0, false)]
+            [SpedCampos(7, "DESC_AJ", "C", Int16.MaxValue, 0, false)]
             public string DescAj { get; set; }
 
-            [SpedCampos(8, "COD_CTA", "C", 60, 0, false)]
+            [SpedCampos(8, "COD_CTA", "C", Int16.MaxValue, 0, false)]
             public string CodCta { get; set; }
 
-            [SpedCampos(9, "INFO_COMPL", "C", 0, 0, false)]
+            [SpedCampos(9, "INFO_COMPL", "C", Int16.MaxValue, 0, false)]
             public string InfoCompl { get; set; }
         }
 
@@ -925,7 +925,7 @@ namespace SpedBr.EfdContribuicoes
             /// <summary>
             ///     Valor do ajuste
             /// </summary>
-            [SpedCampos(3, "VL_AJ", "N", int.MaxValue, 2, true)]
+            [SpedCampos(3, "VL_AJ", "N", Int16.MaxValue, 2, true)]
             public decimal VlAj { get; set; }
 
             /// <summary>
@@ -937,13 +937,13 @@ namespace SpedBr.EfdContribuicoes
             /// <summary>
             ///     Número do processo, documento ou ato concessório ao qual o ajuste está vinculado, se houver.
             /// </summary>
-            [SpedCampos(5, "NUM_DOC", "C", int.MaxValue, 0, false)]
+            [SpedCampos(5, "NUM_DOC", "C", Int16.MaxValue, 0, false)]
             public string NumDoc { get; set; }
 
             /// <summary>
             ///     Descrição resumida do ajuste.
             /// </summary>
-            [SpedCampos(6, "DESCR_AJ", "C", int.MaxValue, 0, false)]
+            [SpedCampos(6, "DESCR_AJ", "C", Int16.MaxValue, 0, false)]
             public string DescrAj { get; set; }
 
             /// <summary>
@@ -1001,19 +1001,19 @@ namespace SpedBr.EfdContribuicoes
             ///     Descrição da(s) operação(ões) a que se refere o valor informado no 
             ///     Campo 02 (DET_VALOR_AJ)
             /// </summary>
-            [SpedCampos(7, "DESC_AJ", "C", 0, 0, false)]
+            [SpedCampos(7, "DESC_AJ", "C", Int16.MaxValue, 0, false)]
             public string DescAj { get; set; }
 
             /// <summary>
             ///     Código da conta contábil debitada/creditada 
             /// </summary>
-            [SpedCampos(8, "COD_CTA", "C", 60, 0, false)]
+            [SpedCampos(8, "COD_CTA", "C", Int16.MaxValue, 0, false)]
             public string CodCta { get; set; }
 
             /// <summary>
             ///     Informação complementar
             /// </summary>
-            [SpedCampos(9, "INFO_COMPL", "C", 0, 0, false)]
+            [SpedCampos(9, "INFO_COMPL", "C", Int16.MaxValue, 0, false)]
             public string InfoCompl { get; set; }
         }
 
@@ -1134,7 +1134,7 @@ namespace SpedBr.EfdContribuicoes
             }
 
             [SpedCampos(2, "IND_AJ", "C", 1, 0, true)]
-            public int IndAj { get; set; }
+            public IndTipoAjuste IndAj { get; set; }
 
             [SpedCampos(3, "VL_AJ", "N", 0, 2, true)]
             public decimal VlAj { get; set; }
@@ -1142,10 +1142,10 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(4, "COD_AJ", "C", 2, 0, true)]
             public int CodAj { get; set; }
 
-            [SpedCampos(5, "NUM_DOC", "C", 0, 0, false)]
+            [SpedCampos(5, "NUM_DOC", "C", Int16.MaxValue, 0, false)]
             public string NumDoc { get; set; }
 
-            [SpedCampos(6, "DESCR_AJ", "C", 0, 0, false)]
+            [SpedCampos(6, "DESCR_AJ", "C", Int16.MaxValue, 0, false)]
             public string DescrAj { get; set; }
 
             [SpedCampos(7, "DT_REF", "N", 8, 0, false)]
@@ -1175,13 +1175,13 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(6, "DT_OPER_AJ", "N", 8, 0, true)]
             public DateTime DtOperAj { get; set; }
 
-            [SpedCampos(7, "DESC_AJ", "C", 0, 0, false)]
+            [SpedCampos(7, "DESC_AJ", "C", Int16.MaxValue, 0, false)]
             public string DescAj { get; set; }
 
-            [SpedCampos(8, "COD_CTA", "C", 60, 0, false)]
+            [SpedCampos(8, "COD_CTA", "C", Int16.MaxValue, 0, false)]
             public string CodCta { get; set; }
 
-            [SpedCampos(9, "INFO_COMPL", "C", 0, 0, false)]
+            [SpedCampos(9, "INFO_COMPL", "C", Int16.MaxValue, 0, false)]
             public string InfoCompl { get; set; }
         }
 

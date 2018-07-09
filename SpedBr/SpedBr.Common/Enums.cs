@@ -1,7 +1,181 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace SpedBr.Common
 {
+    #region ECD
+
+    public enum CodigoEntidade
+    {
+        /// <summary>
+        ///     Nenhuma inscrição em outras entidades
+        /// </summary>
+        [DefaultValue("00")] None,
+
+        /// <summary>
+        ///     Banco Central do Brasil
+        /// </summary>
+        [DefaultValue("01")] BancoCentral,
+
+        /// <summary>
+        ///     Superintendência de Seguros Privados (Susep)
+        /// </summary>
+        [DefaultValue("02")] Susep,
+
+        /// <summary>
+        ///     Comissão de Valores Mobiliários (CVM)
+        /// </summary>
+        [DefaultValue("03")] Cvm,
+
+        /// <summary>
+        ///     Agência Nacional de Transportes Terrestres (ANTT)
+        /// </summary>
+        [DefaultValue("04")] Antt,
+
+        /// <summary>
+        ///     Tribunal Superior Eleitoral (TSE)
+        /// </summary>
+        [DefaultValue("05")] Tse,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado do Acre
+        /// </summary>
+        [DefaultValue("AC")] AC,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado de Alagoas
+        /// </summary>
+        [DefaultValue("AL")] AL,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado de Amazonas
+        /// </summary>
+        [DefaultValue("AM")] AM,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado do Amapá
+        /// </summary>
+        [DefaultValue("AP")] AP,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado da Bahia
+        /// </summary>
+        [DefaultValue("BA")] BA,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado do Distrito Federal
+        /// </summary>
+        [DefaultValue("DF")] DF,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado do Ceará
+        /// </summary>
+        [DefaultValue("CE")] CE,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado do Espírito Santo
+        /// </summary>
+        [DefaultValue("ES")] ES,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado de Goiás
+        /// </summary>
+        [DefaultValue("GO")] GO,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado do Maranhão
+        /// </summary>
+        [DefaultValue("MA")] MA,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado do Mato Grosso
+        /// </summary>
+        [DefaultValue("MT")] MT,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado do Mato Grosso do Sul
+        /// </summary>
+        [DefaultValue("MS")] MS,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado de Minas Gerais
+        /// </summary>
+        [DefaultValue("MG")] MG,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado do Pará
+        /// </summary>
+        [DefaultValue("PA")] PA,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado da Paraíba
+        /// </summary>
+        [DefaultValue("PB")] PB,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado de Pernambuco
+        /// </summary>
+        [DefaultValue("PE")] PE,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado do Paraná
+        /// </summary>
+        [DefaultValue("PR")] PR,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado do Piauí
+        /// </summary>
+        [DefaultValue("PI")] PI,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado do Rio de Janeiro
+        /// </summary>
+        [DefaultValue("RJ")] RJ,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado do Rio Grande do Norte
+        /// </summary>
+        [DefaultValue("RN")] RN,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado do Rio Grande do Sul
+        /// </summary>
+        [DefaultValue("RS")] RS,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado de Roraima
+        /// </summary>
+        [DefaultValue("RR")] RR,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado de Rondônia
+        /// </summary>
+        [DefaultValue("RO")] RO,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado de Santa Catarina
+        /// </summary>
+        [DefaultValue("SC")] SC,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado de São Paulo
+        /// </summary>
+        [DefaultValue("SP")] SP,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado de Sergipe
+        /// </summary>
+        [DefaultValue("SE")] SE,
+
+        /// <summary>
+        ///     Secretaria da Fazenda do Estado de Tocantins
+        /// </summary>
+        [DefaultValue("TO")] TO,
+    }
+
+    #endregion ECD
+
+
     public enum SimOuNao
     {
         /// <summary>

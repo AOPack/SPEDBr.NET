@@ -71,7 +71,7 @@ namespace SpedBr.EfdContribuicoes
             }
 
             [SpedCampos(2, "COD_SCP", "N", 14, 0, false)]
-            public int CodScp { get; set; }
+            public string CodScp { get; set; }
 
             [SpedCampos(3, "DESC_SCP", "C", 0, 0, false)]
             public string DescScp { get; set; }
@@ -124,7 +124,7 @@ namespace SpedBr.EfdContribuicoes
             public string Email { get; set; }
 
             [SpedCampos(14, "COD_MUN", "N", 7, 0, false)]
-            public int CodMun { get; set; }
+            public string CodMun { get; set; }
         }
 
         public class Registro0110 : RegistroBaseSped
@@ -251,7 +251,7 @@ namespace SpedBr.EfdContribuicoes
             public string Ie { get; set; }
 
             [SpedCampos(7, "COD_MUN", "N", 7, 0, true)]
-            public int CodMun { get; set; }
+            public string CodMun { get; set; }
 
             [SpedCampos(8, "IM", "C", 0, 0, false)]
             public string Im { get; set; }

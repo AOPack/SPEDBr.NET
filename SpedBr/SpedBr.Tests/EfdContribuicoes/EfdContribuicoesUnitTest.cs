@@ -25,6 +25,14 @@ namespace SpedBr.Tests.EfdContribuicoes
         }
 
         [TestMethod]
+        public void Escrever1800()
+        {
+            var reg1800 = new Bloco1.Registro1800();
+
+            reg1800.IncImob = "";
+        }
+
+        [TestMethod]
         public void EscreverF600()
         {
 

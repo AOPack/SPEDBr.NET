@@ -1,4 +1,5 @@
 ﻿using SpedBr.Common;
+using System;
 
 namespace SpedBr.EfdContribuicoes
 {
@@ -13,6 +14,85 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO 1800: INCORPORAÇÃO IMOBILIÁRIA - RET
+        /// </summary>
+        /// <remarks>
+        /// Este registro dever ser preenchido pela pessoa jurídica que executa empreendimentos objeto de incorporação <para/>
+        /// imobiliária e que apuram contribuição social com base em Regimes Especiais de Tributação - RET. As normas <para/>
+        /// relativas ao RET, nas modalidades previstas na legislação tributária, encontram-se dispostas na Instrução <para/>
+        /// Normativa RFB nº 1.435/2013.
+        /// </remarks>
+        public class Registro1800 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro1800" />.
+            /// </summary>
+            public Registro1800()
+            {
+                Reg = "1800";
+            }
+
+            /// <summary>
+            /// Empreendimento objeto de Incorporação Imobiliária, optante pelo RET <para/>
+            /// </summary>
+            /// <example>
+            /// Exemplo de preechimento
+            /// <code>
+            /// reg1800.IncImob = "Empreendimento XYZ [11222333456789]"
+            /// </code>
+            /// </example>
+            /// <remarks>
+            /// Preenchimento: identifique o empreendimento objeto de incorporação imobiliária, optante pelo RET, <para/>
+            /// informando o respectivo CNPJ do empreendimento, de acordo com o inciso XIII do art. 4º da IN RFB nº 1.634, <para/>
+            /// de 2016, no formato "XXXXXXXXYYYYZZ"
+            /// </remarks>
+            [SpedCampos(2, "INC_IMOB", "C", 90, 0, true)]
+            public string IncImob { get; set; }
+
+            /// <summary>
+            /// Receitas recebidas pela incorporadora na venda das unidades imobiliárias que compõem a incorporação
+            /// </summary>
+            [SpedCampos(3, "REC_RECEB_RET", "N", Int16.MaxValue, 2, true)]
+            public decimal RecRecebRet { get; set; }
+
+            /// <summary>
+            /// Receitas Financeiras e Variações Monetárias decorrentes das vendas submentidas ao RET
+            /// </summary>
+            [SpedCampos(4, "REC_FIN_RET", "N", Int16.MaxValue, 2, false)]
+            public decimal? RecFinRet { get; set; }
+
+            /// <summary>
+            /// Base de Cálculo do Recolhimento Unificado
+            /// </summary>
+            [SpedCampos(5, "BC_RET", "N", Int16.MaxValue, 2, true)]
+            public decimal BcRet { get; set; }
+
+            /// <summary>
+            /// Alíquota do Recolhimento Unificado
+            /// </summary>
+            [SpedCampos(6, "ALIQ_RET", "N", 6, 2, true)]
+            public decimal AliqRet { get; set; }
+
+            /// <summary>
+            /// Valor do Recolhimento Unificado
+            /// </summary>
+            [SpedCampos(7, "VL_REC_UNI", "N", Int16.MaxValue, 2, true)]
+            public decimal VlRecUni { get; set; }
+
+            /// <summary>
+            /// Data do Recolhimento Unificado
+            /// </summary>
+            [SpedCampos(8, "DT_REC_UNI", "N", 8, 0, false)]
+            public DateTime? DtRecUni { get; set; }
+
+            /// <summary>
+            /// Código da Receita
+            /// </summary>
+            [SpedCampos(9, "COD_REC", "C", 4, 0, false)]
+            public string CodRec { get; set; }
         }
 
         public class Registro1900 : RegistroBaseSped

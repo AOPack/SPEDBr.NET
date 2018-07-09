@@ -194,3 +194,6 @@ ModelManifest.xml
 /SpedBr/.vs/SpedBr/v15/Server/sqlite3/storage.ide-wal
 /.vs/slnx.sqlite
 /.vs/VSWorkspaceState.json
+/.vs
+/nuget.exe
+/SpedBr/.vs/SpedBr/DesignTimeBuild/.dtbcache
