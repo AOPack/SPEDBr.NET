@@ -113,8 +113,8 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Data da emissão do documento fiscal
             /// </summary>
-            [SpedCampos(10, "DT_DOC", "N", 8, 0, true)]
-            public DateTime DtDoc { get; set; }
+            [SpedCampos(10, "DT_DOC", "N", 8, 0, false)]
+            public DateTime? DtDoc { get; set; }
 
             /// <summary>
             ///     Data da entrada ou da saída
@@ -125,8 +125,8 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Valor total do documento fiscal
             /// </summary>
-            [SpedCampos(12, "VL_DOC", "N", 0, 2, true)]
-            public decimal VlDoc { get; set; }
+            [SpedCampos(12, "VL_DOC", "N", 0, 2, false)]
+            public decimal? VlDoc { get; set; }
 
             /// <summary>
             ///     Indicador do tipo de pagamento:
@@ -135,8 +135,8 @@ namespace SpedBr.SpedFiscal
             ///     2 - Outros (a partir de 01/07/2012).
             ///     9 - Sem pagamento (até 30/06/2012).
             /// </summary>
-            [SpedCampos(13, "IND_PGTO", "C", 1, 0, true)]
-            public int IndPgto { get; set; }
+            [SpedCampos(13, "IND_PGTO", "C", 1, 0, false)]
+            public int? IndPgto { get; set; }
 
             /// <summary>
             ///     Valor total do desconto
@@ -3843,26 +3843,26 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Data da emissão do Cupom Fiscal Eletrônico
             /// </summary>
-            [SpedCampos(5, "DT_DOC", "N", 8, 0, true)]
-            public DateTime DtDoc { get; set; }
+            [SpedCampos(5, "DT_DOC", "N", 8, 0, false)]
+            public DateTime? DtDoc { get; set; }
 
             /// <summary>
             ///     Valor total do Cupom Fiscal Eletrônico
             /// </summary>
-            [SpedCampos(6, "VL_CFE", "N", 0, 2, true)]
-            public decimal VlCfe { get; set; }
+            [SpedCampos(6, "VL_CFE", "N", 0, 2, false)]
+            public decimal? VlCfe { get; set; }
 
             /// <summary>
             ///     Valor total do PIS
             /// </summary>
             [SpedCampos(7, "VL_PIS", "N", 0, 2, false)]
-            public decimal VlPis { get; set; }
+            public decimal? VlPis { get; set; }
 
             /// <summary>
             ///     Valor total da COFINS
             /// </summary>
             [SpedCampos(8, "VL_COFINS", "N", 0, 2, false)]
-            public decimal VlCofins { get; set; }
+            public decimal? VlCofins { get; set; }
 
             /// <summary>
             ///     CNPJ ou CPF do destinatário
@@ -3885,38 +3885,38 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Valor total do desconto
             /// </summary>
-            [SpedCampos(12, "VL_DESC", "N", 0, 2, true)]
-            public decimal VlDesc { get; set; }
+            [SpedCampos(12, "VL_DESC", "N", 0, 2, false)]
+            public decimal? VlDesc { get; set; }
 
             /// <summary>
             ///     Valor total das mercadorias e serviços
             /// </summary>
-            [SpedCampos(13, "VL_MERC", "N", 0, 2, true)]
-            public decimal VlMerc { get; set; }
+            [SpedCampos(13, "VL_MERC", "N", 0, 2, false)]
+            public decimal? VlMerc { get; set; }
 
             /// <summary>
             ///     Valor de outras despesas acessórias
             /// </summary>
-            [SpedCampos(14, "VL_OUT_DA", "N", 0, 2, true)]
-            public decimal VlOutDa { get; set; }
+            [SpedCampos(14, "VL_OUT_DA", "N", 0, 2, false)]
+            public decimal? VlOutDa { get; set; }
 
             /// <summary>
             ///     Valor do ICMS
             /// </summary>
-            [SpedCampos(15, "VL_ICMS", "N", 0, 2, true)]
-            public decimal VlIcms { get; set; }
+            [SpedCampos(15, "VL_ICMS", "N", 0, 2, false)]
+            public decimal? VlIcms { get; set; }
 
             /// <summary>
             ///     Valor total do PIS retido por substituição tributária
             /// </summary>
-            [SpedCampos(16, "VL_PIS_ST", "N", 0, 2, true)]
-            public decimal VlPisSt { get; set; }
+            [SpedCampos(16, "VL_PIS_ST", "N", 0, 2, false)]
+            public decimal? VlPisSt { get; set; }
 
             /// <summary>
             ///     Valor total da COFINS retido por substituição tributária
             /// </summary>
-            [SpedCampos(17, "VL_COFINS_ST", "N", 0, 2, true)]
-            public decimal VlCofinsSt { get; set; }
+            [SpedCampos(17, "VL_COFINS_ST", "N", 0, 2, false)]
+            public decimal? VlCofinsSt { get; set; }
 
             public List<RegistroC850> RegC850s { get; set; }
         }
