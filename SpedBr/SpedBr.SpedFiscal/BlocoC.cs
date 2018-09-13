@@ -113,8 +113,8 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Data da emissão do documento fiscal
             /// </summary>
-            [SpedCampos(10, "DT_DOC", "N", 8, 0, true)]
-            public DateTime DtDoc { get; set; }
+            [SpedCampos(10, "DT_DOC", "N", 8, 0, false)]
+            public DateTime? DtDoc { get; set; }
 
             /// <summary>
             ///     Data da entrada ou da saída
@@ -125,8 +125,8 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Valor total do documento fiscal
             /// </summary>
-            [SpedCampos(12, "VL_DOC", "N", 0, 2, true)]
-            public decimal VlDoc { get; set; }
+            [SpedCampos(12, "VL_DOC", "N", 0, 2, false)]
+            public decimal? VlDoc { get; set; }
 
             /// <summary>
             ///     Indicador do tipo de pagamento:
@@ -135,8 +135,8 @@ namespace SpedBr.SpedFiscal
             ///     2 - Outros (a partir de 01/07/2012).
             ///     9 - Sem pagamento (até 30/06/2012).
             /// </summary>
-            [SpedCampos(13, "IND_PGTO", "C", 1, 0, true)]
-            public int IndPgto { get; set; }
+            [SpedCampos(13, "IND_PGTO", "C", 1, 0, false)]
+            public int? IndPgto { get; set; }
 
             /// <summary>
             ///     Valor total do desconto
