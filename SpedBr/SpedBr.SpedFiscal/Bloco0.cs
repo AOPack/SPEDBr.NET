@@ -641,7 +641,7 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Código do combustível, conforme tabela publicada pela ANP.
             /// </summary>
-            [SpedCampos(2, "COD_COMB", "C", 0, 0, true)]
+            [SpedCampos(2, "COD_COMB", "C", int.MaxValue, 0, true)]
             public string CodComb { get; set; }
         }
 
