@@ -41,10 +41,10 @@ namespace SpedBr.SpedFiscal
             }
 
             /// <summary>
-            ///     Quantidade total de linhas do Bloco C
+            ///     Quantidade total de linhas do Bloco B
             /// </summary>
-            [SpedCampos(3, "QTD_LIN_C", "N", int.MaxValue, 0, true)]
-            public int QtdLinC { get; set; }
+            [SpedCampos(3, "QTD_LIN_B", "N", int.MaxValue, 0, true)]
+            public int QtdLinB { get; set; }
         }
     }
 }
