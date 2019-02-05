@@ -119,7 +119,25 @@ namespace SpedBr.SpedFiscal
             ///     Reg 1800 – A empresa prestou serviços de transporte aéreo de cargas e de passageiros: S - Sim; N - Não
             /// </summary>
             [SpedCampos(10, "IND_AER", "LE", 1, 0, true)]
-            public SimOuNao IndAer { get; set; }            
+            public SimOuNao IndAer { get; set; }
+
+            /// <summary>
+            ///     Reg. 1960 - Possui informações GIAF1? : S - Sim; N - Não
+            /// </summary>
+            [SpedCampos(11, "IND_GIAF1", "LE", 1, 0, true)]
+            public SimOuNao IndGiaf1 { get; set; }
+
+            /// <summary>
+            ///     Reg. 1970 - Possui informações GIAF3? : S - Sim; N - Não
+            /// </summary>
+            [SpedCampos(12, "IND_GIAF3", "LE", 1, 0, true)]
+            public SimOuNao IndGiaf3 { get; set; }
+
+            /// <summary>
+            ///     Reg. 1980 - Possui informações GIAF4? : S - Sim; N - Não
+            /// </summary>
+            [SpedCampos(13, "IND_GIAF4", "LE", 1, 0, true)]
+            public SimOuNao IndGiaf4 { get; set; }
         }
 
         /// <summary>
