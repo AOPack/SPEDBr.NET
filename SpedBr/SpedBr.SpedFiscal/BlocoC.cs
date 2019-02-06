@@ -1255,6 +1255,12 @@ namespace SpedBr.SpedFiscal
             [SpedCampos(37, "COD_CTA", "C", 999, 0, false)]
             public string CodCta { get; set; }
 
+            /// <summary>
+            ///     Valor do abatimento não tributado e não comercial
+            /// </summary>
+            [SpedCampos(38, "VL_ABAT_NT", "N", 0, 2, false)]
+            public decimal? VlAbatNt { get; set; }
+
             public List<RegistroC171> RegC171s { get; set; }
             public RegistroC172 RegC172 { get; set; }
             public List<RegistroC173> RegC173s { get; set; }
