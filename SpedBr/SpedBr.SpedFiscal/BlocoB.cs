@@ -8,7 +8,7 @@ namespace SpedBr.SpedFiscal
     public class BlocoB
     {
         /// <summary>
-        ///     REGISTRO C001: ABERTURA DO BLOCO C
+        ///     REGISTRO C001: ABERTURA DO BLOCO B
         /// </summary>
         public class RegistroB001 : RegistroBaseSped
         {

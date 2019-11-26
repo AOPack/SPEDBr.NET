@@ -1541,6 +1541,130 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(9, "VL_UNIT_BC_ST", "N", 0, 3, true)]
             public decimal VlUnitBcSt { get; set; }
+
+            /// <summary>
+            ///     Número completo da chave da NFe relativo à última entrada
+            /// </summary>
+            [SpedCampos(10, "CHAVE_NFE_ULT_E", "C", 44, 0, false)]
+            public string ChaveNFeUltEnt { get; set; }
+
+            /// <summary>
+            ///     Número sequencial do item na NF entrada que corresponde à mercadoria objeto de pedido de ressarcimento
+            /// </summary>
+            [SpedCampos(11, "NUM_ITEM_ULT_E", "C", 3, 0, false)]
+            public string NumItemUltEnt { get; set; }
+
+            /// <summary>
+            ///     Valor unitário da base de cálculo da operação própria do remetente sob o regime comum de tributação
+            /// </summary>
+            [SpedCampos(12, "VL_UNIT_BC_ICMS_ULT_E", "N", 0, 2, false)]
+            public decimal VlUnitBCIcmsUltEnt { get; set; }
+
+            /// <summary>
+            ///     Alíquota do ICMS aplicável à última entrada da mercadoria
+            /// </summary>
+            [SpedCampos(13, "ALIQ_ICMS_ULT_E", "N", 0, 2, false)]
+            public decimal AliqIcmsUltEnt { get; set; }
+
+            /// <summary>
+            ///     Valor unitário da base de cálculo do ICMS relativo à última entrada da mercadoria, limitado ao valor da BC da retenção(corresponde ao menor valor entre os campos VL_UNIT_BC_ST e VL_UNIT_BC_ICMS_ULT_E)
+            /// </summary>
+            [SpedCampos(14, "VL_UNIT_LIMITE_BC_ICMS_ULT_E", "N", 0, 2, false)]
+            public decimal VlUnitLimiteBCIcmsUltEnt { get; set; }
+
+            /// <summary>
+            ///     Valor unitário do crédito de ICMS sobre operações próprias do remetente, relativo à última entrada da mercadoria, decorrente da quebra da ST – equivalente a multiplicação entre os campos 13 e 14
+            /// </summary>
+            [SpedCampos(15, "VL_UNIT_ICMS_ULT_E", "N", 0, 3, false)]
+            public decimal VlUnitIcmsUltEnt { get; set; }
+
+            /// <summary>
+            /// Alíquota do ICMS ST relativa à última entrada da mercadoria
+            /// </summary>
+            [SpedCampos(16, "ALIQ_ST_ULT_E", "N", 0, 2, false)]
+            public decimal AliqSTUltE { get; set; }
+
+            /// <summary>
+            /// Valor unitário do ressarcimento (parcial ou completo) de ICMS decorrente da quebra da ST
+            /// </summary>
+            [SpedCampos(17, "VL_UNIT_RES ", "N", 0, 3, false)]
+            public decimal VlUnitRes { get; set; }
+
+            /// <summary>
+            /// Código que indica o responsável pela retenção do ICMS-ST:            /// <remarks>
+            ///     1 - Remetente Direto
+            ///     2 - Remetente Indireto
+            ///     3 - Próprio declarante
+            /// </remarks>
+            /// </summary>
+            [SpedCampos(18, "COD_RESP_RET", "N", 1, 0, false)]
+            public int? CodRespRet { get; set; }
+
+            /// <summary>
+            /// Código do motivo do ressarcimento:            /// <remarks>
+            ///    1 – Venda para outra UF
+            ///    2 – Saída amparada por isenção ou não incidência
+            ///    3 – Perda ou deterioração
+            ///    4 – Furto ou roubo
+            ///    5 – Exportação
+            ///    6 – Venda interna para Simples Nacional
+            ///    9 – Outros
+            /// </remarks>
+            /// </summary>
+            [SpedCampos(19, "COD_MOT_RES", "N", 1, 0, false)]
+            public int? CodMotRes { get; set; }
+
+            /// <summary>
+            /// Número completo da chave da NF-e emitida pelo substituto, na qual consta o valor do ICMS-ST retido
+            /// </summary>
+            [SpedCampos(20, "CHAVE_NFE_RET", "N", 44, 0, false)]
+            public string ChaveNFeRet { get; set; }
+
+            /// <summary>
+            /// Código do participante do emitente da NF-e em que houve a retenção do ICMS-ST – campo 02 do registro 0150
+            /// </summary>
+            [SpedCampos(21, "COD_PART_NFE_RET", "C", 60, 0, false)]
+            public string CodPartNFeRet { get; set; }
+
+            /// <summary>
+            /// Série da NF-e em que houve a retenção do ICMSST
+            /// </summary>
+            [SpedCampos(22, "SER_NFE_RET", "C", 3, 0, false)]
+            public string SerNfeRet { get; set; }
+
+            /// <summary>
+            /// Número da NF-e em que houve a retenção do ICMS-ST
+            /// </summary>
+            [SpedCampos(23, "NUM_NFE_RET", "N", 9, 0, false)]
+            public string NumNfeRet { get; set; }
+
+            /// <summary>
+            /// Número sequencial do item na NF-e em que houve a retenção do ICMS-ST, que corresponde à mercadoria objeto de pedido de ressarcimento
+            /// </summary>
+            [SpedCampos(24, "ITEM_NFE_RET", "N", 3, 0, false)]
+            public string ItemNfeRet { get; set; }
+
+            /// <summary>
+            /// Código do modelo do documento de arrecadação:
+            /// <remarks>
+            ///     0 – Documento estadual de arrecadação
+            ///     1 – GNRE
+            /// </remarks>
+            /// </summary>
+            [SpedCampos(25, "COD_DA", "C", 1, 0, false)]
+            public string CodDA { get; set; }
+
+            /// <summary>
+            /// Número do documento de arrecadação estadual, se houver
+            /// </summary>
+            [SpedCampos(26, "NUM_DA", "C", 0, 0, false)]
+            public string NumDA { get; set; }
+
+            /// <summary>
+            /// Valor unitário do ressarcimento (parcial ou completo) de FCP decorrente da quebra da ST
+            /// </summary>
+            [SpedCampos(27, "VL_UNIT_RES_FCP_ST", "N", 0, 3, false)]
+            public decimal VlUnitResFCPST { get; set; }
         }
 
         /// <summary>
@@ -1730,6 +1854,41 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(12, "COD_OBS", "C", 6, 0, false)]
             public string CodObs { get; set; }
+
+            public List<RegistroC191> RegC191s { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO C191: REGISTRO ANALÍTICO DO DOCUMENTO (CÓDIGO 01, 1B, 04, 55 e 65)
+        /// </summary>
+        public class RegistroC191 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC191" />.
+            /// </summary>
+            public RegistroC191()
+            {
+                Reg = "C191";
+            }
+
+            /// <summary>
+            ///     Valor do Fundo de Combate à Pobreza (FCP) vinculado à operação própria, na combinação de CST_ICMS, CFOP e alíquota do ICMS
+            /// </summary>
+            [SpedCampos(2, "VL_FCP_OP", "N", 0, 2, true)]
+            public decimal VlFcpOp { get; set; }
+
+            /// <summary>
+            ///     Valor do Fundo de Combate à Pobreza (FCP) vinculado à operação de substituição tributária, na combinação de CST_ICMS, CFOP e alíquota do ICMS.
+            /// </summary>
+            [SpedCampos(3, "VL_FCP_ST", "N", 0, 2, true)]
+            public decimal VlFcpSt { get; set; }
+
+            /// <summary>
+            ///     Valor relativo ao Fundo de Combate à Pobreza (FCP) retido anteriormente nas operações com Substituição Tributárias, na combinação de CST_ICMS, CFOP e alíquota do ICMS
+            /// </summary>
+            [SpedCampos(3, "VL_FCP_RET", "N", 0, 2, true)]
+            public decimal VlFcpRet { get; set; }
+
         }
 
         /// <summary>
