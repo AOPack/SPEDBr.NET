@@ -1558,40 +1558,41 @@ namespace SpedBr.SpedFiscal
             ///     Valor unitário da base de cálculo da operação própria do remetente sob o regime comum de tributação
             /// </summary>
             [SpedCampos(12, "VL_UNIT_BC_ICMS_ULT_E", "N", 0, 2, false)]
-            public decimal VlUnitBCIcmsUltEnt { get; set; }
+            public decimal? VlUnitBCIcmsUltEnt { get; set; }
 
             /// <summary>
             ///     Alíquota do ICMS aplicável à última entrada da mercadoria
             /// </summary>
             [SpedCampos(13, "ALIQ_ICMS_ULT_E", "N", 0, 2, false)]
-            public decimal AliqIcmsUltEnt { get; set; }
+            public decimal? AliqIcmsUltEnt { get; set; }
 
             /// <summary>
             ///     Valor unitário da base de cálculo do ICMS relativo à última entrada da mercadoria, limitado ao valor da BC da retenção(corresponde ao menor valor entre os campos VL_UNIT_BC_ST e VL_UNIT_BC_ICMS_ULT_E)
             /// </summary>
             [SpedCampos(14, "VL_UNIT_LIMITE_BC_ICMS_ULT_E", "N", 0, 2, false)]
-            public decimal VlUnitLimiteBCIcmsUltEnt { get; set; }
+            public decimal? VlUnitLimiteBCIcmsUltEnt { get; set; }
 
             /// <summary>
             ///     Valor unitário do crédito de ICMS sobre operações próprias do remetente, relativo à última entrada da mercadoria, decorrente da quebra da ST – equivalente a multiplicação entre os campos 13 e 14
             /// </summary>
             [SpedCampos(15, "VL_UNIT_ICMS_ULT_E", "N", 0, 3, false)]
-            public decimal VlUnitIcmsUltEnt { get; set; }
+            public decimal? VlUnitIcmsUltEnt { get; set; }
 
             /// <summary>
             /// Alíquota do ICMS ST relativa à última entrada da mercadoria
             /// </summary>
             [SpedCampos(16, "ALIQ_ST_ULT_E", "N", 0, 2, false)]
-            public decimal AliqSTUltE { get; set; }
+            public decimal? AliqSTUltE { get; set; }
 
             /// <summary>
             /// Valor unitário do ressarcimento (parcial ou completo) de ICMS decorrente da quebra da ST
             /// </summary>
             [SpedCampos(17, "VL_UNIT_RES ", "N", 0, 3, false)]
-            public decimal VlUnitRes { get; set; }
+            public decimal? VlUnitRes { get; set; }
 
             /// <summary>
-            /// Código que indica o responsável pela retenção do ICMS-ST:            /// <remarks>
+            /// Código que indica o responsável pela retenção do ICMS-ST:
+            /// <remarks>
             ///     1 - Remetente Direto
             ///     2 - Remetente Indireto
             ///     3 - Próprio declarante
@@ -1601,7 +1602,8 @@ namespace SpedBr.SpedFiscal
             public int? CodRespRet { get; set; }
 
             /// <summary>
-            /// Código do motivo do ressarcimento:            /// <remarks>
+            /// Código do motivo do ressarcimento:
+            /// <remarks>
             ///    1 – Venda para outra UF
             ///    2 – Saída amparada por isenção ou não incidência
             ///    3 – Perda ou deterioração
@@ -1664,7 +1666,7 @@ namespace SpedBr.SpedFiscal
             /// Valor unitário do ressarcimento (parcial ou completo) de FCP decorrente da quebra da ST
             /// </summary>
             [SpedCampos(27, "VL_UNIT_RES_FCP_ST", "N", 0, 3, false)]
-            public decimal VlUnitResFCPST { get; set; }
+            public decimal? VlUnitResFCPST { get; set; }
         }
 
         /// <summary>
