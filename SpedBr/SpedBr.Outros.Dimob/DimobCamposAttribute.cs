@@ -17,26 +17,62 @@ namespace SpedBr.Outros.Dimob
 
         protected int OrdemAtt;
 
-        public int Ordem => OrdemAtt;
+        public int Ordem
+        {
+            get
+            {
+                return OrdemAtt;
+            }
+        }
 
         protected string CampoAtt;
 
-        public string Campo => CampoAtt;
+        public string Campo
+        {
+            get
+            {
+                return CampoAtt;
+            }
+        }
 
         protected int InicioAtt;
 
-        public int Inicio => InicioAtt;
+        public int Inicio
+        {
+            get
+            {
+                return InicioAtt;
+            }
+        }
 
         protected int FimAtt;
 
-        public int Fim => FimAtt;
+        public int Fim
+        {
+            get
+            {
+                return FimAtt;
+            }
+        }
 
         protected int TamanhoAtt;
 
-        public int Tamanho => TamanhoAtt;
+        public int Tamanho
+        {
+            get
+            {
+                return TamanhoAtt;
+            }
+        }
 
         protected string FormatoAtt;
 
-        public string Formato => FormatoAtt;
+        public string Formato
+        {
+            get
+            {
+                return FormatoAtt;
+            }
+        }
     }
 }

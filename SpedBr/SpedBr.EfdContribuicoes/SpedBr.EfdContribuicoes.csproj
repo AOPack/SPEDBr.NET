@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SpedBr.EfdContribuicoes</RootNamespace>
     <AssemblyName>SpedBr.EfdContribuicoes</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -21,6 +21,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>4</LangVersion>
+    <DocumentationFile>bin\Debug\SpedBr.EfdContribuicoes.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -33,6 +35,7 @@
   <ItemGroup>
     <Compile Include="Bloco0.cs" />
     <Compile Include="Bloco1.cs" />
+    <Compile Include="Bloco9.cs" />
     <Compile Include="BlocoA.cs" />
     <Compile Include="BlocoC.cs" />
     <Compile Include="BlocoD.cs" />

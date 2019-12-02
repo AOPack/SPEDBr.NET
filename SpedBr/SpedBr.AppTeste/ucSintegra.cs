@@ -6,15 +6,14 @@ using System.Security.AccessControl;
 using System.Windows.Forms;
 using SpedBr.AppTeste.Utils;
 using SpedBr.Common;
-using SpedBr.Outros.Sintegra;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace SpedBr.AppTeste
 {
     public partial class ucSintegra : UserControl
     {
-        private List<Registro50> _regs50;
-        private List<Registro61> _regs61;
+        //private List<Registro50> _regs50;
+        //private List<Registro61> _regs61;
 
         private BackgroundWorker _bw;
         private static ucSintegra _instancia;
@@ -91,39 +90,39 @@ namespace SpedBr.AppTeste
 
                     #region Montagem dos Registros
 
-                    var r10 = new Registro10(
-                        txbCnpj.Text,
-                        txbIe.Text,
-                        txbRazaoSocial.Text,
-                        txbMunicipio.Text,
-                        txbUf.Text,
-                        txbFax.Text,
-                        dtDataInicial.Value,
-                        dtDataFinal.Value,
-                        codIdentificacaoEstrutura,
-                        codItentificacaoNatOperacao,
-                        codFinalidadeArquivoMagnetico == "1"
-                            ? FinalidadeArquivo.RemessaArquivoOriginal
-                            : FinalidadeArquivo.RemessaArquivoSubstituto
-                        );
+                    //var r10 = new Registro10(
+                    //    txbCnpj.Text,
+                    //    txbIe.Text,
+                    //    txbRazaoSocial.Text,
+                    //    txbMunicipio.Text,
+                    //    txbUf.Text,
+                    //    txbFax.Text,
+                    //    dtDataInicial.Value,
+                    //    dtDataFinal.Value,
+                    //    codIdentificacaoEstrutura,
+                    //    codItentificacaoNatOperacao,
+                    //    codFinalidadeArquivoMagnetico == "1"
+                    //        ? FinalidadeArquivo.RemessaArquivoOriginal
+                    //        : FinalidadeArquivo.RemessaArquivoSubstituto
+                    //    );
 
-                    var r11 = new Registro11(
-                        txbLogradouro.Text,
-                        txbNumero.Text,
-                        txbComplemento.Text,
-                        txbBairro.Text,
-                        txbCep.Text,
-                        txbNomeContato.Text,
-                        txbTelefoneContato.Text
-                        );
+                    //var r11 = new Registro11(
+                    //    txbLogradouro.Text,
+                    //    txbNumero.Text,
+                    //    txbComplemento.Text,
+                    //    txbBairro.Text,
+                    //    txbCep.Text,
+                    //    txbNomeContato.Text,
+                    //    txbTelefoneContato.Text
+                    //    );
 
                     var linhasGeradas = new List<string>();
 
                     // Escreve Registro 10 - obrigatório
-                    linhasGeradas.Add(r10.EscreverRegistro10(validarRegistros));
+                    //linhasGeradas.Add(r10.EscreverRegistro10(validarRegistros));
 
                     // Escreve Registro 11 - obrigatório
-                    linhasGeradas.Add(r11.EscreverRegistro11(validarRegistros));
+                    //linhasGeradas.Add(r11.EscreverRegistro11(validarRegistros));
 
                     #region Leitura da Planilha em Excel p/ Obtenção das Informações
 
@@ -147,7 +146,7 @@ namespace SpedBr.AppTeste
 
                             var rangeReg50 = xlWorkSheetR50.UsedRange;
 
-                            _regs50 = new List<Registro50>();
+                            //_regs50 = new List<Registro50>();
 
                             for (rCnt = 2; rCnt <= rangeReg50.Rows.Count; rCnt++)
                             {
@@ -168,58 +167,58 @@ namespace SpedBr.AppTeste
                                 var rangeR50Aliquota = rangeReg50.Cells[rCnt, 15] as Excel.Range;
                                 var rangeR50Situacao = rangeReg50.Cells[rCnt, 16] as Excel.Range;
 
-                                var objRegistro50 = new Registro50();
+                                //var objRegistro50 = new Registro50();
 
-                                objRegistro50.CNPJ = rangeR50Cnpj.get_Value() == null
-                                    ? ""
-                                    : rangeR50Cnpj.get_Value().ToString();
-                                objRegistro50.IE = rangeR50Ie.get_Value() == null
-                                    ? ""
-                                    : rangeR50Ie.get_Value().ToString();
-                                objRegistro50.DATA_EMISSAO_RECEBIMENTO = rangeR50DataEmissao.get_Value() == null
-                                    ? ""
-                                    : Convert.ToDateTime(rangeR50DataEmissao.get_Value());
-                                objRegistro50.UF = rangeR50Uf.get_Value() == null
-                                    ? ""
-                                    : rangeR50Uf.get_Value().ToString();
-                                objRegistro50.MODELO = rangeR50Modelo.get_Value() == null
-                                    ? ""
-                                    : rangeR50Modelo.get_Value().ToString();
-                                objRegistro50.SERIE = rangeR50Serie.get_Value() == null
-                                    ? ""
-                                    : rangeR50Serie.get_Value().ToString();
-                                objRegistro50.NUMERO_NOTA_FISCAL = rangeR50Numero.get_Value() == null
-                                    ? ""
-                                    : Convert.ToInt32(rangeR50Numero.get_Value());
-                                objRegistro50.CFOP = rangeR50Cfop.get_Value() == null
-                                    ? ""
-                                    : Convert.ToInt32(rangeR50Cfop.get_Value());
-                                objRegistro50.EMITENTE = rangeR50Emitente.get_Value() == null
-                                    ? ""
-                                    : rangeR50Emitente.get_Value().ToString();
-                                objRegistro50.VALOR_TOTAL = rangeR50ValorTotal.get_Value() == null
-                                    ? ""
-                                    : Convert.ToDecimal(rangeR50ValorTotal.get_Value());
-                                objRegistro50.BASE_CALC_ICMS = rangeR50ValorBaseIcms.get_Value() == null
-                                    ? ""
-                                    : Convert.ToDecimal(rangeR50ValorBaseIcms.get_Value());
-                                objRegistro50.VALOR_ICMS = rangeR50ValorIcms.get_Value() == null
-                                    ? ""
-                                    : Convert.ToDecimal(rangeR50ValorIcms.get_Value());
-                                objRegistro50.VALOR_ISENTA_NTRIBUT = rangeR50ValorIsenta.get_Value() == null
-                                    ? ""
-                                    : Convert.ToDecimal(rangeR50ValorIsenta.get_Value());
-                                objRegistro50.OUTRAS = rangeR50ValorOutras.get_Value() == null
-                                    ? ""
-                                    : Convert.ToDecimal(rangeR50ValorOutras.get_Value());
-                                objRegistro50.ALIQUOTA = rangeR50Aliquota.get_Value() == null
-                                    ? ""
-                                    : Convert.ToDecimal(rangeR50Aliquota.get_Value());
-                                objRegistro50.SITUACAO = rangeR50Situacao.get_Value() == null
-                                    ? ""
-                                    : rangeR50Situacao.get_Value().ToString();
+                                //objRegistro50.CNPJ = rangeR50Cnpj.get_Value() == null
+                                //    ? ""
+                                //    : rangeR50Cnpj.get_Value().ToString();
+                                //objRegistro50.IE = rangeR50Ie.get_Value() == null
+                                //    ? ""
+                                //    : rangeR50Ie.get_Value().ToString();
+                                //objRegistro50.DATA_EMISSAO_RECEBIMENTO = rangeR50DataEmissao.get_Value() == null
+                                //    ? ""
+                                //    : Convert.ToDateTime(rangeR50DataEmissao.get_Value());
+                                //objRegistro50.UF = rangeR50Uf.get_Value() == null
+                                //    ? ""
+                                //    : rangeR50Uf.get_Value().ToString();
+                                //objRegistro50.MODELO = rangeR50Modelo.get_Value() == null
+                                //    ? ""
+                                //    : rangeR50Modelo.get_Value().ToString();
+                                //objRegistro50.SERIE = rangeR50Serie.get_Value() == null
+                                //    ? ""
+                                //    : rangeR50Serie.get_Value().ToString();
+                                //objRegistro50.NUMERO_NOTA_FISCAL = rangeR50Numero.get_Value() == null
+                                //    ? ""
+                                //    : Convert.ToInt32(rangeR50Numero.get_Value());
+                                //objRegistro50.CFOP = rangeR50Cfop.get_Value() == null
+                                //    ? ""
+                                //    : Convert.ToInt32(rangeR50Cfop.get_Value());
+                                //objRegistro50.EMITENTE = rangeR50Emitente.get_Value() == null
+                                //    ? ""
+                                //    : rangeR50Emitente.get_Value().ToString();
+                                //objRegistro50.VALOR_TOTAL = rangeR50ValorTotal.get_Value() == null
+                                //    ? ""
+                                //    : Convert.ToDecimal(rangeR50ValorTotal.get_Value());
+                                //objRegistro50.BASE_CALC_ICMS = rangeR50ValorBaseIcms.get_Value() == null
+                                //    ? ""
+                                //    : Convert.ToDecimal(rangeR50ValorBaseIcms.get_Value());
+                                //objRegistro50.VALOR_ICMS = rangeR50ValorIcms.get_Value() == null
+                                //    ? ""
+                                //    : Convert.ToDecimal(rangeR50ValorIcms.get_Value());
+                                //objRegistro50.VALOR_ISENTA_NTRIBUT = rangeR50ValorIsenta.get_Value() == null
+                                //    ? ""
+                                //    : Convert.ToDecimal(rangeR50ValorIsenta.get_Value());
+                                //objRegistro50.OUTRAS = rangeR50ValorOutras.get_Value() == null
+                                //    ? ""
+                                //    : Convert.ToDecimal(rangeR50ValorOutras.get_Value());
+                                //objRegistro50.ALIQUOTA = rangeR50Aliquota.get_Value() == null
+                                //    ? ""
+                                //    : Convert.ToDecimal(rangeR50Aliquota.get_Value());
+                                //objRegistro50.SITUACAO = rangeR50Situacao.get_Value() == null
+                                //    ? ""
+                                //    : rangeR50Situacao.get_Value().ToString();
 
-                                _regs50.Add(objRegistro50);
+                                //_regs50.Add(objRegistro50);
                             }
 
                             #endregion
@@ -228,7 +227,7 @@ namespace SpedBr.AppTeste
 
                             var rangeReg61 = xlWorkSheetR61.UsedRange;
 
-                            _regs61 = new List<Registro61>();
+                            //_regs61 = new List<Registro61>();
 
                             for (rCnt = 2; rCnt <= rangeReg61.Rows.Count; rCnt++)
                             {
@@ -244,48 +243,48 @@ namespace SpedBr.AppTeste
                                 var rangeR61ValorOutras = rangeReg61.Cells[rCnt, 10] as Excel.Range;
                                 var rangeR61Aliquota = rangeReg61.Cells[rCnt, 11] as Excel.Range;
 
-                                var objRegistro61 = new Registro61()
-                                {
-                                    DATA_EMISSAO =
-                                        rangeR61DataEmissao.get_Value() == null
-                                            ? ""
-                                            : Convert.ToDateTime(rangeR61DataEmissao.get_Value()),
-                                    MODELO =
-                                        rangeR61Modelo.get_Value() == null ? "" : rangeR61Modelo.get_Value().ToString(),
-                                    SERIE =
-                                        rangeR61Serie.get_Value() == null ? "" : rangeR61Serie.get_Value().ToString(),
-                                    SUBSERIE =
-                                        rangeR61Subserie.get_Value() == null
-                                            ? ""
-                                            : rangeR61Subserie.get_Value().ToString(),
-                                    NRO_ORDEM =
-                                        rangeR61Numero.get_Value() == null
-                                            ? ""
-                                            : Convert.ToInt32(rangeR61Numero.get_Value()),
-                                    VALOR_TOTAL =
-                                        rangeR61ValorTotal.get_Value() == null
-                                            ? ""
-                                            : Convert.ToDecimal(rangeR61ValorTotal.get_Value()),
-                                    BASE_CALC_ICMS =
-                                        rangeR61ValorBaseIcms.get_Value() == null
-                                            ? ""
-                                            : Convert.ToDecimal(rangeR61ValorBaseIcms.get_Value()),
-                                    VALOR_ICMS =
-                                        rangeR61ValorIcms.get_Value() == null
-                                            ? ""
-                                            : Convert.ToDecimal(rangeR61ValorIcms.get_Value()),
-                                    VALOR_ISENTA_NTRIBUT =
-                                        rangeR61ValorIsenta.get_Value() == null
-                                            ? ""
-                                            : Convert.ToDecimal(rangeR61ValorIsenta.get_Value()),
-                                    OUTRAS =
-                                        rangeR61ValorOutras.get_Value() == null
-                                            ? ""
-                                            : Convert.ToDecimal(rangeR61ValorOutras.get_Value()),
-                                    ALIQUOTA = 0
-                                };
+                                //var objRegistro61 = new Registro61()
+                                //{
+                                //    DATA_EMISSAO =
+                                //        rangeR61DataEmissao.get_Value() == null
+                                //            ? ""
+                                //            : Convert.ToDateTime(rangeR61DataEmissao.get_Value()),
+                                //    MODELO =
+                                //        rangeR61Modelo.get_Value() == null ? "" : rangeR61Modelo.get_Value().ToString(),
+                                //    SERIE =
+                                //        rangeR61Serie.get_Value() == null ? "" : rangeR61Serie.get_Value().ToString(),
+                                //    SUBSERIE =
+                                //        rangeR61Subserie.get_Value() == null
+                                //            ? ""
+                                //            : rangeR61Subserie.get_Value().ToString(),
+                                //    NRO_ORDEM =
+                                //        rangeR61Numero.get_Value() == null
+                                //            ? ""
+                                //            : Convert.ToInt32(rangeR61Numero.get_Value()),
+                                //    VALOR_TOTAL =
+                                //        rangeR61ValorTotal.get_Value() == null
+                                //            ? ""
+                                //            : Convert.ToDecimal(rangeR61ValorTotal.get_Value()),
+                                //    BASE_CALC_ICMS =
+                                //        rangeR61ValorBaseIcms.get_Value() == null
+                                //            ? ""
+                                //            : Convert.ToDecimal(rangeR61ValorBaseIcms.get_Value()),
+                                //    VALOR_ICMS =
+                                //        rangeR61ValorIcms.get_Value() == null
+                                //            ? ""
+                                //            : Convert.ToDecimal(rangeR61ValorIcms.get_Value()),
+                                //    VALOR_ISENTA_NTRIBUT =
+                                //        rangeR61ValorIsenta.get_Value() == null
+                                //            ? ""
+                                //            : Convert.ToDecimal(rangeR61ValorIsenta.get_Value()),
+                                //    OUTRAS =
+                                //        rangeR61ValorOutras.get_Value() == null
+                                //            ? ""
+                                //            : Convert.ToDecimal(rangeR61ValorOutras.get_Value()),
+                                //    ALIQUOTA = 0
+                                //};
 
-                                _regs61.Add(objRegistro61);
+                                //_regs61.Add(objRegistro61);
                             }
 
                             #endregion
@@ -301,32 +300,32 @@ namespace SpedBr.AppTeste
 
                     if (!gerarArquivoZerado)
                     {
-                        var r50 = new Registro50();
+                        //var r50 = new Registro50();
 
-                        linhasGeradas.AddRange(r50.EscreverRegistro50(
-                            _regs50,
-                            dtDataInicial.Value.Date,
-                            dtDataFinal.Value.Date.AddHours(23).AddMinutes(59).AddSeconds(59)
-                            ));
+                        //linhasGeradas.AddRange(r50.EscreverRegistro50(
+                        //    _regs50,
+                        //    dtDataInicial.Value.Date,
+                        //    dtDataFinal.Value.Date.AddHours(23).AddMinutes(59).AddSeconds(59)
+                        //    ));
 
-                        var r61 = new Registro61();
+                        //var r61 = new Registro61();
 
-                        // Escreve Registro 61 - Notas de Consumidor
-                        linhasGeradas.AddRange(r61.EscreverRegistro61(
-                            _regs61,
-                            dtDataInicial.Value.Date,
-                            dtDataFinal.Value.Date.AddHours(23).AddMinutes(59).AddSeconds(59)
-                            ));
+                        //// Escreve Registro 61 - Notas de Consumidor
+                        //linhasGeradas.AddRange(r61.EscreverRegistro61(
+                        //    _regs61,
+                        //    dtDataInicial.Value.Date,
+                        //    dtDataFinal.Value.Date.AddHours(23).AddMinutes(59).AddSeconds(59)
+                        //    ));
                     }
 
-                    var r90 = new Registro90(
-                        txbCnpj.Text,
-                        txbIe.Text,
-                        linhasGeradas
-                        );
+                    //var r90 = new Registro90(
+                    //    txbCnpj.Text,
+                    //    txbIe.Text,
+                    //    linhasGeradas
+                    //    );
 
                     // Escreve Registro 90 - obrigatório
-                    linhasGeradas.Add(r90.EscreverRegistro90(validarRegistros));
+                    //linhasGeradas.Add(r90.EscreverRegistro90(validarRegistros));
 
                     #endregion Montagem dos Registros
 

@@ -65,6 +65,8 @@
             this.ClientSize = new System.Drawing.Size(1008, 561);
             this.Controls.Add(this.statusStripRodape);
             this.Controls.Add(this.ucLeftPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "frmMain";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

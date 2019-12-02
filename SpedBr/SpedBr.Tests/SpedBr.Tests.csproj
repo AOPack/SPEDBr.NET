@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SpedBr.Tests</RootNamespace>
     <AssemblyName>SpedBr.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -26,6 +26,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -46,18 +47,34 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
     <Compile Include="DimobUnitTest.cs" />
+    <Compile Include="EfdContribuicoes\EfdContribuicoesUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpedFiscalUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SpedBr.Common\SpedBr.Common.csproj">
+      <Project>{95a37905-7053-46a1-82be-9226a56f9791}</Project>
+      <Name>SpedBr.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpedBr.EfdContribuicoes\SpedBr.EfdContribuicoes.csproj">
+      <Project>{BC4F1488-170C-48BC-9946-9C08A739D75C}</Project>
+      <Name>SpedBr.EfdContribuicoes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SpedBr.Outros.Dimob\SpedBr.Outros.Dimob.csproj">
       <Project>{4FDC2844-555D-441B-AB2E-F777283B3F2C}</Project>
       <Name>SpedBr.Outros.Dimob</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpedBr.SpedFiscal\SpedBr.SpedFiscal.csproj">
+      <Project>{1784ca45-4799-4c56-a46e-263039c7a176}</Project>
+      <Name>SpedBr.SpedFiscal</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

@@ -12,7 +12,7 @@ namespace SpedBr.EfdContribuicoes
             }
 
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
-            public int IndMov { get; set; }
+            public IndMovimento IndMov { get; set; }
         }
 
         public class RegistroP990 : RegistroBaseSped
@@ -22,7 +22,7 @@ namespace SpedBr.EfdContribuicoes
                 Reg = "P990";
             }
 
-            [SpedCampos(3, "QTD_LIN_P", "N", 0, 0, true)]
+            [SpedCampos(3, "QTD_LIN_P", "N", int.MaxValue, 0, true)]
             public int QtdLinP { get; set; }
         }
     }

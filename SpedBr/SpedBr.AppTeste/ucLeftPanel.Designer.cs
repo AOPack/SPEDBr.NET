@@ -177,6 +177,7 @@
             this.btnSintegra.TabIndex = 0;
             this.btnSintegra.Text = "Sintegra";
             this.btnSintegra.UseVisualStyleBackColor = false;
+            this.btnSintegra.Click += new System.EventHandler(this.btnSintegra_Click);
             // 
             // btnSpedFiscal
             // 

@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SpedBr.SpedFiscal</RootNamespace>
     <AssemblyName>SpedBr.SpedFiscal</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -21,6 +21,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\SpedBr.SpedFiscal.XML</DocumentationFile>
+    <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -44,12 +46,16 @@
     <Compile Include="Bloco0.cs" />
     <Compile Include="Bloco1.cs" />
     <Compile Include="Bloco9.cs" />
+    <Compile Include="BlocoB.cs" />
     <Compile Include="BlocoC.cs" />
     <Compile Include="BlocoD.cs" />
     <Compile Include="BlocoE.cs" />
     <Compile Include="BlocoG.cs" />
     <Compile Include="BlocoH.cs" />
+    <Compile Include="BlocoK.cs" />
+    <Compile Include="LerCamposSpedFiscal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpedFiscalFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpedBr.Common\SpedBr.Common.csproj">
