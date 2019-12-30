@@ -197,3 +197,4 @@ ModelManifest.xml
 /.vs
 /nuget.exe
 /SpedBr/.vs/SpedBr/DesignTimeBuild/.dtbcache
+/SpedBr/.vs/SpedBr/v16/Server/sqlite3
