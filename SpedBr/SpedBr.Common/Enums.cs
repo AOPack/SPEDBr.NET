@@ -1111,4 +1111,15 @@ namespace SpedBr.Common
         [DefaultValue(1)]
         Acrescimo
     }
+
+    public enum CodMotRestCompl
+    {
+        [DefaultValue("SP000")] OperaçãonãoensejadoradeRessarcimentoouComplementodeICMSST,
+        [DefaultValue("SP100")] OperaçãoensejadoradeRessarcimentoICMSSTnahipótesedoIncisoIdoArt269doRICMS,
+        [DefaultValue("SP101")] OperaçãoensejadoradeRessarcimentodeICMSSTnahipóteseIncisoIIdoArt269doRICMS,
+        [DefaultValue("SP102")] OperaçãoensejadoradeRessarcimentodeICMSSTnahipóteseIncisoIIIdoArt269doRICMSsemmanutençãodocréditodeoperaçãoprópria,
+        [DefaultValue("SP200")] OperaçãoensejadoradeRessarcimentodeICMSSTnahipóteseIncisoIIIdoArt269doRICMS,commanutençãodocréditodeoperaçãoprópria,
+        [DefaultValue("SP201")] OperaçãoensejadoradeRessarcimentodeICMSSTnahipóteseIncisoIVdoArt269doRICMS,
+        [DefaultValue("SP300")] OperaçãoensejadoradeComplementodeICMSSTnahipótesedoIncisoIdoArt269doRICMS
+    }
 }
