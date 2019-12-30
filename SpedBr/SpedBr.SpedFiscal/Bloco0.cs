@@ -138,7 +138,8 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
-            
+
+            public Registro0002 Reg0002 { get; set; }
             public Registro0005 Reg0005 { get; set; }
             public List<Registro0015> Reg0015s { get; set; }
             public Registro0100 Reg0100 { get; set; }
@@ -151,6 +152,26 @@ namespace SpedBr.SpedFiscal
             public List<Registro0460> Reg0460s { get; set; }
             public List<Registro0500> Reg0500s { get; set; }
             public List<Registro0600> Reg0600s { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO 0002 – CLASSIFICAÇÃO DO ESTABELECIMENTO INDUSTRIAL OU EQUIPARADO A INDUSTRIAL
+        /// </summary>
+        public class Registro0002 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0002" />.
+            /// </summary>
+            public Registro0002()
+            {
+                Reg = "0002";
+            }
+
+            /// <summary>
+            ///     Informar a classificação do estabelecimento conforme tabela 4.5.5
+            /// </summary>
+            [SpedCampos(2, "CLAS_ESTAB_IND", "N", 2, 0, true)]
+            public int ClasEstabInd { get; set; }
         }
 
         /// <summary>

@@ -174,8 +174,45 @@ namespace SpedBr.SpedFiscal
             /// <summary>
             ///     Informe o valor do ICMS a ser debitado ou creditado
             /// </summary>
-            [SpedCampos(2, "VL_ICMS", "N", 0, 2, true)]
+            [SpedCampos(4, "VL_ICMS", "N", 0, 2, true)]
             public decimal VlIcms { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO H020: Informação complementar do Inventário.
+        /// </summary>
+        public class RegistroH030 : RegistroBaseSped
+        {
+            /// <summary>
+            /// </summary>
+            public RegistroH030()
+            {
+                Reg = "H030";
+            }
+
+            /// <summary>
+            ///     Valor médio unitário do ICMS OP
+            /// </summary>
+            [SpedCampos(2, "VL_ICMS_OP", "N", 0, 6, true)]
+            public decimal VlIcmsOp { get; set; }
+
+            /// <summary>
+            ///     Valor médio unitário da base de cálculo do ICMS ST
+            /// </summary>
+            [SpedCampos(3, "VL_BC_ICMS_ST", "N", 0, 6, true)]
+            public decimal VlBcIcmsSt { get; set; }
+
+            /// <summary>
+            ///     Valor médio unitário do ICMS ST
+            /// </summary>
+            [SpedCampos(4, "VL_ICMS_ST", "N", 0, 6, true)]
+            public decimal VlIcmsSt { get; set; }
+
+            /// <summary>
+            ///     Valor médio unitário do FCP 
+            /// </summary>
+            [SpedCampos(5, "VL_FCP", "N", 0, 6, true)]
+            public decimal VlFcp { get; set; }
         }
 
         /// <summary>
