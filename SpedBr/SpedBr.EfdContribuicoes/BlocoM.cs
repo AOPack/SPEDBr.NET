@@ -1108,14 +1108,14 @@ namespace SpedBr.EfdContribuicoes
             public decimal VlBcCont { get; set; }
 
             [SpedCampos(5, "VL_AJUS_ACRES_BC_COFINS", "N", 0, 2, true)]
-            public decimal VL_AJUS_ACRES_BC_COFINS { get; set; }
+            public decimal VlAjusAcresBcCofins { get; set; }
 
             [SpedCampos(6, "VL_AJUS_REDUC_BC_COFINS", "N", 0, 2, true)]
-            public decimal VL_AJUS_REDUC_BC_COFINS { get; set; }
+            public decimal VlAjusReducBcCofins { get; set; }
 
             [SpedCampos(7, "VL_BC_CONT_AJUS", "N", 0, 2, true)]
-            public decimal VL_BC_CONT_AJUS { get; set; }
-                       
+            public decimal VlBcContAjus { get; set; }
+
             [SpedCampos(8, "ALIQ_COFINS", "N", 8, 4, false)]
             public decimal? AliqCofins { get; set; }
 
