@@ -138,6 +138,12 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(13, "IND_GIAF4", "LE", 1, 0, true)]
             public SimOuNao IndGiaf4 { get; set; }
+
+            /// <summary>
+            ///     Reg. 1250 - Possui informações consolidadas de saldos de restituição, ressarcimento e complementação do ICMS? : S - Sim; N - Não
+            /// </summary>
+            [SpedCampos(14, "IND_REST_RESSARC_COMPL_ICMS", "LE", 1, 0, true)]
+            public SimOuNao IndRestRessarcComplIcms { get; set; }
         }
 
         /// <summary>
@@ -430,6 +436,104 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(5, "CHV_DOCe", "C", 44, 0, false)]
             public string ChvDocE { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO 1250: INFORMAÇÕES CONSOLIDADAS DE SALDOS DE RESTITUIÇÃO, RESSARCIMENTO E COMPLEMENTAÇÃO DO ICMS
+        /// </summary>
+        public class Registro1250 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro1250" />.
+            /// </summary>
+            public Registro1250()
+            {
+                Reg = "1250";
+            }
+
+            /// <summary>
+            ///     Informar o valor total do ICMS operação própria que o informante tem direito ao crédito, na forma prevista na legislação, 
+            ///     referente às hipóteses de restituição em que há previsão deste crédito
+            /// </summary>
+            [SpedCampos(2, "VL_CREDITO_ICMS_OP", "N", 0, 2, true)]
+            public decimal VlCreditoIcmsOp { get; set; }
+
+            /// <summary>
+            ///     Informar o valor total do ICMS ST que o informante tem direito ao crédito, na forma prevista na legislação, 
+            ///     referente às hipóteses de restituição em que há previsão deste crédito
+            /// </summary>
+            [SpedCampos(3, "VL_ICMS_ST_REST", "N", 0, 2, true)]
+            public decimal VlIcmsStRest { get; set; }
+
+            /// <summary>
+            ///     Informar o valor total do FCP_ST agregado ao valor do ICMS ST informado no campo “VL_ICMS_ST_REST”
+            /// </summary>
+            [SpedCampos(4, "VL_FCP_ST_REST", "N", 0, 2, true)]
+            public decimal VlFcpStRest { get; set; }
+
+            /// <summary>
+            ///     Informar o valor total do débito referente ao complemento do imposto, nos casos previstos na legislação
+            /// </summary>
+            [SpedCampos(5, "VL_ICMS_ST_COMPL", "N", 0, 2, true)]
+            public decimal VlIcmsStCompl { get; set; }
+
+            /// <summary>
+            ///     nformar o valor total do FCP_ST agregado ao valor informado no campo “VL_ICMS_ST_COMPL”
+            /// </summary>
+            [SpedCampos(5, "VL_FCP_ST_COMPL ", "N", 0, 2, true)]
+            public decimal VlFcpStCompl { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO 1255: INFORMAÇÕES CONSOLIDADAS DE SALDOS DE RESTITUIÇÃO, RESSARCIMENTO E COMPLEMENTAÇÃO DO ICMS POR MOTIVO
+        /// </summary>
+        public class Registro1255 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro1255" />.
+            /// </summary>
+            public Registro1255()
+            {
+                Reg = "1255";
+            }
+
+            /// <summary>
+            ///     Código do motivo da restituição ou complementação conforme Tabela 5.7
+            /// </summary>
+            [SpedCampos(2, "COD_MOT_REST_COMPL", "C", 5, 2, true)]
+            public string CodMotRestCompl { get; set; }
+
+            /// <summary>
+            ///     Informar o valor total do ICMS operação própria que o informante tem direito ao crédito, na forma prevista na legislação, 
+            ///     referente às hipóteses de restituição em que há previsão deste crédito, para o mesmo “COD_MOT_REST_COMPL”
+            /// </summary>
+            [SpedCampos(3, "VL_CREDITO_ICMS_OP_MOT", "N", 0, 2, true)]
+            public decimal VlCreditoIcmsOpMot { get; set; }
+
+            /// <summary>
+            ///     Informar o valor total do ICMS ST que o informante tem direito ao crédito, na forma prevista na legislação, 
+            ///     referente às hipóteses de restituição em que há previsão deste crédito, para o mesmo “COD_MOT_REST_COMPL”
+            /// </summary>
+            [SpedCampos(4, "VL_ICMS_ST_REST_MOT", "N", 0, 2, true)]
+            public decimal VlIcmsStRestMot { get; set; }
+
+            /// <summary>
+            ///     Informar o valor total do FCP_ST agregado ao valor do ICMS ST informado no campo “VL_ICMS_ST_REST_MOT”
+            /// </summary>
+            [SpedCampos(5, "VL_FCP_ST_REST_MOT", "N", 0, 2, true)]
+            public decimal VlFcpStRestMot { get; set; }
+
+            /// <summary>
+            ///     Informar o valor total do débito referente ao complemento do imposto, nos casos previstos na legislação, para o mesmo “COD_MOT_REST_COMPL”
+            /// </summary>
+            [SpedCampos(6, "VL_ICMS_ST_COMPL_MOT", "N", 0, 2, true)]
+            public decimal VlIcmsStComplMot { get; set; }
+
+            /// <summary>
+            ///     Informar o valor total do FCP_ST agregado ao valor informado no campo “VL_ICMS_ST_COMPL_MOT”
+            /// </summary>
+            [SpedCampos(7, "VL_FCP_ST_COMPL_MOT", "N", 0, 2, true)]
+            public decimal VlFcpStComplMot { get; set; }
         }
 
         /// <summary>
@@ -881,6 +985,29 @@ namespace SpedBr.SpedFiscal
             /// </summary>
             [SpedCampos(17, "OBS", "C", 0, 0, false)]
             public string Obs { get; set; }
+
+            /// <summary>
+            ///     Informar o insumo conforme código do item (campo 02 do Registro 0200)
+            /// </summary>
+            [SpedCampos(18, "COD_ITEM", "C", 60, 0, true)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            ///     Tipo de resíduo produzido:
+            /// </summary>
+            /// <remarks>
+            ///     01 - Bagaço de cana
+            ///     02 - DDG
+            ///     03 - WDG
+            /// </remarks>
+            [SpedCampos(19, "TP_RESIDUO", "N", 2, 0, true)]
+            public int TpResiduo { get; set; }
+
+            /// <summary>
+            ///     Quantidade de resíduo produzido (toneladas)
+            /// </summary>
+            [SpedCampos(20, "QTD_RESIDUO", "N", 0, 2, true)]
+            public decimal QtdResiduo { get; set; }
         }
 
         /// <summary>
