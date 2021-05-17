@@ -393,46 +393,52 @@ namespace SpedBr.EfdContribuicoes
 
         public class RegistroM210 : RegistroBaseSped
         {
-            public RegistroM210()
-            {
-                Reg = "M210";
-            }
+            public RegistroM210() => this.Reg = "M210";
 
             [SpedCampos(2, "COD_CONT", "C", 2, 0, true)]
             public int CodCont { get; set; }
 
             [SpedCampos(3, "VL_REC_BRT", "N", 0, 2, true)]
-            public decimal VlRecBrt { get; set; }
+            public Decimal VlRecBrt { get; set; }
 
             [SpedCampos(4, "VL_BC_CONT", "N", 0, 2, true)]
-            public decimal VlBcCont { get; set; }
+            public Decimal VlBcCont { get; set; }
 
-            [SpedCampos(5, "ALIQ_PIS", "N", 8, 4, false)]
-            public decimal? AliqPis { get; set; }
+            [SpedCampos(5, "VL_AJUS_ACRES_BC_PIS", "N", 0, 2, true)]
+            public Decimal? VlAjusAcresBcPis { get; set; }
 
-            [SpedCampos(6, "QUANT_BC_PIS", "N", 0, 3, false)]
-            public decimal? QuantBcPis { get; set; }
+            [SpedCampos(6, "VL_AJUS_REDUC_BC_PIS", "N", 0, 2, true)]
+            public Decimal? VlAjusRedBcPis { get; set; }
 
-            [SpedCampos(7, "ALIQ_PIS_QUANT", "N", 0, 4, false)]
-            public decimal? AliqPisQuant { get; set; }
+            [SpedCampos(7, "VL_BC_CONT_AJUS", "N", 0, 2, true)]
+            public Decimal? VlBcContAjus { get; set; }
 
-            [SpedCampos(8, "VL_CONT_APUR", "N", 0, 2, true)]
-            public decimal VlContApur { get; set; }
+            [SpedCampos(8, "ALIQ_PIS", "N", 8, 4, false)]
+            public Decimal? AliqPis { get; set; }
 
-            [SpedCampos(9, "VL_AJUS_ACRES", "N", 0, 2, true)]
-            public decimal VlAjusAcres { get; set; }
+            [SpedCampos(9, "QUANT_BC_PIS", "N", 0, 3, false)]
+            public Decimal? QuantBcPis { get; set; }
 
-            [SpedCampos(10, "VL_AJUS_REDUC", "N", 0, 2, true)]
-            public decimal VlAjusReduc { get; set; }
+            [SpedCampos(10, "ALIQ_PIS_QUANT", "N", 0, 4, false)]
+            public Decimal? AliqPisQuant { get; set; }
 
-            [SpedCampos(11, "VL_CONT_DIFER", "N", 0, 2, false)]
-            public decimal? VlContDifer { get; set; }
+            [SpedCampos(11, "VL_CONT_APUR", "N", 0, 2, true)]
+            public Decimal VlContApur { get; set; }
 
-            [SpedCampos(12, "VL_CONT_DIFER_ANT", "N", 0, 2, false)]
-            public decimal? VlContDiferAnt { get; set; }
+            [SpedCampos(12, "VL_AJUS_ACRES", "N", 0, 2, true)]
+            public Decimal VlAjusAcres { get; set; }
 
-            [SpedCampos(13, "VL_CONT_PER", "N", 0, 2, true)]
-            public decimal VlContPer { get; set; }
+            [SpedCampos(13, "VL_AJUS_REDUC", "N", 0, 2, true)]
+            public Decimal VlAjusReduc { get; set; }
+
+            [SpedCampos(14, "VL_CONT_DIFER", "N", 0, 2, false)]
+            public Decimal? VlContDifer { get; set; }
+
+            [SpedCampos(15, "VL_CONT_DIFER_ANT", "N", 0, 2, false)]
+            public Decimal? VlContDiferAnt { get; set; }
+
+            [SpedCampos(16, "VL_CONT_PER", "N", 0, 2, true)]
+            public Decimal VlContPer { get; set; }
         }
 
         public class RegistroM220 : RegistroBaseSped
@@ -1084,46 +1090,52 @@ namespace SpedBr.EfdContribuicoes
 
         public class RegistroM610 : RegistroBaseSped
         {
-            public RegistroM610()
-            {
-                Reg = "M610";
-            }
+            public RegistroM610() => this.Reg = "M610";
 
             [SpedCampos(2, "COD_CONT", "C", 2, 0, true)]
             public int CodCont { get; set; }
 
             [SpedCampos(3, "VL_REC_BRT", "N", 0, 2, true)]
-            public decimal VlRecBrt { get; set; }
+            public Decimal VlRecBrt { get; set; }
 
             [SpedCampos(4, "VL_BC_CONT", "N", 0, 2, true)]
-            public decimal VlBcCont { get; set; }
+            public Decimal VlBcCont { get; set; }
 
-            [SpedCampos(5, "ALIQ_COFINS", "N", 8, 4, false)]
-            public decimal? AliqCofins { get; set; }
+            [SpedCampos(5, "VL_AJUS_ACRES_BC_COFINS", "N", 0, 2, true)]
+            public Decimal VlAjusAcresBcCofins { get; set; }
 
-            [SpedCampos(6, "QUANT_BC_COFINS", "N", 0, 3, false)]
-            public decimal? QuantBcCofins { get; set; }
+            [SpedCampos(6, "VL_AJUS_REDUC_BC_COFINS", "N", 0, 2, true)]
+            public Decimal VlAjusReducBcCofins { get; set; }
 
-            [SpedCampos(7, "ALIQ_COFINS_QUANT", "N", 0, 4, false)]
-            public decimal? AliqCofinsQuant { get; set; }
+            [SpedCampos(7, "VL_BC_CONT_AJUS", "N", 0, 2, true)]
+            public Decimal VlBcContAjus { get; set; }
 
-            [SpedCampos(8, "VL_CONT_APUR", "N", 0, 2, true)]
-            public decimal VlContApur { get; set; }
+            [SpedCampos(8, "ALIQ_COFINS", "N", 8, 4, false)]
+            public Decimal? AliqCofins { get; set; }
 
-            [SpedCampos(9, "VL_AJUS_ACRES", "N", 0, 2, true)]
-            public decimal VlAjusAcres { get; set; }
+            [SpedCampos(9, "QUANT_BC_COFINS", "N", 0, 3, false)]
+            public Decimal? QuantBcCofins { get; set; }
 
-            [SpedCampos(10, "VL_AJUS_REDUC", "N", 0, 2, true)]
-            public decimal VlAjusReduc { get; set; }
+            [SpedCampos(10, "ALIQ_COFINS_QUANT", "N", 0, 4, false)]
+            public Decimal? AliqCofinsQuant { get; set; }
 
-            [SpedCampos(11, "VL_CONT_DIFER", "N", 0, 2, false)]
-            public decimal? VlContDifer { get; set; }
+            [SpedCampos(11, "VL_CONT_APUR", "N", 0, 2, true)]
+            public Decimal VlContApur { get; set; }
 
-            [SpedCampos(12, "VL_CONT_DIFER_ANT", "N", 0, 2, false)]
-            public decimal? VlContDiferAnt { get; set; }
+            [SpedCampos(12, "VL_AJUS_ACRES", "N", 0, 2, true)]
+            public Decimal VlAjusAcres { get; set; }
 
-            [SpedCampos(13, "VL_CONT_PER", "N", 0, 2, true)]
-            public decimal VlContPer { get; set; }
+            [SpedCampos(13, "VL_AJUS_REDUC", "N", 0, 2, true)]
+            public Decimal VlAjusReduc { get; set; }
+
+            [SpedCampos(14, "VL_CONT_DIFER", "N", 0, 2, false)]
+            public Decimal? VlContDifer { get; set; }
+
+            [SpedCampos(15, "VL_CONT_DIFER_ANT", "N", 0, 2, false)]
+            public Decimal? VlContDiferAnt { get; set; }
+
+            [SpedCampos(16, "VL_CONT_PER", "N", 0, 2, true)]
+            public Decimal VlContPer { get; set; }
         }
 
         public class RegistroM620 : RegistroBaseSped
