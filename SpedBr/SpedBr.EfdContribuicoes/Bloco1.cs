@@ -16,6 +16,199 @@ namespace SpedBr.EfdContribuicoes
             public IndMovimento IndMov { get; set; }
         }
 
+        public class Registro1100 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro1100" />.
+            /// </summary>
+            public Registro1100()
+            {
+                Reg = "1100";
+            }
+
+            /// <summary>
+            /// Empreendimento objeto de Incorporação Imobiliária, optante pelo RET <para/>
+            /// </summary>
+            /// <example>
+            /// Exemplo de preechimento
+            /// <code>
+            /// reg1800.IncImob = "Empreendimento XYZ [11222333456789]"
+            /// </code>
+            /// </example>
+            /// <remarks>
+            /// Preenchimento: identifique o empreendimento objeto de incorporação imobiliária, optante pelo RET, <para/>
+            /// informando o respectivo CNPJ do empreendimento, de acordo com o inciso XIII do art. 4º da IN RFB nº 1.634, <para/>
+            /// de 2016, no formato "XXXXXXXXYYYYZZ"
+            /// </remarks>
+            [SpedCampos(2, "PER_APU_CRED", "N", 6, 0, true)]
+            public string PerApuCred { get; set; }
+
+            /// <summary>
+            /// Receitas recebidas pela incorporadora na venda das unidades imobiliárias que compõem a incorporação
+            /// </summary>
+            [SpedCampos(3, "OBRIG_CRED", "N", 2, 0, true)]
+            public string ObrigCred { get; set; }
+
+            /// <summary>
+            /// Receitas Financeiras e Variações Monetárias decorrentes das vendas submentidas ao RET
+            /// </summary>
+            [SpedCampos(4, "CNPJ_SUC", "N", 14, 0, false)]
+            public string CnpjSuc { get; set; }
+
+            /// <summary>
+            /// Base de Cálculo do Recolhimento Unificado
+            /// </summary>
+            [SpedCampos(5, "COD_CRED", "N", 3, 0, true)]
+            public string CodCred { get; set; }
+
+            /// <summary>
+            /// Alíquota do Recolhimento Unificado
+            /// </summary>
+            [SpedCampos(6, "VL_CRED_APU", "N", 0, 2, true)]
+            public string VlCredApu { get; set; }
+
+            /// <summary>
+            /// Valor do Recolhimento Unificado
+            /// </summary>
+            [SpedCampos(7, "VL_CRED_EXT_APU", "N", 0, 2, true)]
+            public string VlCredExtApu { get; set; }
+
+            /// <summary>
+            /// Data do Recolhimento Unificado
+            /// </summary>
+            [SpedCampos(8, "VL_TOT_CRED_APU", "N", 0, 2, false)]
+            public string VlTotCredApu { get; set; }
+
+            /// <summary>
+            /// Código da Receita
+            /// </summary>
+            [SpedCampos(9, "VL_CRED_DESC_PA_ANT", "N", 0, 2, false)]
+            public string VlCredDescPaAnt { get; set; }
+
+            [SpedCampos(10, "VL_CRED_PER_PA_ANT", "N", 0, 2, false)]
+            public string VlCredPerPaAnt { get; set; }
+
+            [SpedCampos(11, "VL_CRED_DCOMP_PA_ANT", "N", 0, 2, false)]
+            public string VlCredDcompPaAnt { get; set; }
+
+            [SpedCampos(12, "SD_CRED_DISP_EFD", "N", 0, 2, true)]
+            public string SdCredDispEfd { get; set; }
+
+            [SpedCampos(13, "VL_CRED_DESC_EFD", "N", 0, 2, false)]
+            public string VlCredDescEfd { get; set; }
+
+            [SpedCampos(14, "VL_CRED_PER_EFD", "N", 0, 2, false)]
+            public string VlCredPerEfd { get; set; }
+
+            [SpedCampos(15, "VL_CRED_DCOMP_EFD", "N", 0, 2, false)]
+            public string VlCredDCompEfd { get; set; }
+
+            [SpedCampos(16, "VL_CRED_TRANS", "N", 0, 2, false)]
+            public string VlCredTrans { get; set; }
+
+            [SpedCampos(17, "VL_CRED_OUT", "N", 0, 2, false)]
+            public string VlCredOut { get; set; }
+
+            [SpedCampos(18, "SLD_CRED_FIM", "N", 0, 2, false)]
+            public string SldCredFim { get; set; }
+        }
+        public class Registro1500 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro1500" />.
+            /// </summary>
+            public Registro1500()
+            {
+                Reg = "1500";
+            }
+
+            /// <summary>
+            /// Empreendimento objeto de Incorporação Imobiliária, optante pelo RET <para/>
+            /// </summary>
+            /// <example>
+            /// Exemplo de preechimento
+            /// <code>
+            /// reg1800.IncImob = "Empreendimento XYZ [11222333456789]"
+            /// </code>
+            /// </example>
+            /// <remarks>
+            /// Preenchimento: identifique o empreendimento objeto de incorporação imobiliária, optante pelo RET, <para/>
+            /// informando o respectivo CNPJ do empreendimento, de acordo com o inciso XIII do art. 4º da IN RFB nº 1.634, <para/>
+            /// de 2016, no formato "XXXXXXXXYYYYZZ"
+            /// </remarks>
+            [SpedCampos(2, "PER_APU_CRED", "N", 6, 0, true)]
+            public string PerApuCred { get; set; }
+
+            /// <summary>
+            /// Receitas recebidas pela incorporadora na venda das unidades imobiliárias que compõem a incorporação
+            /// </summary>
+            [SpedCampos(3, "OBRIG_CRED", "N", 2, 0, true)]
+            public string ObrigCred { get; set; }
+
+            /// <summary>
+            /// Receitas Financeiras e Variações Monetárias decorrentes das vendas submentidas ao RET
+            /// </summary>
+            [SpedCampos(4, "CNPJ_SUC", "N", 14, 0, false)]
+            public string CnpjSuc { get; set; }
+
+            /// <summary>
+            /// Base de Cálculo do Recolhimento Unificado
+            /// </summary>
+            [SpedCampos(5, "COD_CRED", "N", 3, 0, true)]
+            public string CodCred { get; set; }
+
+            /// <summary>
+            /// Alíquota do Recolhimento Unificado
+            /// </summary>
+            [SpedCampos(6, "VL_CRED_APU", "N", 0, 2, true)]
+            public string VlCredApu { get; set; }
+
+            /// <summary>
+            /// Valor do Recolhimento Unificado
+            /// </summary>
+            [SpedCampos(7, "VL_CRED_EXT_APU", "N", 0, 2, true)]
+            public string VlCredExtApu { get; set; }
+
+            /// <summary>
+            /// Data do Recolhimento Unificado
+            /// </summary>
+            [SpedCampos(8, "VL_TOT_CRED_APU", "N", 0, 2, false)]
+            public string VlTotCredApu { get; set; }
+
+            /// <summary>
+            /// Código da Receita
+            /// </summary>
+            [SpedCampos(9, "VL_CRED_DESC_PA_ANT", "N", 0, 2, false)]
+            public string VlCredDescPaAnt { get; set; }
+
+            [SpedCampos(10, "VL_CRED_PER_PA_ANT", "N", 0, 2, false)]
+            public string VlCredPerPaAnt { get; set; }
+
+            [SpedCampos(11, "VL_CRED_DCOMP_PA_ANT", "N", 0, 2, false)]
+            public string VlCredDcompPaAnt { get; set; }
+
+            [SpedCampos(12, "SD_CRED_DISP_EFD", "N", 0, 2, true)]
+            public string SdCredDispEfd { get; set; }
+
+            [SpedCampos(13, "VL_CRED_DESC_EFD", "N", 0, 2, false)]
+            public string VlCredDescEfd { get; set; }
+
+            [SpedCampos(14, "VL_CRED_PER_EFD", "N", 0, 2, false)]
+            public string VlCredPerEfd { get; set; }
+
+            [SpedCampos(15, "VL_CRED_DCOMP_EFD", "N", 0, 2, false)]
+            public string VlCredDCompEfd { get; set; }
+
+            [SpedCampos(16, "VL_CRED_TRANS", "N", 0, 2, false)]
+            public string VlCredTrans { get; set; }
+
+            [SpedCampos(17, "VL_CRED_OUT", "N", 0, 2, false)]
+            public string VlCredOut { get; set; }
+
+            [SpedCampos(18, "SLD_CRED_FIM", "N", 0, 2, false)]
+            public string SldCredFim { get; set; }
+        }
+
         /// <summary>
         /// REGISTRO 1800: INCORPORAÇÃO IMOBILIÁRIA - RET
         /// </summary>
