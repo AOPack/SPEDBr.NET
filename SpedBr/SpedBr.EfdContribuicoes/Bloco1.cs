@@ -64,52 +64,52 @@ namespace SpedBr.EfdContribuicoes
             /// <summary>
             /// Alíquota do Recolhimento Unificado
             /// </summary>
-            [SpedCampos(6, "VL_CRED_APU", "N", 0, 2, true)]
+            [SpedCampos(6, "VL_CRED_APU", "N", 10, 2, true)]
             public string VlCredApu { get; set; }
 
             /// <summary>
             /// Valor do Recolhimento Unificado
             /// </summary>
-            [SpedCampos(7, "VL_CRED_EXT_APU", "N", 0, 2, true)]
+            [SpedCampos(7, "VL_CRED_EXT_APU", "N", 10, 2, true)]
             public string VlCredExtApu { get; set; }
 
             /// <summary>
             /// Data do Recolhimento Unificado
             /// </summary>
-            [SpedCampos(8, "VL_TOT_CRED_APU", "N", 0, 2, false)]
+            [SpedCampos(8, "VL_TOT_CRED_APU", "N", 10, 2, false)]
             public string VlTotCredApu { get; set; }
 
             /// <summary>
             /// Código da Receita
             /// </summary>
-            [SpedCampos(9, "VL_CRED_DESC_PA_ANT", "N", 0, 2, false)]
+            [SpedCampos(9, "VL_CRED_DESC_PA_ANT", "N", 10, 2, false)]
             public string VlCredDescPaAnt { get; set; }
 
-            [SpedCampos(10, "VL_CRED_PER_PA_ANT", "N", 0, 2, false)]
+            [SpedCampos(10, "VL_CRED_PER_PA_ANT", "N", 10, 2, false)]
             public string VlCredPerPaAnt { get; set; }
 
-            [SpedCampos(11, "VL_CRED_DCOMP_PA_ANT", "N", 0, 2, false)]
+            [SpedCampos(11, "VL_CRED_DCOMP_PA_ANT", "N", 10, 2, false)]
             public string VlCredDcompPaAnt { get; set; }
 
-            [SpedCampos(12, "SD_CRED_DISP_EFD", "N", 0, 2, true)]
+            [SpedCampos(12, "SD_CRED_DISP_EFD", "N", 10, 2, true)]
             public string SdCredDispEfd { get; set; }
 
-            [SpedCampos(13, "VL_CRED_DESC_EFD", "N", 0, 2, false)]
+            [SpedCampos(13, "VL_CRED_DESC_EFD", "N", 10, 2, false)]
             public string VlCredDescEfd { get; set; }
 
-            [SpedCampos(14, "VL_CRED_PER_EFD", "N", 0, 2, false)]
+            [SpedCampos(14, "VL_CRED_PER_EFD", "N", 10, 2, false)]
             public string VlCredPerEfd { get; set; }
 
-            [SpedCampos(15, "VL_CRED_DCOMP_EFD", "N", 0, 2, false)]
+            [SpedCampos(15, "VL_CRED_DCOMP_EFD", "N", 10, 2, false)]
             public string VlCredDCompEfd { get; set; }
 
-            [SpedCampos(16, "VL_CRED_TRANS", "N", 0, 2, false)]
+            [SpedCampos(16, "VL_CRED_TRANS", "N", 10, 2, false)]
             public string VlCredTrans { get; set; }
 
-            [SpedCampos(17, "VL_CRED_OUT", "N", 0, 2, false)]
+            [SpedCampos(17, "VL_CRED_OUT", "N", 10, 2, false)]
             public string VlCredOut { get; set; }
 
-            [SpedCampos(18, "SLD_CRED_FIM", "N", 0, 2, false)]
+            [SpedCampos(18, "SLD_CRED_FIM", "N", 10, 2, false)]
             public string SldCredFim { get; set; }
         }
         public class Registro1500 : RegistroBaseSped
@@ -160,52 +160,52 @@ namespace SpedBr.EfdContribuicoes
             /// <summary>
             /// Alíquota do Recolhimento Unificado
             /// </summary>
-            [SpedCampos(6, "VL_CRED_APU", "N", 0, 2, true)]
+            [SpedCampos(6, "VL_CRED_APU", "N", 10, 2, true)]
             public string VlCredApu { get; set; }
 
             /// <summary>
             /// Valor do Recolhimento Unificado
             /// </summary>
-            [SpedCampos(7, "VL_CRED_EXT_APU", "N", 0, 2, true)]
+            [SpedCampos(7, "VL_CRED_EXT_APU", "N", 10, 2, true)]
             public string VlCredExtApu { get; set; }
 
             /// <summary>
             /// Data do Recolhimento Unificado
             /// </summary>
-            [SpedCampos(8, "VL_TOT_CRED_APU", "N", 0, 2, false)]
+            [SpedCampos(8, "VL_TOT_CRED_APU", "N", 10, 2, false)]
             public string VlTotCredApu { get; set; }
 
             /// <summary>
             /// Código da Receita
             /// </summary>
-            [SpedCampos(9, "VL_CRED_DESC_PA_ANT", "N", 0, 2, false)]
+            [SpedCampos(9, "VL_CRED_DESC_PA_ANT", "N", 10, 2, false)]
             public string VlCredDescPaAnt { get; set; }
 
-            [SpedCampos(10, "VL_CRED_PER_PA_ANT", "N", 0, 2, false)]
+            [SpedCampos(10, "VL_CRED_PER_PA_ANT", "N", 10, 2, false)]
             public string VlCredPerPaAnt { get; set; }
 
-            [SpedCampos(11, "VL_CRED_DCOMP_PA_ANT", "N", 0, 2, false)]
+            [SpedCampos(11, "VL_CRED_DCOMP_PA_ANT", "N", 10, 2, false)]
             public string VlCredDcompPaAnt { get; set; }
 
-            [SpedCampos(12, "SD_CRED_DISP_EFD", "N", 0, 2, true)]
+            [SpedCampos(12, "SD_CRED_DISP_EFD", "N", 10, 2, true)]
             public string SdCredDispEfd { get; set; }
 
-            [SpedCampos(13, "VL_CRED_DESC_EFD", "N", 0, 2, false)]
+            [SpedCampos(13, "VL_CRED_DESC_EFD", "N", 10, 2, false)]
             public string VlCredDescEfd { get; set; }
 
-            [SpedCampos(14, "VL_CRED_PER_EFD", "N", 0, 2, false)]
+            [SpedCampos(14, "VL_CRED_PER_EFD", "N", 10, 2, false)]
             public string VlCredPerEfd { get; set; }
 
-            [SpedCampos(15, "VL_CRED_DCOMP_EFD", "N", 0, 2, false)]
+            [SpedCampos(15, "VL_CRED_DCOMP_EFD", "N", 10, 2, false)]
             public string VlCredDCompEfd { get; set; }
 
-            [SpedCampos(16, "VL_CRED_TRANS", "N", 0, 2, false)]
+            [SpedCampos(16, "VL_CRED_TRANS", "N", 10, 2, false)]
             public string VlCredTrans { get; set; }
 
-            [SpedCampos(17, "VL_CRED_OUT", "N", 0, 2, false)]
+            [SpedCampos(17, "VL_CRED_OUT", "N", 10, 2, false)]
             public string VlCredOut { get; set; }
 
-            [SpedCampos(18, "SLD_CRED_FIM", "N", 0, 2, false)]
+            [SpedCampos(18, "SLD_CRED_FIM", "N", 10, 2, false)]
             public string SldCredFim { get; set; }
         }
 
