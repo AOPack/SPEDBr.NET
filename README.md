@@ -1,13 +1,13 @@
 # SPEDBr
 
-### Biblioteca descontinuada, para acessar a nova versão, [clique aqui](https://github.com/osamueloliveira/FiscalBr.NET).
+### Biblioteca descontinuada, para acessar a nova versão, [clique aqui](https://github.com/orochasamuel/fiscalbr.net).
 
 ###### SITE OFICIAL DO SPED: http://sped.rfb.gov.br/
 Biblioteca gratuita  - desenvolvida com Visual Studio Community 2017 - para geração dos arquivos SPED e demais declarações necessárias no cenário contábil/fiscal brasileiro.
 
 ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) <b>AVISO IMPORTANTE</b>
 
-Esta biblioteca será atualizada até 31/12/2019, após esse prazo será descontinuada e novas atualizações serão feitas em um novo repositório, para acessar [clique aqui](https://github.com/samuelrochaoliveira/FiscalBr.NET).
+Esta biblioteca será atualizada até 31/12/2019, após esse prazo será descontinuada e novas atualizações serão feitas em um novo repositório, para acessar [clique aqui](https://github.com/orochasamuel/fiscalbr.net).
 
 ## Doações [![Donate](https://img.shields.io/badge/Doações-Doare-ff69b4.svg)](http://doa.re/k3jpt)
 
@@ -43,7 +43,7 @@ Se o projeto lhe ajudou ou contribuiu de alguma forma, faça uma doação. :D Aj
 
 ## Outros
 - [x] [SINTEGRABr](https://github.com/samuelroliveira/SINTEGRABr)
-- [ ] [FISCALBr](https://github.com/samuelroliveira/FiscalBr)
+- [ ] [FISCALBr](https://github.com/orochasamuel/fiscalbr.net)
 
 ## Exemplos
 
